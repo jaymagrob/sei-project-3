@@ -36,6 +36,7 @@ userSchema.virtual('likedProjects', {
   foreignField: 'likes.user'
 })
 
+
 // ! deleting password on user when sent to JSON
 userSchema
   .set('toJSON', {
