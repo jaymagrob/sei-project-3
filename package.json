@@ -5,8 +5,8 @@
   "license": "MIT",
   "scripts": {
     "start:front": "webpack-dev-server --mode-development",
-    "start:back": "nodemon"
-    
+    "start:back": "nodemon",
+    "test": "mocha test/**/*_spec.js --require test/spec_helper --recursive --exit"
   },
   "dependencies": {
     "axios": "^0.19.2",
