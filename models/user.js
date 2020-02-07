@@ -1,6 +1,6 @@
 const mongoose = require('mongoose')
 
-const { skills } = require('../config/environment')
+const { skills, professions } = require('../config/environment')
 
 const likeSchema = new mongoose.Schema({
   user: { type: mongoose.Schema.ObjectId, ref: 'User', required: true }
@@ -17,6 +17,7 @@ const userSchema = new mongoose.Schema({
   profileImage: { type: String },
   location: { type: String },
   level: { type: String, enum: ['Junior', 'Mid-Level', 'Senior'] },
+  professions: [{ type: String, enum: professions }],
   skills: [{ type: String, enum: skills }],
   projects: [{ type: mongoose.Schema.ObjectId, ref: 'Project' }],
   likes: [likeSchema]
