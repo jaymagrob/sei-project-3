@@ -13,8 +13,6 @@ mongoose.connect(
   }
 )
 
-
-
 app.use(bodyParser.json())
 
 app.listen(port, () => console.log(`Port ${port} is up and running`))
