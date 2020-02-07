@@ -17,7 +17,7 @@ const userSchema = new mongoose.Schema({
   profileImage: { type: String },
   location: { type: String },
   level: { type: String, enum: ['Junior', 'Mid-Level', 'Senior'] },
-  skills: { type: String, enum: skills },
+  skills: [{ type: String, enum: skills }],
   projects: [{ type: mongoose.Schema.ObjectId, ref: 'Project' }],
   likes: [likeSchema]
 })
