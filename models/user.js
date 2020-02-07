@@ -9,7 +9,7 @@ const likeSchema = new mongoose.Schema({
 })
 
 const userSchema = new mongoose.Schema({
-  usernameName: { type: String, required: true, unique: true },
+  username: { type: String, required: true, unique: true },
   name: { type: String, required: true },
   email: { type: String, required: true, unique: true },
   password: { type: String, required: true },
