@@ -6,7 +6,7 @@
   "scripts": {
     "start:front": "webpack-dev-server --mode-development",
     "start:back": "nodemon",
-    "test": "mocha test/**/*_spec.js --require test/spec_helper --recursive --exit",
+    "test": "mocha testing/**/*_spec.js --require testing/spec_helper --recursive --exit",
     "seed": "node db/seeds.js"
   },
   "dependencies": {
