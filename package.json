@@ -4,7 +4,9 @@
   "main": "index.js",
   "license": "MIT",
   "scripts": {
-    "start": "webpack-dev-server --mode-development"
+    "start:front": "webpack-dev-server --mode-development",
+    "start:back": "nodemon"
+    
   },
   "dependencies": {
     "axios": "^0.19.2",
