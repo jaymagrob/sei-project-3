@@ -8,7 +8,7 @@ const likeSchema = mongoose.Schema({
   timestamps: true
 })
 
-const userSchema = mongoose.Schema({
+const userSchema = new mongoose.Schema({
   usernameName: { type: String, require: true, unique: true },
   name: { type: String, require: true },
   email: { type: String, require: true, unique: true },
