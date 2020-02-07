@@ -6,7 +6,6 @@
   "scripts": {
     "start:front": "webpack-dev-server --mode-development",
     "start:back": "nodemon"
-    
   },
   "dependencies": {
     "axios": "^0.19.2",
