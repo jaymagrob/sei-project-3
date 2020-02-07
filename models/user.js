@@ -16,9 +16,9 @@ const userSchema = mongoose.Schema({
   bio: { type: String, maxlength: 350 },
   profileImage: { type: String },
   location: { type: String },
-  level: { type: String, enam: ['Junior', 'Mid-Level', 'Senior'] },
-  skills: { type: String, enam: skills },
-  projects: [{ type: mongoose.Schema.ObjectId, ref: 'Destination' }],
+  level: { type: String, enum: ['Junior', 'Mid-Level', 'Senior'] },
+  skills: { type: String, enum: skills },
+  projects: [{ type: mongoose.Schema.ObjectId, ref: 'Project' }],
   likes: [likeSchema]
 })
 
