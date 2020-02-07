@@ -20,6 +20,7 @@ const userSchema = new mongoose.Schema({
   professions: [{ type: String, enum: professions }],
   skills: [{ type: String, enum: skills }],
   projects: [{ type: mongoose.Schema.ObjectId, ref: 'Project' }],
+  pendingProjects: [{ type: mongoose.Schema.ObjectId, ref: 'Project' }],
   likes: [likeSchema]
 })
 
