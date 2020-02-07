@@ -1,6 +1,7 @@
 const router = require('express').Router()
 const projects = require('../controllers/projects')
-const users = require('../controllers/auth')
+const auth = require('../controllers/auth')
+const users = require('../controllers/users')
 // const secureRoute = require('../lib/secureRoute')
 
 router.route('/projects')
@@ -33,12 +34,12 @@ router.route('/users/:id/like')
   .get(users.like)
 
 router.route('/register')
-  .post(users.register)
+  .post(auth.register)
 
 router.route('/login')
-  .post(users.login)
+  .post(auth.login)
 
 router.route('/profile')
-  .get(users.profile)
+  .get(auth.profile)
 
 module.exports = router
