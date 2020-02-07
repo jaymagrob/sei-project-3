@@ -9,10 +9,10 @@ const likeSchema = new mongoose.Schema({
 })
 
 const userSchema = new mongoose.Schema({
-  usernameName: { type: String, require: true, unique: true },
-  name: { type: String, require: true },
-  email: { type: String, require: true, unique: true },
-  password: { type: String, require: true },
+  usernameName: { type: String, required: true, unique: true },
+  name: { type: String, required: true },
+  email: { type: String, required: true, unique: true },
+  password: { type: String, required: true },
   bio: { type: String, maxlength: 350 },
   profileImage: { type: String },
   location: { type: String },
