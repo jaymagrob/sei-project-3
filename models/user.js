@@ -16,11 +16,23 @@ const userSchema = new mongoose.Schema({
   bio: { type: String, maxlength: 350 },
   profileImage: { type: String },
   location: { type: String },
-  level: { type: String, enum: ['Junior', 'Mid-Level', 'Senior'] },
+  level: { type: String, enum: ['Intern', 'Junior', 'Mid-Level', 'Senior'] },
   professions: [{ type: String, enum: professions }],
   skills: [{ type: String, enum: skills }],
   projects: [{ type: mongoose.Schema.ObjectId, ref: 'Project' }],
   likes: [likeSchema]
+})
+
+userSchema.virtual('createdProjects', {
+  ref: 'Project',
+  localField: '_id',
+  foreignField: 'user'
+})
+
+userSchema.virtual('likedProjects', {
+  ref: 'Project',
+  localField: '_id',
+  foreignField: 'likes.user'
 })
 
 // ! deleting password on user when sent to JSON
