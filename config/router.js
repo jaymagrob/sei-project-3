@@ -21,6 +21,17 @@ router.route('/projects/:id/comments/:commentId')
 router.route('/projects/:id/like')
   .get(projects.like)
 
+router.route('/users')
+  .get(users.index)
+
+router.route('/users/:id')
+  .get(users.show)
+  .put(users.update)
+  .delete(users.destroy)
+
+router.route('/users/:id/like')
+  .get(users.like)
+
 router.route('/register')
   .post(users.register)
 
