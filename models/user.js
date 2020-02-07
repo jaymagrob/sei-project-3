@@ -35,9 +35,9 @@ userSchema
 
 // ! Setting the password Confirmation virtual field 
 userSchema
-  .virtual('passwordConfirmaion') 
-  .set(function setPasswordConfirmaion(passwordConfirmaion) {
-    this._passwordConfirmation = passwordConfirmaion
+  .virtual('passwordConfirmation') 
+  .set(function setPasswordConfirmaion(passwordConfirmation) {
+    this._passwordConfirmation = passwordConfirmation
   })
 
 userSchema
