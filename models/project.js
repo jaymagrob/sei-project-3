@@ -1,5 +1,8 @@
 const mongoose = require('mongoose')
 
+const { skills } = require('../config/environment')
+const { professions } = require('../config/environment')
+
 //! creating comment schema
 const commentSchema = new mongoose.Schema({
   text: { type: String, required: true, maxlength: 150 },
@@ -18,15 +21,15 @@ const likeSchema = new mongoose.Schema({
 //! creating project schema
 const projectSchema = new mongoose.Schema({
   name: { type: String, required: true, unique: true },
-  owner: { type: String, required: true },
+  owner: { type: mongoose.Schema.ObjectId, ref: 'User', required: true },
   collaborators: [{ type: mongoose.Schema.ObjectId, ref: 'User' }],
   description: { type: String, required: true },
   location: { type: String },
   images: [{ type: String }],
   completed: { type: Boolean },
   recuiting: { type: Boolean },
-  skillsInvolved: [{  }],
-  lookingFor: [{  }], 
+  skillsInvolved: [{ type: String, enum: skills }],
+  lookingFor: [{ type: String, enum: professions }], 
   likes: [ likeSchema ],
   comments: [ commentSchema ]
 }, {
