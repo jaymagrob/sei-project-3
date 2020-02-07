@@ -18,7 +18,7 @@ mongoose.connect(dbURI, { useNewUrlParser: true, useUnifiedTopology: true }, (er
           profileImage: 'https://www.fillmurray.com/g/200/200',
           location: 'Glasgow',
           level: 'Junior',
-          skills: ['Illustration', '3d Modelling']
+          skills: ['Illustration']
         },
         {
           username: 'abi',
@@ -30,7 +30,7 @@ mongoose.connect(dbURI, { useNewUrlParser: true, useUnifiedTopology: true }, (er
           profileImage: 'https://placebear.com/200/200',
           location: 'London',
           level: 'Mid-Level',
-          skills: ['Graphic Design', 'Photography']
+          skills: ['Illustration']
         },
         {
           username: 'jos',
