@@ -2,7 +2,7 @@ const mongoose = require('mongoose')
 
 const { skills } = require('../config/environment')
 
-const likeSchema = mongoose.Schema({
+const likeSchema = new mongoose.Schema({
   user: { type: mongoose.Schema.ObjectId, ref: 'User', required: true }
 }, {
   timestamps: true
