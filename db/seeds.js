@@ -9,7 +9,7 @@ mongoose.connect(dbURI, { useNewUrlParser: true, useUnifiedTopology: true }, (er
     .then(() => {
       return User.create([
         {
-          usernameName: 'john',
+          username: 'john',
           name: 'john',
           email: 'john@john.com',
           password: 'pass',
@@ -21,7 +21,7 @@ mongoose.connect(dbURI, { useNewUrlParser: true, useUnifiedTopology: true }, (er
           skills: ['Illustration', '3d Modelling']
         },
         {
-          usernameName: 'abi',
+          username: 'abi',
           name: 'abi',
           email: 'abi@abi.com',
           password: 'pass',
@@ -33,7 +33,7 @@ mongoose.connect(dbURI, { useNewUrlParser: true, useUnifiedTopology: true }, (er
           skills: ['Graphic Design', 'Photography']
         },
         {
-          usernameName: 'jos',
+          username: 'jos',
           name: 'jos',
           email: 'jos@jos.com',
           password: 'pass',
@@ -45,7 +45,7 @@ mongoose.connect(dbURI, { useNewUrlParser: true, useUnifiedTopology: true }, (er
           skills: []
         },
         {
-          usernameName: 'nic',
+          username: 'nic',
           name: 'nic',
           email: 'nic@nic.com',
           password: 'pass',
