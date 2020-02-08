@@ -1,46 +1,43 @@
 /* global api, describe, it, expect, beforeEach, afterEach */
 const Project = require('../../models/project')
-const User = require('../../models/user')
+const User = require('../../models/user') 
 const jwt = require('jsonwebtoken') 
 const { secret } = require('../../config/environment') 
 
-const testProject = {
-  name: 'Project 1',
-  collaborators: [],
-  description: 'This is a description of project 1',
-  location: 'Glasgow',
-  images: ['http://via.placeholder.com/360x360','http://via.placeholder.com/360x360'],
-  completed: true,
-  recuiting: false            
-}
-
-const testProjectMissingData = {
-  name: 'Project 1',
-  collaborators: [],
-  description: 'This is a description of project 1',
-  location: 'Glasgow',
-  images: ['http://via.placeholder.com/360x360','http://via.placeholder.com/360x360']
-  
-}
-
-
-
-const testUserData = {
-  username: 'test',
-  name: 'test',
-  email: 'testk@email',
+const testUserData = [{ 
+  username: 'test1',
+  name: 'test1',
+  email: 'test1@email',
   password: 'pass',
   passwordConfirmation: 'pass'
-}
+}, {
+  username: 'test2',
+  name: 'test2',
+  email: 'test2@email',
+  password: 'pass',
+  passwordConfirmation: 'pass'
+}]
 
-describe('POST /api/projects', () => {
-
-  let token
+describe('PUT /projects/:id', () => {
+  let token, incorrectToken, project 
 
   beforeEach(done => {
     User.create(testUserData)
-      .then(user => {
-        token = jwt.sign({ sub: user._id }, secret, { expiresIn: '6h' })
+      .then(users => {
+        token = jwt.sign({ sub: users[0]._id }, secret, { expiresIn: '6h' }) 
+        return Project.create({
+          name: 'Project 1',
+          collaborators: [],
+          description: 'This is a description of project 1',
+          location: 'Glasgow',
+          images: ['http://via.placeholder.com/360x360','http://via.placeholder.com/360x360'],
+          completed: true,
+          recuiting: false,
+          owner: users[0] 
+        })
+      })
+      .then(createdProject => {
+        project = createdProject 
         done()
       })
   })
@@ -52,48 +49,28 @@ describe('POST /api/projects', () => {
   })
 
   it('should return a 401 response without a token', done => {
-    api.post('/api/projects')
-      .send(testProject)
+    api.put(`/api/projects/${project._id}`)
+      .send({ name: 'Test' })
       .end((err, res) => {
         expect(res.status).to.eq(401)
         done()
       })
   })
 
-  it('should return a 422 response with wrong data', done => {
-    api.post('/api/projects')
-      .set('Authorization', `Bearer ${token}`) 
-      .send(testProjectMissingData)
+  it('should return a 202 response with a token', done => {
+    api.put(`/api/projects/${project._id}`)
+      .set('Authorization', `Bearer ${token}`)
+      .send({ name: 'Test' })
       .end((err, res) => {
-        expect(res.status).to.eq(422)
-        done()
-      })
-  })
-
-  it('should return a 201 response with a token', done => {
-    api.post('/api/projects')
-      .set('Authorization', `Bearer ${token}`) 
-      .send(testProject)
-      .end((err, res) => {
-        expect(res.status).to.eq(201)
-        done()
-      })
-  })
-
-  it('should return a 201 response with a token', done => {
-    api.post('/api/projects')
-      .set('Authorization', `Bearer ${token}`) 
-      .send(testProject)
-      .end((err, res) => {
-        expect(res.status).to.eq(201)
+        expect(res.status).to.eq(202)
         done()
       })
   })
 
   it('should return an object', done => {
-    api.post('/api/projects')
+    api.put(`/api/projects/${project._id}`)
       .set('Authorization', `Bearer ${token}`)
-      .send(testProject)
+      .send({ name: 'Project 2' })
       .end((err, res) => {
         expect(res.body).to.be.an('object')
         done()
@@ -101,9 +78,9 @@ describe('POST /api/projects', () => {
   })
 
   it('should return the correct fields', done => {
-    api.post('/api/projects')
+    api.put(`/api/projects/${project._id}`)
       .set('Authorization', `Bearer ${token}`)
-      .send(testProject)
+      .send({ name: 'Project 2' })
       .end((err, res) => {
         expect(res.body).to.contains.keys([
           '_id',
@@ -125,9 +102,9 @@ describe('POST /api/projects', () => {
   })
 
   it('should return the correct data types', done => {
-    api.post('/api/projects')
+    api.put(`/api/projects/${project._id}`)
       .set('Authorization', `Bearer ${token}`)
-      .send(testProject)
+      .send({ name: 'Test' })
       .end((err, res) => {
         const project = res.body
         expect(project._id).to.be.a('string')
@@ -147,5 +124,14 @@ describe('POST /api/projects', () => {
       })
   })
 
+  it('should return a 401 response with a token for a user that did not create the resource', done => {
+    api.put(`/api/projects/${project._id}`)
+      .set('Authorization', `Bearer ${incorrectToken}`)
+      .send({ name: 'Test' })
+      .end((err, res) => {
+        expect(res.status).to.eq(401)
+        done()
+      })
+  })
 
 })
