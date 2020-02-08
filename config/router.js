@@ -14,6 +14,7 @@ router.route('/projects/:id')
   .delete(secureRoute, projects.destroy)
 
 router.route('/projects/:id/comments')
+  // Need an edit comment route
   .post(secureRoute, projects.commentCreate)
 
 router.route('/projects/:id/comments/:commentId')
