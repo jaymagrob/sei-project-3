@@ -67,7 +67,9 @@ mongoose.connect(dbURI, { useNewUrlParser: true, useUnifiedTopology: true }, (er
           collaborators: [],
           description: 'This is a description of project 1',
           location: 'Glasgow',
-          images: ['http://via.placeholder.com/360x360','http://via.placeholder.com/360x360']
+          images: ['http://via.placeholder.com/360x360','http://via.placeholder.com/360x360'],
+          completed: true,
+          recuiting: false
         },
         {
           name: 'Project 2',
@@ -75,7 +77,9 @@ mongoose.connect(dbURI, { useNewUrlParser: true, useUnifiedTopology: true }, (er
           collaborators: [createdUser[0],createdUser[2]],
           description: 'This is a description of project 2',
           location: 'Glasgow',
-          images: ['http://via.placeholder.com/360x360','http://via.placeholder.com/360x360']
+          images: ['http://via.placeholder.com/360x360','http://via.placeholder.com/360x360'],
+          completed: true,
+          recuiting: false
         },
         {
           name: 'Project 3',
@@ -83,7 +87,9 @@ mongoose.connect(dbURI, { useNewUrlParser: true, useUnifiedTopology: true }, (er
           collaborators: [createdUser[1]],
           description: 'This is a description of project 3',
           location: 'Glasgow',
-          images: ['http://via.placeholder.com/360x360','http://via.placeholder.com/360x360']
+          images: ['http://via.placeholder.com/360x360','http://via.placeholder.com/360x360'],
+          completed: true,
+          recuiting: false
         },
         {
           name: 'Project 4',
@@ -91,7 +97,9 @@ mongoose.connect(dbURI, { useNewUrlParser: true, useUnifiedTopology: true }, (er
           collaborators: [createdUser[0],createdUser[1]],
           description: 'This is a description of project 4',
           location: 'Glasgow',
-          images: ['http://via.placeholder.com/360x360','http://via.placeholder.com/360x360']
+          images: ['http://via.placeholder.com/360x360','http://via.placeholder.com/360x360'],
+          completed: true,
+          recuiting: false
         }
       ])
     })

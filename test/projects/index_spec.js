@@ -21,7 +21,9 @@ describe('GET /projects', () => {
             collaborators: [],
             description: 'This is a description of project 1',
             location: 'Glasgow',
-            images: ['http://via.placeholder.com/360x360','http://via.placeholder.com/360x360']
+            images: ['http://via.placeholder.com/360x360','http://via.placeholder.com/360x360'],
+            completed: true,
+            recuiting: false            
           },
           {
             name: 'Project 2',
@@ -29,7 +31,9 @@ describe('GET /projects', () => {
             collaborators: [],
             description: 'This is a description of project 2',
             location: 'Glasgow',
-            images: ['http://via.placeholder.com/360x360','http://via.placeholder.com/360x360']
+            images: ['http://via.placeholder.com/360x360','http://via.placeholder.com/360x360'],
+            completed: true,
+            recuiting: false            
           }
         ])
       })
@@ -41,7 +45,6 @@ describe('GET /projects', () => {
       .then(() => done())
   })
 
-  // Should return a 200 response test
   it('should return a 200 response', done => {
     api.get('/projects')
       .end((err, res) => {
@@ -70,7 +73,19 @@ describe('GET /projects', () => {
       .end((err, res) => {
         res.body.forEach(project => {
           expect(project).to.contains.keys([
-            // List all keys
+            '_id',
+            'name',
+            'owner',
+            'collaborators',
+            'description',
+            'location',
+            'images',
+            'skillsInvolved',
+            'lookingFor',
+            'likes',
+            'comments',
+            'completed',
+            'recuiting'
           ])
         })
         done()
@@ -80,10 +95,24 @@ describe('GET /projects', () => {
     api.get('/projects')
       .end((err, res) => {
         res.body.forEach(project => {
-          //expect(project.KEY).to.be.a(DATA TYPE)
-          //expect(project.KEY2).to.be.a(DATA TYPE)
+          expect(project._id).to.be.a('string')
+          expect(project.name).to.be.a('string')
+          expect(project.owner).to.be.a('string')
+          expect(project.collaborators).to.be.an('array')
+          expect(project.description).to.be.a('string')
+          expect(project.location).to.be.a('string')
+          expect(project.images).to.be.an('array')
+          expect(project.skillsInvolved).to.be.an('array')
+          expect(project.lookingFor).to.be.an('array')
+          expect(project.likes).to.be.an('array')
+          expect(project.comments).to.be.an('array')
+          expect(project.completed).to.be.a('boolean')
+          expect(project.recuiting).to.be.a('boolean')
         })
         done()
       })
   })
 })
+
+
+
