@@ -28,8 +28,11 @@ const userSchema = new mongoose.Schema({
 userSchema.virtual('createdProjects', {
   ref: 'Project',
   localField: '_id',
-  foreignField: 'user'
+  foreignField: 'owner'
 })
+
+userSchema.virtual('blah')
+  .set('hello')
 
 userSchema.virtual('likedProjects', {
   ref: 'Project',
@@ -41,7 +44,7 @@ userSchema.virtual('likedProjects', {
 // ! deleting password on user when sent to JSON
 userSchema
   .set('toJSON', {
-    virtuals: true, 
+    virtuals: true,
     transform(doc, json) {
       delete json.password
       return json

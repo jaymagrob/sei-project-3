@@ -5,16 +5,17 @@ function index(req, res) {
     .find() 
     .populate('owner')
     .then(foundProjects => res.status(200).json(foundProjects))
-    .catch(err => console.log(err))
+    .catch(err => res.status(400).json(err))
 }
 
 function create(req, res) {
   req.body.user = req.currentUser 
   req.body.owner = req.currentUser
+  req.body.collaborators = [req.body.owner]
   Project
     .create(req.body)
     .then(createdProject => res.status(201).json(createdProject)) 
-    .catch(err => console.log(err))
+    .catch(err => res.status(400).json(err))
 }
 
 function show(req, res) {
@@ -23,7 +24,7 @@ function show(req, res) {
     .populate('owner')
     .populate('comments.user')
     .then(project => res.status(202).json(project))
-    .catch(err => console.log(err))
+    .catch(err => res.status(400).json(err))
 }
 
 function update(req, res, next) {

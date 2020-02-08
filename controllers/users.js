@@ -8,7 +8,7 @@ function index(req, res) {
     .catch(err => console.log(err))
 }
 
-// any user profile
+// any individual user profile
 function show(req, res) {
   User
     .findById(req.params.id)
@@ -27,7 +27,6 @@ function update(req, res, next) {
     .then(user => res.status(202).json(user))
     .catch(next)
 }
-
 
 function destroy(req, res) {
   User
