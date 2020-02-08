@@ -31,14 +31,17 @@ userSchema.virtual('createdProjects', {
   foreignField: 'owner'
 })
 
-userSchema.virtual('blah')
-  .set('hello')
-
-userSchema.virtual('likedProjects', {
+userSchema.virtual('collaboratedProjects', {
   ref: 'Project',
   localField: '_id',
-  foreignField: 'likes.user'
+  foreignField: 'collaborators'
 })
+
+// userSchema.virtual('likedProjects', {
+//   ref: 'Project',
+//   localField: '_id',
+//   foreignField: 'likes.user'
+// })
 
 
 // ! deleting password on user when sent to JSON

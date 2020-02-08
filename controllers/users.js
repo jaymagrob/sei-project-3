@@ -8,11 +8,16 @@ function index(req, res) {
     .catch(err => console.log(err))
 }
 
-// any individual user profile
+// need to change the findby id to find username - also needs to be changed on front end -- same with likes
 function show(req, res) {
   User
-    .findById(req.params.id)
-    .then(user => res.status(202).json(user))
+    .findById(req.params.username)
+    .populate('createdProjects')
+    .populate('collaboratedProjects')
+    .then(user => {
+      if (!user) return res.status(404).json({ message: 'Not Found' })
+      res.status(202).json(user)
+    })
     .catch(err => console.log(err))
 }
 
@@ -42,7 +47,7 @@ function destroy(req, res) {
 
 function like(req, res) {
   User
-    .findById(req.params.id)
+    .findById(req.params.username)
     .then(user => {
       if (!user) return res.status(404).json({ message: 'Not Found ' })
       if (user.likes.some(like => like.currentUser.equals(req.currentUser._id))) return user
