@@ -39,7 +39,6 @@ function update(req, res, next) {
     .catch(next)
 }
 
-
 function destroy(req, res) {
   Project
     .findById(req.params.id)
