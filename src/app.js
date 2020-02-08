@@ -9,12 +9,12 @@ import Home from './components/common/Home'
 // import ProjectShow from './components/projects/ProjectShow'
 // import ProjectEdit from './components/projects/ProjectEdit'
 // import ProjectNew from './components/projects/ProjectNew'
-// import UserShow from './components/users/UserShow'
+import UserShow from './components/users/UserShow'
 // import UserEdit from './components/users/UserEdit'
 // import UserMessages from './components/users/UserMessages'
 import Register from './components/auth/Register'
 import Login from './components/auth/Login'
-// import NotFound from './components/common/NotFound' 
+import NotFound from './components/common/NotFound' 
 
 const App = () => (
   <BrowserRouter>
@@ -34,12 +34,12 @@ const App = () => (
         {/* <Route path="/projects/:id" component={ProjectShow} /> */}
         {/* <Route path="/projects/:id/edit" component={ProjectEdit} /> */}
         {/* <Route path="/projects/new" component={ProjectNew} /> */}
-        {/* <Route path="/users/:id" component={UserShow} /> */}
+        <Route path="/users/:id" component={UserShow} />
         {/* <Route path="/users/:id/edit" component={UserEdit} /> */}
         {/* <Route path="/users/:id/messages" component={UserMessages} /> */}
         <Route path="/register" component={Register} />
         <Route path="/login" component={Login} />
-        {/* <Route path="/*" component={NotFound} /> */}
+        <Route path="/*" component={NotFound} />
       </Switch>
     </main>
   </BrowserRouter>
