@@ -8,7 +8,7 @@ function index(req, res) {
     .catch(err => console.log(err))
 }
 
-// any user profile
+// any individual user profile
 function show(req, res) {
   User
     .findById(req.params.id)

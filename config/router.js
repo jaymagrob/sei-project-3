@@ -26,12 +26,12 @@ router.route('/projects/:id/like')
 router.route('/users')
   .get(users.index)
 
-router.route('/users/:id')
+router.route('/users/:username')
   .get(users.show)
   .put(secureRoute, users.update)
   .delete(secureRoute, users.destroy)
 
-router.route('/users/:id/like')
+router.route('/users/:username/like')
   .get(secureRoute, users.like)
 
 router.route('/register')
