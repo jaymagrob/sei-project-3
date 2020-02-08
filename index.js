@@ -23,3 +23,5 @@ app.use(logger)
 app.use(router)
 
 app.listen(port, () => console.log(`Port ${port} is up and running`))
+
+module.exports = app
