@@ -1,7 +1,7 @@
 /* global describe, beforeEach, afterEach, it, api, expect */
 
-const Project = require('../../models/project') // HOLD FOR PROJECTS
-const User = require('../../models/user')  // HOLD FOR USER
+const Project = require('../../models/project') 
+const User = require('../../models/user')
 
 
 describe('GET /api/projects', () => {
