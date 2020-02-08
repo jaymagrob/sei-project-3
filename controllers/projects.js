@@ -10,6 +10,7 @@ function index(req, res) {
 
 function create(req, res) {
   req.body.user = req.currentUser 
+  req.body.owner = req.currentUser
   Project
     .create(req.body)
     .then(createdProject => res.status(201).json(createdProject)) 
@@ -30,7 +31,7 @@ function update(req, res, next) {
     .findById(req.params.id)
     .then(project => {
       if (!project) return res.status(404).json({ message: 'Not Found' })
-      if (!project.user.equals(req.currentUser._id)) return res.status(401).json({ message: 'Unauthorized' })
+      if (!project.owner.equals(req.currentUser._id)) return res.status(401).json({ message: 'Unauthorized' })
       Object.assign(project, req.body)
       project.save() 
     })
@@ -44,7 +45,7 @@ function destroy(req, res) {
     .findById(req.params.id)
     .then(project => {
       if (!project) return res.status(404).json({ message: 'Not Found' })
-      if (!project.user.equals(req.currentUser._id)) return res.status(401).json({ message: 'Unauthorized' })
+      if (!project.owner.equals(req.currentUser._id)) return res.status(401).json({ message: 'Unauthorized' })
       else project.remove()
     })
     .then(() => res.sendStatus(204))
