@@ -9,10 +9,10 @@ class UserShow extends React.Component {
   }
 
   async componentDidMount() {
-    const userId = this.props.match.params.username
+    const currentUsername = this.props.match.params.username
     console.log(this.props.match.params.username)
     try {
-      const res = await axios.get(`/api/users/${userId}`)
+      const res = await axios.get(`/api/users/${currentUsername}`)
       this.setState({ user: res.data })
     } catch (err) {
       console.log(err)
