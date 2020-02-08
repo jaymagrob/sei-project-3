@@ -53,14 +53,11 @@ function destroy(req, res) {
 }
 
 function commentCreate(req, res, next) { 
-  // console.log('current user =', req.currentUser)
   req.body.user = req.currentUser
-  // console.log('user =', req.body.user)
   Project
     .findById(req.params.id)
     .then(project => {
       if (!project) return res.status(404).json({ message: 'Not Found' })
-      console.log('body =', req.body)
       project.comments.push(req.body)
       return project.save()
     })
@@ -88,7 +85,6 @@ function like(req, res) {
       if (!project) return res.status(404).json({ message: 'Not Found ' })
       if (project.likes.some(like => like.user.equals(req.currentUser._id))) return project
       project.likes.push({ user: req.currentUser })
-      console.log('like was called')
       return project.save()
     })
     .then(project => res.status(202).json(project))
