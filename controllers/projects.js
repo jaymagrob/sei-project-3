@@ -3,7 +3,7 @@ const Project = require('../models/project')
 function index(req, res) { 
   Project 
     .find() 
-    .populate('user')
+    .populate('owner')
     .then(foundProjects => res.status(200).json(foundProjects))
     .catch(err => console.log(err))
 }
@@ -20,7 +20,7 @@ function create(req, res) {
 function show(req, res) {
   Project
     .findById(req.params.id)
-    .populate('user')
+    .populate('owner')
     .populate('comments.user')
     .then(project => res.status(202).json(project))
     .catch(err => console.log(err))
@@ -52,9 +52,9 @@ function destroy(req, res) {
 }
 
 function commentCreate(req, res, next) { 
-  console.log('current user =', req.currentUser)
+  // console.log('current user =', req.currentUser)
   req.body.user = req.currentUser
-  console.log('user =', req.body.user)
+  // console.log('user =', req.body.user)
   Project
     .findById(req.params.id)
     .then(project => {
