@@ -19,7 +19,7 @@ class Login extends React.Component {
     
     
     try {
-      const res = await axios.post('/api/login', this.state.data)
+      const res = await axios.post('/login', this.state.data)
       console.log('data =', this.state.data)
       
       
