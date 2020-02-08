@@ -1,5 +1,6 @@
 const User = require('../models/user')
 
+// all users profiles
 function index(req, res) {
   User
     .find()
@@ -7,6 +8,7 @@ function index(req, res) {
     .catch(err => console.log(err))
 }
 
+// any user profile
 function show(req, res) {
   User
     .findById(req.params.id)

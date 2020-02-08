@@ -22,6 +22,7 @@ function login(req, res) {
     .catch(() => res.status(401).json({ message: 'Unauthorized' }))
 }
 
+// current user profile
 function profile(req, res) {
   User
     .findById(req.currentUser._id)
