@@ -46,7 +46,6 @@ function like(req, res) {
       if (!user) return res.status(404).json({ message: 'Not Found ' })
       if (user.likes.some(like => like.currentUser.equals(req.currentUser._id))) return user
       user.likes.push({ currentUser: req.currentUser })
-      console.log('like was called')
       return user.save()
     })
     .then(user => res.status(202).json(user))

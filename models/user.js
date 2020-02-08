@@ -1,4 +1,5 @@
 const mongoose = require('mongoose')
+const bcrypt = require('bcrypt')
 
 const { skills, professions } = require('../config/environment')
 
@@ -47,6 +48,12 @@ userSchema
     }
   })
 
+// ! Compares hashed log in password with the password attached to the user
+userSchema.methods.validatePassword = function validatePassword(password) {
+  // console.log(password, this.password)
+  return bcrypt.compareSync(password, this.password)
+}
+
 // ! Setting the password Confirmation virtual field 
 userSchema
   .virtual('passwordConfirmation') 
@@ -54,10 +61,20 @@ userSchema
     this._passwordConfirmation = passwordConfirmation
   })
 
+// ! pre validation, checks that the password and passwordConfirmation match. If not, automatically invalidate the process
 userSchema
   .pre('validate', function checkPasswordMatch(next) {
     if (this.isModified('password') && this._passwordConfirmation !== this.password) {
       this.invalidate('PasswordConfirmation', 'does not match')
+    }
+    next()
+  })
+
+// ! Pre saving the document, hash the bleedin password
+userSchema
+  .pre('save', function hashPassword(next) {
+    if (this.isModified('password')) {
+      this.password = bcrypt.hashSync(this.password, bcrypt.genSaltSync(8))
     }
     next()
   })
