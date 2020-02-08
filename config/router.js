@@ -2,36 +2,36 @@ const router = require('express').Router()
 const projects = require('../controllers/projects')
 const auth = require('../controllers/auth')
 const users = require('../controllers/users')
-// const secureRoute = require('../lib/secureRoute')
+const secureRoute = require('../lib/secureRoute')
 
 router.route('/projects')
   .get(projects.index)
-  .post(projects.create)
+  .post(secureRoute, projects.create)
 
 router.route('/projects/:id')
   .get(projects.show)
-  .put(projects.update)
-  .delete(projects.destroy)
+  .put(secureRoute ,projects.update)
+  .delete(secureRoute, projects.destroy)
 
 router.route('/projects/:id/comments')
-  .post(projects.commentCreate)
+  .post(secureRoute, projects.commentCreate)
 
 router.route('/projects/:id/comments/:commentId')
-  .delete(projects.commentDelete)
+  .delete(secureRoute, projects.commentDelete)
 
 router.route('/projects/:id/like')
-  .get(projects.like)
+  .get(secureRoute, projects.like)
 
 router.route('/users')
   .get(users.index)
 
 router.route('/users/:id')
   .get(users.show)
-  .put(users.update)
-  .delete(users.destroy)
+  .put(secureRoute, users.update)
+  .delete(secureRoute, users.destroy)
 
 router.route('/users/:id/like')
-  .get(users.like)
+  .get(secureRoute, users.like)
 
 router.route('/register')
   .post(auth.register)
