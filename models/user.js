@@ -31,6 +31,9 @@ userSchema.virtual('createdProjects', {
   foreignField: 'owner'
 })
 
+userSchema.virtual('blah')
+  .set('hello')
+
 userSchema.virtual('likedProjects', {
   ref: 'Project',
   localField: '_id',
@@ -41,7 +44,7 @@ userSchema.virtual('likedProjects', {
 // ! deleting password on user when sent to JSON
 userSchema
   .set('toJSON', {
-    virtuals: true, 
+    virtuals: true,
     transform(doc, json) {
       delete json.password
       return json
