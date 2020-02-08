@@ -20,7 +20,7 @@ app.use(bodyParser.json())
 
 app.use(logger)
 
-app.use(router)
+app.use('/api', router)
 
 app.listen(port, () => console.log(`Port ${port} is up and running`))
 
