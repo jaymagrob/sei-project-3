@@ -17,7 +17,6 @@ function login(req, res) {
         return res.status(401).json({ message: 'Unauthorized' })
       }
       const token = jwt.sign({ sub: user._id }, secret, { expiresIn: '24h' })
-      console.log(secret)
       res.status(202).json({ message: `Welcome back ${user.name}`, token })
     })
     .catch(() => res.status(401).json({ message: 'Unauthorized' }))
