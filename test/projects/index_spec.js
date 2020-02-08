@@ -4,7 +4,7 @@ const Project = require('../../models/project') // HOLD FOR PROJECTS
 const User = require('../../models/user')  // HOLD FOR USER
 
 
-describe('GET /projects', () => {
+describe('GET /api/projects', () => {
   beforeEach(done => {
     User.create({
       username: 'test',
@@ -46,21 +46,21 @@ describe('GET /projects', () => {
   })
 
   it('should return a 200 response', done => {
-    api.get('/projects')
+    api.get('/api/projects')
       .end((err, res) => {
         expect(res.status).to.eq(200)
         done()
       })
   })
   it('should return an array', done => {
-    api.get('/projects')
+    api.get('/api/projects')
       .end((err, res) => {
         expect(res.body).to.be.an('array')
         done()
       })
   })
   it('should return an array of objects', done => {
-    api.get('/projects')
+    api.get('/api/projects')
       .end((err, res) => {
         res.body.forEach(project => {
           expect(project).to.be.an('object')
@@ -69,7 +69,7 @@ describe('GET /projects', () => {
       })
   })
   it('should return an array of objects with the correct fields', done => {
-    api.get('/projects')
+    api.get('/api/projects')
       .end((err, res) => {
         res.body.forEach(project => {
           expect(project).to.contains.keys([
@@ -92,12 +92,12 @@ describe('GET /projects', () => {
       })
   })
   it('should return an array of objects with the correct fields and types of values', done => {
-    api.get('/projects')
+    api.get('/api/projects')
       .end((err, res) => {
         res.body.forEach(project => {
           expect(project._id).to.be.a('string')
           expect(project.name).to.be.a('string')
-          expect(project.owner).to.be.a('string')
+          expect(project.owner).to.be.an('object')
           expect(project.collaborators).to.be.an('array')
           expect(project.description).to.be.a('string')
           expect(project.location).to.be.a('string')
