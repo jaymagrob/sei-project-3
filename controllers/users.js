@@ -28,7 +28,6 @@ function update(req, res, next) {
     .catch(next)
 }
 
-
 function destroy(req, res) {
   User
     .findById(req.currentUser._id)

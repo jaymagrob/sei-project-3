@@ -28,7 +28,7 @@ const userSchema = new mongoose.Schema({
 userSchema.virtual('createdProjects', {
   ref: 'Project',
   localField: '_id',
-  foreignField: 'user'
+  foreignField: 'owner'
 })
 
 userSchema.virtual('likedProjects', {
