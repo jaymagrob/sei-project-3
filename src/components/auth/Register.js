@@ -15,18 +15,20 @@ class Register extends React.Component {
     const data = { ...this.state.data, [e.target.name]: e.target.value }
     const errors = { ...this.state.errors, [e.target.name]: '' }
     this.setState({ data, errors })
+    console.log('const data =', data)
+    console.log('state =', this.state.data)
   }
   handleSubmit = async e => {
     e.preventDefault()
     try {
-      await axios.post('/api/register', this.state.data)
+      await axios.post('localhost:4000/register, this.state.data')
       this.props.history.push('/login')
     } catch (err) {
       this.setState({ errors: err.response.data.errors })
     }
   }
   render() {
-    console.log(this.state.errors)
+    console.log('errors=', this.state.errors)
     return (
       <section>
         <div>
