@@ -9,14 +9,25 @@ class UserEdit extends React.Component {
     }
   }
   async componentDidMount() {
-    const username = this.props.match.params.username
     try {
-      const res = await axios.get(`/api/users/${username}`)
+      const res = await axios.get('/api/myportfolio', {
+        headers: { Authorization: `Bearer ${Auth.getToken()}` }
+      })
       this.setState({ data: res.data })
     } catch (err) {
-      console.log(err)
+      console.log('err =', err)
     }
   }
+  // async componentDidMount() {
+  //   const username = this.props.match.params.username
+  //   console.log('username =', username)
+  //   try {
+  //     const res = await axios.get(`/api/users/${username}`)
+  //     this.setState({ data: res.data })
+  //   } catch (err) {
+  //     console.log(err)
+  //   }
+  // }
   handleChange = ({ target: { name, value } }) => {
     const data = { ...this.state.data, [name]: value }
     this.setState({ data })
@@ -24,12 +35,13 @@ class UserEdit extends React.Component {
   handleSubmit = async e => {
     e.preventDefault()
     const username = this.props.match.params.username
+    // const username = this.state.data.username
     console.log('username =', username)
     try {
       const { data } = await axios.put(`/api/users/${username}`, this.state.data, {
         headers: { Authorization: `Bearer ${Auth.getToken()}` }
       })
-      this.props.history.push(`/users/${username}`)
+      this.props.history.push('/myportfolio')
     } catch (err) {
       console.log(err.response.data.errors)
     }
