@@ -51,6 +51,7 @@ function like(req, res) {
     .findOne({ username: req.params.username })
     .then(user => {
       if (!user) return res.status(404).json({ message: 'Not Found ' })
+      if (req.currentUser._id.toString() === user._id.toString()) return res.status(401).json({ message: 'Unauthorized' })
       const skill = user.skills.id(req.params.skill)
       const users = skill.likes.map(like => like.user)
       if (!users.includes(req.currentUser._id)) {
@@ -62,7 +63,7 @@ function like(req, res) {
       return user.save()
     })
     .then(user => res.status(202).json(user))
-    .catch(err => res.json(err))
+    .catch(err => res.status(400).json(err))
 }
 
 function newSkill(req, res) {
@@ -70,6 +71,7 @@ function newSkill(req, res) {
     .findOne({ username: req.params.username })
     .then(user => {
       if (!user) return res.status(404).json({ message: 'Not Found ' })
+      if (req.currentUser._id.toString() !== user._id.toString()) return res.status(401).json({ message: 'Unauthorized' })
       const skills = user.skills.map(skill => skill.skill)
       if (!skills.includes(req.body.skill)) {
         user.skills.push(req.body)
@@ -79,18 +81,22 @@ function newSkill(req, res) {
       return user.save() 
     })
     .then(user => res.status(202).json(user))
-    .catch(err => res.json(err))
+    .catch(err => res.status(400).json(err))
 }
 
 function userPendingProject(req, res) {
   User
     .findById(req.body.user)
     .then(user => {
+      if (!user) return res.status(404).json({ message: 'Not Found ' })
+      if (req.currentUser._id.toString() !==  req.body.user.toString() && req.currentUser._id.toString() !== req.body.owner.toString()) {
+        return res.status(401).json({ message: 'Unauthorized' })
+      }
       const projects = user.pendingProjects.map(project => project.project)
       if (projects.includes(req.body.project.project)) return user.save()
       if (req.body.user.toString() === req.currentUser._id.toString()) {
         req.body.project.user = true
-        user.pendingProjects.push(req.body.project)
+        user.pendingProjects.push(req.body.project) // somehow find the project relating to that id 
       } else if (req.body.owner.toString() === req.currentUser._id.toString()) {
         req.body.project.owner = true
         user.pendingProjects.push(req.body.project)
@@ -98,13 +104,12 @@ function userPendingProject(req, res) {
       return user.save()
     })
     .then(user => res.status(202).json(user))
-    .catch(err => res.json(err))
+    .catch(err => res.status(400).json(err))
 }
 
 function deletePendingProject(req, res) {
   User
     .findOne({ username: req.params.username })
-    // .populate('pendingProjects')
     .then(user => {
       if (!user) return res.status(404).json({ message: 'Not Found ' })
       const newPending = user.pendingProjects.filter(project => project.project.toString() !== req.params.projectId.toString())
@@ -112,7 +117,7 @@ function deletePendingProject(req, res) {
       return user.save()
     })
     .then(user => res.status(202).json(user))
-    .catch(err => res.json(err))
+    .catch(err => res.status(400).json(err))
 }
 
 function acceptPendingProject(req, res) {
@@ -121,12 +126,15 @@ function acceptPendingProject(req, res) {
     .populate('pendingProjects.project')
     .then(user => {
       const pendingProject = user.pendingProjects.find(pendingProject => pendingProject.project._id.toString() === req.params.projectId.toString())
+      console.log(pendingProject)
       if (user._id.toString() === req.currentUser._id.toString()) {
         console.log('the user is accepting')
         pendingProject.user = true
       } else if (req.currentUser._id.toString() === pendingProject.project.owner.toString()) {
         console.log('the owner is acceptin')
         pendingProject.owner = true
+      } else {
+        return res.status(401).json({ message: 'Unauthorized' })
       }
       if (pendingProject.owner === true && pendingProject.user === true) {
         console.log(pendingProject.project.collaborators)
@@ -137,7 +145,7 @@ function acceptPendingProject(req, res) {
       }
     })
     .then(user => res.status(202).json(user))
-    .catch(err => res.json(err))
+    .catch(err => res.status(400).json(err))
 }
 
 module.exports = { index, show, update, destroy, like, newSkill, userPendingProject, deletePendingProject, acceptPendingProject }
