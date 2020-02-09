@@ -17,8 +17,8 @@ mongoose.connect(dbURI, { useNewUrlParser: true, useUnifiedTopology: true }, (er
           bio: 'This is a bio for john and this is a test. More information to come',
           profileImage: 'https://www.fillmurray.com/g/200/200',
           location: 'Glasgow',
-          level: 'Junior',
-          skills: ['Illustration']
+          level: 'Junior'
+          // skills: ['Illustration']
         },
         {
           username: 'abi',
@@ -29,8 +29,8 @@ mongoose.connect(dbURI, { useNewUrlParser: true, useUnifiedTopology: true }, (er
           bio: 'This is a bio for abi and this is a test. More information to come',
           profileImage: 'https://placebear.com/200/200',
           location: 'London',
-          level: 'Mid-Level',
-          skills: ['Illustration']
+          level: 'Mid-Level'
+          // skills: ['Illustration']
         },
         {
           username: 'jos',
@@ -41,8 +41,8 @@ mongoose.connect(dbURI, { useNewUrlParser: true, useUnifiedTopology: true }, (er
           bio: 'This is a bio for jos and this is a test. More information to come',
           profileImage: 'http://placekitten.com/g/200/200',
           location: 'Kent',
-          level: 'Junior',
-          skills: []
+          level: 'Junior'
+          // skills: []
         },
         {
           username: 'nic',
@@ -53,8 +53,8 @@ mongoose.connect(dbURI, { useNewUrlParser: true, useUnifiedTopology: true }, (er
           bio: 'This is a bio for nic and this is a test. More information to come',
           profileImage: 'https://www.stevensegallery.com/200/200',
           location: 'Northern Ireland',
-          level: 'Senior',
-          skills: ['Illustration']
+          level: 'Senior'
+          // skills: ['Illustration']
         }
       ])
     })

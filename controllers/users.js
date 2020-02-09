@@ -44,19 +44,40 @@ function destroy(req, res) {
     .catch(err => res.status(400).json(err))
 }
 
-
 function like(req, res) {
   User
     .find({ username: req.params.username })
     .then(user => {
       if (!user) return res.status(404).json({ message: 'Not Found ' })
-      if (user.likes.some(like => like.currentUser.equals(req.currentUser._id))) return user
-      user.likes.push({ currentUser: req.currentUser })
-      return user.save()
+      const skill = user[0].skills.id(req.params.skill)
+      const users = skill.likes.map(like => like.user)
+      if (!users.includes(req.currentUser._id)) {
+        skill.likes.push({ user: req.currentUser._id })
+      } else {
+        const newLikes = skill.likes.filter(like => like.user._id.toString() !== req.currentUser._id.toString())
+        skill.likes = newLikes
+      }
+      return user[0].save()
     })
     .then(user => res.status(202).json(user))
     .catch(err => res.json(err))
 }
 
+function newSkill(req, res) {
+  User
+    .find({ username: req.params.username })
+    .then(user => {
+      if (!user) return res.status(404).json({ message: 'Not Found ' })
+      const skills = user[0].skills.map(skill => skill.skill)
+      if (!skills.includes(req.body.skill)) {
+        user[0].skills.push(req.body)
+      } else {
+        user[0].skills = user[0].skills.filter(skill => skill.skill !== req.body.skill)
+      }
+      return user[0].save() 
+    })
+    .then(user => res.status(202).json(user))
+    .catch(err => res.json(err))
+}
 
-module.exports = { index, show, update, destroy, like }
+module.exports = { index, show, update, destroy, like, newSkill }
