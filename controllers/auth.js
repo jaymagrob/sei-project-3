@@ -23,13 +23,13 @@ function login(req, res) {
 }
 
 // current user profile
-function profile(req, res) {
+function myPortfolio(req, res) {
   User
     .findById(req.currentUser._id)
-    .populate('createdProjects')
-    .populate('collaboratedProjects')
+    // .populate('createdProjects')
+    // .populate('collaboratedProjects')
     .then(user => res.status(200).json(user))
     .catch(err => res.json(err))
 }
 
-module.exports = { register, login, profile }
+module.exports = { register, login, myPortfolio }
