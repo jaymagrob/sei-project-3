@@ -31,7 +31,10 @@ router.route('/users/:username')
   .put(secureRoute, users.update)
   .delete(secureRoute, users.destroy)
 
-router.route('/users/:username/like')
+router.route('/users/:username/newskill')
+  .post(secureRoute, users.newSkill)
+
+router.route('/users/:username/skills/:skill/like')
   .get(secureRoute, users.like)
 
 router.route('/register')
