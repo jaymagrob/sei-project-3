@@ -9,6 +9,11 @@ const likeSchema = new mongoose.Schema({
   timestamps: true
 })
 
+const skillSchema = new mongoose.Schema({
+  skill: { type: String, enum: skills, required: true },
+  likes: [likeSchema]
+})
+
 const userSchema = new mongoose.Schema({
   username: { type: String, required: true, unique: true },
   name: { type: String, required: true },
@@ -19,10 +24,9 @@ const userSchema = new mongoose.Schema({
   location: { type: String },
   level: { type: String, enum: ['Intern', 'Junior', 'Mid-Level', 'Senior'] },
   professions: [{ type: String, enum: professions }],
-  skills: [{ type: String, enum: skills }],
   projects: [{ type: mongoose.Schema.ObjectId, ref: 'Project' }],
   pendingProjects: [{ type: mongoose.Schema.ObjectId, ref: 'Project' }],
-  likes: [likeSchema]
+  skills: [skillSchema]
 })
 
 userSchema.virtual('createdProjects', {
