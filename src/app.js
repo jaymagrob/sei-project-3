@@ -5,7 +5,7 @@ import './styles/main.scss'
 
 import Home from './components/common/Home'
 import Discovery from './components/common/Discovery'
-// import Search from './components/common/Search'
+import Search from './components/common/Search'
 import ProjectShow from './components/projects/ProjectShow'
 // import ProjectEdit from './components/projects/ProjectEdit'
 // import ProjectNew from './components/projects/ProjectNew'
@@ -30,7 +30,7 @@ const App = () => (
       <Switch>
         <Route exact path="/" component={Home} />
         <Route path="/discovery" component={Discovery} />
-        {/* <Route path="/search" component={Search} /> */}
+        <Route path="/search" component={Search} />
         <Route path="/projects/:id" component={ProjectShow} />
         {/* <Route path="/projects/:id/edit" component={ProjectEdit} /> */}
         {/* <Route path="/projects/new" component={ProjectNew} /> */}
