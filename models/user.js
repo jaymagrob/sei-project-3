@@ -1,17 +1,21 @@
 const mongoose = require('mongoose')
 const bcrypt = require('bcrypt')
 
-const { skills, professions } = require('../config/environment')
+const { skills, professions, level } = require('../config/environment')
 
 const likeSchema = new mongoose.Schema({
   user: { type: mongoose.Schema.ObjectId, ref: 'User', required: true }
-}, {
-  timestamps: true
 })
 
 const skillSchema = new mongoose.Schema({
   skill: { type: String, enum: skills, required: true },
   likes: [likeSchema]
+})
+
+const projectRequestSchema = new mongoose.Schema({
+  project: { type: mongoose.Schema.ObjectId, ref: 'Project' },
+  owner: { type: Boolean, required: true },
+  user: { type: Boolean, required: true }
 })
 
 const userSchema = new mongoose.Schema({
@@ -22,10 +26,10 @@ const userSchema = new mongoose.Schema({
   bio: { type: String, maxlength: 350 },
   profileImage: { type: String },
   location: { type: String },
-  level: { type: String, enum: ['Intern', 'Junior', 'Mid-Level', 'Senior'] },
+  level: { type: String, enum: level },
   professions: [{ type: String, enum: professions }],
   projects: [{ type: mongoose.Schema.ObjectId, ref: 'Project' }],
-  pendingProjects: [{ type: mongoose.Schema.ObjectId, ref: 'Project' }],
+  pendingProjects: [projectRequestSchema],
   skills: [skillSchema]
 })
 

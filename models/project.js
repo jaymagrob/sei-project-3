@@ -43,6 +43,13 @@ projectSchema
     return this.likes.length
   })
 
+projectSchema
+  .virtual('pendingCollaborators', {
+    ref: 'User',
+    localField: '_id',
+    foreignField: 'pendingProjects.project'
+  })
+
 //! setting the virtual like count field
 projectSchema.set('toJSON', { virtuals: true })
 

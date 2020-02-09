@@ -31,8 +31,18 @@ router.route('/users/:username')
   .put(secureRoute, users.update)
   .delete(secureRoute, users.destroy)
 
-router.route('/users/:username/like')
+router.route('/users/:username/newskill')
+  .post(secureRoute, users.newSkill)
+
+router.route('/users/:username/skills/:skill/like')
   .get(secureRoute, users.like)
+
+router.route('/users/collaborate')
+  .post(secureRoute, users.userPendingProject)
+  
+router.route('/users/:username/collaborate/:projectId')
+  .delete(secureRoute, users.deletePendingProject)
+  .get(secureRoute, users.acceptPendingProject)
 
 router.route('/register')
   .post(auth.register)

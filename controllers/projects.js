@@ -14,7 +14,7 @@ function create(req, res) {
   req.body.collaborators = [req.body.owner]
   Project
     .create(req.body)
-    .then(createdProject => res.status(201).json(createdProject)) 
+    .then(createdProject => res.status(202).json(createdProject)) 
     .catch(err => res.status(400).json(err))
 }
 
@@ -22,8 +22,11 @@ function show(req, res) {
   Project
     .findById(req.params.id)
     .populate('owner')
+    .populate('pendingCollaborators')
     .populate('comments.user')
-    .then(project => res.status(202).json(project))
+    .then(project => {
+      return res.status(202).json(project)
+    })
     .catch(err => res.status(400).json(err))
 }
 
@@ -75,6 +78,7 @@ function commentDelete(req, res) {
       comment.remove()
       return project.save()
     })
+    .then(project => res.status(204).json(project))
     .catch(err => res.json(err))
 }
 
