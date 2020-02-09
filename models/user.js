@@ -12,6 +12,12 @@ const skillSchema = new mongoose.Schema({
   likes: [likeSchema]
 })
 
+const projectRequestSchema = new mongoose.Schema({
+  project: { type: mongoose.Schema.ObjectId, ref: 'Project' },
+  owner: { type: Boolean, required: true },
+  user: { type: Boolean, required: true }
+})
+
 const userSchema = new mongoose.Schema({
   username: { type: String, required: true, unique: true },
   name: { type: String, required: true },
@@ -23,7 +29,7 @@ const userSchema = new mongoose.Schema({
   level: { type: String, enum: ['Intern', 'Junior', 'Mid-Level', 'Senior'] },
   professions: [{ type: String, enum: professions }],
   projects: [{ type: mongoose.Schema.ObjectId, ref: 'Project' }],
-  pendingProjects: [{ type: mongoose.Schema.ObjectId, ref: 'Project' }],
+  pendingProjects: [projectRequestSchema],
   skills: [skillSchema]
 })
 

@@ -22,8 +22,11 @@ function show(req, res) {
   Project
     .findById(req.params.id)
     .populate('owner')
+    .populate('pendingCollaborators')
     .populate('comments.user')
-    .then(project => res.status(202).json(project))
+    .then(project => {
+      return res.status(202).json(project)
+    })
     .catch(err => res.status(400).json(err))
 }
 
