@@ -11,7 +11,10 @@ class Discovery extends React.Component {
     try {
       const res = await axios.get('/api/users')
       const res2 = await axios.get('/api/projects')
-      this.setState({ users: res.data, projects: res2.data })
+      this.setState({ 
+        users: res.data, 
+        projects: res2.data 
+      })
     } catch (err) {
       console.log(err)
     }

@@ -10,11 +10,12 @@ import ProjectShow from './components/projects/ProjectShow'
 // import ProjectEdit from './components/projects/ProjectEdit'
 // import ProjectNew from './components/projects/ProjectNew'
 import UserShow from './components/users/UserShow'
-// import UserEdit from './components/users/UserEdit'
+import UserEdit from './components/users/UserEdit'
 // import UserMessages from './components/users/UserMessages'
 import Register from './components/auth/Register'
 import Login from './components/auth/Login'
 import NotFound from './components/common/NotFound' 
+import MyPortfolio from './components/common/MyPortfolio'
 
 const App = () => (
   <BrowserRouter>
@@ -23,19 +24,20 @@ const App = () => (
         <Link to="/">HOME</Link>
         <Link to="/register">REGISTER</Link>
         <Link to="/login">LOGIN</Link>
-        <Link to="/users/:username">MY PORTFOLIO</Link>
+        <Link to="/myportfolio">MY PORTFOLIO</Link>
         <Link to="/discovery">DISCOVER</Link>
         <Link to="/search">START YOUR JOURNEY</Link>
       </nav>
       <Switch>
         <Route exact path="/" component={Home} />
         <Route path="/discovery" component={Discovery} />
+        <Route path="/myportfolio" component={MyPortfolio} />
         {/* <Route path="/search" component={Search} /> */}
         <Route path="/projects/:id" component={ProjectShow} />
         {/* <Route path="/projects/:id/edit" component={ProjectEdit} /> */}
         {/* <Route path="/projects/new" component={ProjectNew} /> */}
         <Route path="/users/:username" component={UserShow} />
-        {/* <Route path="/users/:username/edit" component={UserEdit} /> */}
+        <Route path="/users/:username/edit" component={UserEdit} />
         {/* <Route path="/users/:username/messages" component={UserMessages} /> */}
         <Route path="/register" component={Register} />
         <Route path="/login" component={Login} />

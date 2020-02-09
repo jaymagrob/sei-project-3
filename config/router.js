@@ -43,7 +43,7 @@ router.route('/register')
 router.route('/login')
   .post(auth.login)
 
-router.route('/profile')
-  .get(auth.profile)
+router.route('/myportfolio')
+  .get(secureRoute, auth.myPortfolio)
 
 module.exports = router
