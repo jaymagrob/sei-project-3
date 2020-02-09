@@ -5,8 +5,6 @@ const { skills, professions, level } = require('../config/environment')
 
 const likeSchema = new mongoose.Schema({
   user: { type: mongoose.Schema.ObjectId, ref: 'User', required: true }
-}, {
-  timestamps: true
 })
 
 const skillSchema = new mongoose.Schema({
