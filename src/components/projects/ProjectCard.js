@@ -2,7 +2,7 @@ import React from 'react'
 import { Link } from 'react-router-dom'
 
 const ProjectCard = ({ name, image, _id, description }) => (
-  <div className="column is-one-quarter-desktop is-one-third-tablet is-full-mobile">
+  <div key={_id}>
     <Link to={`/projects/${_id}`}>
       <div>
         <div>
