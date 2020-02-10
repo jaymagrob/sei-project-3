@@ -15,7 +15,7 @@ function show(req, res) {
     .findOne({ username: req.params.username })
     .populate('createdProjects')
     .populate('collaboratedProjects')
-    .populate('pendingCollaborators')
+    .populate('pendingProjects.project')
     .then(user => {
       if (!user) return res.status(404).json({ message: 'Not Found' })
       res.status(202).json(user)
@@ -92,18 +92,35 @@ function userPendingProject(req, res) {
       if (req.currentUser._id.toString() !==  req.body.user.toString() && req.currentUser._id.toString() !== req.body.owner.toString()) {
         return res.status(401).json({ message: 'Unauthorized' })
       }
-      const projects = user.pendingProjects.map(project => project.project)
-      if (projects.includes(req.body.project.project)) return user.save()
-      if (req.body.user.toString() === req.currentUser._id.toString()) {
-        req.body.project.user = true
-        user.pendingProjects.push(req.body.project) // somehow find the project relating to that id 
-      } else if (req.body.owner.toString() === req.currentUser._id.toString()) {
-        req.body.project.owner = true
-        user.pendingProjects.push(req.body.project)
-      }
-      return user.save()
+      User.findById(req.body.owner)
+        .then(owner => {
+          const projects = user.pendingProjects.map(project => project.project)
+          if (projects.includes(req.body.project.project)) return user.save()
+          if (req.body.user.toString() === req.currentUser._id.toString()) {
+            req.body.project.user = true
+            owner.pendingProjects.push(req.body.project)
+            user.pendingProjects.push(req.body.project)
+          } else if (req.body.owner.toString() === req.currentUser._id.toString()) {
+            req.body.project.owner = true
+            owner.pendingProjects.push(req.body.project)
+            user.pendingProjects.push(req.body.project)
+          }
+          owner.save()
+          return user.save()
+        })
+        .then(user => res.status(202).json(user))
+      // const projects = user.pendingProjects.map(project => project.project)
+      // if (projects.includes(req.body.project.project)) return user.save()
+      // if (req.body.user.toString() === req.currentUser._id.toString()) {
+      //   req.body.project.user = true
+      //   user.pendingProjects.push(req.body.project)
+      // } else if (req.body.owner.toString() === req.currentUser._id.toString()) {
+      //   req.body.project.owner = true
+      //   user.pendingProjects.push(req.body.project)
+      // }
+      // return user.save()
     })
-    .then(user => res.status(202).json(user))
+    // .then(user => res.status(202).json(user))
     .catch(err => res.status(400).json(err))
 }
 
