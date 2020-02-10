@@ -84,6 +84,7 @@ class ProjectShow extends React.Component {
         console.log(err)
       }
     }
+    this.setState({ users: null, searchedUsers: null })
   }
 
   render() {
