@@ -5,7 +5,7 @@ import Auth from '../../lib/auth'
 
 import ProjectForm from './ProjectForm'
 
-class ProjectNew extends React.Component{
+class ProjectEdit extends React.Component{
 
   state = {
     data: {
@@ -21,6 +21,16 @@ class ProjectNew extends React.Component{
     }
   }
 
+  async componentDidMount() {
+    // console.log(this.props.match.params.id)
+    try {
+      const res = await axios.get(`/api/projects/${this.props.match.params.id}`)
+      this.setState({ data: res.data })
+    } catch (err) {
+      console.log(err)
+    }
+  }
+
   handleChange = (e) => {
     const value = e.target.type === 'checkbox' ? e.target.checked : event.target.value
     const data = { ...this.state.data, [e.target.name]: value }
@@ -29,9 +39,8 @@ class ProjectNew extends React.Component{
 
   handleSubmit = async (e) => {
     e.preventDefault()
-    console.log(this.state.data)
     try {
-      const res = await axios.post('/api/projects', { ...this.state.data }, {
+      const res = await axios.put(`/api/projects/${this.props.match.params.id}`, { ...this.state.data }, {
         headers: { Authorization: `Bearer ${Auth.getToken()}` }
       })
       this.props.history.push(`/projects/${res.data._id}`)
@@ -40,14 +49,13 @@ class ProjectNew extends React.Component{
     }
   }
 
-  handleMultiChange = (selected, metaAction) => {
-    const dropSelected = selected ? selected.map(item => item.value) : []
-    const data = { ...this.state.data, [metaAction.name]: dropSelected }
+  handleMultiChange = (selected) => {
+    const lookingFor = selected ? selected.map(item => item.value) : []
+    const data = { ...this.state.data, lookingFor }
     this.setState({ data })
   }
 
   render() {
-    // console.log(this.state.data.lookingFor)
     return (
       <ProjectForm
         handleChange={this.handleChange}
@@ -59,4 +67,4 @@ class ProjectNew extends React.Component{
   }
 }
 
-export default ProjectNew
+export default ProjectEdit
