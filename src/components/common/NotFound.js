@@ -4,9 +4,7 @@ const NotFound = () => (
   <section>
     <div>
       <div>
-        <p>
-          Buzzzzz something went wrong!
-        </p>
+        <img src={'../../assets/nothingtoseehere.png'} alt="Something went wrong"/>
       </div>
     </div>
   </section>
