@@ -15,7 +15,7 @@ class ProjectNew extends React.Component{
       location: '',
       images: [],
       completed: false,
-      recuiting: false,
+      recruiting: false,
       skillsInvolved: [],
       lookingFor: []
     }

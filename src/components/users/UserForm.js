@@ -1,5 +1,29 @@
 import React from 'react'
-const UserForm = ({ data, handleChange, handleSubmit }) => {
+import Select from 'react-select'
+import { skills, professions, levels } from '../../../config/environment'
+
+const UserForm = ({ data, handleChange, handleSubmit, handleMultiChange }) => {
+
+  const professionOptions =
+    professions.map(item => {
+      return (
+        { value: item, label: item }
+      )
+    })
+
+  const skillsOptions =
+    skills.map(item => {
+      return (
+        { value: item, label: item }
+      )
+    })
+
+  const levelOptions =
+    levels.map(item => {
+      return (
+        { value: item, label: item }
+      )
+    })
   return (
     <div>
       <form onSubmit={handleSubmit}>
@@ -12,6 +36,18 @@ const UserForm = ({ data, handleChange, handleSubmit }) => {
               name="name"
               onChange={handleChange}
               value={data.name}
+            />
+          </div>
+        </div>
+        <div>
+          <label>Profile Image URL</label>
+          <div>
+            <input
+              className="input"
+              placeholder="Profile Image URL"
+              name="profileImage"
+              onChange={handleChange}
+              value={data.profileImage}
             />
           </div>
         </div>
@@ -37,6 +73,42 @@ const UserForm = ({ data, handleChange, handleSubmit }) => {
               name="bio"
               onChange={handleChange}
               value={data.bio}
+            />
+          </div>
+        </div>
+        <div>
+          <label>Profession/Industry</label>
+          <div>
+            <Select
+              options={professionOptions}
+              isMulti
+              name="professions"
+              value={professionOptions.filter(profession => data.professions.includes(profession.value))}
+              onChange={handleMultiChange}
+            />
+          </div>
+        </div>
+        <div>
+          <label>Level</label>
+          <div>
+            <Select
+              options={levelOptions}
+              isMulti
+              name="level"
+              // value={levelOptions.filter(l => data.level.includes(l.value))}
+              onChange={handleMultiChange}
+            />
+          </div>
+        </div>
+        <div>
+          <label>Skills</label>
+          <div>
+            <Select
+              options={skillsOptions}
+              isMulti
+              name="skills"
+              // value={skillsOptions.filter(skill => data.skills['skill'].includes(skill.value))}
+              onChange={handleMultiChange}
             />
           </div>
         </div>

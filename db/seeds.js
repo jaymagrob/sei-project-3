@@ -17,8 +17,8 @@ mongoose.connect(dbURI, { useNewUrlParser: true, useUnifiedTopology: true }, (er
           bio: 'This is a bio for john and this is a test. More information to come',
           profileImage: 'https://www.fillmurray.com/g/200/200',
           location: 'Glasgow',
-          level: 'Junior'
-          // skills: ['Illustration']
+          level: 'Junior',
+          skills: { skill: 'JavaScript' }
         },
         {
           username: 'abi',
@@ -29,8 +29,8 @@ mongoose.connect(dbURI, { useNewUrlParser: true, useUnifiedTopology: true }, (er
           bio: 'This is a bio for abi and this is a test. More information to come',
           profileImage: 'https://placebear.com/200/200',
           location: 'London',
-          level: 'Mid-Level'
-          // skills: ['Illustration']
+          level: 'Mid-level',
+          skills: { skill: 'JavaScript' }
         },
         {
           username: 'jos',
@@ -41,8 +41,8 @@ mongoose.connect(dbURI, { useNewUrlParser: true, useUnifiedTopology: true }, (er
           bio: 'This is a bio for jos and this is a test. More information to come',
           profileImage: 'http://placekitten.com/g/200/200',
           location: 'Kent',
-          level: 'Junior'
-          // skills: []
+          level: 'Junior',
+          skills: { skill: 'JavaScript' }
         },
         {
           username: 'nic',
@@ -53,1208 +53,1208 @@ mongoose.connect(dbURI, { useNewUrlParser: true, useUnifiedTopology: true }, (er
           bio: 'This is a bio for nic and this is a test. More information to come',
           profileImage: 'https://www.stevensegallery.com/200/200',
           location: 'Northern Ireland',
-          level: 'Senior'
-          // skills: ['Illustration']
+          level: 'Senior',
+          skills: { skill: 'JavaScript' }
         },
         {
           name: 'Olympie',
-          username: 'Olympie Maffia',
+          username: 'OlympieMaffia',
           email: 'omaffia0@oakley.com',
           password: 'XMoadxaIybFk',
           passwordConfirmation: 'XMoadxaIybFk',
           bio: 'vitae mattis nibh ligula nec sem duis aliquam convallis nunc proin at turpis a pede posuere nonummy integer non velit',
           profileImage: 'http://dummyimage.com/218x249.png/cc0000/ffffff',
-          Location: 'Bābolsar',
-          Level: 'Senior'
-          // Skills: '{skill: \'JavaScript\'}'
+          location: 'Bābolsar',
+          level: 'Senior',
+          skills: { skill: 'JavaScript' }
         },
         {
           name: 'Adelheid',
-          username: 'Adelheid Alsop',
+          username: 'AdelheidAlsop',
           email: 'aalsop1@amazon.co.uk',
           password: 'b9MIZT7fbkhe',
           passwordConfirmation: 'b9MIZT7fbkhe',
           bio: 'at nunc commodo placerat praesent blandit nam nulla integer pede justo lacinia eget tincidunt eget tempus vel pede',
           profileImage: 'http://dummyimage.com/195x176.bmp/cc0000/ffffff',
-          Location: 'Langpas',
-          Level: 'Mid-Level'
-          // Skills: '{skill: \'Quicktime\'}'
+          location: 'Langpas',
+          level: 'Mid-level',
+          skills: { skill: 'Quicktime' }
         },
         {
           name: 'Perle',
-          username: 'Perle Waples',
+          username: 'PerleWaples',
           email: 'pwaples2@acquirethisname.com',
           password: 'y270uJ4',
           passwordConfirmation: 'y270uJ4',
           bio: 'tincidunt lacus at velit vivamus vel nulla eget eros elementum',
           profileImage: 'http://dummyimage.com/154x145.png/dddddd/000000',
-          Location: 'Wenheng',
-          Level: 'Senior'
-          // Skills: '{skill: \'Quick Thinking\'}'
+          location: 'Wenheng',
+          level: 'Senior',
+          skills: { skill: 'Quick Thinking' }
         },
         {
           name: 'Leanora',
-          username: 'Leanora Hele',
+          username: 'LeanoraHele',
           email: 'lhele3@oracle.com',
           password: 'CBXz9Zaxkj',
           passwordConfirmation: 'CBXz9Zaxkj',
           bio: 'semper sapien a libero nam dui proin leo odio porttitor id consequat in consequat ut nulla sed accumsan felis',
           profileImage: 'http://dummyimage.com/119x239.png/5fa2dd/ffffff',
-          Location: 'Jaro',
-          Level: 'Junior'
-          // Skills: '{skill: \'Magazine Design\'}'
+          location: 'Jaro',
+          level: 'Junior',
+          skills: { skill: 'Magazine Design' }
         },
         {
           name: 'Sally',
-          username: 'Sally Batchellor',
+          username: 'SallyBatchellor',
           email: 'sbatchellor4@shutterfly.com',
           password: 'qPQwDAvn',
           passwordConfirmation: 'qPQwDAvn',
           bio: 'felis ut at dolor quis odio consequat varius integer ac',
           profileImage: 'http://dummyimage.com/208x133.jpg/dddddd/000000',
-          Location: 'Pontian',
-          Level: 'Junior'
-          // Skills: '{skill: \'JavaScript\'}'
+          location: 'Pontian',
+          level: 'Junior',
+          skills: { skill: 'JavaScript' }
         },
         {
           name: 'Serena',
-          username: 'Serena Iddenden',
+          username: 'SerenaIddenden',
           email: 'siddenden5@boston.com',
           password: 'DZdmp1',
           passwordConfirmation: 'DZdmp1',
           bio: 'porttitor lacus at turpis donec posuere metus vitae ipsum aliquam non mauris morbi non lectus aliquam sit amet diam',
           profileImage: 'http://dummyimage.com/231x161.jpg/dddddd/000000',
-          Location: 'Danghara',
-          Level: 'Mid-Level'
-          // Skills: '{skill: \'Illustration\'}'
+          location: 'Danghara',
+          level: 'Mid-level',
+          skills: { skill: 'Illustration' }
         },
         {
           name: 'Adelice',
-          username: 'Adelice Franken',
+          username: 'AdeliceFranken',
           email: 'afranken6@tiny.cc',
           password: '4sPBT7PrWF',
           passwordConfirmation: '4sPBT7PrWF',
           bio: 'luctus rutrum nulla tellus in sagittis dui vel nisl duis',
           profileImage: 'http://dummyimage.com/243x197.bmp/ff4444/ffffff',
-          Location: 'Dazhongzhuang',
-          Level: 'Mid-Level'
-          // Skills: '{skill: \'Quicktime\'}'
+          location: 'Dazhongzhuang',
+          level: 'Mid-level',
+          skills: { skill: 'Quicktime' }
         },
         {
           name: 'Dori',
-          username: 'Dori Cattach',
+          username: 'DoriCattach',
           email: 'dcattach7@bravesites.com',
           password: '13vVL5',
           passwordConfirmation: '13vVL5',
           bio: 'sapien placerat ante nulla justo aliquam quis turpis eget elit sodales scelerisque mauris sit',
           profileImage: 'http://dummyimage.com/115x239.bmp/cc0000/ffffff',
-          Location: 'Panoongan',
-          Level: 'Mid-Level'
-          // Skills: '{skill: \'Quick Thinking\'}'
+          location: 'Panoongan',
+          level: 'Mid-level',
+          skills: { skill: 'Quick Thinking' }
         },
         {
           name: 'Bernete',
-          username: 'Bernete Kleeborn',
+          username: 'BerneteKleeborn',
           email: 'bkleeborn8@google.co.jp',
           password: 'aQsF66MOdgX',
           passwordConfirmation: 'aQsF66MOdgX',
           bio: 'odio condimentum id luctus nec molestie sed justo pellentesque viverra',
           profileImage: 'http://dummyimage.com/192x131.png/5fa2dd/ffffff',
-          Location: 'Piła',
-          Level: 'Mid-Level'
-          // Skills: '{skill: \'Magazine Design\'}'
+          location: 'Piła',
+          level: 'Mid-level',
+          skills: { skill: 'Magazine Design' }
         },
         {
           name: 'Gladys',
-          username: 'Gladys Whetland',
+          username: 'GladysWhetland',
           email: 'gwhetland9@cbsnews.com',
           password: 'dHjQR9',
           passwordConfirmation: 'dHjQR9',
           bio: 'nulla suscipit ligula in lacus curabitur at ipsum ac tellus semper interdum mauris',
           profileImage: 'http://dummyimage.com/242x138.png/5fa2dd/ffffff',
-          Location: 'Chicago',
-          Level: 'Junior'
-          // Skills: '{skill: \'Quick Thinking\'}'
+          location: 'Chicago',
+          level: 'Junior',
+          skills: { skill: 'Quick Thinking' }
         },
         {
           name: 'Joella',
-          username: 'Joella Gilfoy',
+          username: 'JoellaGilfoy',
           email: 'jgilfoya@psu.edu',
           password: 'w5EbSrdL',
           passwordConfirmation: 'w5EbSrdL',
           bio: 'sem fusce consequat nulla nisl nunc nisl duis bibendum felis sed interdum venenatis turpis',
           profileImage: 'http://dummyimage.com/103x177.jpg/5fa2dd/ffffff',
-          Location: 'Placencia',
-          Level: 'Mid-Level'
-          // Skills: '{skill: \'Magazine Design\'}'
+          location: 'Placencia',
+          level: 'Mid-level',
+          skills: { skill: 'Magazine Design' }
         },
         {
           name: 'Benny',
-          username: 'Benny Ghidetti',
+          username: 'BennyGhidetti',
           email: 'bghidettib@bbb.org',
           password: 'SmBrE0F',
           passwordConfirmation: 'SmBrE0F',
           bio: 'sapien quis libero nullam sit amet turpis elementum ligula vehicula consequat morbi',
           profileImage: 'http://dummyimage.com/105x167.png/5fa2dd/ffffff',
-          Location: 'Paris 02',
-          Level: 'Mid-Level'
-          // Skills: '{skill: \'Quicktime\'}'
+          location: 'Paris 02',
+          level: 'Mid-level',
+          skills: { skill: 'Quicktime' }
         },
         {
           name: 'Hally',
-          username: 'Hally Prew',
+          username: 'HallyPrew',
           email: 'hprewc@storify.com',
           password: 'JmY1TOCIT',
           passwordConfirmation: 'JmY1TOCIT',
           bio: 'aenean lectus pellentesque eget nunc donec quis orci eget orci vehicula condimentum curabitur in',
           profileImage: 'http://dummyimage.com/216x134.png/cc0000/ffffff',
-          Location: 'Cavaillon',
-          Level: 'Mid-Level'
-          // Skills: '{skill: \'Magazine Design\'}'
+          location: 'Cavaillon',
+          level: 'Mid-level',
+          skills: { skill: 'Magazine Design' }
         },
         {
           name: 'Alanah',
-          username: 'Alanah Stead',
+          username: 'AlanahStead',
           email: 'asteadd@ucsd.edu',
           password: 'wwwy8kBGF',
           passwordConfirmation: 'wwwy8kBGF',
           bio: 'erat curabitur gravida nisi at nibh in hac habitasse platea dictumst aliquam augue',
           profileImage: 'http://dummyimage.com/137x186.png/5fa2dd/ffffff',
-          Location: 'Dallas',
-          Level: 'Senior'
-          // Skills: '{skill: \'JavaScript\'}'
+          location: 'Dallas',
+          level: 'Senior',
+          skills: { skill: 'JavaScript' }
         },
         {
           name: 'Rica',
-          username: 'Rica Gregon',
+          username: 'RicaGregon',
           email: 'rgregone@pinterest.com',
           password: '0rxz0m',
           passwordConfirmation: '0rxz0m',
           bio: 'platea dictumst maecenas ut massa quis augue luctus tincidunt nulla mollis molestie lorem quisque ut erat',
           profileImage: 'http://dummyimage.com/200x235.png/cc0000/ffffff',
-          Location: 'Saint-Brieuc',
-          Level: 'Senior'
-          // Skills: '{skill: \'Magazine Design\'}'
+          location: 'Saint-Brieuc',
+          level: 'Senior',
+          skills: { skill: 'Magazine Design' }
         },
         {
           name: 'Kaile',
-          username: 'Kaile Voyce',
+          username: 'KaileVoyce',
           email: 'kvoycef@reuters.com',
           password: 'RkBKnMHJ',
           passwordConfirmation: 'RkBKnMHJ',
           bio: 'ligula in lacus curabitur at ipsum ac tellus semper interdum mauris ullamcorper purus sit amet nulla quisque arcu libero rutrum',
           profileImage: 'http://dummyimage.com/194x174.jpg/ff4444/ffffff',
-          Location: 'Alcanena',
-          Level: 'Junior'
-          // Skills: '{skill: \'Illustration\'}'
+          location: 'Alcanena',
+          level: 'Junior',
+          skills: { skill: 'Illustration' }
         },
         {
           name: 'Linnea',
-          username: 'Linnea Wigzell',
+          username: 'LinneaWigzell',
           email: 'lwigzellg@go.com',
           password: 'WF4tdtd',
           passwordConfirmation: 'WF4tdtd',
           bio: 'praesent id massa id nisl venenatis lacinia aenean sit amet',
           profileImage: 'http://dummyimage.com/226x157.png/dddddd/000000',
-          Location: 'Suzhou',
-          Level: 'Junior'
-          // Skills: '{skill: \'Quick Thinking\'}'
+          location: 'Suzhou',
+          level: 'Junior',
+          skills: { skill: 'Quick Thinking' }
         },
         {
           name: 'Monah',
-          username: 'Monah Martine',
+          username: 'MonahMartine',
           email: 'mmartineh@chron.com',
           password: 'kAZBOX',
           passwordConfirmation: 'kAZBOX',
           bio: 'eget orci vehicula condimentum curabitur in libero ut massa volutpat convallis morbi odio odio',
           profileImage: 'http://dummyimage.com/245x166.bmp/5fa2dd/ffffff',
-          Location: 'Jejkowice',
-          Level: 'Mid-Level'
-          // Skills: '{skill: \'Quicktime\'}'
+          location: 'Jejkowice',
+          level: 'Mid-level',
+          skills: { skill: 'Quicktime' }
         },
         {
           name: 'Nicoline',
-          username: 'Nicoline Laxe',
+          username: 'NicolineLaxe',
           email: 'nlaxei@t.co',
           password: 'BCzSCm7',
           passwordConfirmation: 'BCzSCm7',
           bio: 'nam ultrices libero non mattis pulvinar nulla pede ullamcorper augue a suscipit nulla elit ac nulla sed vel',
           profileImage: 'http://dummyimage.com/223x117.jpg/cc0000/ffffff',
-          Location: 'Mayapusi',
-          Level: 'Junior'
-          // Skills: '{skill: \'Quicktime\'}'
+          location: 'Mayapusi',
+          level: 'Junior',
+          skills: { skill: 'Quicktime' }
         },
         {
           name: 'Eran',
-          username: 'Eran Lamacraft',
+          username: 'EranLamacraft',
           email: 'elamacraftj@answers.com',
           password: 'j6SS1fxmWfIX',
           passwordConfirmation: 'j6SS1fxmWfIX',
           bio: 'imperdiet sapien urna pretium nisl ut volutpat sapien arcu sed',
           profileImage: 'http://dummyimage.com/148x125.bmp/cc0000/ffffff',
-          Location: 'Ibirataia',
-          Level: 'Senior'
-          // Skills: '{skill: \'JavaScript\'}'
+          location: 'Ibirataia',
+          level: 'Senior',
+          skills: { skill: 'JavaScript' }
         },
         {
           name: 'Ralina',
-          username: 'Ralina Meechan',
+          username: 'RalinaMeechan',
           email: 'rmeechank@cornell.edu',
           password: 'jFnQky7ue',
           passwordConfirmation: 'jFnQky7ue',
           bio: 'ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae donec pharetra magna vestibulum aliquet',
           profileImage: 'http://dummyimage.com/229x204.jpg/cc0000/ffffff',
-          Location: 'Lýkeio',
-          Level: 'Junior'
-          // Skills: '{skill: \'Quick Thinking\'}'
+          location: 'Lýkeio',
+          level: 'Junior',
+          skills: { skill: 'Quick Thinking' }
         },
         {
           name: 'Jessie',
-          username: 'Jessie de Clerq',
+          username: 'JessiedeClerq',
           email: 'jdel@unicef.org',
           password: 'q8qI2fGfnO',
           passwordConfirmation: 'q8qI2fGfnO',
           bio: 'sem sed sagittis nam congue risus semper porta volutpat quam pede lobortis',
           profileImage: 'http://dummyimage.com/102x214.png/5fa2dd/ffffff',
-          Location: 'Bungoma',
-          Level: 'Mid-Level'
-          // Skills: '{skill: \'Magazine Design\'}'
+          location: 'Bungoma',
+          level: 'Mid-level',
+          skills: { skill: 'Magazine Design' }
         },
         {
           name: 'Winny',
-          username: 'Winny Kanwell',
+          username: 'WinnyKanwell',
           email: 'wkanwellm@phpbb.com',
           password: 'J1dSdEgetN',
           passwordConfirmation: 'J1dSdEgetN',
           bio: 'et ultrices posuere cubilia curae nulla dapibus dolor vel est donec odio justo sollicitudin ut suscipit a feugiat et',
           profileImage: 'http://dummyimage.com/213x205.jpg/5fa2dd/ffffff',
-          Location: 'Ladoeiro',
-          Level: 'Junior'
-          // Skills: '{skill: \'Quick Thinking\'}'
+          location: 'Ladoeiro',
+          level: 'Junior',
+          skills: { skill: 'Quick Thinking' }
         },
         {
           name: 'Brenn',
-          username: 'Brenn Benn',
+          username: 'BrennBenn',
           email: 'bbennn@prweb.com',
           password: 'Z4MSD0g',
           passwordConfirmation: 'Z4MSD0g',
           bio: 'congue etiam justo etiam pretium iaculis justo in hac habitasse platea dictumst etiam faucibus',
           profileImage: 'http://dummyimage.com/163x237.bmp/dddddd/000000',
-          Location: 'Onueke',
-          Level: 'Junior'
-          // Skills: '{skill: \'Illustration\'}'
+          location: 'Onueke',
+          level: 'Junior',
+          skills: { skill: 'Illustration' }
         },
         {
           name: 'Codi',
-          username: 'Codi Mingasson',
+          username: 'CodiMingasson',
           email: 'cmingassono@vistaprint.com',
           password: 'MXs0oq',
           passwordConfirmation: 'MXs0oq',
           bio: 'risus semper porta volutpat quam pede lobortis ligula sit amet eleifend pede libero quis orci nullam',
           profileImage: 'http://dummyimage.com/162x210.bmp/cc0000/ffffff',
-          Location: 'Gaozhai',
-          Level: 'Senior'
-          // Skills: '{skill: \'JavaScript\'}'
+          location: 'Gaozhai',
+          level: 'Senior',
+          skills: { skill: 'JavaScript' }
         },
         {
           name: 'Imogen',
-          username: 'Imogen Sykora',
+          username: 'ImogenSykora',
           email: 'isykorap@naver.com',
           password: 'GOiBmbrztAK',
           passwordConfirmation: 'GOiBmbrztAK',
           bio: 'fusce congue diam id ornare imperdiet sapien urna pretium nisl ut volutpat',
           profileImage: 'http://dummyimage.com/154x223.jpg/5fa2dd/ffffff',
-          Location: 'Stavanger',
-          Level: 'Mid-Level'
-          // Skills: '{skill: \'Quick Thinking\'}'
+          location: 'Stavanger',
+          level: 'Mid-level',
+          skills: { skill: 'Quick Thinking' }
         },
         {
           name: 'Neely',
-          username: 'Neely Fawlo',
+          username: 'NeelyFawlo',
           email: 'nfawloq@geocities.jp',
           password: 'tLF9olij6Lb',
           passwordConfirmation: 'tLF9olij6Lb',
           bio: 'pharetra magna ac consequat metus sapien ut nunc vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia',
           profileImage: 'http://dummyimage.com/172x156.jpg/dddddd/000000',
-          Location: 'Broby',
-          Level: 'Mid-Level'
-          // Skills: '{skill: \'Illustration\'}'
+          location: 'Broby',
+          level: 'Mid-level',
+          skills: { skill: 'Illustration' }
         },
         {
           name: 'Petronille',
-          username: 'Petronille Byas',
+          username: 'PetronilleByas',
           email: 'pbyasr@utexas.edu',
           password: 'xmRCxTUm',
           passwordConfirmation: 'xmRCxTUm',
           bio: 'elit proin risus praesent lectus vestibulum quam sapien varius ut blandit non interdum in ante vestibulum ante ipsum primis in',
           profileImage: 'http://dummyimage.com/158x199.bmp/cc0000/ffffff',
-          Location: 'Orong',
-          Level: 'Junior'
-          // Skills: '{skill: \'Quick Thinking\'}'
+          location: 'Orong',
+          level: 'Junior',
+          skills: { skill: 'Quick Thinking' }
         },
         {
           name: 'Renie',
-          username: 'Renie Whittek',
+          username: 'RenieWhittek',
           email: 'rwhitteks@posterous.com',
           password: 'Sae6dbBLhVs',
           passwordConfirmation: 'Sae6dbBLhVs',
           bio: 'in blandit ultrices enim lorem ipsum dolor sit amet consectetuer adipiscing elit',
           profileImage: 'http://dummyimage.com/100x116.bmp/dddddd/000000',
-          Location: 'Jeberos',
-          Level: 'Junior'
-          // Skills: '{skill: \'Quality Control\'}'
+          location: 'Jeberos',
+          level: 'Junior',
+          skills: { skill: 'Quality Control' }
         },
         {
           name: 'Darsey',
-          username: 'Darsey Abramzon',
+          username: 'DarseyAbramzon',
           email: 'dabramzont@symantec.com',
           password: 'atlPnN',
           passwordConfirmation: 'atlPnN',
           bio: 'pretium iaculis diam erat fermentum justo nec condimentum neque sapien placerat ante nulla justo aliquam quis turpis eget elit sodales',
           profileImage: 'http://dummyimage.com/137x228.png/cc0000/ffffff',
-          Location: 'Uścimów Stary',
-          Level: 'Junior'
-          // Skills: '{skill: \'Quicktime\'}'
+          location: 'Uścimów Stary',
+          level: 'Junior',
+          skills: { skill: 'Quicktime' }
         },
         {
           name: 'Michal',
-          username: 'Michal Wetter',
+          username: 'MichalWetter',
           email: 'mwetteru@amazon.co.jp',
           password: 'wRBSIgb8YF',
           passwordConfirmation: 'wRBSIgb8YF',
           bio: 'id turpis integer aliquet massa id lobortis convallis tortor risus dapibus augue vel accumsan tellus nisi eu',
           profileImage: 'http://dummyimage.com/160x146.bmp/5fa2dd/ffffff',
-          Location: 'Xinsheng',
-          Level: 'Junior'
-          // Skills: '{skill: \'Magazine Design\'}'
+          location: 'Xinsheng',
+          level: 'Junior',
+          skills: { skill: 'Magazine Design' }
         },
         {
           name: 'Lissi',
-          username: 'Lissi Hindrick',
+          username: 'LissiHindrick',
           email: 'lhindrickv@deliciousdays.com',
           password: 'r6O4zEkI0',
           passwordConfirmation: 'r6O4zEkI0',
           bio: 'interdum venenatis turpis enim blandit mi in porttitor pede justo eu massa donec dapibus',
           profileImage: 'http://dummyimage.com/246x137.bmp/cc0000/ffffff',
-          Location: 'Zhengguo',
-          Level: 'Mid-Level'
-          // Skills: '{skill: \'Magazine Design\'}'
+          location: 'Zhengguo',
+          level: 'Mid-level',
+          skills: { skill: 'Magazine Design' }
         },
         {
           name: 'Valencia',
-          username: 'Valencia Liley',
+          username: 'ValenciaLiley',
           email: 'vlileyw@yellowbook.com',
           password: '7eXIeqyX4P',
           passwordConfirmation: '7eXIeqyX4P',
           bio: 'morbi ut odio cras mi pede malesuada in imperdiet et commodo vulputate',
           profileImage: 'http://dummyimage.com/137x175.jpg/dddddd/000000',
-          Location: 'Jangkungkusumo',
-          Level: 'Mid-Level'
-          // Skills: '{skill: \'Illustration\'}'
+          location: 'Jangkungkusumo',
+          level: 'Mid-level',
+          skills: { skill: 'Illustration' }
         },
         {
           name: 'Horatia',
-          username: 'Horatia Yerby',
+          username: 'HoratiaYerby',
           email: 'hyerbyx@google.nl',
           password: 'tPY74YH',
           passwordConfirmation: 'tPY74YH',
           bio: 'erat curabitur gravida nisi at nibh in hac habitasse platea dictumst aliquam augue quam sollicitudin',
           profileImage: 'http://dummyimage.com/101x175.bmp/5fa2dd/ffffff',
-          Location: 'Pergan',
-          Level: 'Mid-Level'
-          // Skills: '{skill: \'Illustration\'}'
+          location: 'Pergan',
+          level: 'Mid-level',
+          skills: { skill: 'Illustration' }
         },
         {
           name: 'Meridith',
-          username: 'Meridith Gogerty',
+          username: 'MeridithGogerty',
           email: 'mgogertyy@cmu.edu',
           password: 'Z1MUZeT1f',
           passwordConfirmation: 'Z1MUZeT1f',
           bio: 'dictumst aliquam augue quam sollicitudin vitae consectetuer eget rutrum at lorem',
           profileImage: 'http://dummyimage.com/119x122.png/dddddd/000000',
-          Location: 'Cungapmimbo',
-          Level: 'Junior'
-          // Skills: '{skill: \'Quicktime\'}'
+          location: 'Cungapmimbo',
+          level: 'Junior',
+          skills: { skill: 'Quicktime' }
         },
         {
           name: 'Vale',
-          username: 'Vale Wemyss',
+          username: 'ValeWemyss',
           email: 'vwemyssz@t.co',
           password: '6eduIv',
           passwordConfirmation: '6eduIv',
           bio: 'nisl nunc nisl duis bibendum felis sed interdum venenatis turpis enim blandit mi in porttitor pede justo eu massa',
           profileImage: 'http://dummyimage.com/114x115.jpg/cc0000/ffffff',
-          Location: 'Brooklyn',
-          Level: 'Junior'
-          // Skills: '{skill: \'Illustration\'}'
+          location: 'Brooklyn',
+          level: 'Junior',
+          skills: { skill: 'Illustration' }
         },
         {
           name: 'Joly',
-          username: 'Joly Ashplant',
+          username: 'JolyAshplant',
           email: 'jashplant10@usnews.com',
           password: 'NknFspzZnAN7',
           passwordConfirmation: 'NknFspzZnAN7',
           bio: 'rutrum at lorem integer tincidunt ante vel ipsum praesent blandit lacinia',
           profileImage: 'http://dummyimage.com/138x234.png/5fa2dd/ffffff',
-          Location: 'Pedreira',
-          Level: 'Mid-Level'
-          // Skills: '{skill: \'Quality Control\'}'
+          location: 'Pedreira',
+          level: 'Mid-level',
+          skills: { skill: 'Quality Control' }
         },
         {
           name: 'Rozanna',
-          username: 'Rozanna Greenlees',
+          username: 'RozannaGreenlees',
           email: 'rgreenlees11@mac.com',
           password: 'TcVFhSWVwl',
           passwordConfirmation: 'TcVFhSWVwl',
           bio: 'mus etiam vel augue vestibulum rutrum rutrum neque aenean auctor',
           profileImage: 'http://dummyimage.com/188x221.bmp/ff4444/ffffff',
-          Location: 'Pingshan',
-          Level: 'Junior'
-          // Skills: '{skill: \'Quicktime\'}'
+          location: 'Pingshan',
+          level: 'Junior',
+          skills: { skill: 'Quicktime' }
         },
         {
           name: 'Maurine',
-          username: 'Maurine Bahlmann',
+          username: 'MaurineBahlmann',
           email: 'mbahlmann12@furl.net',
           password: 'zjJeOl',
           passwordConfirmation: 'zjJeOl',
           bio: 'gravida sem praesent id massa id nisl venenatis lacinia aenean sit',
           profileImage: 'http://dummyimage.com/211x190.png/ff4444/ffffff',
-          Location: 'Riangbaring',
-          Level: 'Junior'
-          // Skills: '{skill: \'Quicktime\'}'
+          location: 'Riangbaring',
+          level: 'Junior',
+          skills: { skill: 'Quicktime' }
         },
         {
           name: 'Starla',
-          username: 'Starla Ninnoli',
+          username: 'StarlaNinnoli',
           email: 'sninnoli13@addthis.com',
           password: 'swinwG1P',
           passwordConfirmation: 'swinwG1P',
           bio: 'fermentum donec ut mauris eget massa tempor convallis nulla neque libero convallis eget eleifend luctus ultricies eu nibh quisque id',
           profileImage: 'http://dummyimage.com/121x109.jpg/ff4444/ffffff',
-          Location: 'Sarmīn',
-          Level: 'Junior'
-          // Skills: '{skill: \'Magazine Design\'}'
+          location: 'Sarmīn',
+          level: 'Junior',
+          skills: { skill: 'Magazine Design' }
         },
         {
           name: 'Charmaine',
-          username: 'Charmaine Kindell',
+          username: 'CharmaineKindell',
           email: 'ckindell14@bandcamp.com',
           password: 'A9A8ZFVgPX',
           passwordConfirmation: 'A9A8ZFVgPX',
           bio: 'ligula vehicula consequat morbi a ipsum integer a nibh in quis justo maecenas rhoncus aliquam',
           profileImage: 'http://dummyimage.com/136x166.png/cc0000/ffffff',
-          Location: 'Huangcai',
-          Level: 'Mid-Level'
-          // Skills: '{skill: \'Illustration\'}'
+          location: 'Huangcai',
+          level: 'Mid-level',
+          skills: { skill: 'Illustration' }
         },
         {
           name: 'Sonya',
-          username: 'Sonya Antonowicz',
+          username: 'SonyaAntonowicz',
           email: 'santonowicz15@technorati.com',
           password: 'W7CnvD',
           passwordConfirmation: 'W7CnvD',
           bio: 'curae mauris viverra diam vitae quam suspendisse potenti nullam porttitor lacus',
           profileImage: 'http://dummyimage.com/238x177.png/cc0000/ffffff',
-          Location: 'Arcos',
-          Level: 'Junior'
-          // Skills: '{skill: \'Illustration\'}'
+          location: 'Arcos',
+          level: 'Junior',
+          skills: { skill: 'Illustration' }
         },
         {
           name: 'Klarrisa',
-          username: 'Klarrisa Tumielli',
+          username: 'KlarrisaTumielli',
           email: 'ktumielli16@netvibes.com',
           password: 'SZfHB2ANIi',
           passwordConfirmation: 'SZfHB2ANIi',
           bio: 'est lacinia nisi venenatis tristique fusce congue diam id ornare imperdiet sapien urna pretium nisl ut',
           profileImage: 'http://dummyimage.com/108x187.bmp/ff4444/ffffff',
-          Location: 'Potoru',
-          Level: 'Mid-Level'
-          // Skills: '{skill: \'Quality Control\'}'
+          location: 'Potoru',
+          level: 'Mid-level',
+          skills: { skill: 'Quality Control' }
         },
         {
           name: 'Corrine',
-          username: 'Corrine Vaulkhard',
+          username: 'CorrineVaulkhard',
           email: 'cvaulkhard17@shutterfly.com',
           password: 'gEHuCUlaVH',
           passwordConfirmation: 'gEHuCUlaVH',
           bio: 'donec semper sapien a libero nam dui proin leo odio porttitor id consequat in consequat ut',
           profileImage: 'http://dummyimage.com/116x230.bmp/ff4444/ffffff',
-          Location: 'Huxu',
-          Level: 'Junior'
-          // Skills: '{skill: \'Quality Control\'}'
+          location: 'Huxu',
+          level: 'Junior',
+          skills: { skill: 'Quality Control' }
         },
         {
           name: 'Willie',
-          username: 'Willie Harvett',
+          username: 'WillieHarvett',
           email: 'wharvett18@zdnet.com',
           password: '2osIQb2hAMn',
           passwordConfirmation: '2osIQb2hAMn',
           bio: 'at nibh in hac habitasse platea dictumst aliquam augue quam sollicitudin',
           profileImage: 'http://dummyimage.com/182x125.png/cc0000/ffffff',
-          Location: 'Guluoshan',
-          Level: 'Senior'
-          // Skills: '{skill: \'JavaScript\'}'
+          location: 'Guluoshan',
+          level: 'Senior',
+          skills: { skill: 'JavaScript' }
         },
         {
           name: 'Stephi',
-          username: 'Stephi Kencott',
+          username: 'StephiKencott',
           email: 'skencott19@xinhuanet.com',
           password: 'TjLnmj1k2CA',
           passwordConfirmation: 'TjLnmj1k2CA',
           bio: 'nulla ut erat id mauris vulputate elementum nullam varius nulla facilisi cras non velit nec nisi vulputate nonummy maecenas',
           profileImage: 'http://dummyimage.com/139x237.bmp/dddddd/000000',
-          Location: 'Tiền Hải',
-          Level: 'Senior'
-          // Skills: '{skill: \'Quality Control\'}'
+          location: 'Tiền Hải',
+          level: 'Senior',
+          skills: { skill: 'Quality Control' }
         },
         {
           name: 'Keri',
-          username: 'Keri Itzik',
+          username: 'KeriItzik',
           email: 'kitzik1a@eventbrite.com',
           password: 'a6jrjA9VL',
           passwordConfirmation: 'a6jrjA9VL',
           bio: 'posuere cubilia curae mauris viverra diam vitae quam suspendisse potenti nullam porttitor lacus at turpis donec posuere metus vitae ipsum',
           profileImage: 'http://dummyimage.com/130x230.bmp/dddddd/000000',
-          Location: 'Calinog',
-          Level: 'Senior'
-          // Skills: '{skill: \'JavaScript\'}'
+          location: 'Calinog',
+          level: 'Senior',
+          skills: { skill: 'JavaScript' }
         },
         {
           name: 'Salomi',
-          username: 'Salomi Gillmor',
+          username: 'SalomiGillmor',
           email: 'sgillmor1b@wired.com',
           password: 'BbW6RMSah',
           passwordConfirmation: 'BbW6RMSah',
           bio: 'mus vivamus vestibulum sagittis sapien cum sociis natoque penatibus et magnis dis parturient montes nascetur ridiculus mus etiam',
           profileImage: 'http://dummyimage.com/118x222.png/ff4444/ffffff',
-          Location: 'General Alvear',
-          Level: 'Junior'
-          // Skills: '{skill: \'JavaScript\'}'
+          location: 'General Alvear',
+          level: 'Junior',
+          skills: { skill: 'JavaScript' }
         },
         {
           name: 'Ibby',
-          username: 'Ibby Maymand',
+          username: 'IbbyMaymand',
           email: 'imaymand1c@vinaora.com',
           password: 'avnXgryzgtl',
           passwordConfirmation: 'avnXgryzgtl',
           bio: 'at feugiat non pretium quis lectus suspendisse potenti in eleifend quam a odio in hac habitasse',
           profileImage: 'http://dummyimage.com/222x206.jpg/ff4444/ffffff',
-          Location: 'Belogorskīy',
-          Level: 'Junior'
-          // Skills: '{skill: \'JavaScript\'}'
+          location: 'Belogorskīy',
+          level: 'Junior',
+          skills: { skill: 'JavaScript' }
         },
         {
           name: 'Adan',
-          username: 'Adan Cawtheray',
+          username: 'AdanCawtheray',
           email: 'acawtheray1d@globo.com',
           password: 's3nqGFqa',
           passwordConfirmation: 's3nqGFqa',
           bio: 'nonummy maecenas tincidunt lacus at velit vivamus vel nulla eget eros elementum',
           profileImage: 'http://dummyimage.com/213x199.jpg/dddddd/000000',
-          Location: 'Gómfoi',
-          Level: 'Senior'
-          // Skills: '{skill: \'Quick Thinking\'}'
+          location: 'Gómfoi',
+          level: 'Senior',
+          skills: { skill: 'Quick Thinking' }
         },
         {
           name: 'Evie',
-          username: 'Evie Danniel',
+          username: 'EvieDanniel',
           email: 'edanniel1e@ycombinator.com',
           password: 'orHypQm',
           passwordConfirmation: 'orHypQm',
           bio: 'lobortis sapien sapien non mi integer ac neque duis bibendum morbi non quam nec',
           profileImage: 'http://dummyimage.com/203x107.png/cc0000/ffffff',
-          Location: 'Hernández',
-          Level: 'Junior'
-          // Skills: '{skill: \'JavaScript\'}'
+          location: 'Hernández',
+          level: 'Junior',
+          skills: { skill: 'JavaScript' }
         },
         {
           name: 'Emelda',
-          username: 'Emelda Karlsson',
+          username: 'EmeldaKarlsson',
           email: 'ekarlsson1f@hugedomains.com',
           password: 'hQq5jFY',
           passwordConfirmation: 'hQq5jFY',
           bio: 'pellentesque quisque porta volutpat erat quisque erat eros viverra eget congue eget semper rutrum nulla nunc purus phasellus in',
           profileImage: 'http://dummyimage.com/222x182.png/ff4444/ffffff',
-          Location: 'Budakovo',
-          Level: 'Senior'
-          // Skills: '{skill: \'Quicktime\'}'
+          location: 'Budakovo',
+          level: 'Senior',
+          skills: { skill: 'Quicktime' }
         },
         {
           name: 'Raphaela',
-          username: 'Raphaela Westbrook',
+          username: 'RaphaelaWestbrook',
           email: 'rwestbrook1g@devhub.com',
           password: '4yrOtfSO',
           passwordConfirmation: '4yrOtfSO',
           bio: 'ornare imperdiet sapien urna pretium nisl ut volutpat sapien arcu',
           profileImage: 'http://dummyimage.com/149x164.jpg/5fa2dd/ffffff',
-          Location: 'Regente Feijó',
-          Level: 'Mid-Level'
-          // Skills: '{skill: \'Quality Control\'}'
+          location: 'Regente Feijó',
+          level: 'Mid-level',
+          skills: { skill: 'Quality Control' }
         },
         {
           name: 'Reggi',
-          username: 'Reggi Goodin',
+          username: 'ReggiGoodin',
           email: 'rgoodin1h@pinterest.com',
           password: 'TvoMyoC',
           passwordConfirmation: 'TvoMyoC',
           bio: 'morbi ut odio cras mi pede malesuada in imperdiet et commodo vulputate justo in blandit ultrices enim lorem',
           profileImage: 'http://dummyimage.com/178x191.jpg/dddddd/000000',
-          Location: 'Jietou',
-          Level: 'Mid-Level'
-          // Skills: '{skill: \'Illustration\'}'
+          location: 'Jietou',
+          level: 'Mid-level',
+          skills: { skill: 'Illustration' }
         },
         {
           name: 'Dulci',
-          username: 'Dulci Whiterod',
+          username: 'DulciWhiterod',
           email: 'dwhiterod1i@sogou.com',
           password: 'cEK7eQ2xQXv',
           passwordConfirmation: 'cEK7eQ2xQXv',
           bio: 'nibh ligula nec sem duis aliquam convallis nunc proin at turpis a pede posuere nonummy integer non velit donec diam',
           profileImage: 'http://dummyimage.com/180x104.jpg/cc0000/ffffff',
-          Location: 'Kentongan',
-          Level: 'Mid-Level'
-          // Skills: '{skill: \'Magazine Design\'}'
+          location: 'Kentongan',
+          level: 'Mid-level',
+          skills: { skill: 'Magazine Design' }
         },
         {
           name: 'Carey',
-          username: 'Carey Liepins',
+          username: 'CareyLiepins',
           email: 'cliepins1j@trellian.com',
           password: '8D7aYHjvvig',
           passwordConfirmation: '8D7aYHjvvig',
           bio: 'aliquam quis turpis eget elit sodales scelerisque mauris sit amet eros suspendisse accumsan tortor quis',
           profileImage: 'http://dummyimage.com/127x197.jpg/5fa2dd/ffffff',
-          Location: 'Puerto Padre',
-          Level: 'Junior'
-          // Skills: '{skill: \'Quicktime\'}'
+          location: 'Puerto Padre',
+          level: 'Junior',
+          skills: { skill: 'Quicktime' }
         },
         {
           name: 'Emelyne',
-          username: 'Emelyne Cutbirth',
+          username: 'EmelyneCutbirth',
           email: 'ecutbirth1k@berkeley.edu',
           password: 'wVxWuS8v',
           passwordConfirmation: 'wVxWuS8v',
           bio: 'aliquam non mauris morbi non lectus aliquam sit amet diam in magna bibendum imperdiet nullam orci pede',
           profileImage: 'http://dummyimage.com/120x147.bmp/dddddd/000000',
-          Location: 'Skutskär',
-          Level: 'Mid-Level'
-          // Skills: '{skill: \'Illustration\'}'
+          location: 'Skutskär',
+          level: 'Mid-level',
+          skills: { skill: 'Illustration' }
         },
         {
           name: 'Darcey',
-          username: 'Darcey Hylden',
+          username: 'DarceyHylden',
           email: 'dhylden1l@google.pl',
           password: 'tQU7ML2VXvrA',
           passwordConfirmation: 'tQU7ML2VXvrA',
           bio: 'interdum venenatis turpis enim blandit mi in porttitor pede justo eu massa',
           profileImage: 'http://dummyimage.com/155x183.png/5fa2dd/ffffff',
-          Location: 'Katabu',
-          Level: 'Junior'
-          // Skills: '{skill: \'Quicktime\'}'
+          location: 'Katabu',
+          level: 'Junior',
+          skills: { skill: 'Quicktime' }
         },
         {
           name: 'Catherin',
-          username: 'Catherin Born',
+          username: 'CatherinBorn',
           email: 'cborn1m@hugedomains.com',
           password: 'arQcdwouA',
           passwordConfirmation: 'arQcdwouA',
           bio: 'eu tincidunt in leo maecenas pulvinar lobortis est phasellus sit amet erat nulla tempus vivamus in felis eu sapien cursus',
           profileImage: 'http://dummyimage.com/205x233.png/ff4444/ffffff',
-          Location: 'La Curva',
-          Level: 'Junior'
-          // Skills: '{skill: \'Quick Thinking\'}'
+          location: 'La Curva',
+          level: 'Junior',
+          skills: { skill: 'Quick Thinking' }
         },
         {
           name: 'Flossy',
-          username: 'Flossy Tinwell',
+          username: 'FlossyTinwell',
           email: 'ftinwell1n@google.ru',
           password: 'Ce1rmzc3',
           passwordConfirmation: 'Ce1rmzc3',
           bio: 'eu magna vulputate luctus cum sociis natoque penatibus et magnis dis parturient montes nascetur ridiculus mus vivamus vestibulum sagittis',
           profileImage: 'http://dummyimage.com/218x205.bmp/ff4444/ffffff',
-          Location: 'Washington',
-          Level: 'Junior'
-          // Skills: '{skill: \'JavaScript\'}'
+          location: 'Washington',
+          level: 'Junior',
+          skills: { skill: 'JavaScript' }
         },
         {
           name: 'Reba',
-          username: 'Reba Stammler',
+          username: 'RebaStammler',
           email: 'rstammler1o@gravatar.com',
           password: 'VEHFg4',
           passwordConfirmation: 'VEHFg4',
           bio: 'erat volutpat in congue etiam justo etiam pretium iaculis justo in hac habitasse platea dictumst etiam faucibus cursus urna',
           profileImage: 'http://dummyimage.com/144x108.png/5fa2dd/ffffff',
-          Location: 'Musawa',
-          Level: 'Junior'
-          // Skills: '{skill: \'Illustration\'}'
+          location: 'Musawa',
+          level: 'Junior',
+          skills: { skill: 'Illustration' }
         },
         {
           name: 'Jacenta',
-          username: 'Jacenta Hauxley',
+          username: 'JacentaHauxley',
           email: 'jhauxley1p@globo.com',
           password: 'PphgWYLelb',
           passwordConfirmation: 'PphgWYLelb',
           bio: 'nibh in lectus pellentesque at nulla suspendisse potenti cras in purus eu magna vulputate luctus cum sociis natoque penatibus et',
           profileImage: 'http://dummyimage.com/180x237.jpg/5fa2dd/ffffff',
-          Location: 'Santa Maria',
-          Level: 'Junior'
-          // Skills: '{skill: \'JavaScript\'}'
+          location: 'Santa Maria',
+          level: 'Junior',
+          skills: { skill: 'JavaScript' }
         },
         {
           name: 'Carmel',
-          username: 'Carmel Pywell',
+          username: 'CarmelPywell',
           email: 'cpywell1q@hc360.com',
           password: 'NYpla8je',
           passwordConfirmation: 'NYpla8je',
           bio: 'amet consectetuer adipiscing elit proin risus praesent lectus vestibulum quam sapien varius',
           profileImage: 'http://dummyimage.com/235x218.bmp/5fa2dd/ffffff',
-          Location: 'Jinchuan',
-          Level: 'Mid-Level'
-          // Skills: '{skill: \'Quality Control\'}'
+          location: 'Jinchuan',
+          level: 'Mid-level',
+          skills: { skill: 'Quality Control' }
         },
         {
           name: 'Dorelia',
-          username: 'Dorelia Batha',
+          username: 'DoreliaBatha',
           email: 'dbatha1r@nymag.com',
           password: 'XcIAaY',
           passwordConfirmation: 'XcIAaY',
           bio: 'vel accumsan tellus nisi eu orci mauris lacinia sapien quis libero nullam',
           profileImage: 'http://dummyimage.com/160x155.jpg/ff4444/ffffff',
-          Location: 'Samut Sakhon',
-          Level: 'Junior'
-          // Skills: '{skill: \'Quality Control\'}'
+          location: 'Samut Sakhon',
+          level: 'Junior',
+          skills: { skill: 'Quality Control' }
         },
         {
           name: 'Doralin',
-          username: 'Doralin Alchin',
+          username: 'DoralinAlchin',
           email: 'dalchin1s@ameblo.jp',
           password: 'A34nTZ7ap',
           passwordConfirmation: 'A34nTZ7ap',
           bio: 'natoque penatibus et magnis dis parturient montes nascetur ridiculus mus etiam vel augue vestibulum rutrum rutrum neque aenean',
           profileImage: 'http://dummyimage.com/230x115.jpg/cc0000/ffffff',
-          Location: 'Hengxi',
-          Level: 'Senior'
-          // Skills: '{skill: \'Quality Control\'}'
+          location: 'Hengxi',
+          level: 'Senior',
+          skills: { skill: 'Quality Control' }
         },
         {
           name: 'Ethel',
-          username: 'Ethel Grinov',
+          username: 'EthelGrinov',
           email: 'egrinov1t@mediafire.com',
           password: 'nqE0JQe1Kx3',
           passwordConfirmation: 'nqE0JQe1Kx3',
           bio: 'sollicitudin mi sit amet lobortis sapien sapien non mi integer ac neque duis bibendum',
           profileImage: 'http://dummyimage.com/118x139.png/5fa2dd/ffffff',
-          Location: 'Przemyśl',
-          Level: 'Senior'
-          // Skills: '{skill: \'Quicktime\'}'
+          location: 'Przemyśl',
+          level: 'Senior',
+          skills: { skill: 'Quicktime' }
         },
         {
           name: 'Lucretia',
-          username: 'Lucretia Burhouse',
+          username: 'LucretiaBurhouse',
           email: 'lburhouse1u@cbslocal.com',
           password: 'NVoUocRlX35',
           passwordConfirmation: 'NVoUocRlX35',
           bio: 'neque vestibulum eget vulputate ut ultrices vel augue vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere',
           profileImage: 'http://dummyimage.com/186x195.bmp/dddddd/000000',
-          Location: 'Danchang',
-          Level: 'Senior'
-          // Skills: '{skill: \'Quick Thinking\'}'
+          location: 'Danchang',
+          level: 'Senior',
+          skills: { skill: 'Quick Thinking' }
         },
         {
           name: 'Britt',
-          username: 'Britt Clemits',
+          username: 'BrittClemits',
           email: 'bclemits1v@livejournal.com',
           password: '3ENQv4VjyZBm',
           passwordConfirmation: '3ENQv4VjyZBm',
           bio: 'nullam molestie nibh in lectus pellentesque at nulla suspendisse potenti cras in purus eu magna vulputate luctus cum sociis natoque',
           profileImage: 'http://dummyimage.com/247x185.jpg/ff4444/ffffff',
-          Location: 'Hejiaping',
-          Level: 'Mid-Level'
-          // Skills: '{skill: \'JavaScript\'}'
+          location: 'Hejiaping',
+          level: 'Mid-level',
+          skills: { skill: 'JavaScript' }
         },
         {
           name: 'Concettina',
-          username: 'Concettina Sainte Paul',
+          username: 'Concettina SaintePaul',
           email: 'csainte1w@icq.com',
           password: 'i4IdsSF7Ly',
           passwordConfirmation: 'i4IdsSF7Ly',
           bio: 'pellentesque volutpat dui maecenas tristique est et tempus semper est quam pharetra magna',
           profileImage: 'http://dummyimage.com/162x223.jpg/cc0000/ffffff',
-          Location: 'Adir',
-          Level: 'Mid-Level'
-          // Skills: '{skill: \'JavaScript\'}'
+          location: 'Adir',
+          level: 'Mid-level',
+          skills: { skill: 'JavaScript' }
         },
         {
           name: 'Gay',
-          username: 'Gay Bontoft',
+          username: 'GayBontoft',
           email: 'gbontoft1x@youtube.com',
           password: 'VqbQZS5Vc',
           passwordConfirmation: 'VqbQZS5Vc',
           bio: 'adipiscing elit proin interdum mauris non ligula pellentesque ultrices phasellus id sapien in sapien iaculis',
           profileImage: 'http://dummyimage.com/130x137.jpg/dddddd/000000',
-          Location: 'Pando',
-          Level: 'Senior'
-          // Skills: '{skill: \'Quicktime\'}'
+          location: 'Pando',
+          level: 'Senior',
+          skills: { skill: 'Quicktime' }
         },
         {
           name: 'Lee',
-          username: 'Lee Walkinshaw',
+          username: 'LeeWalkinshaw',
           email: 'lwalkinshaw1y@cnn.com',
           password: 'Y34LM4e1Arpu',
           passwordConfirmation: 'Y34LM4e1Arpu',
           bio: 'nam ultrices libero non mattis pulvinar nulla pede ullamcorper augue a suscipit nulla elit ac nulla',
           profileImage: 'http://dummyimage.com/246x114.bmp/ff4444/ffffff',
-          Location: 'Paoay',
-          Level: 'Mid-Level'
-          // Skills: '{skill: \'Quality Control\'}'
+          location: 'Paoay',
+          level: 'Mid-level',
+          skills: { skill: 'Quality Control' }
         },
         {
           name: 'Muriel',
-          username: 'Muriel Della Scala',
+          username: 'Muriel DellaScala',
           email: 'mdella1z@cocolog-nifty.com',
           password: 'JCFXWu',
           passwordConfirmation: 'JCFXWu',
           bio: 'vulputate ut ultrices vel augue vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae donec pharetra',
           profileImage: 'http://dummyimage.com/212x138.jpg/5fa2dd/ffffff',
-          Location: 'Baihe',
-          Level: 'Senior'
-          // Skills: '{skill: \'Quicktime\'}'
+          location: 'Baihe',
+          level: 'Senior',
+          skills: { skill: 'Quicktime' }
         },
         {
           name: 'Lynne',
-          username: 'Lynne Sleit',
+          username: 'LynneSleit',
           email: 'lsleit20@house.gov',
           password: 'nbzby51YKXK',
           passwordConfirmation: 'nbzby51YKXK',
           bio: 'aliquam sit amet diam in magna bibendum imperdiet nullam orci pede',
           profileImage: 'http://dummyimage.com/108x152.bmp/dddddd/000000',
-          Location: 'Sokol’skoye',
-          Level: 'Mid-Level'
-          // Skills: '{skill: \'Quality Control\'}'
+          location: 'Sokol’skoye',
+          level: 'Mid-level',
+          skills: { skill: 'Quality Control' }
         },
         {
           name: 'Pansie',
-          username: 'Pansie Jansa',
+          username: 'PansieJansa',
           email: 'pjansa21@com.com',
           password: 'VpBxV6fhX',
           passwordConfirmation: 'VpBxV6fhX',
           bio: 'cursus vestibulum proin eu mi nulla ac enim in tempor turpis nec euismod scelerisque quam turpis adipiscing lorem',
           profileImage: 'http://dummyimage.com/145x154.png/5fa2dd/ffffff',
-          Location: 'Margahayu',
-          Level: 'Junior'
-          // Skills: '{skill: \'Quality Control\'}'
+          location: 'Margahayu',
+          level: 'Junior',
+          skills: { skill: 'Quality Control' }
         },
         {
           name: 'Misha',
-          username: 'Misha Crosser',
+          username: 'MishaCrosser',
           email: 'mcrosser22@usatoday.com',
           password: 'DaGXRebZ',
           passwordConfirmation: 'DaGXRebZ',
           bio: 'non mi integer ac neque duis bibendum morbi non quam nec dui luctus rutrum nulla tellus in',
           profileImage: 'http://dummyimage.com/237x157.png/cc0000/ffffff',
-          Location: 'Lyon',
-          Level: 'Junior'
-          // Skills: '{skill: \'Magazine Design\'}'
+          location: 'Lyon',
+          level: 'Junior',
+          skills: { skill: 'Magazine Design' }
         },
         {
           name: 'Haley',
-          username: 'Haley Prestedge',
+          username: 'HaleyPrestedge',
           email: 'hprestedge23@hexun.com',
           password: 'zWUuiL',
           passwordConfirmation: 'zWUuiL',
           bio: 'pellentesque eget nunc donec quis orci eget orci vehicula condimentum curabitur in libero ut massa volutpat convallis morbi odio',
           profileImage: 'http://dummyimage.com/213x199.png/dddddd/000000',
-          Location: 'Qianzhou',
-          Level: 'Senior'
-          // Skills: '{skill: \'Magazine Design\'}'
+          location: 'Qianzhou',
+          level: 'Senior',
+          skills: { skill: 'Magazine Design' }
         },
         {
           name: 'Shannah',
-          username: 'Shannah Phillips',
+          username: 'ShannahPhillips',
           email: 'sphillips24@sphinn.com',
           password: 'SJYRDsaSp0',
           passwordConfirmation: 'SJYRDsaSp0',
           bio: 'magnis dis parturient montes nascetur ridiculus mus etiam vel augue vestibulum rutrum rutrum neque aenean auctor gravida sem praesent id',
           profileImage: 'http://dummyimage.com/213x239.bmp/5fa2dd/ffffff',
-          Location: 'Tamandaré',
-          Level: 'Mid-Level'
-          // Skills: '{skill: \'Magazine Design\'}'
+          location: 'Tamandaré',
+          level: 'Mid-level',
+          skills: { skill: 'Magazine Design' }
         },
         {
           name: 'Hanna',
-          username: 'Hanna Riolfo',
+          username: 'HannaRiolfo',
           email: 'hriolfo25@ebay.com',
           password: 'nH1I1Pdz',
           passwordConfirmation: 'nH1I1Pdz',
           bio: 'porta volutpat quam pede lobortis ligula sit amet eleifend pede libero quis orci nullam molestie nibh in lectus pellentesque at',
           profileImage: 'http://dummyimage.com/103x250.png/cc0000/ffffff',
-          Location: 'San Vicente',
-          Level: 'Senior'
-          // Skills: '{skill: \'JavaScript\'}'
+          location: 'San Vicente',
+          level: 'Senior',
+          skills: { skill: 'JavaScript' }
         },
         {
           name: 'Samaria',
-          username: 'Samaria Hun',
+          username: 'SamariaHun',
           email: 'shun26@unc.edu',
           password: 'ylDRfv5GZYE',
           passwordConfirmation: 'ylDRfv5GZYE',
           bio: 'accumsan tellus nisi eu orci mauris lacinia sapien quis libero',
           profileImage: 'http://dummyimage.com/177x188.bmp/cc0000/ffffff',
-          Location: 'Tan Sum',
-          Level: 'Mid-Level'
-          // Skills: '{skill: \'Quality Control\'}'
+          location: 'Tan Sum',
+          level: 'Mid-level',
+          skills: { skill: 'Quality Control' }
         },
         {
           name: 'Danell',
-          username: 'Danell Giordano',
+          username: 'DanellGiordano',
           email: 'dgiordano27@google.de',
           password: '5HxH79dFWM',
           passwordConfirmation: '5HxH79dFWM',
           bio: 'nullam porttitor lacus at turpis donec posuere metus vitae ipsum aliquam non mauris',
           profileImage: 'http://dummyimage.com/173x195.jpg/dddddd/000000',
-          Location: 'Osiek',
-          Level: 'Senior'
-          // Skills: '{skill: \'Illustration\'}'
+          location: 'Osiek',
+          level: 'Senior',
+          skills: { skill: 'Illustration' }
         },
         {
           name: 'Zara',
-          username: 'Zara Braney',
+          username: 'ZaraBraney',
           email: 'zbraney28@1und1.de',
           password: 'eAKpbbIFuUV',
           passwordConfirmation: 'eAKpbbIFuUV',
           bio: 'et ultrices posuere cubilia curae nulla dapibus dolor vel est donec odio justo sollicitudin ut',
           profileImage: 'http://dummyimage.com/160x178.png/5fa2dd/ffffff',
-          Location: 'Bassar',
-          Level: 'Junior'
-          // Skills: '{skill: \'Quality Control\'}'
+          location: 'Bassar',
+          level: 'Junior',
+          skills: { skill: 'Quality Control' }
         },
         {
           name: 'Danya',
-          username: 'Danya Brumfield',
+          username: 'DanyaBrumfield',
           email: 'dbrumfield29@admin.ch',
           password: 'yPh38Qrw44J',
           passwordConfirmation: 'yPh38Qrw44J',
           bio: 'lectus pellentesque eget nunc donec quis orci eget orci vehicula condimentum',
           profileImage: 'http://dummyimage.com/122x188.jpg/ff4444/ffffff',
-          Location: 'Pointe-à-Pitre',
-          Level: 'Mid-Level'
-          // Skills: '{skill: \'Quality Control\'}'
+          location: 'Pointe-à-Pitre',
+          level: 'Mid-level',
+          skills: { skill: 'Quality Control' }
         },
         {
           name: 'Theodosia',
-          username: 'Theodosia Bidnall',
+          username: 'TheodosiaBidnall',
           email: 'tbidnall2a@is.gd',
           password: 'szTY9RFc',
           passwordConfirmation: 'szTY9RFc',
           bio: 'vel augue vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae donec pharetra magna',
           profileImage: 'http://dummyimage.com/232x220.jpg/dddddd/000000',
-          Location: 'Jirjā',
-          Level: 'Senior'
-          // Skills: '{skill: \'Quality Control\'}'
+          location: 'Jirjā',
+          level: 'Senior',
+          skills: { skill: 'Quality Control' }
         },
         {
           name: 'Ketty',
-          username: 'Ketty Ramsey',
+          username: 'KettyRamsey',
           email: 'kramsey2b@slashdot.org',
           password: 'EMgjhhU',
           passwordConfirmation: 'EMgjhhU',
           bio: 'quis turpis sed ante vivamus tortor duis mattis egestas metus aenean fermentum donec ut mauris eget massa tempor convallis nulla',
           profileImage: 'http://dummyimage.com/244x131.jpg/dddddd/000000',
-          Location: 'Sarimukti Kaler',
-          Level: 'Senior'
-          // Skills: '{skill: \'JavaScript\'}'
+          location: 'Sarimukti Kaler',
+          level: 'Senior',
+          skills: { skill: 'JavaScript' }
         },
         {
           name: 'Rikki',
-          username: 'Rikki Benoit',
+          username: 'RikkiBenoit',
           email: 'rbenoit2c@yellowbook.com',
           password: '9YqmMVF5Og4',
           passwordConfirmation: '9YqmMVF5Og4',
           bio: 'augue vestibulum rutrum rutrum neque aenean auctor gravida sem praesent',
           profileImage: 'http://dummyimage.com/168x116.bmp/dddddd/000000',
-          Location: 'Uujim',
-          Level: 'Mid-Level'
-          // Skills: '{skill: \'Magazine Design\'}'
+          location: 'Uujim',
+          level: 'Mid-level',
+          skills: { skill: 'Magazine Design' }
         },
         {
           name: 'Shaun',
-          username: 'Shaun Gove',
+          username: 'ShaunGove',
           email: 'sgove2d@nationalgeographic.com',
           password: '1Gis1bGJmci',
           passwordConfirmation: '1Gis1bGJmci',
           bio: 'lorem integer tincidunt ante vel ipsum praesent blandit lacinia erat vestibulum sed magna at',
           profileImage: 'http://dummyimage.com/169x159.bmp/5fa2dd/ffffff',
-          Location: 'Jincheng',
-          Level: 'Senior'
-          // Skills: '{skill: \'JavaScript\'}'
+          location: 'Jincheng',
+          level: 'Senior',
+          skills: { skill: 'JavaScript' }
         },
         {
           name: 'Ina',
-          username: 'Ina Ronnay',
+          username: 'InaRonnay',
           email: 'ironnay2e@storify.com',
           password: '3xw97f1a7MX',
           passwordConfirmation: '3xw97f1a7MX',
           bio: 'odio condimentum id luctus nec molestie sed justo pellentesque viverra pede ac diam cras pellentesque volutpat dui maecenas tristique est',
           profileImage: 'http://dummyimage.com/125x215.jpg/dddddd/000000',
-          Location: 'Leuweheq',
-          Level: 'Mid-Level'
-          // Skills: '{skill: \'Quicktime\'}'
+          location: 'Leuweheq',
+          level: 'Mid-level',
+          skills: { skill: 'Quicktime' }
         },
         {
           name: 'Shannah',
-          username: 'Shannah Moncreiffe',
+          username: 'ShannahMoncreiffe',
           email: 'smoncreiffe2f@google.ca',
           password: 'j76aw2mPgYu',
           passwordConfirmation: 'j76aw2mPgYu',
           bio: 'nulla tempus vivamus in felis eu sapien cursus vestibulum proin eu mi nulla ac enim',
           profileImage: 'http://dummyimage.com/238x207.jpg/5fa2dd/ffffff',
-          Location: 'Sūq al Khamīs',
-          Level: 'Mid-Level'
-          // Skills: '{skill: \'Magazine Design\'}'
+          location: 'Sūq al Khamīs',
+          level: 'Mid-level',
+          skills: { skill: 'Magazine Design' }
         },
         {
           name: 'Cordelie',
-          username: 'Cordelie Balk',
+          username: 'CordelieBalk',
           email: 'cbalk2g@cdbaby.com',
           password: 'E1qYgUN8X',
           passwordConfirmation: 'E1qYgUN8X',
           bio: 'aenean auctor gravida sem praesent id massa id nisl venenatis lacinia aenean sit amet justo morbi ut odio cras',
           profileImage: 'http://dummyimage.com/207x214.png/dddddd/000000',
-          Location: 'Larreynaga',
-          Level: 'Senior'
-          // Skills: '{skill: \'Quality Control\'}'
+          location: 'Larreynaga',
+          level: 'Senior',
+          skills: { skill: 'Quality Control' }
         },
         {
           name: 'Cary',
-          username: 'Cary Stains',
+          username: 'CaryStains',
           email: 'cstains2h@arizona.edu',
           password: 'vWjmjS',
           passwordConfirmation: 'vWjmjS',
           bio: 'erat nulla tempus vivamus in felis eu sapien cursus vestibulum proin eu mi nulla',
           profileImage: 'http://dummyimage.com/193x124.bmp/cc0000/ffffff',
-          Location: 'Galis',
-          Level: 'Mid-Level'
-          // Skills: '{skill: \'Magazine Design\'}'
+          location: 'Galis',
+          level: 'Mid-level',
+          skills: { skill: 'Magazine Design' }
         },
         {
           name: 'Beatriz',
-          username: 'Beatriz Rowlings',
+          username: 'BeatrizRowlings',
           email: 'browlings2i@free.fr',
           password: '5Ym5vh1',
           passwordConfirmation: '5Ym5vh1',
           bio: 'eget semper rutrum nulla nunc purus phasellus in felis donec semper sapien a libero nam dui proin',
           profileImage: 'http://dummyimage.com/187x102.jpg/dddddd/000000',
-          Location: 'Alis',
-          Level: 'Senior'
-          // Skills: '{skill: \'Quality Control\'}'
+          location: 'Alis',
+          level: 'Senior',
+          skills: { skill: 'Quality Control' }
         },
         {
           name: 'Cornelle',
-          username: 'Cornelle Creddon',
+          username: 'CornelleCreddon',
           email: 'ccreddon2j@github.com',
           password: 'CExS996',
           passwordConfirmation: 'CExS996',
           bio: 'nisi eu orci mauris lacinia sapien quis libero nullam sit amet turpis',
           profileImage: 'http://dummyimage.com/220x178.jpg/5fa2dd/ffffff',
-          Location: 'Gontar',
-          Level: 'Senior'
-          // Skills: '{skill: \'Quicktime\'}'
+          location: 'Gontar',
+          level: 'Senior',
+          skills: { skill: 'Quicktime' }
         },
         {
           name: 'Rosemaria',
-          username: 'Rosemaria De Angelis',
+          username: 'Rosemaria DeAngelis',
           email: 'rde2k@xrea.com',
           password: 'XKqoY8',
           passwordConfirmation: 'XKqoY8',
           bio: 'est risus auctor sed tristique in tempus sit amet sem fusce consequat nulla nisl',
           profileImage: 'http://dummyimage.com/105x216.jpg/cc0000/ffffff',
-          Location: 'Ishigaki',
-          Level: 'Senior'
-          // Skills: '{skill: \'Quick Thinking\'}'
+          location: 'Ishigaki',
+          level: 'Senior',
+          skills: { skill: 'Quick Thinking' }
         },
         {
           name: 'Lillian',
-          username: 'Lillian Glentz',
+          username: 'LillianGlentz',
           email: 'lglentz2l@ucoz.ru',
           password: 'WDgg8J9bbqa4',
           passwordConfirmation: 'WDgg8J9bbqa4',
           bio: 'eget semper rutrum nulla nunc purus phasellus in felis donec',
           profileImage: 'http://dummyimage.com/123x146.png/ff4444/ffffff',
-          Location: 'Gogosuket',
-          Level: 'Mid-Level'
-          // Skills: '{skill: \'Quicktime\'}'
+          location: 'Gogosuket',
+          level: 'Mid-level',
+          skills: { skill: 'Quicktime' }
         },
         {
           name: 'Zondra',
-          username: 'Zondra Lammertz',
+          username: 'ZondraLammertz',
           email: 'zlammertz2m@mlb.com',
           password: 'KEvJFWLxO8',
           passwordConfirmation: 'KEvJFWLxO8',
           bio: 'non sodales sed tincidunt eu felis fusce posuere felis sed lacus morbi sem mauris laoreet ut rhoncus',
           profileImage: 'http://dummyimage.com/101x154.jpg/5fa2dd/ffffff',
-          Location: 'Yulin',
-          Level: 'Mid-Level'
-          // Skills: '{skill: \'Magazine Design\'}'
+          location: 'Yulin',
+          level: 'Mid-level',
+          skills: { skill: 'Magazine Design' }
         },
         {
           name: 'Rakel',
-          username: 'Rakel Tedahl',
+          username: 'RakelTedahl',
           email: 'rtedahl2n@wordpress.org',
           password: 'NS3kwhi94Kvd',
           passwordConfirmation: 'NS3kwhi94Kvd',
           bio: 'ultrices vel augue vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae donec pharetra magna vestibulum',
           profileImage: 'http://dummyimage.com/203x167.png/dddddd/000000',
-          Location: 'San Antonio',
-          Level: 'Senior'
-          // Skills: '{skill: \'Illustration\'}'
+          location: 'San Antonio',
+          level: 'Senior',
+          skills: { skill: 'Illustration' }
         },
         {
           name: 'Avis',
-          username: 'Avis Heavy',
+          username: 'AvisHeavy',
           email: 'aheavy2o@unesco.org',
           password: 'Qp66E45q',
           passwordConfirmation: 'Qp66E45q',
           bio: 'diam cras pellentesque volutpat dui maecenas tristique est et tempus semper',
           profileImage: 'http://dummyimage.com/121x181.bmp/cc0000/ffffff',
-          Location: 'Arroyo Salado',
-          Level: 'Senior'
-          // Skills: '{skill: \'Illustration\'}'
+          location: 'Arroyo Salado',
+          level: 'Senior',
+          skills: { skill: 'Illustration' }
         },
         {
           name: 'Heath',
-          username: 'Heath Whitwham',
+          username: 'HeathWhitwham',
           email: 'hwhitwham2p@shop-pro.jp',
           password: '8ue5dmjmg1m',
           passwordConfirmation: '8ue5dmjmg1m',
           bio: 'ac tellus semper interdum mauris ullamcorper purus sit amet nulla quisque arcu libero rutrum ac lobortis vel dapibus at',
           profileImage: 'http://dummyimage.com/114x242.png/cc0000/ffffff',
-          Location: 'Andapa',
-          Level: 'Junior'
-          // Skills: '{skill: \'JavaScript\'}'
+          location: 'Andapa',
+          level: 'Junior',
+          skills: { skill: 'JavaScript' }
         },
         {
           name: 'Lexis',
-          username: 'Lexis Aloshikin',
+          username: 'LexisAloshikin',
           email: 'laloshikin2q@w3.org',
           password: 'w6i0dmUTwy',
           passwordConfirmation: 'w6i0dmUTwy',
           bio: 'porttitor id consequat in consequat ut nulla sed accumsan felis ut at dolor quis odio consequat varius integer ac leo',
           profileImage: 'http://dummyimage.com/128x242.bmp/5fa2dd/ffffff',
-          Location: 'Xushangqiao',
-          Level: 'Senior'
-          // Skills: '{skill: \'Quicktime\'}'
+          location: 'Xushangqiao',
+          level: 'Senior',
+          skills: { skill: 'Quicktime' }
         },
         {
           name: 'Essy',
-          username: 'Essy MacGorley',
+          username: 'EssyMacGorley',
           email: 'emacgorley2r@house.gov',
           password: 'rvo8nm',
           passwordConfirmation: 'rvo8nm',
           bio: 'lorem vitae mattis nibh ligula nec sem duis aliquam convallis nunc proin at turpis a pede posuere nonummy integer non',
           profileImage: 'http://dummyimage.com/201x201.jpg/ff4444/ffffff',
-          Location: 'Llano de Piedra',
-          Level: 'Junior'
-          // Skills: '{skill: \'Quality Control\'}'
+          location: 'Llano de Piedra',
+          level: 'Junior',
+          skills: { skill: 'Quality Control' }
         }
       ])
     })
@@ -1312,7 +1312,7 @@ mongoose.connect(dbURI, { useNewUrlParser: true, useUnifiedTopology: true }, (er
           recruiting: false
         },
         {
-          name: 'Sonair',
+          name: 'Hgfdcsr',
           owner: createdUser[13],
           collaborators: createdUser[13],
           description: 'quis tortor id nulla ultrices aliquet maecenas leo odio condimentum id',
@@ -1502,7 +1502,7 @@ mongoose.connect(dbURI, { useNewUrlParser: true, useUnifiedTopology: true }, (er
           recruiting: true
         },
         {
-          name: 'Toughjoyfax',
+          name: 'HTDGRAFS',
           owner: createdUser[0],
           collaborators: createdUser[0],
           description: 'diam cras pellentesque volutpat dui maecenas tristique est et tempus semper est quam pharetra magna ac consequat',
@@ -1672,7 +1672,7 @@ mongoose.connect(dbURI, { useNewUrlParser: true, useUnifiedTopology: true }, (er
           recruiting: true
         },
         {
-          name: 'Sonair',
+          name: 'HDGFSa',
           owner: createdUser[13],
           collaborators: createdUser[13],
           description: 'vulputate justo in blandit ultrices enim lorem ipsum dolor sit',
