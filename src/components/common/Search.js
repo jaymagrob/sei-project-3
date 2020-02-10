@@ -12,14 +12,14 @@ class Search extends React.Component {
     formData: {
       searchingFor: ''
     },
-    firstFormData: {
+    projectForm: {
       lookingFor: [''],
       skillsInvolved: [''],
       location: '',
-      recruiting: true,
+      recruiting: false,
       name: ''
     },
-    secondFormData: {
+    userForm: {
       name: '',
       username: '',
       level: [''],
@@ -64,44 +64,26 @@ class Search extends React.Component {
   }
 
   // this is handling the change in the first checkbox form (looking for creatives/users)
-  handleChange = ({ target: { name, value, checked, type } }) => {
+  handleChange = ({ target: { name, value, checked, type } },stateType) => {
     const newValue = type === 'checkbox' ? checked : value
-    const formData = { ...this.state.formData, [name]: newValue }
-    this.setState({ formData })
-  }
-
-  // this is handling the change in the second forms checkbox (recruiting/not recruiting)
-  handleChangeFirstForm = ({ target: { name, value, checked, type } }) => {
-    const newValue = type === 'checkbox' ? checked : value
-    const firstFormData = { ...this.state.firstFormData, [name]: newValue }
-    this.setState({ firstFormData })
-  }
-
-  // this is handling the change in the third form checkbox
-  handleChangeSecondForm = ({ target: { name, value, checked, type } }) => {
-    const newValue = type === 'checkbox' ? checked : value
-    const secondFormData = { ...this.state.firstFormData, [name]: newValue }
-    this.setState({ secondFormData })
+    const newData = { ...this.state[stateType], [name]: newValue }
+    this.setState({ [stateType]: newData })
   }
 
   // this is handling the multichange in the first form select 
-  handleMultiChange = (selected) => {
+  handleMultiChange = (selected,formType,formName) => {
     const lookingFor = selected ? selected.map(item => item.value) : []
-    const firstFormData = { ...this.state.firstFormData, lookingFor }
-    this.setState({ firstFormData })
+    const newData = { ...this.state[formType], [formName]: lookingFor }
+    this.setState({ [formType]: newData  })
   }
 
-  // this is handling the multichange in the second form select
-  handleMultiChangeSecondForm = (selected) => {
-    const level = selected ? selected.map(item => item.value) : []
-    const secondFormData = { ...this.state.secondFormData, level }
-    this.setState({ secondFormData })
-  }
+  
 
   render() {
-    const { formData, firstFormData, secondFormData } = this.state
-    console.log(this.state)
+    const { formData, projectForm, userForm } = this.state
+    console.log(this.state.users)
     return (
+  
       <>
         {/* this section is for the search form */}
         {/* this section (formData in state) will show first to check if you're looking for projects or creatives */}
@@ -117,7 +99,7 @@ class Search extends React.Component {
               name="searchingFor"
               type="radio"
               value="projects"
-              onChange={this.handleChange}
+              onChange={(e) => this.handleChange(e,'formData')}
               checked={formData.searchingFor === 'projects'}
             />
             <h4>Creatives</h4>
@@ -125,13 +107,15 @@ class Search extends React.Component {
               name="searchingFor"
               type="radio"
               value="users"
-              onChange={this.handleChange}
+              onChange={(e) => this.handleChange(e,'formData')}
               checked={formData.searchingFor === 'users'}
             />
           </div>
         </section>
 
-        {/* this section (firstFormData in state) will appear only if you select that you're looking for projects */}
+        {/* this section (projectForm in state) will appear only if you select that you're looking for projects */}
+        
+        {this.state.formData.searchingFor === 'projects' && 
         <section>
           <div>
             <h2>PROJECT SEARCH</h2>
@@ -143,7 +127,7 @@ class Search extends React.Component {
           <Select
             options={this.professionOptions}
             isMulti
-            onChange={this.handleMultiChange}
+            onChange={(e) => this.handleMultiChange(e,'projectForm','lookingFor')}
           />
 
           <div>
@@ -152,7 +136,7 @@ class Search extends React.Component {
           <Select
             options={this.skillsOptions}
             isMulti
-            onChange={this.handleMultiChange}
+            onChange={(e) => this.handleMultiChange(e,'projectForm','skillsInvolved')}
           />
 
           <div>
@@ -161,8 +145,8 @@ class Search extends React.Component {
           <input
             className="input"
             name="location"
-            value={firstFormData.location}
-            onChange={this.handleChangeFirstForm}
+            value={projectForm.location}
+            onChange={(e) => this.handleChange(e,'projectForm')}
           />
 
           <div>
@@ -171,8 +155,8 @@ class Search extends React.Component {
           <input
             name="recruiting"
             type="checkbox"
-            onChange={this.handleChangeFirstForm}
-            checked={firstFormData.recruiting}
+            onChange={(e) => this.handleChange(e,'projectForm')}
+            checked={projectForm.recruiting}
           />
 
           <div>
@@ -181,12 +165,16 @@ class Search extends React.Component {
           <input
             className="input"
             name="name"
-            value={firstFormData.name}
-            onChange={this.handleChangeFirstForm}
+            value={projectForm.name}
+            onChange={(e) => this.handleChange(e,'projectForm')}
           />
         </section>
+        }
 
-        {/* this section (secondFormData in state) will appear only if you select that you're looking for creatives */}
+        {/* this section (userForm in state) will appear only if you select that you're looking for creatives */}
+        
+        {this.state.formData.searchingFor === 'users' && 
+        
         <section>
           <div>
             <h2>USER SEARCH</h2>
@@ -198,8 +186,8 @@ class Search extends React.Component {
           <input
             className="input"
             name="name"
-            value={secondFormData.name}
-            onChange={this.handleChangeSecondForm}
+            value={userForm.name}
+            onChange={(e) => this.handleChange(e,'userForm')}
           />
 
           <div>
@@ -208,8 +196,8 @@ class Search extends React.Component {
           <input
             className="input"
             name="username"
-            value={secondFormData.username}
-            onChange={this.handleChangeSecondForm}
+            value={userForm.username}
+            onChange={(e) => this.handleChange(e,'userForm')}
           />
 
           <div>
@@ -218,8 +206,8 @@ class Search extends React.Component {
           <input
             className="input"
             name="location"
-            value={secondFormData.location}
-            onChange={this.handleChangeSecondForm}
+            value={userForm.location}
+            onChange={(e) => this.handleChange(e,'userForm')}
           />
 
           <div>
@@ -228,7 +216,7 @@ class Search extends React.Component {
           <Select
             options={this.levelOptions}
             isMulti
-            onChange={this.handleMultiChangeSecondForm}
+            onChange={(e) => this.handleMultiChange(e,'userForm','level')}
           />
 
           <div>
@@ -237,7 +225,7 @@ class Search extends React.Component {
           <Select
             options={this.professionOptions}
             isMulti
-            onChange={this.handleMultiChangeSecondForm}
+            onChange={(e) => this.handleMultiChange(e,'userForm','professions')}
           />
 
           <div>
@@ -246,16 +234,90 @@ class Search extends React.Component {
           <Select
             options={this.skillsOptions}
             isMulti
-            onChange={this.handleMultiChangeSecondForm}
+            onChange={(e) => this.handleMultiChange(e,'userForm','skills')}
           />
         </section>
+
+        }
 
         {/* this section is for the results */}
         <section>
           <h1>SEARCH RESULTS</h1>
-          <div>
+          
+          {/* This is the project card. It only shows if project is selected or nothing is selected*/}
+          { (!this.state.formData.searchingFor || this.state.formData.searchingFor === 'projects') &&
+          <div>           
+            <>
+            <h2>Projects</h2>
+            {this.state.projects.filter(i => {
+              return (
+                new RegExp(this.state.projectForm.name,'i').test(i.name) &&
+                new RegExp(this.state.projectForm.location,'i').test(i.location) &&
+                (!this.state.projectForm.recruiting || (this.state.projectForm.recruiting === true && i.recruiting === true)) &&
+                (!this.state.projectForm.lookingFor[0] || this.state.projectForm.lookingFor.some(item => i.lookingFor.indexOf(item) >= 0)) &&
+                (!this.state.projectForm.skillsInvolved[0] || this.state.projectForm.skillsInvolved.some(item => i.skillsInvolved.indexOf(item) >= 0))
+              )
+            })                        
+              .map((i,ind) => {
+                return (
+                  <div key={i.name + ind}>
+                    <h3 >{i.name}a</h3>
+                    <img src={i.images[0]} alt={`${i.name} cover image`} />
+                    <h4>{i.owner.name}</h4>
+                    <p>{i.description}</p>
+                    <h4>Skills Involved</h4>
+                    <ul>
+                      {i.skillsInvolved.map(i => '<li>' + i + '</li>')}
+                    </ul>
 
+                  </div>
+                )
+              })}
+
+            </>
           </div>
+          }
+
+
+          {/* This is the user card. It only shows if user is selected or nothing is selected*/}
+          { (!this.state.formData.searchingFor || this.state.formData.searchingFor === 'users') &&
+          <div>           
+            <>
+            <h2>Users</h2>
+            {this.state.users.filter(i => {
+              const skillArray = i.skills.map(item => item.skill)
+              console.log(skillArray)
+              return (                
+                new RegExp(this.state.userForm.name,'i').test(i.name) &&
+                new RegExp(this.state.userForm.location,'i').test(i.location) &&
+                new RegExp(this.state.userForm.username,'i').test(i.username) &&
+                (!this.state.userForm.level[0] || this.state.userForm.level.some(item => i.level.indexOf(item) >= 0)) &&
+                (!this.state.userForm.professions[0] || this.state.userForm.professions.some(item => i.professions.indexOf(item) >= 0)) &&
+                (!this.state.userForm.skills[0] || this.state.userForm.skills.some(item => skillArray.indexOf(item) >= 0))
+              )
+            })
+              .map(i => {
+                return (
+                  
+                  <div key={i.username}>
+                    <h3 >{i.name}a</h3>
+                    <img src={i.profileImage} alt={`${i.name} cover image`} />
+                    <h4>{i.location}</h4>
+                    <h4>{i.level}</h4>
+                    <h4>Skills Involved</h4>
+                    <ul>
+                      {i.skills.map(i => {
+                        return <li key={i._id}>{i.skill}</li>
+                      })}
+                    </ul>
+
+                  </div>
+                )
+              })}
+
+            </>
+          </div>
+          }
         </section>
       </>
     )
