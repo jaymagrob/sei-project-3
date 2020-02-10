@@ -14,7 +14,10 @@ function create(req, res) {
   req.body.collaborators = [req.body.owner]
   Project
     .create(req.body)
-    .then(createdProject => res.status(202).json(createdProject)) 
+    .then(createdProject => {
+      console.log(createdProject)
+      return res.status(202).json(createdProject)
+    }) 
     .catch(err => res.status(400).json(err))
 }
 
@@ -22,6 +25,7 @@ function show(req, res) {
   Project
     .findById(req.params.id)
     .populate('owner')
+    .populate('collaborators')
     .populate('pendingCollaborators')
     .populate('comments.user')
     .then(project => {
