@@ -125,19 +125,16 @@ function acceptPendingProject(req, res) {
     .findOne({ username: req.params.username })
     .populate('pendingProjects.project')
     .then(user => {
+      if (!user) return res.status(404).json({ message: 'Not Found ' })
       const pendingProject = user.pendingProjects.find(pendingProject => pendingProject.project._id.toString() === req.params.projectId.toString())
-      console.log(pendingProject)
       if (user._id.toString() === req.currentUser._id.toString()) {
-        console.log('the user is accepting')
         pendingProject.user = true
       } else if (req.currentUser._id.toString() === pendingProject.project.owner.toString()) {
-        console.log('the owner is acceptin')
         pendingProject.owner = true
       } else {
         return res.status(401).json({ message: 'Unauthorized' })
       }
       if (pendingProject.owner === true && pendingProject.user === true) {
-        console.log(pendingProject.project.collaborators)
         pendingProject.project.collaborators.push(user)
         pendingProject.remove()
         pendingProject.project.save()
