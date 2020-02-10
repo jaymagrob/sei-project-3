@@ -82,16 +82,8 @@ const UserForm = ({ data, handleChange, handleSubmit, handleMultiChange }) => {
             <Select
               options={professionOptions}
               isMulti
-              onChange={handleMultiChange}
-            />
-          </div>
-        </div>
-        <div>
-          <label>Level</label>
-          <div>
-            <Select
-              options={levelOptions}
-              isMulti
+              name="professions"
+              value={professionOptions.filter(profession => data.professions.includes(profession.value))}
               onChange={handleMultiChange}
             />
           </div>
@@ -102,10 +94,36 @@ const UserForm = ({ data, handleChange, handleSubmit, handleMultiChange }) => {
             <Select
               options={skillsOptions}
               isMulti
+              name="skills"
+              value={skillsOptions.filter(skill => data.skills.includes(skill.value))}
               onChange={handleMultiChange}
             />
           </div>
         </div>
+        {/* <div>
+          <label>Level</label>
+          <div>
+            <Select
+              options={levelOptions}
+              isMulti
+              name="level"
+              value={levelOptions.filter(l => data.level.includes(l.value))}
+              onChange={handleMultiChange}
+            />
+          </div>
+        </div> */}
+        {/* <div>
+          <label>Skills</label>
+          <div>
+            <Select
+              options={skillsOptions}
+              isMulti
+              name="skills"
+              value={skillsOptions.filter(skill => data.skills.includes(skill.value))}
+              onChange={handleMultiChange}
+            />
+          </div>
+        </div> */}
         <div>
           <button type="submit">Submit</button>
         </div>
