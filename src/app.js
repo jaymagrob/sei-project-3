@@ -4,6 +4,7 @@ import { BrowserRouter, Switch, Route, Link } from 'react-router-dom'
 import './styles/main.scss'
 
 import Home from './components/common/Home'
+import Navbar from './components/common/Navbar'
 import Discovery from './components/common/Discovery'
 import Search from './components/common/Search'
 import ProjectShow from './components/projects/ProjectShow'
@@ -14,20 +15,17 @@ import UserEdit from './components/users/UserEdit'
 // import UserMessages from './components/users/UserMessages'
 import Register from './components/auth/Register'
 import Login from './components/auth/Login'
-import NotFound from './components/common/NotFound' 
+import NotFound from './components/common/NotFound'
 import MyPortfolio from './components/common/MyPortfolio'
+// import Auth from '../../lib/auth'
+
+
 
 const App = () => (
+
   <BrowserRouter>
     <main>
-      <nav>
-        <Link to="/">HOME</Link>
-        <Link to="/register">REGISTER</Link>
-        <Link to="/login">LOGIN</Link>
-        <Link to="/myportfolio">MY PORTFOLIO</Link>
-        <Link to="/discovery">DISCOVER</Link>
-        <Link to="/search">START YOUR JOURNEY</Link>
-      </nav>
+      <Navbar />
       <Switch>
         <Route exact path="/" component={Home} />
         <Route path="/discovery" component={Discovery} />
