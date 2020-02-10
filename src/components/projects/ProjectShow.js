@@ -25,7 +25,6 @@ class ProjectShow extends React.Component {
   userSearch = async () => {
     try {
       const res = await axios.get('/api/users')
-      // console.log(res.data)
       this.setState({ users: res.data })
     } catch (err) {
       console.log(err)
@@ -53,7 +52,6 @@ class ProjectShow extends React.Component {
         user: Auth.getPayload().sub
       }
       try {
-        console.log(collabObject)
         const res = await axios.post('/api/users/collaborate', collabObject, {
           headers: { Authorization: `Bearer ${Auth.getToken()}` }
         })
@@ -62,24 +60,35 @@ class ProjectShow extends React.Component {
         console.log(err)
       }
     } else {
-      // const collabObject = {
-      //   project: {
-      //     project: this.state.project._id,
-      //     owner: true,
-      //     user: false
-      //   },
-      //   owner: this.state.project.owner._id,
-      //   user: false // NEEDS TO BE CHANGED
-      // }
-      console.log('works?')
       this.userSearch()
+    }
+  }
+
+  handleAddCollaboratorTwo = async (e) => {
+    if (this.state.project.owner._id === Auth.getPayload().sub) {
+      const collabObject = {
+        project: {
+          project: this.state.project._id,
+          owner: true,
+          user: false
+        },
+        owner: this.state.project.owner._id,
+        user: e.target.getAttribute('name')
+      }
+      try {
+        const res = await axios.post('/api/users/collaborate', collabObject, {
+          headers: { Authorization: `Bearer ${Auth.getToken()}` }
+        })
+        console.log(res)
+      } catch (err) {
+        console.log(err)
+      }
     }
   }
 
   render() {
     const { project } = this.state
     if (!project._id) return null
-    console.log(this.state.searchedUsers)
 
     return (
       <section>
@@ -134,9 +143,13 @@ class ProjectShow extends React.Component {
           {this.state.searchedUsers && 
           this.state.searchedUsers.map(user => {
             return (
-              <div key={user._id}>
-                <div style={{ background: `url(${user.profileImage})` }}></div>
-                <h2>{user.name}</h2>
+              <div 
+                onClick={this.handleAddCollaboratorTwo}
+                key={user._id}
+                name={user._id}
+              >
+                <div style={{ background: `url(${user.profileImage})`, pointerEvents: 'none' }}></div>
+                <h2 style={{ pointerEvents: 'none' }}>{user.name}</h2>
               </div>
             )
           })
