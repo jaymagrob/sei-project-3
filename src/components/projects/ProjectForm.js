@@ -1,9 +1,10 @@
 import React from 'react'
 import Select from 'react-select'
+import ImageUpload from '../common/ImageUpload'
 
 import { skills, professions } from '../../../config/environment'
 
-const ProjectForm = ({ handleChange, handleSubmit, data, handleMultiChange }) => {
+const ProjectForm = ({ handleChange, handleSubmit, data, handleMultiChange, handleChangeImage }) => {
 
   const skillsOptions =
     skills.map(item => {
@@ -30,7 +31,7 @@ const ProjectForm = ({ handleChange, handleSubmit, data, handleMultiChange }) =>
         >
           <div>
             <label>Name</label>
-            <input 
+            <input
               onChange={handleChange}
               required
               name="name"
@@ -38,8 +39,19 @@ const ProjectForm = ({ handleChange, handleSubmit, data, handleMultiChange }) =>
             />
           </div>
           <div>
+            <label>Upload Project Image</label>
+            <ImageUpload
+              labelText="Upload an image to show off your project!"
+              onChange={handleChange}
+              required
+              name="images"
+              handleChangeImage={handleChangeImage}
+              fieldName="images"
+            />
+          </div>
+          <div>
             <label>Description</label>
-            <textarea 
+            <textarea
               onChange={handleChange}
               required
               name="description"
@@ -48,7 +60,7 @@ const ProjectForm = ({ handleChange, handleSubmit, data, handleMultiChange }) =>
           </div>
           <div>
             <label>Location</label>
-            <input 
+            <input
               onChange={handleChange}
               name="location"
               value={data.location}
@@ -56,7 +68,7 @@ const ProjectForm = ({ handleChange, handleSubmit, data, handleMultiChange }) =>
           </div>
           <div>
             <label>Completed?</label>
-            <input 
+            <input
               type="checkbox"
               onChange={handleChange}
               name="completed"
@@ -65,7 +77,7 @@ const ProjectForm = ({ handleChange, handleSubmit, data, handleMultiChange }) =>
           </div>
           <div>
             <label>Looking for Help?</label>
-            <input 
+            <input
               type="checkbox"
               onChange={handleChange}
               name="recuiting"
@@ -73,21 +85,21 @@ const ProjectForm = ({ handleChange, handleSubmit, data, handleMultiChange }) =>
             />
           </div>
           {data.recuiting &&
-        <div>
-          <label>Looking for...</label>
-          <Select
-            options={professionOptions}
-            isMulti
-            name="lookingFor"
-            value={professionOptions.filter(skill => data.lookingFor.includes(skill.value))}
-            onChange={handleMultiChange}
-          />
-          {/* <input 
+            <div>
+              <label>Looking for...</label>
+              <Select
+                options={professionOptions}
+                isMulti
+                name="lookingFor"
+                value={professionOptions.filter(skill => data.lookingFor.includes(skill.value))}
+                onChange={handleMultiChange}
+              />
+              {/* <input 
             onChange={handleChange}
             name="lookingFor"
             value={data.lookingFor}
           /> */}
-        </div>
+            </div>
           }
           <div>
             <label>Skills</label>
