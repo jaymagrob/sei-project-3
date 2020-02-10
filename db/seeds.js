@@ -17,8 +17,8 @@ mongoose.connect(dbURI, { useNewUrlParser: true, useUnifiedTopology: true }, (er
           bio: 'This is a bio for john and this is a test. More information to come',
           profileImage: 'https://www.fillmurray.com/g/200/200',
           location: 'Glasgow',
-          level: 'Junior'
-          // skills: ['Illustration']
+          level: 'Junior',
+          skills: { skill: 'JavaScript' }
         },
         {
           username: 'abi',
@@ -29,8 +29,8 @@ mongoose.connect(dbURI, { useNewUrlParser: true, useUnifiedTopology: true }, (er
           bio: 'This is a bio for abi and this is a test. More information to come',
           profileImage: 'https://placebear.com/200/200',
           location: 'London',
-          level: 'Mid-Level'
-          // skills: ['Illustration']
+          level: 'Mid-Level',
+          skills: { skill: 'JavaScript' }
         },
         {
           username: 'jos',
@@ -41,8 +41,8 @@ mongoose.connect(dbURI, { useNewUrlParser: true, useUnifiedTopology: true }, (er
           bio: 'This is a bio for jos and this is a test. More information to come',
           profileImage: 'http://placekitten.com/g/200/200',
           location: 'Kent',
-          level: 'Junior'
-          // skills: []
+          level: 'Junior',
+          skills: { skill: 'JavaScript' }
         },
         {
           username: 'nic',
@@ -53,8 +53,8 @@ mongoose.connect(dbURI, { useNewUrlParser: true, useUnifiedTopology: true }, (er
           bio: 'This is a bio for nic and this is a test. More information to come',
           profileImage: 'https://www.stevensegallery.com/200/200',
           location: 'Northern Ireland',
-          level: 'Senior'
-          // skills: ['Illustration']
+          level: 'Senior',
+          skills: { skill: 'JavaScript' }
         },
         {
           name: 'Olympie',
@@ -65,8 +65,8 @@ mongoose.connect(dbURI, { useNewUrlParser: true, useUnifiedTopology: true }, (er
           bio: 'vitae mattis nibh ligula nec sem duis aliquam convallis nunc proin at turpis a pede posuere nonummy integer non velit',
           profileImage: 'http://dummyimage.com/218x249.png/cc0000/ffffff',
           Location: 'Bābolsar',
-          Level: 'Senior'
-          // Skills: '{skill: \'JavaScript\'}'
+          Level: 'Senior',
+          Skills: { skill: 'JavaScript' }
         },
         {
           name: 'Adelheid',
@@ -77,8 +77,8 @@ mongoose.connect(dbURI, { useNewUrlParser: true, useUnifiedTopology: true }, (er
           bio: 'at nunc commodo placerat praesent blandit nam nulla integer pede justo lacinia eget tincidunt eget tempus vel pede',
           profileImage: 'http://dummyimage.com/195x176.bmp/cc0000/ffffff',
           Location: 'Langpas',
-          Level: 'Mid-Level'
-          // Skills: '{skill: \'Quicktime\'}'
+          Level: 'Mid-Level',
+          Skills: { skill: 'Quicktime' }
         },
         {
           name: 'Perle',
@@ -89,8 +89,8 @@ mongoose.connect(dbURI, { useNewUrlParser: true, useUnifiedTopology: true }, (er
           bio: 'tincidunt lacus at velit vivamus vel nulla eget eros elementum',
           profileImage: 'http://dummyimage.com/154x145.png/dddddd/000000',
           Location: 'Wenheng',
-          Level: 'Senior'
-          // Skills: '{skill: \'Quick Thinking\'}'
+          Level: 'Senior',
+          Skills: { skill: 'Quick Thinking' }
         },
         {
           name: 'Leanora',
@@ -101,8 +101,8 @@ mongoose.connect(dbURI, { useNewUrlParser: true, useUnifiedTopology: true }, (er
           bio: 'semper sapien a libero nam dui proin leo odio porttitor id consequat in consequat ut nulla sed accumsan felis',
           profileImage: 'http://dummyimage.com/119x239.png/5fa2dd/ffffff',
           Location: 'Jaro',
-          Level: 'Junior'
-          // Skills: '{skill: \'Magazine Design\'}'
+          Level: 'Junior',
+          Skills: { skill: 'Magazine Design' }
         },
         {
           name: 'Sally',
@@ -113,8 +113,8 @@ mongoose.connect(dbURI, { useNewUrlParser: true, useUnifiedTopology: true }, (er
           bio: 'felis ut at dolor quis odio consequat varius integer ac',
           profileImage: 'http://dummyimage.com/208x133.jpg/dddddd/000000',
           Location: 'Pontian',
-          Level: 'Junior'
-          // Skills: '{skill: \'JavaScript\'}'
+          Level: 'Junior',
+          Skills: { skill: 'JavaScript' }
         },
         {
           name: 'Serena',
@@ -125,8 +125,8 @@ mongoose.connect(dbURI, { useNewUrlParser: true, useUnifiedTopology: true }, (er
           bio: 'porttitor lacus at turpis donec posuere metus vitae ipsum aliquam non mauris morbi non lectus aliquam sit amet diam',
           profileImage: 'http://dummyimage.com/231x161.jpg/dddddd/000000',
           Location: 'Danghara',
-          Level: 'Mid-Level'
-          // Skills: '{skill: \'Illustration\'}'
+          Level: 'Mid-Level',
+          Skills: { skill: 'Illustration' }
         },
         {
           name: 'Adelice',
@@ -137,8 +137,8 @@ mongoose.connect(dbURI, { useNewUrlParser: true, useUnifiedTopology: true }, (er
           bio: 'luctus rutrum nulla tellus in sagittis dui vel nisl duis',
           profileImage: 'http://dummyimage.com/243x197.bmp/ff4444/ffffff',
           Location: 'Dazhongzhuang',
-          Level: 'Mid-Level'
-          // Skills: '{skill: \'Quicktime\'}'
+          Level: 'Mid-Level',
+          Skills: { skill: 'Quicktime' }
         },
         {
           name: 'Dori',
@@ -149,8 +149,8 @@ mongoose.connect(dbURI, { useNewUrlParser: true, useUnifiedTopology: true }, (er
           bio: 'sapien placerat ante nulla justo aliquam quis turpis eget elit sodales scelerisque mauris sit',
           profileImage: 'http://dummyimage.com/115x239.bmp/cc0000/ffffff',
           Location: 'Panoongan',
-          Level: 'Mid-Level'
-          // Skills: '{skill: \'Quick Thinking\'}'
+          Level: 'Mid-Level',
+          Skills: { skill: 'Quick Thinking' }
         },
         {
           name: 'Bernete',
@@ -161,8 +161,8 @@ mongoose.connect(dbURI, { useNewUrlParser: true, useUnifiedTopology: true }, (er
           bio: 'odio condimentum id luctus nec molestie sed justo pellentesque viverra',
           profileImage: 'http://dummyimage.com/192x131.png/5fa2dd/ffffff',
           Location: 'Piła',
-          Level: 'Mid-Level'
-          // Skills: '{skill: \'Magazine Design\'}'
+          Level: 'Mid-Level',
+          Skills: { skill: 'Magazine Design' }
         },
         {
           name: 'Gladys',
@@ -173,8 +173,8 @@ mongoose.connect(dbURI, { useNewUrlParser: true, useUnifiedTopology: true }, (er
           bio: 'nulla suscipit ligula in lacus curabitur at ipsum ac tellus semper interdum mauris',
           profileImage: 'http://dummyimage.com/242x138.png/5fa2dd/ffffff',
           Location: 'Chicago',
-          Level: 'Junior'
-          // Skills: '{skill: \'Quick Thinking\'}'
+          Level: 'Junior',
+          Skills: { skill: 'Quick Thinking' }
         },
         {
           name: 'Joella',
@@ -185,8 +185,8 @@ mongoose.connect(dbURI, { useNewUrlParser: true, useUnifiedTopology: true }, (er
           bio: 'sem fusce consequat nulla nisl nunc nisl duis bibendum felis sed interdum venenatis turpis',
           profileImage: 'http://dummyimage.com/103x177.jpg/5fa2dd/ffffff',
           Location: 'Placencia',
-          Level: 'Mid-Level'
-          // Skills: '{skill: \'Magazine Design\'}'
+          Level: 'Mid-Level',
+          Skills: { skill: 'Magazine Design' }
         },
         {
           name: 'Benny',
@@ -197,8 +197,8 @@ mongoose.connect(dbURI, { useNewUrlParser: true, useUnifiedTopology: true }, (er
           bio: 'sapien quis libero nullam sit amet turpis elementum ligula vehicula consequat morbi',
           profileImage: 'http://dummyimage.com/105x167.png/5fa2dd/ffffff',
           Location: 'Paris 02',
-          Level: 'Mid-Level'
-          // Skills: '{skill: \'Quicktime\'}'
+          Level: 'Mid-Level',
+          Skills: { skill: 'Quicktime' }
         },
         {
           name: 'Hally',
@@ -209,8 +209,8 @@ mongoose.connect(dbURI, { useNewUrlParser: true, useUnifiedTopology: true }, (er
           bio: 'aenean lectus pellentesque eget nunc donec quis orci eget orci vehicula condimentum curabitur in',
           profileImage: 'http://dummyimage.com/216x134.png/cc0000/ffffff',
           Location: 'Cavaillon',
-          Level: 'Mid-Level'
-          // Skills: '{skill: \'Magazine Design\'}'
+          Level: 'Mid-Level',
+          Skills: { skill: 'Magazine Design' }
         },
         {
           name: 'Alanah',
@@ -221,8 +221,8 @@ mongoose.connect(dbURI, { useNewUrlParser: true, useUnifiedTopology: true }, (er
           bio: 'erat curabitur gravida nisi at nibh in hac habitasse platea dictumst aliquam augue',
           profileImage: 'http://dummyimage.com/137x186.png/5fa2dd/ffffff',
           Location: 'Dallas',
-          Level: 'Senior'
-          // Skills: '{skill: \'JavaScript\'}'
+          Level: 'Senior',
+          Skills: { skill: 'JavaScript' }
         },
         {
           name: 'Rica',
@@ -233,8 +233,8 @@ mongoose.connect(dbURI, { useNewUrlParser: true, useUnifiedTopology: true }, (er
           bio: 'platea dictumst maecenas ut massa quis augue luctus tincidunt nulla mollis molestie lorem quisque ut erat',
           profileImage: 'http://dummyimage.com/200x235.png/cc0000/ffffff',
           Location: 'Saint-Brieuc',
-          Level: 'Senior'
-          // Skills: '{skill: \'Magazine Design\'}'
+          Level: 'Senior',
+          Skills: { skill: 'Magazine Design' }
         },
         {
           name: 'Kaile',
@@ -245,8 +245,8 @@ mongoose.connect(dbURI, { useNewUrlParser: true, useUnifiedTopology: true }, (er
           bio: 'ligula in lacus curabitur at ipsum ac tellus semper interdum mauris ullamcorper purus sit amet nulla quisque arcu libero rutrum',
           profileImage: 'http://dummyimage.com/194x174.jpg/ff4444/ffffff',
           Location: 'Alcanena',
-          Level: 'Junior'
-          // Skills: '{skill: \'Illustration\'}'
+          Level: 'Junior',
+          Skills: { skill: 'Illustration' }
         },
         {
           name: 'Linnea',
@@ -257,8 +257,8 @@ mongoose.connect(dbURI, { useNewUrlParser: true, useUnifiedTopology: true }, (er
           bio: 'praesent id massa id nisl venenatis lacinia aenean sit amet',
           profileImage: 'http://dummyimage.com/226x157.png/dddddd/000000',
           Location: 'Suzhou',
-          Level: 'Junior'
-          // Skills: '{skill: \'Quick Thinking\'}'
+          Level: 'Junior',
+          Skills: { skill: 'Quick Thinking' }
         },
         {
           name: 'Monah',
@@ -269,8 +269,8 @@ mongoose.connect(dbURI, { useNewUrlParser: true, useUnifiedTopology: true }, (er
           bio: 'eget orci vehicula condimentum curabitur in libero ut massa volutpat convallis morbi odio odio',
           profileImage: 'http://dummyimage.com/245x166.bmp/5fa2dd/ffffff',
           Location: 'Jejkowice',
-          Level: 'Mid-Level'
-          // Skills: '{skill: \'Quicktime\'}'
+          Level: 'Mid-Level',
+          Skills: { skill: 'Quicktime' }
         },
         {
           name: 'Nicoline',
@@ -281,8 +281,8 @@ mongoose.connect(dbURI, { useNewUrlParser: true, useUnifiedTopology: true }, (er
           bio: 'nam ultrices libero non mattis pulvinar nulla pede ullamcorper augue a suscipit nulla elit ac nulla sed vel',
           profileImage: 'http://dummyimage.com/223x117.jpg/cc0000/ffffff',
           Location: 'Mayapusi',
-          Level: 'Junior'
-          // Skills: '{skill: \'Quicktime\'}'
+          Level: 'Junior',
+          Skills: { skill: 'Quicktime' }
         },
         {
           name: 'Eran',
@@ -293,8 +293,8 @@ mongoose.connect(dbURI, { useNewUrlParser: true, useUnifiedTopology: true }, (er
           bio: 'imperdiet sapien urna pretium nisl ut volutpat sapien arcu sed',
           profileImage: 'http://dummyimage.com/148x125.bmp/cc0000/ffffff',
           Location: 'Ibirataia',
-          Level: 'Senior'
-          // Skills: '{skill: \'JavaScript\'}'
+          Level: 'Senior',
+          Skills: { skill: 'JavaScript' }
         },
         {
           name: 'Ralina',
@@ -305,8 +305,8 @@ mongoose.connect(dbURI, { useNewUrlParser: true, useUnifiedTopology: true }, (er
           bio: 'ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae donec pharetra magna vestibulum aliquet',
           profileImage: 'http://dummyimage.com/229x204.jpg/cc0000/ffffff',
           Location: 'Lýkeio',
-          Level: 'Junior'
-          // Skills: '{skill: \'Quick Thinking\'}'
+          Level: 'Junior',
+          Skills: { skill: 'Quick Thinking' }
         },
         {
           name: 'Jessie',
@@ -317,8 +317,8 @@ mongoose.connect(dbURI, { useNewUrlParser: true, useUnifiedTopology: true }, (er
           bio: 'sem sed sagittis nam congue risus semper porta volutpat quam pede lobortis',
           profileImage: 'http://dummyimage.com/102x214.png/5fa2dd/ffffff',
           Location: 'Bungoma',
-          Level: 'Mid-Level'
-          // Skills: '{skill: \'Magazine Design\'}'
+          Level: 'Mid-Level',
+          Skills: { skill: 'Magazine Design' }
         },
         {
           name: 'Winny',
@@ -329,8 +329,8 @@ mongoose.connect(dbURI, { useNewUrlParser: true, useUnifiedTopology: true }, (er
           bio: 'et ultrices posuere cubilia curae nulla dapibus dolor vel est donec odio justo sollicitudin ut suscipit a feugiat et',
           profileImage: 'http://dummyimage.com/213x205.jpg/5fa2dd/ffffff',
           Location: 'Ladoeiro',
-          Level: 'Junior'
-          // Skills: '{skill: \'Quick Thinking\'}'
+          Level: 'Junior',
+          Skills: { skill: 'Quick Thinking' }
         },
         {
           name: 'Brenn',
@@ -341,8 +341,8 @@ mongoose.connect(dbURI, { useNewUrlParser: true, useUnifiedTopology: true }, (er
           bio: 'congue etiam justo etiam pretium iaculis justo in hac habitasse platea dictumst etiam faucibus',
           profileImage: 'http://dummyimage.com/163x237.bmp/dddddd/000000',
           Location: 'Onueke',
-          Level: 'Junior'
-          // Skills: '{skill: \'Illustration\'}'
+          Level: 'Junior',
+          Skills: { skill: 'Illustration' }
         },
         {
           name: 'Codi',
@@ -353,8 +353,8 @@ mongoose.connect(dbURI, { useNewUrlParser: true, useUnifiedTopology: true }, (er
           bio: 'risus semper porta volutpat quam pede lobortis ligula sit amet eleifend pede libero quis orci nullam',
           profileImage: 'http://dummyimage.com/162x210.bmp/cc0000/ffffff',
           Location: 'Gaozhai',
-          Level: 'Senior'
-          // Skills: '{skill: \'JavaScript\'}'
+          Level: 'Senior',
+          Skills: { skill: 'JavaScript' }
         },
         {
           name: 'Imogen',
@@ -365,8 +365,8 @@ mongoose.connect(dbURI, { useNewUrlParser: true, useUnifiedTopology: true }, (er
           bio: 'fusce congue diam id ornare imperdiet sapien urna pretium nisl ut volutpat',
           profileImage: 'http://dummyimage.com/154x223.jpg/5fa2dd/ffffff',
           Location: 'Stavanger',
-          Level: 'Mid-Level'
-          // Skills: '{skill: \'Quick Thinking\'}'
+          Level: 'Mid-Level',
+          Skills: { skill: 'Quick Thinking' }
         },
         {
           name: 'Neely',
@@ -377,8 +377,8 @@ mongoose.connect(dbURI, { useNewUrlParser: true, useUnifiedTopology: true }, (er
           bio: 'pharetra magna ac consequat metus sapien ut nunc vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia',
           profileImage: 'http://dummyimage.com/172x156.jpg/dddddd/000000',
           Location: 'Broby',
-          Level: 'Mid-Level'
-          // Skills: '{skill: \'Illustration\'}'
+          Level: 'Mid-Level',
+          Skills: { skill: 'Illustration' }
         },
         {
           name: 'Petronille',
@@ -389,8 +389,8 @@ mongoose.connect(dbURI, { useNewUrlParser: true, useUnifiedTopology: true }, (er
           bio: 'elit proin risus praesent lectus vestibulum quam sapien varius ut blandit non interdum in ante vestibulum ante ipsum primis in',
           profileImage: 'http://dummyimage.com/158x199.bmp/cc0000/ffffff',
           Location: 'Orong',
-          Level: 'Junior'
-          // Skills: '{skill: \'Quick Thinking\'}'
+          Level: 'Junior',
+          Skills: { skill: 'Quick Thinking' }
         },
         {
           name: 'Renie',
@@ -401,8 +401,8 @@ mongoose.connect(dbURI, { useNewUrlParser: true, useUnifiedTopology: true }, (er
           bio: 'in blandit ultrices enim lorem ipsum dolor sit amet consectetuer adipiscing elit',
           profileImage: 'http://dummyimage.com/100x116.bmp/dddddd/000000',
           Location: 'Jeberos',
-          Level: 'Junior'
-          // Skills: '{skill: \'Quality Control\'}'
+          Level: 'Junior',
+          Skills: { skill: 'Quality Control' }
         },
         {
           name: 'Darsey',
@@ -413,8 +413,8 @@ mongoose.connect(dbURI, { useNewUrlParser: true, useUnifiedTopology: true }, (er
           bio: 'pretium iaculis diam erat fermentum justo nec condimentum neque sapien placerat ante nulla justo aliquam quis turpis eget elit sodales',
           profileImage: 'http://dummyimage.com/137x228.png/cc0000/ffffff',
           Location: 'Uścimów Stary',
-          Level: 'Junior'
-          // Skills: '{skill: \'Quicktime\'}'
+          Level: 'Junior',
+          Skills: { skill: 'Quicktime' }
         },
         {
           name: 'Michal',
@@ -425,8 +425,8 @@ mongoose.connect(dbURI, { useNewUrlParser: true, useUnifiedTopology: true }, (er
           bio: 'id turpis integer aliquet massa id lobortis convallis tortor risus dapibus augue vel accumsan tellus nisi eu',
           profileImage: 'http://dummyimage.com/160x146.bmp/5fa2dd/ffffff',
           Location: 'Xinsheng',
-          Level: 'Junior'
-          // Skills: '{skill: \'Magazine Design\'}'
+          Level: 'Junior',
+          Skills: { skill: 'Magazine Design' }
         },
         {
           name: 'Lissi',
@@ -437,8 +437,8 @@ mongoose.connect(dbURI, { useNewUrlParser: true, useUnifiedTopology: true }, (er
           bio: 'interdum venenatis turpis enim blandit mi in porttitor pede justo eu massa donec dapibus',
           profileImage: 'http://dummyimage.com/246x137.bmp/cc0000/ffffff',
           Location: 'Zhengguo',
-          Level: 'Mid-Level'
-          // Skills: '{skill: \'Magazine Design\'}'
+          Level: 'Mid-Level',
+          Skills: { skill: 'Magazine Design' }
         },
         {
           name: 'Valencia',
@@ -449,8 +449,8 @@ mongoose.connect(dbURI, { useNewUrlParser: true, useUnifiedTopology: true }, (er
           bio: 'morbi ut odio cras mi pede malesuada in imperdiet et commodo vulputate',
           profileImage: 'http://dummyimage.com/137x175.jpg/dddddd/000000',
           Location: 'Jangkungkusumo',
-          Level: 'Mid-Level'
-          // Skills: '{skill: \'Illustration\'}'
+          Level: 'Mid-Level',
+          Skills: { skill: 'Illustration' }
         },
         {
           name: 'Horatia',
@@ -461,8 +461,8 @@ mongoose.connect(dbURI, { useNewUrlParser: true, useUnifiedTopology: true }, (er
           bio: 'erat curabitur gravida nisi at nibh in hac habitasse platea dictumst aliquam augue quam sollicitudin',
           profileImage: 'http://dummyimage.com/101x175.bmp/5fa2dd/ffffff',
           Location: 'Pergan',
-          Level: 'Mid-Level'
-          // Skills: '{skill: \'Illustration\'}'
+          Level: 'Mid-Level',
+          Skills: { skill: 'Illustration' }
         },
         {
           name: 'Meridith',
@@ -473,8 +473,8 @@ mongoose.connect(dbURI, { useNewUrlParser: true, useUnifiedTopology: true }, (er
           bio: 'dictumst aliquam augue quam sollicitudin vitae consectetuer eget rutrum at lorem',
           profileImage: 'http://dummyimage.com/119x122.png/dddddd/000000',
           Location: 'Cungapmimbo',
-          Level: 'Junior'
-          // Skills: '{skill: \'Quicktime\'}'
+          Level: 'Junior',
+          Skills: { skill: 'Quicktime' }
         },
         {
           name: 'Vale',
@@ -485,8 +485,8 @@ mongoose.connect(dbURI, { useNewUrlParser: true, useUnifiedTopology: true }, (er
           bio: 'nisl nunc nisl duis bibendum felis sed interdum venenatis turpis enim blandit mi in porttitor pede justo eu massa',
           profileImage: 'http://dummyimage.com/114x115.jpg/cc0000/ffffff',
           Location: 'Brooklyn',
-          Level: 'Junior'
-          // Skills: '{skill: \'Illustration\'}'
+          Level: 'Junior',
+          Skills: { skill: 'Illustration' }
         },
         {
           name: 'Joly',
@@ -497,8 +497,8 @@ mongoose.connect(dbURI, { useNewUrlParser: true, useUnifiedTopology: true }, (er
           bio: 'rutrum at lorem integer tincidunt ante vel ipsum praesent blandit lacinia',
           profileImage: 'http://dummyimage.com/138x234.png/5fa2dd/ffffff',
           Location: 'Pedreira',
-          Level: 'Mid-Level'
-          // Skills: '{skill: \'Quality Control\'}'
+          Level: 'Mid-Level',
+          Skills: { skill: 'Quality Control' }
         },
         {
           name: 'Rozanna',
@@ -509,8 +509,8 @@ mongoose.connect(dbURI, { useNewUrlParser: true, useUnifiedTopology: true }, (er
           bio: 'mus etiam vel augue vestibulum rutrum rutrum neque aenean auctor',
           profileImage: 'http://dummyimage.com/188x221.bmp/ff4444/ffffff',
           Location: 'Pingshan',
-          Level: 'Junior'
-          // Skills: '{skill: \'Quicktime\'}'
+          Level: 'Junior',
+          Skills: { skill: 'Quicktime' }
         },
         {
           name: 'Maurine',
@@ -521,8 +521,8 @@ mongoose.connect(dbURI, { useNewUrlParser: true, useUnifiedTopology: true }, (er
           bio: 'gravida sem praesent id massa id nisl venenatis lacinia aenean sit',
           profileImage: 'http://dummyimage.com/211x190.png/ff4444/ffffff',
           Location: 'Riangbaring',
-          Level: 'Junior'
-          // Skills: '{skill: \'Quicktime\'}'
+          Level: 'Junior',
+          Skills: { skill: 'Quicktime' }
         },
         {
           name: 'Starla',
@@ -533,8 +533,8 @@ mongoose.connect(dbURI, { useNewUrlParser: true, useUnifiedTopology: true }, (er
           bio: 'fermentum donec ut mauris eget massa tempor convallis nulla neque libero convallis eget eleifend luctus ultricies eu nibh quisque id',
           profileImage: 'http://dummyimage.com/121x109.jpg/ff4444/ffffff',
           Location: 'Sarmīn',
-          Level: 'Junior'
-          // Skills: '{skill: \'Magazine Design\'}'
+          Level: 'Junior',
+          Skills: { skill: 'Magazine Design' }
         },
         {
           name: 'Charmaine',
@@ -545,8 +545,8 @@ mongoose.connect(dbURI, { useNewUrlParser: true, useUnifiedTopology: true }, (er
           bio: 'ligula vehicula consequat morbi a ipsum integer a nibh in quis justo maecenas rhoncus aliquam',
           profileImage: 'http://dummyimage.com/136x166.png/cc0000/ffffff',
           Location: 'Huangcai',
-          Level: 'Mid-Level'
-          // Skills: '{skill: \'Illustration\'}'
+          Level: 'Mid-Level',
+          Skills: { skill: 'Illustration' }
         },
         {
           name: 'Sonya',
@@ -557,8 +557,8 @@ mongoose.connect(dbURI, { useNewUrlParser: true, useUnifiedTopology: true }, (er
           bio: 'curae mauris viverra diam vitae quam suspendisse potenti nullam porttitor lacus',
           profileImage: 'http://dummyimage.com/238x177.png/cc0000/ffffff',
           Location: 'Arcos',
-          Level: 'Junior'
-          // Skills: '{skill: \'Illustration\'}'
+          Level: 'Junior',
+          Skills: { skill: 'Illustration' }
         },
         {
           name: 'Klarrisa',
@@ -569,8 +569,8 @@ mongoose.connect(dbURI, { useNewUrlParser: true, useUnifiedTopology: true }, (er
           bio: 'est lacinia nisi venenatis tristique fusce congue diam id ornare imperdiet sapien urna pretium nisl ut',
           profileImage: 'http://dummyimage.com/108x187.bmp/ff4444/ffffff',
           Location: 'Potoru',
-          Level: 'Mid-Level'
-          // Skills: '{skill: \'Quality Control\'}'
+          Level: 'Mid-Level',
+          Skills: { skill: 'Quality Control' }
         },
         {
           name: 'Corrine',
@@ -581,8 +581,8 @@ mongoose.connect(dbURI, { useNewUrlParser: true, useUnifiedTopology: true }, (er
           bio: 'donec semper sapien a libero nam dui proin leo odio porttitor id consequat in consequat ut',
           profileImage: 'http://dummyimage.com/116x230.bmp/ff4444/ffffff',
           Location: 'Huxu',
-          Level: 'Junior'
-          // Skills: '{skill: \'Quality Control\'}'
+          Level: 'Junior',
+          Skills: { skill: 'Quality Control' }
         },
         {
           name: 'Willie',
@@ -593,8 +593,8 @@ mongoose.connect(dbURI, { useNewUrlParser: true, useUnifiedTopology: true }, (er
           bio: 'at nibh in hac habitasse platea dictumst aliquam augue quam sollicitudin',
           profileImage: 'http://dummyimage.com/182x125.png/cc0000/ffffff',
           Location: 'Guluoshan',
-          Level: 'Senior'
-          // Skills: '{skill: \'JavaScript\'}'
+          Level: 'Senior',
+          Skills: { skill: 'JavaScript' }
         },
         {
           name: 'Stephi',
@@ -605,8 +605,8 @@ mongoose.connect(dbURI, { useNewUrlParser: true, useUnifiedTopology: true }, (er
           bio: 'nulla ut erat id mauris vulputate elementum nullam varius nulla facilisi cras non velit nec nisi vulputate nonummy maecenas',
           profileImage: 'http://dummyimage.com/139x237.bmp/dddddd/000000',
           Location: 'Tiền Hải',
-          Level: 'Senior'
-          // Skills: '{skill: \'Quality Control\'}'
+          Level: 'Senior',
+          Skills: { skill: 'Quality Control' }
         },
         {
           name: 'Keri',
@@ -617,8 +617,8 @@ mongoose.connect(dbURI, { useNewUrlParser: true, useUnifiedTopology: true }, (er
           bio: 'posuere cubilia curae mauris viverra diam vitae quam suspendisse potenti nullam porttitor lacus at turpis donec posuere metus vitae ipsum',
           profileImage: 'http://dummyimage.com/130x230.bmp/dddddd/000000',
           Location: 'Calinog',
-          Level: 'Senior'
-          // Skills: '{skill: \'JavaScript\'}'
+          Level: 'Senior',
+          Skills: { skill: 'JavaScript' }
         },
         {
           name: 'Salomi',
@@ -629,8 +629,8 @@ mongoose.connect(dbURI, { useNewUrlParser: true, useUnifiedTopology: true }, (er
           bio: 'mus vivamus vestibulum sagittis sapien cum sociis natoque penatibus et magnis dis parturient montes nascetur ridiculus mus etiam',
           profileImage: 'http://dummyimage.com/118x222.png/ff4444/ffffff',
           Location: 'General Alvear',
-          Level: 'Junior'
-          // Skills: '{skill: \'JavaScript\'}'
+          Level: 'Junior',
+          Skills: { skill: 'JavaScript' }
         },
         {
           name: 'Ibby',
@@ -641,8 +641,8 @@ mongoose.connect(dbURI, { useNewUrlParser: true, useUnifiedTopology: true }, (er
           bio: 'at feugiat non pretium quis lectus suspendisse potenti in eleifend quam a odio in hac habitasse',
           profileImage: 'http://dummyimage.com/222x206.jpg/ff4444/ffffff',
           Location: 'Belogorskīy',
-          Level: 'Junior'
-          // Skills: '{skill: \'JavaScript\'}'
+          Level: 'Junior',
+          Skills: { skill: 'JavaScript' }
         },
         {
           name: 'Adan',
@@ -653,8 +653,8 @@ mongoose.connect(dbURI, { useNewUrlParser: true, useUnifiedTopology: true }, (er
           bio: 'nonummy maecenas tincidunt lacus at velit vivamus vel nulla eget eros elementum',
           profileImage: 'http://dummyimage.com/213x199.jpg/dddddd/000000',
           Location: 'Gómfoi',
-          Level: 'Senior'
-          // Skills: '{skill: \'Quick Thinking\'}'
+          Level: 'Senior',
+          Skills: { skill: 'Quick Thinking' }
         },
         {
           name: 'Evie',
@@ -665,8 +665,8 @@ mongoose.connect(dbURI, { useNewUrlParser: true, useUnifiedTopology: true }, (er
           bio: 'lobortis sapien sapien non mi integer ac neque duis bibendum morbi non quam nec',
           profileImage: 'http://dummyimage.com/203x107.png/cc0000/ffffff',
           Location: 'Hernández',
-          Level: 'Junior'
-          // Skills: '{skill: \'JavaScript\'}'
+          Level: 'Junior',
+          Skills: { skill: 'JavaScript' }
         },
         {
           name: 'Emelda',
@@ -677,8 +677,8 @@ mongoose.connect(dbURI, { useNewUrlParser: true, useUnifiedTopology: true }, (er
           bio: 'pellentesque quisque porta volutpat erat quisque erat eros viverra eget congue eget semper rutrum nulla nunc purus phasellus in',
           profileImage: 'http://dummyimage.com/222x182.png/ff4444/ffffff',
           Location: 'Budakovo',
-          Level: 'Senior'
-          // Skills: '{skill: \'Quicktime\'}'
+          Level: 'Senior',
+          Skills: { skill: 'Quicktime' }
         },
         {
           name: 'Raphaela',
@@ -689,8 +689,8 @@ mongoose.connect(dbURI, { useNewUrlParser: true, useUnifiedTopology: true }, (er
           bio: 'ornare imperdiet sapien urna pretium nisl ut volutpat sapien arcu',
           profileImage: 'http://dummyimage.com/149x164.jpg/5fa2dd/ffffff',
           Location: 'Regente Feijó',
-          Level: 'Mid-Level'
-          // Skills: '{skill: \'Quality Control\'}'
+          Level: 'Mid-Level',
+          Skills: { skill: 'Quality Control' }
         },
         {
           name: 'Reggi',
@@ -701,8 +701,8 @@ mongoose.connect(dbURI, { useNewUrlParser: true, useUnifiedTopology: true }, (er
           bio: 'morbi ut odio cras mi pede malesuada in imperdiet et commodo vulputate justo in blandit ultrices enim lorem',
           profileImage: 'http://dummyimage.com/178x191.jpg/dddddd/000000',
           Location: 'Jietou',
-          Level: 'Mid-Level'
-          // Skills: '{skill: \'Illustration\'}'
+          Level: 'Mid-Level',
+          Skills: { skill: 'Illustration' }
         },
         {
           name: 'Dulci',
@@ -713,8 +713,8 @@ mongoose.connect(dbURI, { useNewUrlParser: true, useUnifiedTopology: true }, (er
           bio: 'nibh ligula nec sem duis aliquam convallis nunc proin at turpis a pede posuere nonummy integer non velit donec diam',
           profileImage: 'http://dummyimage.com/180x104.jpg/cc0000/ffffff',
           Location: 'Kentongan',
-          Level: 'Mid-Level'
-          // Skills: '{skill: \'Magazine Design\'}'
+          Level: 'Mid-Level',
+          Skills: { skill: 'Magazine Design' }
         },
         {
           name: 'Carey',
@@ -725,8 +725,8 @@ mongoose.connect(dbURI, { useNewUrlParser: true, useUnifiedTopology: true }, (er
           bio: 'aliquam quis turpis eget elit sodales scelerisque mauris sit amet eros suspendisse accumsan tortor quis',
           profileImage: 'http://dummyimage.com/127x197.jpg/5fa2dd/ffffff',
           Location: 'Puerto Padre',
-          Level: 'Junior'
-          // Skills: '{skill: \'Quicktime\'}'
+          Level: 'Junior',
+          Skills: { skill: 'Quicktime' }
         },
         {
           name: 'Emelyne',
@@ -737,8 +737,8 @@ mongoose.connect(dbURI, { useNewUrlParser: true, useUnifiedTopology: true }, (er
           bio: 'aliquam non mauris morbi non lectus aliquam sit amet diam in magna bibendum imperdiet nullam orci pede',
           profileImage: 'http://dummyimage.com/120x147.bmp/dddddd/000000',
           Location: 'Skutskär',
-          Level: 'Mid-Level'
-          // Skills: '{skill: \'Illustration\'}'
+          Level: 'Mid-Level',
+          Skills: { skill: 'Illustration' }
         },
         {
           name: 'Darcey',
@@ -749,8 +749,8 @@ mongoose.connect(dbURI, { useNewUrlParser: true, useUnifiedTopology: true }, (er
           bio: 'interdum venenatis turpis enim blandit mi in porttitor pede justo eu massa',
           profileImage: 'http://dummyimage.com/155x183.png/5fa2dd/ffffff',
           Location: 'Katabu',
-          Level: 'Junior'
-          // Skills: '{skill: \'Quicktime\'}'
+          Level: 'Junior',
+          Skills: { skill: 'Quicktime' }
         },
         {
           name: 'Catherin',
@@ -761,8 +761,8 @@ mongoose.connect(dbURI, { useNewUrlParser: true, useUnifiedTopology: true }, (er
           bio: 'eu tincidunt in leo maecenas pulvinar lobortis est phasellus sit amet erat nulla tempus vivamus in felis eu sapien cursus',
           profileImage: 'http://dummyimage.com/205x233.png/ff4444/ffffff',
           Location: 'La Curva',
-          Level: 'Junior'
-          // Skills: '{skill: \'Quick Thinking\'}'
+          Level: 'Junior',
+          Skills: { skill: 'Quick Thinking' }
         },
         {
           name: 'Flossy',
@@ -773,8 +773,8 @@ mongoose.connect(dbURI, { useNewUrlParser: true, useUnifiedTopology: true }, (er
           bio: 'eu magna vulputate luctus cum sociis natoque penatibus et magnis dis parturient montes nascetur ridiculus mus vivamus vestibulum sagittis',
           profileImage: 'http://dummyimage.com/218x205.bmp/ff4444/ffffff',
           Location: 'Washington',
-          Level: 'Junior'
-          // Skills: '{skill: \'JavaScript\'}'
+          Level: 'Junior',
+          Skills: { skill: 'JavaScript' }
         },
         {
           name: 'Reba',
@@ -785,8 +785,8 @@ mongoose.connect(dbURI, { useNewUrlParser: true, useUnifiedTopology: true }, (er
           bio: 'erat volutpat in congue etiam justo etiam pretium iaculis justo in hac habitasse platea dictumst etiam faucibus cursus urna',
           profileImage: 'http://dummyimage.com/144x108.png/5fa2dd/ffffff',
           Location: 'Musawa',
-          Level: 'Junior'
-          // Skills: '{skill: \'Illustration\'}'
+          Level: 'Junior',
+          Skills: { skill: 'Illustration' }
         },
         {
           name: 'Jacenta',
@@ -797,8 +797,8 @@ mongoose.connect(dbURI, { useNewUrlParser: true, useUnifiedTopology: true }, (er
           bio: 'nibh in lectus pellentesque at nulla suspendisse potenti cras in purus eu magna vulputate luctus cum sociis natoque penatibus et',
           profileImage: 'http://dummyimage.com/180x237.jpg/5fa2dd/ffffff',
           Location: 'Santa Maria',
-          Level: 'Junior'
-          // Skills: '{skill: \'JavaScript\'}'
+          Level: 'Junior',
+          Skills: { skill: 'JavaScript' }
         },
         {
           name: 'Carmel',
@@ -809,8 +809,8 @@ mongoose.connect(dbURI, { useNewUrlParser: true, useUnifiedTopology: true }, (er
           bio: 'amet consectetuer adipiscing elit proin risus praesent lectus vestibulum quam sapien varius',
           profileImage: 'http://dummyimage.com/235x218.bmp/5fa2dd/ffffff',
           Location: 'Jinchuan',
-          Level: 'Mid-Level'
-          // Skills: '{skill: \'Quality Control\'}'
+          Level: 'Mid-Level',
+          Skills: { skill: 'Quality Control' }
         },
         {
           name: 'Dorelia',
@@ -821,8 +821,8 @@ mongoose.connect(dbURI, { useNewUrlParser: true, useUnifiedTopology: true }, (er
           bio: 'vel accumsan tellus nisi eu orci mauris lacinia sapien quis libero nullam',
           profileImage: 'http://dummyimage.com/160x155.jpg/ff4444/ffffff',
           Location: 'Samut Sakhon',
-          Level: 'Junior'
-          // Skills: '{skill: \'Quality Control\'}'
+          Level: 'Junior',
+          Skills: { skill: 'Quality Control' }
         },
         {
           name: 'Doralin',
@@ -833,8 +833,8 @@ mongoose.connect(dbURI, { useNewUrlParser: true, useUnifiedTopology: true }, (er
           bio: 'natoque penatibus et magnis dis parturient montes nascetur ridiculus mus etiam vel augue vestibulum rutrum rutrum neque aenean',
           profileImage: 'http://dummyimage.com/230x115.jpg/cc0000/ffffff',
           Location: 'Hengxi',
-          Level: 'Senior'
-          // Skills: '{skill: \'Quality Control\'}'
+          Level: 'Senior',
+          Skills: { skill: 'Quality Control' }
         },
         {
           name: 'Ethel',
@@ -845,8 +845,8 @@ mongoose.connect(dbURI, { useNewUrlParser: true, useUnifiedTopology: true }, (er
           bio: 'sollicitudin mi sit amet lobortis sapien sapien non mi integer ac neque duis bibendum',
           profileImage: 'http://dummyimage.com/118x139.png/5fa2dd/ffffff',
           Location: 'Przemyśl',
-          Level: 'Senior'
-          // Skills: '{skill: \'Quicktime\'}'
+          Level: 'Senior',
+          Skills: { skill: 'Quicktime' }
         },
         {
           name: 'Lucretia',
@@ -857,8 +857,8 @@ mongoose.connect(dbURI, { useNewUrlParser: true, useUnifiedTopology: true }, (er
           bio: 'neque vestibulum eget vulputate ut ultrices vel augue vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere',
           profileImage: 'http://dummyimage.com/186x195.bmp/dddddd/000000',
           Location: 'Danchang',
-          Level: 'Senior'
-          // Skills: '{skill: \'Quick Thinking\'}'
+          Level: 'Senior',
+          Skills: { skill: 'Quick Thinking' }
         },
         {
           name: 'Britt',
@@ -869,8 +869,8 @@ mongoose.connect(dbURI, { useNewUrlParser: true, useUnifiedTopology: true }, (er
           bio: 'nullam molestie nibh in lectus pellentesque at nulla suspendisse potenti cras in purus eu magna vulputate luctus cum sociis natoque',
           profileImage: 'http://dummyimage.com/247x185.jpg/ff4444/ffffff',
           Location: 'Hejiaping',
-          Level: 'Mid-Level'
-          // Skills: '{skill: \'JavaScript\'}'
+          Level: 'Mid-Level',
+          Skills: { skill: 'JavaScript' }
         },
         {
           name: 'Concettina',
@@ -881,8 +881,8 @@ mongoose.connect(dbURI, { useNewUrlParser: true, useUnifiedTopology: true }, (er
           bio: 'pellentesque volutpat dui maecenas tristique est et tempus semper est quam pharetra magna',
           profileImage: 'http://dummyimage.com/162x223.jpg/cc0000/ffffff',
           Location: 'Adir',
-          Level: 'Mid-Level'
-          // Skills: '{skill: \'JavaScript\'}'
+          Level: 'Mid-Level',
+          Skills: { skill: 'JavaScript' }
         },
         {
           name: 'Gay',
@@ -893,8 +893,8 @@ mongoose.connect(dbURI, { useNewUrlParser: true, useUnifiedTopology: true }, (er
           bio: 'adipiscing elit proin interdum mauris non ligula pellentesque ultrices phasellus id sapien in sapien iaculis',
           profileImage: 'http://dummyimage.com/130x137.jpg/dddddd/000000',
           Location: 'Pando',
-          Level: 'Senior'
-          // Skills: '{skill: \'Quicktime\'}'
+          Level: 'Senior',
+          Skills: { skill: 'Quicktime' }
         },
         {
           name: 'Lee',
@@ -905,8 +905,8 @@ mongoose.connect(dbURI, { useNewUrlParser: true, useUnifiedTopology: true }, (er
           bio: 'nam ultrices libero non mattis pulvinar nulla pede ullamcorper augue a suscipit nulla elit ac nulla',
           profileImage: 'http://dummyimage.com/246x114.bmp/ff4444/ffffff',
           Location: 'Paoay',
-          Level: 'Mid-Level'
-          // Skills: '{skill: \'Quality Control\'}'
+          Level: 'Mid-Level',
+          Skills: { skill: 'Quality Control' }
         },
         {
           name: 'Muriel',
@@ -917,8 +917,8 @@ mongoose.connect(dbURI, { useNewUrlParser: true, useUnifiedTopology: true }, (er
           bio: 'vulputate ut ultrices vel augue vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae donec pharetra',
           profileImage: 'http://dummyimage.com/212x138.jpg/5fa2dd/ffffff',
           Location: 'Baihe',
-          Level: 'Senior'
-          // Skills: '{skill: \'Quicktime\'}'
+          Level: 'Senior',
+          Skills: { skill: 'Quicktime' }
         },
         {
           name: 'Lynne',
@@ -929,8 +929,8 @@ mongoose.connect(dbURI, { useNewUrlParser: true, useUnifiedTopology: true }, (er
           bio: 'aliquam sit amet diam in magna bibendum imperdiet nullam orci pede',
           profileImage: 'http://dummyimage.com/108x152.bmp/dddddd/000000',
           Location: 'Sokol’skoye',
-          Level: 'Mid-Level'
-          // Skills: '{skill: \'Quality Control\'}'
+          Level: 'Mid-Level',
+          Skills: { skill: 'Quality Control' }
         },
         {
           name: 'Pansie',
@@ -941,8 +941,8 @@ mongoose.connect(dbURI, { useNewUrlParser: true, useUnifiedTopology: true }, (er
           bio: 'cursus vestibulum proin eu mi nulla ac enim in tempor turpis nec euismod scelerisque quam turpis adipiscing lorem',
           profileImage: 'http://dummyimage.com/145x154.png/5fa2dd/ffffff',
           Location: 'Margahayu',
-          Level: 'Junior'
-          // Skills: '{skill: \'Quality Control\'}'
+          Level: 'Junior',
+          Skills: { skill: 'Quality Control' }
         },
         {
           name: 'Misha',
@@ -953,8 +953,8 @@ mongoose.connect(dbURI, { useNewUrlParser: true, useUnifiedTopology: true }, (er
           bio: 'non mi integer ac neque duis bibendum morbi non quam nec dui luctus rutrum nulla tellus in',
           profileImage: 'http://dummyimage.com/237x157.png/cc0000/ffffff',
           Location: 'Lyon',
-          Level: 'Junior'
-          // Skills: '{skill: \'Magazine Design\'}'
+          Level: 'Junior',
+          Skills: { skill: 'Magazine Design' }
         },
         {
           name: 'Haley',
@@ -965,8 +965,8 @@ mongoose.connect(dbURI, { useNewUrlParser: true, useUnifiedTopology: true }, (er
           bio: 'pellentesque eget nunc donec quis orci eget orci vehicula condimentum curabitur in libero ut massa volutpat convallis morbi odio',
           profileImage: 'http://dummyimage.com/213x199.png/dddddd/000000',
           Location: 'Qianzhou',
-          Level: 'Senior'
-          // Skills: '{skill: \'Magazine Design\'}'
+          Level: 'Senior',
+          Skills: { skill: 'Magazine Design' }
         },
         {
           name: 'Shannah',
@@ -977,8 +977,8 @@ mongoose.connect(dbURI, { useNewUrlParser: true, useUnifiedTopology: true }, (er
           bio: 'magnis dis parturient montes nascetur ridiculus mus etiam vel augue vestibulum rutrum rutrum neque aenean auctor gravida sem praesent id',
           profileImage: 'http://dummyimage.com/213x239.bmp/5fa2dd/ffffff',
           Location: 'Tamandaré',
-          Level: 'Mid-Level'
-          // Skills: '{skill: \'Magazine Design\'}'
+          Level: 'Mid-Level',
+          Skills: { skill: 'Magazine Design' }
         },
         {
           name: 'Hanna',
@@ -989,8 +989,8 @@ mongoose.connect(dbURI, { useNewUrlParser: true, useUnifiedTopology: true }, (er
           bio: 'porta volutpat quam pede lobortis ligula sit amet eleifend pede libero quis orci nullam molestie nibh in lectus pellentesque at',
           profileImage: 'http://dummyimage.com/103x250.png/cc0000/ffffff',
           Location: 'San Vicente',
-          Level: 'Senior'
-          // Skills: '{skill: \'JavaScript\'}'
+          Level: 'Senior',
+          Skills: { skill: 'JavaScript' }
         },
         {
           name: 'Samaria',
@@ -1001,8 +1001,8 @@ mongoose.connect(dbURI, { useNewUrlParser: true, useUnifiedTopology: true }, (er
           bio: 'accumsan tellus nisi eu orci mauris lacinia sapien quis libero',
           profileImage: 'http://dummyimage.com/177x188.bmp/cc0000/ffffff',
           Location: 'Tan Sum',
-          Level: 'Mid-Level'
-          // Skills: '{skill: \'Quality Control\'}'
+          Level: 'Mid-Level',
+          Skills: { skill: 'Quality Control' }
         },
         {
           name: 'Danell',
@@ -1013,8 +1013,8 @@ mongoose.connect(dbURI, { useNewUrlParser: true, useUnifiedTopology: true }, (er
           bio: 'nullam porttitor lacus at turpis donec posuere metus vitae ipsum aliquam non mauris',
           profileImage: 'http://dummyimage.com/173x195.jpg/dddddd/000000',
           Location: 'Osiek',
-          Level: 'Senior'
-          // Skills: '{skill: \'Illustration\'}'
+          Level: 'Senior',
+          Skills: { skill: 'Illustration' }
         },
         {
           name: 'Zara',
@@ -1025,8 +1025,8 @@ mongoose.connect(dbURI, { useNewUrlParser: true, useUnifiedTopology: true }, (er
           bio: 'et ultrices posuere cubilia curae nulla dapibus dolor vel est donec odio justo sollicitudin ut',
           profileImage: 'http://dummyimage.com/160x178.png/5fa2dd/ffffff',
           Location: 'Bassar',
-          Level: 'Junior'
-          // Skills: '{skill: \'Quality Control\'}'
+          Level: 'Junior',
+          Skills: { skill: 'Quality Control' }
         },
         {
           name: 'Danya',
@@ -1037,8 +1037,8 @@ mongoose.connect(dbURI, { useNewUrlParser: true, useUnifiedTopology: true }, (er
           bio: 'lectus pellentesque eget nunc donec quis orci eget orci vehicula condimentum',
           profileImage: 'http://dummyimage.com/122x188.jpg/ff4444/ffffff',
           Location: 'Pointe-à-Pitre',
-          Level: 'Mid-Level'
-          // Skills: '{skill: \'Quality Control\'}'
+          Level: 'Mid-Level',
+          Skills: { skill: 'Quality Control' }
         },
         {
           name: 'Theodosia',
@@ -1049,8 +1049,8 @@ mongoose.connect(dbURI, { useNewUrlParser: true, useUnifiedTopology: true }, (er
           bio: 'vel augue vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae donec pharetra magna',
           profileImage: 'http://dummyimage.com/232x220.jpg/dddddd/000000',
           Location: 'Jirjā',
-          Level: 'Senior'
-          // Skills: '{skill: \'Quality Control\'}'
+          Level: 'Senior',
+          Skills: { skill: 'Quality Control' }
         },
         {
           name: 'Ketty',
@@ -1061,8 +1061,8 @@ mongoose.connect(dbURI, { useNewUrlParser: true, useUnifiedTopology: true }, (er
           bio: 'quis turpis sed ante vivamus tortor duis mattis egestas metus aenean fermentum donec ut mauris eget massa tempor convallis nulla',
           profileImage: 'http://dummyimage.com/244x131.jpg/dddddd/000000',
           Location: 'Sarimukti Kaler',
-          Level: 'Senior'
-          // Skills: '{skill: \'JavaScript\'}'
+          Level: 'Senior',
+          Skills: { skill: 'JavaScript' }
         },
         {
           name: 'Rikki',
@@ -1073,8 +1073,8 @@ mongoose.connect(dbURI, { useNewUrlParser: true, useUnifiedTopology: true }, (er
           bio: 'augue vestibulum rutrum rutrum neque aenean auctor gravida sem praesent',
           profileImage: 'http://dummyimage.com/168x116.bmp/dddddd/000000',
           Location: 'Uujim',
-          Level: 'Mid-Level'
-          // Skills: '{skill: \'Magazine Design\'}'
+          Level: 'Mid-Level',
+          Skills: { skill: 'Magazine Design' }
         },
         {
           name: 'Shaun',
@@ -1085,8 +1085,8 @@ mongoose.connect(dbURI, { useNewUrlParser: true, useUnifiedTopology: true }, (er
           bio: 'lorem integer tincidunt ante vel ipsum praesent blandit lacinia erat vestibulum sed magna at',
           profileImage: 'http://dummyimage.com/169x159.bmp/5fa2dd/ffffff',
           Location: 'Jincheng',
-          Level: 'Senior'
-          // Skills: '{skill: \'JavaScript\'}'
+          Level: 'Senior',
+          Skills: { skill: 'JavaScript' }
         },
         {
           name: 'Ina',
@@ -1097,8 +1097,8 @@ mongoose.connect(dbURI, { useNewUrlParser: true, useUnifiedTopology: true }, (er
           bio: 'odio condimentum id luctus nec molestie sed justo pellentesque viverra pede ac diam cras pellentesque volutpat dui maecenas tristique est',
           profileImage: 'http://dummyimage.com/125x215.jpg/dddddd/000000',
           Location: 'Leuweheq',
-          Level: 'Mid-Level'
-          // Skills: '{skill: \'Quicktime\'}'
+          Level: 'Mid-Level',
+          Skills: { skill: 'Quicktime' }
         },
         {
           name: 'Shannah',
@@ -1109,8 +1109,8 @@ mongoose.connect(dbURI, { useNewUrlParser: true, useUnifiedTopology: true }, (er
           bio: 'nulla tempus vivamus in felis eu sapien cursus vestibulum proin eu mi nulla ac enim',
           profileImage: 'http://dummyimage.com/238x207.jpg/5fa2dd/ffffff',
           Location: 'Sūq al Khamīs',
-          Level: 'Mid-Level'
-          // Skills: '{skill: \'Magazine Design\'}'
+          Level: 'Mid-Level',
+          Skills: { skill: 'Magazine Design' }
         },
         {
           name: 'Cordelie',
@@ -1121,8 +1121,8 @@ mongoose.connect(dbURI, { useNewUrlParser: true, useUnifiedTopology: true }, (er
           bio: 'aenean auctor gravida sem praesent id massa id nisl venenatis lacinia aenean sit amet justo morbi ut odio cras',
           profileImage: 'http://dummyimage.com/207x214.png/dddddd/000000',
           Location: 'Larreynaga',
-          Level: 'Senior'
-          // Skills: '{skill: \'Quality Control\'}'
+          Level: 'Senior',
+          Skills: { skill: 'Quality Control' }
         },
         {
           name: 'Cary',
@@ -1133,8 +1133,8 @@ mongoose.connect(dbURI, { useNewUrlParser: true, useUnifiedTopology: true }, (er
           bio: 'erat nulla tempus vivamus in felis eu sapien cursus vestibulum proin eu mi nulla',
           profileImage: 'http://dummyimage.com/193x124.bmp/cc0000/ffffff',
           Location: 'Galis',
-          Level: 'Mid-Level'
-          // Skills: '{skill: \'Magazine Design\'}'
+          Level: 'Mid-Level',
+          Skills: { skill: 'Magazine Design' }
         },
         {
           name: 'Beatriz',
@@ -1145,8 +1145,8 @@ mongoose.connect(dbURI, { useNewUrlParser: true, useUnifiedTopology: true }, (er
           bio: 'eget semper rutrum nulla nunc purus phasellus in felis donec semper sapien a libero nam dui proin',
           profileImage: 'http://dummyimage.com/187x102.jpg/dddddd/000000',
           Location: 'Alis',
-          Level: 'Senior'
-          // Skills: '{skill: \'Quality Control\'}'
+          Level: 'Senior',
+          Skills: { skill: 'Quality Control' }
         },
         {
           name: 'Cornelle',
@@ -1157,8 +1157,8 @@ mongoose.connect(dbURI, { useNewUrlParser: true, useUnifiedTopology: true }, (er
           bio: 'nisi eu orci mauris lacinia sapien quis libero nullam sit amet turpis',
           profileImage: 'http://dummyimage.com/220x178.jpg/5fa2dd/ffffff',
           Location: 'Gontar',
-          Level: 'Senior'
-          // Skills: '{skill: \'Quicktime\'}'
+          Level: 'Senior',
+          Skills: { skill: 'Quicktime' }
         },
         {
           name: 'Rosemaria',
@@ -1169,8 +1169,8 @@ mongoose.connect(dbURI, { useNewUrlParser: true, useUnifiedTopology: true }, (er
           bio: 'est risus auctor sed tristique in tempus sit amet sem fusce consequat nulla nisl',
           profileImage: 'http://dummyimage.com/105x216.jpg/cc0000/ffffff',
           Location: 'Ishigaki',
-          Level: 'Senior'
-          // Skills: '{skill: \'Quick Thinking\'}'
+          Level: 'Senior',
+          Skills: { skill: 'Quick Thinking' }
         },
         {
           name: 'Lillian',
@@ -1181,8 +1181,8 @@ mongoose.connect(dbURI, { useNewUrlParser: true, useUnifiedTopology: true }, (er
           bio: 'eget semper rutrum nulla nunc purus phasellus in felis donec',
           profileImage: 'http://dummyimage.com/123x146.png/ff4444/ffffff',
           Location: 'Gogosuket',
-          Level: 'Mid-Level'
-          // Skills: '{skill: \'Quicktime\'}'
+          Level: 'Mid-Level',
+          Skills: { skill: 'Quicktime' }
         },
         {
           name: 'Zondra',
@@ -1193,8 +1193,8 @@ mongoose.connect(dbURI, { useNewUrlParser: true, useUnifiedTopology: true }, (er
           bio: 'non sodales sed tincidunt eu felis fusce posuere felis sed lacus morbi sem mauris laoreet ut rhoncus',
           profileImage: 'http://dummyimage.com/101x154.jpg/5fa2dd/ffffff',
           Location: 'Yulin',
-          Level: 'Mid-Level'
-          // Skills: '{skill: \'Magazine Design\'}'
+          Level: 'Mid-Level',
+          Skills: { skill: 'Magazine Design' }
         },
         {
           name: 'Rakel',
@@ -1205,8 +1205,8 @@ mongoose.connect(dbURI, { useNewUrlParser: true, useUnifiedTopology: true }, (er
           bio: 'ultrices vel augue vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae donec pharetra magna vestibulum',
           profileImage: 'http://dummyimage.com/203x167.png/dddddd/000000',
           Location: 'San Antonio',
-          Level: 'Senior'
-          // Skills: '{skill: \'Illustration\'}'
+          Level: 'Senior',
+          Skills: { skill: 'Illustration' }
         },
         {
           name: 'Avis',
@@ -1217,8 +1217,8 @@ mongoose.connect(dbURI, { useNewUrlParser: true, useUnifiedTopology: true }, (er
           bio: 'diam cras pellentesque volutpat dui maecenas tristique est et tempus semper',
           profileImage: 'http://dummyimage.com/121x181.bmp/cc0000/ffffff',
           Location: 'Arroyo Salado',
-          Level: 'Senior'
-          // Skills: '{skill: \'Illustration\'}'
+          Level: 'Senior',
+          Skills: { skill: 'Illustration' }
         },
         {
           name: 'Heath',
@@ -1229,8 +1229,8 @@ mongoose.connect(dbURI, { useNewUrlParser: true, useUnifiedTopology: true }, (er
           bio: 'ac tellus semper interdum mauris ullamcorper purus sit amet nulla quisque arcu libero rutrum ac lobortis vel dapibus at',
           profileImage: 'http://dummyimage.com/114x242.png/cc0000/ffffff',
           Location: 'Andapa',
-          Level: 'Junior'
-          // Skills: '{skill: \'JavaScript\'}'
+          Level: 'Junior',
+          Skills: { skill: 'JavaScript' }
         },
         {
           name: 'Lexis',
@@ -1241,8 +1241,8 @@ mongoose.connect(dbURI, { useNewUrlParser: true, useUnifiedTopology: true }, (er
           bio: 'porttitor id consequat in consequat ut nulla sed accumsan felis ut at dolor quis odio consequat varius integer ac leo',
           profileImage: 'http://dummyimage.com/128x242.bmp/5fa2dd/ffffff',
           Location: 'Xushangqiao',
-          Level: 'Senior'
-          // Skills: '{skill: \'Quicktime\'}'
+          Level: 'Senior',
+          Skills: { skill: 'Quicktime' }
         },
         {
           name: 'Essy',
@@ -1253,8 +1253,8 @@ mongoose.connect(dbURI, { useNewUrlParser: true, useUnifiedTopology: true }, (er
           bio: 'lorem vitae mattis nibh ligula nec sem duis aliquam convallis nunc proin at turpis a pede posuere nonummy integer non',
           profileImage: 'http://dummyimage.com/201x201.jpg/ff4444/ffffff',
           Location: 'Llano de Piedra',
-          Level: 'Junior'
-          // Skills: '{skill: \'Quality Control\'}'
+          Level: 'Junior',
+          Skills: { skill: 'Quality Control' }
         }
       ])
     })
