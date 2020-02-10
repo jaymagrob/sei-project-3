@@ -93,6 +93,6 @@ userSchema
   })
 
 //! importing the mongoose error validation plug in for better error handling 
-// userSchema.plugin(require('mongoose-unique-validator'))
+userSchema.plugin(require('mongoose-unique-validator'))
 
 module.exports = mongoose.model('User', userSchema)

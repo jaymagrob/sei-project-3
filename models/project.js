@@ -27,7 +27,7 @@ const projectSchema = new mongoose.Schema({
   location: { type: String },
   images: [{ type: String }],
   completed: { type: Boolean, required: true },
-  recuiting: { type: Boolean, required: true },
+  recruiting: { type: Boolean, required: true },
   skillsInvolved: [{ type: String, enum: skills }],
   lookingFor: [{ type: String, enum: professions }], 
   likes: [ likeSchema ],
@@ -54,6 +54,6 @@ projectSchema
 projectSchema.set('toJSON', { virtuals: true })
 
 //! importing mongoose error validation plug in for better error handling 
-// projectSchema.plugin(require('mongoose-unique-validator'))
+projectSchema.plugin(require('mongoose-unique-validator'))
 
 module.exports = mongoose.model('Project', projectSchema)
