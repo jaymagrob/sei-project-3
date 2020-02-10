@@ -22,7 +22,7 @@ class MyPortfolio extends React.Component {
     }
   }
   render() {
-    const { name, professions, email, username, bio, location, profileImage, level, projects, skills } = this.state.user
+    const { name, professions, email, username, bio, location, profileImage, level, collaboratedProjects, skills, createdProjects } = this.state.user
     console.log('skills =', skills)
     console.log('Profile returned!')
     if (!this.state.user) return null
@@ -44,10 +44,16 @@ class MyPortfolio extends React.Component {
         <h4>Level</h4>
         <p>{level}</p>
         <h4>Skills</h4>
-        {/* <ul>{skills.map(skill => <li key={skill}>{skill}</li>)}</ul> */}
-        <h4>Projects</h4>
-        {/* <ul>{projects.map(project => <li key={project}>{project}</li>)}</ul> */}
-        {projects.map(project => (
+        <ul>{skills.map(skill => <li key={skill['skill']}>{skill['skill']}</li>)}</ul>
+        <Link to={'/myportfolio/edit'}>Edit Portfolio</Link>
+        <h4>Owned Projects</h4>
+        {/* <ul>{createdProjects.map(project => <li key={project}>{project}</li>)}</ul> */}
+        {createdProjects.map(project => (
+          <ProjectCard key={project._id} {...project} />
+        ))}
+        <h4>Collaborated Projects</h4>
+        {/* <ul>{collaboratedProjects.map(project => <li key={project}>{project}</li>)}</ul> */}
+        {collaboratedProjects.map(project => (
           <ProjectCard key={project._id} {...project} />
         ))}
         <Link to={'/myportfolio/edit'}>Edit Portfolio</Link>
