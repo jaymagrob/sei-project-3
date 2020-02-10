@@ -42,7 +42,7 @@ router.route('/users/collaborate')
   
 router.route('/users/:username/collaborate/:projectId')
   .delete(secureRoute, users.deletePendingProject)
-  .get(secureRoute, users.acceptPendingProject)
+  .put(secureRoute, users.acceptPendingProject)
 
 router.route('/register')
   .post(auth.register)

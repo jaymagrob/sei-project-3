@@ -26,8 +26,8 @@ function login(req, res) {
 function myPortfolio(req, res) {
   User
     .findById(req.currentUser._id)
-    // .populate('createdProjects')
-    // .populate('collaboratedProjects')
+    .populate('createdProjects')
+    .populate('collaboratedProjects')
     .then(user => res.status(200).json(user))
     .catch(err => res.json(err))
 }
