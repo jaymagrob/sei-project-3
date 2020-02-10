@@ -1,8 +1,8 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
-const UserCard = ({ name, profileImage, location, _id }) => (
+const UserCard = ({ name, profileImage, location, _id, username }) => (
   <div key={_id}>
-    <Link to={`/users/${_id}`}>
+    <Link to={`/users/${username}`}>
       <div>
         <figure>
           <img src={profileImage} alt={name} />
