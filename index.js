@@ -5,6 +5,7 @@ const { port, dbURI } = require('./config/environment')
 
 const router = require('./config/router')
 const logger = require('./lib/logger')
+// const errorHandler = require('./lib/errorHandler')
 
 const app = express()
 
@@ -21,6 +22,8 @@ app.use(bodyParser.json())
 app.use(logger)
 
 app.use('/api', router)
+
+// app.use(errorHandler)
 
 app.listen(port, () => console.log(`Port ${port} is up and running`))
 
