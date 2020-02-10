@@ -37,7 +37,7 @@ function update(req, res, next) {
       if (!project) return res.status(404).json({ message: 'Not Found' })
       if (!project.owner.equals(req.currentUser._id)) return res.status(401).json({ message: 'Unauthorized' })
       Object.assign(project, req.body)
-      project.save() 
+      return project.save() 
     })
     .then(project => res.status(202).json(project))
     .catch(next)

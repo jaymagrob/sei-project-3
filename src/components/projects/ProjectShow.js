@@ -1,7 +1,7 @@
 import React from 'react'
 import axios from 'axios'
-// import { Link } from 'react-router-dom'
-// import Auth from '../../lib/auth'
+import { Link } from 'react-router-dom'
+import Auth from '../../lib/auth'
 
 class ProjectShow extends React.Component {
   state = {
@@ -30,6 +30,7 @@ class ProjectShow extends React.Component {
         <div>
           <h2>Image: {project.image}</h2>
         </div>
+        {Auth.isAuthenticated() && <Link to={`/projects/${this.props.match.params.id}/edit`}>Edit</Link>}
       </section>
     )
   }

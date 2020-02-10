@@ -47,7 +47,7 @@ class ProjectNew extends React.Component{
   }
 
   render() {
-    // console.log(this.state.data.lookingFor)
+    console.log(this.state.data)
     return (
       <ProjectForm
         handleChange={this.handleChange}

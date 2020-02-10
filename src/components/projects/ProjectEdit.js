@@ -43,15 +43,16 @@ class ProjectEdit extends React.Component{
       const res = await axios.put(`/api/projects/${this.props.match.params.id}`, { ...this.state.data }, {
         headers: { Authorization: `Bearer ${Auth.getToken()}` }
       })
+      console.log(res.data)
       this.props.history.push(`/projects/${res.data._id}`)
     } catch (err) {
       console.log(err)
     }
   }
 
-  handleMultiChange = (selected) => {
-    const lookingFor = selected ? selected.map(item => item.value) : []
-    const data = { ...this.state.data, lookingFor }
+  handleMultiChange = (selected, metaAction) => {
+    const dropSelected = selected ? selected.map(item => item.value) : []
+    const data = { ...this.state.data, [metaAction.name]: dropSelected }
     this.setState({ data })
   }
 

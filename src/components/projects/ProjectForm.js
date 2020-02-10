@@ -22,8 +22,9 @@ const ProjectForm = ({ handleChange, handleSubmit, data, handleMultiChange }) =>
 
   return (
     <div>
+      {console.log(data)}
       <section>
-        <h1>New Project</h1>
+        <h1>Project</h1>
         <form
           onSubmit={handleSubmit}
         >
@@ -78,6 +79,7 @@ const ProjectForm = ({ handleChange, handleSubmit, data, handleMultiChange }) =>
             options={professionOptions}
             isMulti
             name="lookingFor"
+            value={professionOptions.filter(skill => data.lookingFor.includes(skill.value))}
             onChange={handleMultiChange}
           />
           {/* <input 
@@ -92,7 +94,8 @@ const ProjectForm = ({ handleChange, handleSubmit, data, handleMultiChange }) =>
             <Select
               options={skillsOptions}
               isMulti
-              name="skills"
+              name="skillsInvolved"
+              value={skillsOptions.filter(skill => data.skillsInvolved.includes(skill.value))}
               onChange={handleMultiChange}
             />
           </div>
