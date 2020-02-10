@@ -99,7 +99,7 @@ class ProjectShow extends React.Component {
         <div>
           <h2>Image: {project.image}</h2>
         </div>
-        <div>
+        <div style={{ display: 'flex' }}>
           {project.collaborators.map(collaborator => {
             return (
               <div key={collaborator._id}>
@@ -110,7 +110,7 @@ class ProjectShow extends React.Component {
                   backgroundSize: 'cover',
                   backgroundPosition: 'center',
                   borderRadius: '50%',
-                  overflow: 'hidden'
+                  overflow: 'hidden'                  
                 }}><Link to={`/users/${collaborator.username}`} style={{
                     display: 'block',
                     height: '100%',
@@ -130,7 +130,8 @@ class ProjectShow extends React.Component {
                 backgroundSize: 'cover',
                 backgroundPosition: 'center',
                 borderRadius: '50%',
-                overflow: 'hidden'
+                overflow: 'hidden',
+                cursor: 'pointer'
               }}>
             </div>
           }
@@ -148,6 +149,7 @@ class ProjectShow extends React.Component {
                 onClick={this.handleAddCollaboratorTwo}
                 key={user._id}
                 name={user._id}
+                style={{ cursor: 'pointer' }}
               >
                 <div style={{ background: `url(${user.profileImage})`, pointerEvents: 'none' }}></div>
                 <h2 style={{ pointerEvents: 'none' }}>{user.name}</h2>

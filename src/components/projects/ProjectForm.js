@@ -72,19 +72,21 @@ const ProjectForm = ({ handleChange, handleSubmit, data, handleMultiChange, hand
               type="checkbox"
               onChange={handleChange}
               name="completed"
-              value={data.completed}
+              checked={data.completed}
             />
           </div>
-          <div>
-            <label>Looking for Help?</label>
-            <input
-              type="checkbox"
-              onChange={handleChange}
-              name="recuiting"
-              value={data.recuiting}
-            />
-          </div>
-          {data.recuiting &&
+          {!data.completed &&
+            <div>
+              <label>Looking for Help?</label>
+              <input
+                type="checkbox"
+                onChange={handleChange}
+                name="recruiting"
+                checked={data.recruiting}
+              />
+            </div>
+          }
+          {data.recruiting && !data.completed &&
             <div>
               <label>Looking for...</label>
               <Select
@@ -94,11 +96,6 @@ const ProjectForm = ({ handleChange, handleSubmit, data, handleMultiChange, hand
                 value={professionOptions.filter(skill => data.lookingFor.includes(skill.value))}
                 onChange={handleMultiChange}
               />
-              {/* <input 
-            onChange={handleChange}
-            name="lookingFor"
-            value={data.lookingFor}
-          /> */}
             </div>
           }
           <div>
@@ -112,7 +109,7 @@ const ProjectForm = ({ handleChange, handleSubmit, data, handleMultiChange, hand
             />
           </div>
           <div>
-            <button type="submit">Create a New Project</button>
+            <button type="submit">Save Project</button>
           </div>
         </form>
       </section>
