@@ -53,4 +53,7 @@ projectSchema
 //! setting the virtual like count field
 projectSchema.set('toJSON', { virtuals: true })
 
+//! importing mongoose error validation plug in for better error handling 
+// projectSchema.plugin(require('mongoose-unique-validator'))
+
 module.exports = mongoose.model('Project', projectSchema)

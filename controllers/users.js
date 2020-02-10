@@ -29,7 +29,7 @@ function update(req, res, next) {
     .then(user => {
       if (!user) return res.status(404).json({ message: 'Not Found' })
       Object.assign(user, req.body)
-      user.save()
+      return user.save()
     })
     .then(user => res.status(202).json(user))
     .catch(next)
