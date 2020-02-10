@@ -33,9 +33,9 @@ const App = () => (
         <Route path="/search" component={Search} />
         <Route path="/myportfolio" component={MyPortfolio} />
         {/* <Route path="/search" component={Search} /> */}
+        <Route path="/projects/new" component={ProjectNew} />
         <Route path="/projects/:id" component={ProjectShow} />
         {/* <Route path="/projects/:id/edit" component={ProjectEdit} /> */}
-        <Route path="/projects/new" component={ProjectNew} />
         <Route path="/users/:username" component={UserShow} />
         {/* <Route path="/users/:username/edit" component={UserEdit} /> */}
         {/* <Route path="/users/:username/messages" component={UserMessages} /> */}

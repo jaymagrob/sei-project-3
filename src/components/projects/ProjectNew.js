@@ -1,41 +1,32 @@
 import React from 'react'
 
-class ProjectNew extends React.Component {
+import ProjectForm from './ProjectForm'
 
-  // state = {
-  //   data: {
-  //     name: '',
-  //     owner: '',
-  //     collaborators: [],
-  //     description: '',
-  //     location: '',
-  //     images: [],
-  //     completed: false,
-  //     recuiting: false,
-  //     skillsInvolved: [],
-  //     lookingFor: []
-  //   }
-  // }
+class ProjectNew extends React.Component{
 
-  // handleChange = (e) => {
-  //   this.setState({ [e.target.name]: e.target.value })
-  // }
+  state = {
+    name: '',
+    owner: '',
+    collaborators: [],
+    description: '',
+    location: '',
+    images: [],
+    completed: false,
+    recuiting: false,
+    skillsInvolved: [],
+    lookingFor: []
+  }
+
+  handleChange = () => {
+    this.setState({ [event.target.name]: event.target.value })
+  }
 
   render() {
-    console.log('this is now rendering')
+    console.log(this.state)
     return (
-      <section>
-        gfdsafgnhmfdseadwefsdgfh
-        <h1>New Project</h1>
-        <form>
-          <div>
-            <label>Name</label>
-            <input 
-              name="name"
-            />
-          </div>
-        </form>
-      </section>
+      <ProjectForm
+        handleChange={this.handleChange}
+      />
     )
   }
 }
