@@ -27,6 +27,12 @@ class ProjectNew extends React.Component{
     this.setState({ data })
   }
 
+  handleChangeImage = ({ target: { name, value } }) => {
+    const newValue = value
+    const data = { ...this.state.data, [name]: newValue }
+    this.setState({ data })
+  }
+
   handleSubmit = async (e) => {
     e.preventDefault()
     console.log(this.state.data)
@@ -54,6 +60,7 @@ class ProjectNew extends React.Component{
         handleSubmit={this.handleSubmit}
         data={this.state.data}
         handleMultiChange={this.handleMultiChange}
+        handleChangeImage={this.handleChangeImage}
       />
     )
   }
