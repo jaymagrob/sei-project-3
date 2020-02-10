@@ -9,7 +9,7 @@ import Navbar from './components/common/Navbar'
 import Discovery from './components/common/Discovery'
 import Search from './components/common/Search'
 import ProjectShow from './components/projects/ProjectShow'
-// import ProjectEdit from './components/projects/ProjectEdit'
+import ProjectEdit from './components/projects/ProjectEdit'
 import ProjectNew from './components/projects/ProjectNew'
 import UserShow from './components/users/UserShow'
 import UserEdit from './components/users/UserEdit'
@@ -34,11 +34,11 @@ const App = () => (
         <Route path="/search" component={Search} />
         <Route path="/myportfolio" component={MyPortfolio} />
         {/* <Route path="/search" component={Search} /> */}
+        <Route path="/projects/:id/edit" component={ProjectEdit} />
         <Route path="/projects/new" component={ProjectNew} />
         <Route path="/projects/:id" component={ProjectShow} />
-        {/* <Route path="/projects/:id/edit" component={ProjectEdit} /> */}
         <Route path="/users/:username" component={UserShow} />
-        {/* <Route path="/users/:username/edit" component={UserEdit} /> */}
+        <Route path="/users/:username/edit" component={UserEdit} />
         {/* <Route path="/users/:username/messages" component={UserMessages} /> */}
         <Route path="/register" component={Register} />
         <Route path="/login" component={Login} />
