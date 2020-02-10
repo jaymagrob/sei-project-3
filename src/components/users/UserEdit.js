@@ -14,7 +14,8 @@ class UserEdit extends React.Component {
       professions: [],
       level: [],
       skills: []
-    }
+    },
+    usernameMain: ''
   }
 
   // async componentDidMount() {
@@ -35,7 +36,10 @@ class UserEdit extends React.Component {
       const res = await axios.get('/api/myportfolio', {
         headers: { Authorization: `Bearer ${Auth.getToken()}` }
       })
-      this.setState({ data: res.data })
+      this.setState({
+        data: res.data,
+        usernameMain: res.data.username
+      })
     } catch (err) {
       console.log(err)
     }
@@ -81,7 +85,8 @@ class UserEdit extends React.Component {
   handleSubmit = async (e) => {
     e.preventDefault()
     try {
-      const res = await axios.put(`/api/users/${this.props.match.params.id}`, { ...this.state.data }, {
+      // const res = await axios.put(`/api/users/${this.props.match.params.id}`, { ...this.state.data }, {
+      const res = await axios.put(`/api/users/${this.state.username}`, { ...this.state.data }, {
         headers: { Authorization: `Bearer ${Auth.getToken()}` }
       })
       console.log('submitted data', res.data)
