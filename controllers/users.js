@@ -10,26 +10,27 @@ function index(req, res) {
 }
 
 // need to change the findby id to find username - also needs to be changed on front end -- same with likes
-function show(req, res) {
+function show(req, res, next) {
   User
     .findOne({ username: req.params.username })
     .populate('createdProjects')
     .populate('collaboratedProjects')
     .populate('pendingProjects.project')
     .then(user => {
-      if (!user) return res.status(404).json({ message: 'Not Found' })
-      res.status(202).json(user)
+      if (!user) throw new Error('Not Found')
+      res.status(200).json(user)
     })
-    .catch(err => res.status(400).json(err))
+    .catch(next)
 }
 
 function update(req, res, next) {
   User
     .findById(req.currentUser._id)
     .then(user => {
-      if (!user) return res.status(404).json({ message: 'Not Found' })
+      if (!user)  throw new Error('ValidationError')
+      if (!user._id.equals(req.currentUser._id)) return res.status(401).json({ message: 'Unauthorised' })
       Object.assign(user, req.body)
-      user.save()
+      return user.save()
     })
     .then(user => res.status(202).json(user))
     .catch(next)
@@ -40,10 +41,14 @@ function destroy(req, res) {
     .findById(req.currentUser._id)
     .then(user => {
       if (!user) return res.status(404).json({ message: 'Not Found' })
-      else user.remove()
+      
+      if (!user._id.equals(req.currentUser._id)) {
+        res.status(401).json({ message: 'Unauthorised' })
+      } else {
+        user.remove().then(() => res.sendStatus(204))
+      }
     })
-    .then(() => res.sendStatus(204))
-    .catch(err => res.status(400).json(err))
+    .catch(err => res.json(err))
 }
 
 function like(req, res) {
