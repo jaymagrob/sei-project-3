@@ -7,7 +7,7 @@ const Home = () => (
         <p>
           Beehive
         </p>
-        <p>
+        <p className="text-center">
           For creative busy bees 
         </p>
       </div>
