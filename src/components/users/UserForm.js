@@ -1,5 +1,7 @@
 import React from 'react'
-const UserForm = ({ data, handleChange, handleSubmit }) => {
+import Select from 'react-select'
+
+const UserForm = ({ data, handleChange, handleSubmit, professionOptions, skillsOptions, levelOptions }) => {
   return (
     <div>
       <form onSubmit={handleSubmit}>
@@ -12,6 +14,18 @@ const UserForm = ({ data, handleChange, handleSubmit }) => {
               name="name"
               onChange={handleChange}
               value={data.name}
+            />
+          </div>
+        </div>
+        <div>
+          <label>Profile Image URL</label>
+          <div>
+            <input
+              className="input"
+              placeholder="Profile Image URL"
+              name="profileImage"
+              onChange={handleChange}
+              value={data.profileImage}
             />
           </div>
         </div>
@@ -37,6 +51,17 @@ const UserForm = ({ data, handleChange, handleSubmit }) => {
               name="bio"
               onChange={handleChange}
               value={data.bio}
+            />
+          </div>
+        </div>
+        <div>
+          <label>Profession/Industry</label>
+          <div>
+            <Select
+              options={professionOptions}
+              isMulti
+              onChange={handleChange}
+              // value={data.professions}
             />
           </div>
         </div>

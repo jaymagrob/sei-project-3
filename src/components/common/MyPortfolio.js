@@ -2,6 +2,7 @@ import React from 'react'
 import axios from 'axios'
 import { Link } from 'react-router-dom'
 import Auth from '../../lib/auth'
+import ProjectCard from '../projects/ProjectCard'
 
 class MyPortfolio extends React.Component {
   state = {
@@ -21,17 +22,15 @@ class MyPortfolio extends React.Component {
     }
   }
   render() {
-    const { name, professions, email, username, bio, location, profileImage } = this.state.user
+    const { name, professions, email, username, bio, location, profileImage, level, projects, skills } = this.state.user
+    console.log('skills =', skills)
     console.log('Profile returned!')
+    if (!this.state.user) return null
     return (
       <section className="section">
         <h1>My Portfolio</h1>
         <h2>{name}</h2>
         <img src={profileImage} />
-        {/* <h2>Professions</h2>
-        <ul>{professions.map(profession => (
-          <li key={profession}>{profession}</li>
-        ))}</ul> */}
         <h3>Account Info</h3>
         <p>Email: {email}</p>
         <p>Username: {username}</p>
@@ -40,6 +39,17 @@ class MyPortfolio extends React.Component {
         <p>{location}</p>
         <h4>Bio</h4>
         <p>{bio}</p>
+        <h4>Professions</h4>
+        <ul>{professions.map(profession => <li key={profession}>{profession}</li>)}</ul>
+        <h4>Level</h4>
+        <p>{level}</p>
+        <h4>Skills</h4>
+        {/* <ul>{skills.map(skill => <li key={skill}>{skill}</li>)}</ul> */}
+        <h4>Projects</h4>
+        {/* <ul>{projects.map(project => <li key={project}>{project}</li>)}</ul> */}
+        {projects.map(project => (
+          <ProjectCard key={project._id} {...project} />
+        ))}
         <Link to={'/myportfolio/edit'}>Edit Portfolio</Link>
       </section>
     )
