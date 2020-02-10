@@ -19,6 +19,8 @@ import Login from './components/auth/Login'
 import NotFound from './components/common/NotFound'
 import MyPortfolio from './components/common/MyPortfolio'
 // import Auth from '../../lib/auth'
+import SecureRoute from './components/common/SecureRoute'
+import UnSecureRoute from './components/common/UnSecureRoute'
 
 
 
@@ -30,18 +32,18 @@ const App = () => (
       <Switch>
         <Route exact path="/" component={Home} />
         <Route path="/discovery" component={Discovery} />
-        <Route path="/myportfolio/edit" component={UserEdit} />
+        <SecureRoute path="/myportfolio/edit" component={UserEdit} />
         <Route path="/search" component={Search} />
-        <Route path="/myportfolio" component={MyPortfolio} />
+        <SecureRoute path="/myportfolio" component={MyPortfolio} />
         {/* <Route path="/search" component={Search} /> */}
-        <Route path="/projects/:id/edit" component={ProjectEdit} />
-        <Route path="/projects/new" component={ProjectNew} />
+        <SecureRoute path="/projects/:id/edit" component={ProjectEdit} />
+        <SecureRoute path="/projects/new" component={ProjectNew} />
         <Route path="/projects/:id" component={ProjectShow} />
         <Route path="/users/:username" component={UserShow} />
-        <Route path="/users/:username/edit" component={UserEdit} />
+        <SecureRoute path="/users/:username/edit" component={UserEdit} />
         {/* <Route path="/users/:username/messages" component={UserMessages} /> */}
-        <Route path="/register" component={Register} />
-        <Route path="/login" component={Login} />
+        <UnSecureRoute path="/register" component={Register} />
+        <UnSecureRoute path="/login" component={Login} />
         <Route path="/*" component={NotFound} />
       </Switch>
     </main>
