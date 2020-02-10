@@ -8,8 +8,8 @@ class ProjectShow extends React.Component {
   state = {
     project: {},
     users: null,
-    searchedUsers: null,
-    userSearch: ''
+    searchedUsers: null
+    // userSearch: ''
   }
 
   async componentDidMount() {
@@ -136,7 +136,7 @@ class ProjectShow extends React.Component {
           {this.state.users && 
           <input 
             placeholder="search"
-            name="userSearch"
+            // name="userSearch"
             onChange={this.handleSearchChange}
           />
           }
