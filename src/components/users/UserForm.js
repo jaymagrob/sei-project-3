@@ -1,7 +1,29 @@
 import React from 'react'
 import Select from 'react-select'
+import { skills, professions, levels } from '../../../config/environment'
 
-const UserForm = ({ data, handleChange, handleSubmit, professionOptions, skillsOptions, levelOptions }) => {
+const UserForm = ({ data, handleChange, handleSubmit, handleMultiChange }) => {
+
+  const professionOptions =
+    professions.map(item => {
+      return (
+        { value: item, label: item }
+      )
+    })
+
+  const skillsOptions =
+    skills.map(item => {
+      return (
+        { value: item, label: item }
+      )
+    })
+
+  const levelOptions =
+    levels.map(item => {
+      return (
+        { value: item, label: item }
+      )
+    })
   return (
     <div>
       <form onSubmit={handleSubmit}>
@@ -60,8 +82,27 @@ const UserForm = ({ data, handleChange, handleSubmit, professionOptions, skillsO
             <Select
               options={professionOptions}
               isMulti
-              onChange={handleChange}
-              // value={data.professions}
+              onChange={handleMultiChange}
+            />
+          </div>
+        </div>
+        <div>
+          <label>Level</label>
+          <div>
+            <Select
+              options={levelOptions}
+              isMulti
+              onChange={handleMultiChange}
+            />
+          </div>
+        </div>
+        <div>
+          <label>Skills</label>
+          <div>
+            <Select
+              options={skillsOptions}
+              isMulti
+              onChange={handleMultiChange}
             />
           </div>
         </div>
