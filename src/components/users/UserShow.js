@@ -1,7 +1,7 @@
 import React from 'react'
 import axios from 'axios'
 // import { Link } from 'react-router-dom'
-// import Auth from '../../lib/auth'
+import Auth from '../../lib/auth'
 import ProjectCard from '../projects/ProjectCard'
 
 class UserShow extends React.Component {
@@ -14,6 +14,18 @@ class UserShow extends React.Component {
     // console.log(this.props.match.params.username)
     try {
       const res = await axios.get(`/api/users/${currentUsername}`)
+      this.setState({ user: res.data })
+    } catch (err) {
+      console.log(err)
+    }
+  }
+
+  handleLike = async (e) => {
+    console.log(this.state)
+    try {
+      const res = await axios.get(`/api/users/${this.props.match.params.username}/skills/${e.target.getAttribute('name')}/like`, {
+        headers: { Authorization: `Bearer ${Auth.getToken()}` }
+      })
       this.setState({ user: res.data })
     } catch (err) {
       console.log(err)
@@ -44,7 +56,13 @@ class UserShow extends React.Component {
           <h4>Level</h4>
           <p>{user.level}</p>
           <h4>Skills</h4>
-          <ul>{user.skills.map(skill => <li key={skill['skill']}>{skill['skill']}</li>)}</ul>
+          <ul>{user.skills.map(skill => (
+            <li 
+              name={skill._id}
+              onClick={this.handleLike} 
+              key={skill['skill']}
+            >{skill['skill']}: {skill.likes.length}</li>
+          ))}</ul>
           <h4>Owned Projects</h4>
           {user.createdProjects.map(project => (
             <ProjectCard key={project._id} {...project} />
