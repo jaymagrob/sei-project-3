@@ -10,7 +10,7 @@ class PendingRequests extends React.Component{
     user: null
   }
 
-  async componentDidMount() {
+  getUser = async () => {
     try {
       const res = await axios.get('/api/myportfolio', {
         headers: { Authorization: `Bearer ${Auth.getToken()}` }
@@ -19,6 +19,10 @@ class PendingRequests extends React.Component{
     } catch (err) {
       console.log(err)
     }
+  }
+
+  async componentDidMount() {
+    this.getUser()
   }
 
   handleOpen = () => {
@@ -30,6 +34,7 @@ class PendingRequests extends React.Component{
       await axios.get(`/api/users/${this.state.user._id}/collaborate/${e.target.name}`, {
         headers: { Authorization: `Bearer ${Auth.getToken()}` }
       })
+      this.getUser()
     } catch (err) {
       console.log(err)
     }
@@ -41,6 +46,7 @@ class PendingRequests extends React.Component{
       await axios.delete(`/api/users/${this.state.user._id}/collaborate/${e.target.name}`, {
         headers: { Authorization: `Bearer ${Auth.getToken()}` }
       })
+      this.getUser()
     } catch (err) {
       console.log(err)
     }
