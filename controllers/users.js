@@ -175,11 +175,9 @@ function acceptPendingProject(req, res) {
       }
       
       if (pendingProject.owner === true && pendingProject.user === true) {
-        console.log(pendingProject)
         pendingProject.project.collaborators.push(pendingProject.userId)
         pendingProject.remove()
         const ownerPendingProject = pendingProject.userId.pendingProjects.find(pendingProject => pendingProject.project._id.toString() === req.params.projectId.toString())
-        console.log(ownerPendingProject)
         ownerPendingProject.remove()
         pendingProject.userId.save()
         pendingProject.project.save()
