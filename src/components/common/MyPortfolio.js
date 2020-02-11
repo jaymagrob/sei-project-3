@@ -15,7 +15,7 @@ class MyPortfolio extends React.Component {
         headers: { Authorization: `Bearer ${Auth.getToken()}` }
       })
       this.setState({ user: res.data })
-      console.log('state =', this.state.user)
+      // console.log('state =', this.state.user)
       console.log('res =', this.state.user)
     } catch (err) {
       console.log('err =', err)
@@ -23,8 +23,9 @@ class MyPortfolio extends React.Component {
   }
   render() {
     const { name, professions, email, username, bio, location, profileImage, level, collaboratedProjects, skills, createdProjects } = this.state.user
-    console.log('skills =', skills)
+    // console.log('skills =', skills)
     console.log('Profile returned!')
+    console.log('image=', this.state.profileImage)
     if (!this.state.user) return null
     return (
       <section className="section">

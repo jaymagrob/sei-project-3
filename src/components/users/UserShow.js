@@ -10,7 +10,7 @@ class UserShow extends React.Component {
 
   async componentDidMount() {
     const currentUsername = this.props.match.params.username
-    console.log(this.props.match.params.username)
+    // console.log(this.props.match.params.username)
     try {
       const res = await axios.get(`/api/users/${currentUsername}`)
       this.setState({ user: res.data })
@@ -27,6 +27,11 @@ class UserShow extends React.Component {
       <section>
         <div>
           <h1>Name: {user.name}</h1>
+        </div>
+        <div>
+          <h1>Profile Image:
+            <img src={user.profileImage} />  
+          </h1>
         </div>
       </section>
     )

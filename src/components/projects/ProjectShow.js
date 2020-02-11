@@ -97,7 +97,9 @@ class ProjectShow extends React.Component {
           <h1>Name: {project.name}</h1>
         </div>
         <div>
-          <h2>Image: {project.image}</h2>
+          <h2>Image: 
+            <img src={project.images} />
+          </h2>
         </div>
         <div>Collaborators</div>
         <div style={{ display: 'flex' }}>

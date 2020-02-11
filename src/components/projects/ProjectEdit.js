@@ -50,6 +50,12 @@ class ProjectEdit extends React.Component{
     }
   }
 
+  handleChangeImage = ({ target: { name, value } }) => {
+    const newValue = value
+    const data = { ...this.state.data, [name]: newValue }
+    this.setState({ data })
+  }
+
   handleMultiChange = (selected, metaAction) => {
     const dropSelected = selected ? selected.map(item => item.value) : []
     const data = { ...this.state.data, [metaAction.name]: dropSelected }
@@ -63,6 +69,7 @@ class ProjectEdit extends React.Component{
         handleSubmit={this.handleSubmit}
         data={this.state.data}
         handleMultiChange={this.handleMultiChange}
+        handleChangeImage={this.handleChangeImage}
       />
     )
   }
