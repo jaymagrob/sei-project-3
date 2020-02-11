@@ -1,10 +1,17 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
+import Auth from '../../lib/auth'
+
 
 const ProjectCard = ({ name, images, _id, description, owner }) => (
   <div key={_id}>
     <Link to={`/projects/${_id}`}>
       <div>
+        {Auth.getPayload().sub === owner._id ? 
+          <div>
+            <img alt="star indicating project ownership" src="./../../assets/star.png" />
+          </div> : ''
+        }
         <div>
           <img src={images[0]} alt={name} />
         </div>
