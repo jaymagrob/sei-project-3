@@ -104,7 +104,17 @@ class ProjectShow extends React.Component {
     this.setState({ text: '' })
   }
   
-  
+  handleLike = async () => {
+    const projectId = this.props.match.params.id
+    try {
+      const res = await axios.get(`/api/projects/${projectId}/like`, {
+        headers: { Authorization: `Bearer ${Auth.getToken()}` }
+      })
+      this.setState({ project: res.data })
+    } catch (err) {
+      console.log(err)
+    }
+  }
 
   isOwner = () => Auth.getPayload().sub === this.state.project.owner._id
 
@@ -134,7 +144,6 @@ class ProjectShow extends React.Component {
             <ul>{project.skillsInvolved.map(skill => <li key={skill}>{skill}</li>)}</ul>
           }</p>
           
-          <p>Likes: {project.likes.length}</p>
         </div>
         <div>
           <img src={project.images[0]}/>
@@ -201,6 +210,7 @@ class ProjectShow extends React.Component {
           }
         </div>
         <p>Project Description: {project.description}</p>
+        <div onClick={this.handleLike}>Like : <span>{project.likes.length}</span></div>
         {project.images.length > 0 ? '' :
           <div>
             <h2>Gallery</h2>
