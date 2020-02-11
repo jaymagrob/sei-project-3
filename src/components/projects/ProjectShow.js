@@ -99,6 +99,7 @@ class ProjectShow extends React.Component {
         <div>
           <h2>Image: {project.image}</h2>
         </div>
+        <div>Collaborators</div>
         <div style={{ display: 'flex' }}>
           {project.collaborators.map(collaborator => {
             return (
