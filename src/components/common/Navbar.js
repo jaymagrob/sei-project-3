@@ -3,7 +3,7 @@ import { Link, withRouter } from 'react-router-dom'
 import Auth from '../../lib/auth'
 import axios from 'axios'
 class Navbar extends React.Component {
-  state = { navbarOpen: false, name: null }
+  state = { navbarOpen: false, name: null, username: null }
   toggleNavbar = () => {
     this.setState({ navbarOpen: !this.state.navbarOpen })
   }
@@ -17,7 +17,7 @@ class Navbar extends React.Component {
       const res = await axios.get('/api/myportfolio', {
         headers: { Authorization: `Bearer ${Auth.getToken()}` }
       })
-      this.setState({ name: res.data.name })
+      this.setState({ name: res.data.name, username: res.data.username })
     } catch (err) {
       console.log(err)
     }
@@ -31,7 +31,7 @@ class Navbar extends React.Component {
         const res = await axios.get('/api/myportfolio', {
           headers: { Authorization: `Bearer ${Auth.getToken()}` }
         })
-        this.setState({ name: res.data.name })
+        this.setState({ name: res.data.name, username: res.data.username })
       } catch (err) {
         console.log(err)
       }
@@ -39,7 +39,7 @@ class Navbar extends React.Component {
   }
   render() {
     // const { navbarOpen } = this.state
-    console.log(Auth.getPayload().sub)
+    console.log(this.state.username)
     return (
       <nav>
         <div className="flex">
@@ -62,7 +62,7 @@ class Navbar extends React.Component {
             {!Auth.isAuthenticated() && <Link className="text-blue-500 hover:text-blue-800" to="/login">Login</Link>}
           </div>
           <div className="mr-6">
-            {Auth.isAuthenticated() && <Link className="text-blue-500 hover:text-blue-800" to="/myportfolio">My Portfolio</Link>}
+            {Auth.isAuthenticated() && <Link className="text-blue-500 hover:text-blue-800" to={`/users/${this.state.username}`}>My Portfolio</Link>}
           </div>
           <div className="mr-6">
             <Link className="text-blue-500 hover:text-blue-800" to="/search">Start Your Journey</Link>

@@ -1,6 +1,6 @@
 import React from 'react'
 import axios from 'axios'
-// import { Link } from 'react-router-dom'
+import { Link } from 'react-router-dom'
 import Auth from '../../lib/auth'
 import ProjectCard from '../projects/ProjectCard'
 
@@ -9,7 +9,7 @@ class UserShow extends React.Component {
     user: {}
   }
 
-  async componentDidMount() {
+  getUser = async () => {
     const currentUsername = this.props.match.params.username
     try {
       const res = await axios.get(`/api/users/${currentUsername}`)
@@ -18,6 +18,18 @@ class UserShow extends React.Component {
       console.log(err)
     }
   }
+
+  async componentDidMount() {
+    this.getUser()
+  }
+
+  async componentDidUpdate() {
+    if (this.props.match.params.username !== this.state.user.username) {
+      this.getUser()
+    }
+  }
+
+  isOwner = () => Auth.getPayload().sub === this.state.user._id
 
   handleLike = async (e) => {
     console.log(this.state)
@@ -48,6 +60,8 @@ class UserShow extends React.Component {
           <h3>Other Info</h3>
           <h4>Location</h4>
           <p>{user.location}</p>
+          <h4>Email</h4>
+          <p>{user.email}</p>
           <h4>Bio</h4>
           <p>{user.bio}</p>
           <h4>Professions</h4>
@@ -60,13 +74,14 @@ class UserShow extends React.Component {
               name={skill._id}
               onClick={this.handleLike} 
               key={skill['skill']}
+              style={{ cursor: 'pointer' }}
             >{skill['skill']}: {skill.likes.length}</li>
           ))}</ul>
-          <h4>Owned Projects</h4>
+          {/* <h4>Owned Projects</h4>
           {user.createdProjects.map(project => (
             <ProjectCard key={project._id} {...project} />
-          ))}
-          <h4>Collaborated Projects</h4>
+          ))} */}
+          <h4>Projects</h4>
           {/* <ul>{collaboratedProjects.map(project => <li key={project}>{project}</li>)}</ul> */}
           {user.collaboratedProjects.map(project => (
             <ProjectCard key={project._id} {...project} />

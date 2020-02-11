@@ -136,10 +136,17 @@ function userPendingProject(req, res) {
 function deletePendingProject(req, res) {
   User
     .findById(req.params.userId)
+    .populate('pendingProjects.userId')
     .then(user => {
       if (!user) return res.status(404).json({ message: 'Not Found ' })
-      const userPending = user.pendingProjects.filter(project => project.project.toString() !== req.params.projectId.toString())
-      user.pendingProjects = userPending
+      const proj = user.pendingProjects.find(project => project.project.toString() === req.params.projectId.toString())
+      const userPending = proj.userId.pendingProjects.filter(project => project.project.toString() !== req.params.projectId.toString())
+      console.log(user)
+      // const userPending = user.pendingProjects.filter(project => project.project.toString() !== req.params.projectId.toString())
+      console.log(userPending)
+      // user.pendingProjects = userPending
+      proj.userId.pendingProjects = userPending
+      proj.userId.save()
       Project.findById(req.params.projectId)
         .then(project => {
           User.findById(project.owner)
@@ -163,25 +170,34 @@ function acceptPendingProject(req, res) {
     .findById(req.params.userId)
     .populate('pendingProjects.project')
     .populate('pendingProjects.userId')
+    .populate('pendingProjects.ownerId')
     .then(user => {
       if (!user) return res.status(404).json({ message: 'Not Found ' })
       const pendingProject = user.pendingProjects.find(pendingProject => pendingProject.project._id.toString() === req.params.projectId.toString())
-      if (pendingProject.userId.toString() === req.currentUser._id.toString()) {
+      if (req.currentUser._id.toString() === pendingProject.userId._id.toString()) {
+        // console.log(req.currentUser._id.toString(), pendingProject.ownerId.toString(), pendingProject.userId.toString())
         pendingProject.user = true
-      } else if (req.currentUser._id.toString() === pendingProject.ownerId.toString()) {
+      } else if (req.currentUser._id.toString() === pendingProject.ownerId._id.toString()) {
         pendingProject.owner = true
+        // console.log(req.currentUser._id.toString(), pendingProject.ownerId.toString(), pendingProject.userId.toString())
       } else {
+        // console.log('getting here for some reason')
+        // console.log(req.currentUser._id.toString(), pendingProject.ownerId.toString(), pendingProject.userId.toString())
         return res.status(401).json({ message: 'Unauthorized' })
       }
-      
+      console.log(pendingProject)
       if (pendingProject.owner === true && pendingProject.user === true) {
-        pendingProject.project.collaborators.push(pendingProject.userId)
-        pendingProject.remove()
-        const ownerPendingProject = pendingProject.userId.pendingProjects.find(pendingProject => pendingProject.project._id.toString() === req.params.projectId.toString())
+        pendingProject.project.collaborators.push(pendingProject.userId._id)
+        const userPendingProject = pendingProject.userId.pendingProjects.find(pendingProject => pendingProject.project._id.toString() === req.params.projectId.toString())
+        const ownerPendingProject = pendingProject.ownerId.pendingProjects.find(pendingProject => pendingProject.project._id.toString() === req.params.projectId.toString())
+        console.log(userPendingProject, ownerPendingProject)
         ownerPendingProject.remove()
+        userPendingProject.remove()
         pendingProject.userId.save()
+        pendingProject.ownerId.save()
         pendingProject.project.save()
-        return user.save()
+        pendingProject.remove()
+        return user
       }
     })
     .then(user => res.status(202).json(user))

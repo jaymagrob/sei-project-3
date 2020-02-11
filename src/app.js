@@ -17,7 +17,7 @@ import UserEdit from './components/users/UserEdit'
 import Register from './components/auth/Register'
 import Login from './components/auth/Login'
 import NotFound from './components/common/NotFound'
-import MyPortfolio from './components/common/MyPortfolio'
+// import MyPortfolio from './components/common/MyPortfolio'
 // import Auth from '../../lib/auth'
 import SecureRoute from './components/common/SecureRoute'
 import UnSecureRoute from './components/common/UnSecureRoute'
@@ -35,13 +35,12 @@ const App = () => (
         <Route path="/discovery" component={Discovery} />
         <SecureRoute path="/myportfolio/edit" component={UserEdit} />
         <Route path="/search" component={Search} />
-        <SecureRoute path="/myportfolio" component={MyPortfolio} />
-        {/* <Route path="/search" component={Search} /> */}
+        {/* <SecureRoute path="/myportfolio" component={MyPortfolio} /> */}
         <SecureRoute path="/projects/:id/edit" component={ProjectEdit} />
         <SecureRoute path="/projects/new" component={ProjectNew} />
         <Route path="/projects/:id" component={ProjectShow} />
-        <Route path="/users/:username" component={UserShow} />
         <SecureRoute path="/users/:username/edit" component={UserEdit} />
+        <Route path="/users/:username" component={UserShow} />
         {/* <Route path="/users/:username/messages" component={UserMessages} /> */}
         <UnSecureRoute path="/register" component={Register} />
         <UnSecureRoute path="/login" component={Login} />

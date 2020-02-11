@@ -1264,7 +1264,7 @@ mongoose.connect(dbURI, { useNewUrlParser: true, useUnifiedTopology: true }, (er
         {
           name: 'Project 1',
           owner: createdUser[0],
-          collaborators: [],
+          collaborators: [createdUser[0]],
           description: 'This is a description of project 1',
           location: 'Glasgow',
           images: ['https://www.bing.com/th/id/OIP.NEvSvMKGGdZKgEUigbtadgHaKU?w=132&h=184&c=7&o=5&dpr=2&pid=1.7'],
@@ -1275,7 +1275,7 @@ mongoose.connect(dbURI, { useNewUrlParser: true, useUnifiedTopology: true }, (er
         {
           name: 'Project 2',
           owner: createdUser[1],
-          collaborators: [createdUser[0],createdUser[2]],
+          collaborators: [createdUser[1],createdUser[0],createdUser[2]],
           description: 'This is a description of project 2',
           location: 'Glasgow',
           images: ['https://www.bing.com/th/id/OIP.rpWhO8OVkTWHhLpgVxJbegHaKl?w=129&h=184&c=7&o=5&dpr=2&pid=1.7'],
@@ -1286,7 +1286,7 @@ mongoose.connect(dbURI, { useNewUrlParser: true, useUnifiedTopology: true }, (er
         {
           name: 'Project 3',
           owner: createdUser[3],
-          collaborators: [createdUser[1]],
+          collaborators: [createdUser[3],createdUser[1]],
           description: 'This is a description of project 3',
           location: 'Glasgow',
           images: ['https://www.bing.com/th/id/OIP.kRAAsiWG3naZVRKvPNVaBwHaHa?w=184&h=184&c=7&o=5&dpr=2&pid=1.7'],
@@ -1297,7 +1297,7 @@ mongoose.connect(dbURI, { useNewUrlParser: true, useUnifiedTopology: true }, (er
         {
           name: 'Project 4',
           owner: createdUser[2],
-          collaborators: [createdUser[0],createdUser[1]],
+          collaborators: [createdUser[2],createdUser[0],createdUser[1]],
           description: 'This is a description of project 4',
           location: 'Glasgow',
           images: ['https://www.bing.com/th/id/OIP.dfCWfld_39Msuay7QapAZAHaKX?w=132&h=184&c=7&o=5&dpr=2&pid=1.7'],

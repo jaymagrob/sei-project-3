@@ -15,17 +15,12 @@ class MyPortfolio extends React.Component {
         headers: { Authorization: `Bearer ${Auth.getToken()}` }
       })
       this.setState({ user: res.data })
-      // console.log('state =', this.state.user)
-      console.log('res =', this.state.user)
     } catch (err) {
-      console.log('err =', err)
+      console.log(err)
     }
   }
   render() {
     const { name, professions, email, username, bio, location, profileImage, level, collaboratedProjects, skills, createdProjects } = this.state.user
-    // console.log('skills =', skills)
-    console.log('Profile returned!')
-    console.log('image=', this.state.profileImage)
     if (!this.state.user) return null
     return (
       <section className="section">
@@ -47,10 +42,6 @@ class MyPortfolio extends React.Component {
         <h4>Skills</h4>
         <ul>{skills.map(skill => <li key={skill['skill']}>{skill['skill']}</li>)}</ul>
         <Link to={'/myportfolio/edit'}>Edit Portfolio</Link>
-        {/* <h4>Owned Projects</h4>
-        {createdProjects.map(project => (
-          <ProjectCard key={project._id} {...project} />
-        ))} */}
         <h4>Projects</h4>
         {/* <ul>{collaboratedProjects.map(project => <li key={project}>{project}</li>)}</ul> */}
         {collaboratedProjects.map(project => (
