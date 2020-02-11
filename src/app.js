@@ -39,7 +39,7 @@ const App = () => (
         <SecureRoute path="/projects/:id/edit" component={ProjectEdit} />
         <SecureRoute path="/projects/new" component={ProjectNew} />
         <Route path="/projects/:id" component={ProjectShow} />
-        <SecureRoute path="/users/:username/edit" component={UserEdit} />
+        {/* <SecureRoute path="/users/:username/edit" component={UserEdit} /> */}
         <Route path="/users/:username" component={UserShow} />
         {/* <Route path="/users/:username/messages" component={UserMessages} /> */}
         <UnSecureRoute path="/register" component={Register} />

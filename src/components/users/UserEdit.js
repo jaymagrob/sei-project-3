@@ -50,7 +50,7 @@ class UserEdit extends React.Component {
         headers: { Authorization: `Bearer ${Auth.getToken()}` }
       })
       console.log(res.data)
-      this.props.history.push('/myportfolio')
+      this.props.history.push(`/users/${this.state.usernameMain}`)
     } catch (err) {
       console.log(err)
     }

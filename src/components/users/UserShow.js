@@ -64,6 +64,7 @@ class UserShow extends React.Component {
           <p>{user.email}</p>
           <h4>Bio</h4>
           <p>{user.bio}</p>
+          {this.isOwner() && <Link to={'/myportfolio/edit'}>Edit Portfolio</Link>}
           <h4>Professions</h4>
           <ul>{user.professions.map(profession => <li key={profession}>{profession}</li>)}</ul>
           <h4>Level</h4>
