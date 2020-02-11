@@ -43,13 +43,11 @@ class ProjectShow extends React.Component {
   handleAddCollaborator = async () => {
     if (this.state.project.owner._id !== Auth.getPayload().sub) {
       const collabObject = {
-        project: {
-          project: this.state.project._id,
-          owner: false,
-          user: true
-        },
-        owner: this.state.project.owner._id,
-        user: Auth.getPayload().sub
+        project: this.state.project._id,
+        owner: false,
+        user: true,
+        ownerId: this.state.project.owner._id,
+        userId: Auth.getPayload().sub
       }
       try {
         const res = await axios.post('/api/users/collaborate', collabObject, {
@@ -67,13 +65,11 @@ class ProjectShow extends React.Component {
   handleAddCollaboratorTwo = async (e) => {
     if (this.state.project.owner._id === Auth.getPayload().sub) {
       const collabObject = {
-        project: {
-          project: this.state.project._id,
-          owner: true,
-          user: false
-        },
-        owner: this.state.project.owner._id,
-        user: e.target.getAttribute('name')
+        project: this.state.project._id,
+        owner: true,
+        user: false,
+        ownerId: this.state.project.owner._id,
+        userId: e.target.getAttribute('name')
       }
       try {
         const res = await axios.post('/api/users/collaborate', collabObject, {
@@ -116,7 +112,7 @@ class ProjectShow extends React.Component {
           <p>Likes: {project.likes.length}</p>
         </div>
         <div>
-          <h2><img src={project.images[0]}/></h2>
+          <img src={project.images[0]}/>
         </div>
         <div>Collaborators</div>
         <div style={{ display: 'flex' }}>

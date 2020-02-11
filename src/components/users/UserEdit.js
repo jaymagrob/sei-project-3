@@ -39,8 +39,6 @@ class UserEdit extends React.Component {
     this.setState({ data })
   }
 
-
-
   handleSubmit = async (e) => {
     e.preventDefault()
     try {
@@ -50,7 +48,7 @@ class UserEdit extends React.Component {
         headers: { Authorization: `Bearer ${Auth.getToken()}` }
       })
       console.log('submitted data', res.data)
-      console.log('submitted state', this.state.data)
+      // console.log('submitted state', this.state.data)
       this.props.history.push('/myportfolio')
     } catch (err) {
       console.log(err)
@@ -61,18 +59,26 @@ class UserEdit extends React.Component {
     const dropSelected = selected ? selected.map(item => item.value) : []
     const data = { ...this.state.data, [metaAction.name]: dropSelected }
     this.setState({ data })
-    console.log('updated state', this.state.data)
+    // console.log('updated state', this.state.data)
+  }
+
+  handleChangeImage = ({ target: { name, value } }) => {
+    const newValue = value
+    const data = { ...this.state.data, [name]: newValue }
+    this.setState({ data })
   }
 
 
   render() {
-    console.log('skills =', this.state.data.skills)
+    // console.log('skills =', this.state.data.skills)
+    console.log('image=', this.state.profileImage)
     return (
       <UserForm
         handleChange={this.handleChange}
         handleSubmit={this.handleSubmit}
         data={this.state.data}
         handleMultiChange={this.handleMultiChange}
+        handleChangeImage={this.handleChangeImage}
       />
     )
     

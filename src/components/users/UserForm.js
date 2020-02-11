@@ -1,8 +1,9 @@
 import React from 'react'
 import Select from 'react-select'
 import { skills, professions, levels } from '../../../config/environment'
+import ImageUpload from '../common/ImageUpload'
 
-const UserForm = ({ data, handleChange, handleSubmit, handleMultiChange }) => {
+const UserForm = ({ data, handleChange, handleSubmit, handleMultiChange, handleChangeImage }) => {
 
   const professionOptions =
     professions.map(item => {
@@ -26,6 +27,7 @@ const UserForm = ({ data, handleChange, handleSubmit, handleMultiChange }) => {
     })
   return (
     <div>
+      {console.log(data)}
       <form onSubmit={handleSubmit}>
         <div>
           <label>Name</label>
@@ -39,7 +41,7 @@ const UserForm = ({ data, handleChange, handleSubmit, handleMultiChange }) => {
             />
           </div>
         </div>
-        <div>
+        {/* <div>
           <label>Profile Image URL</label>
           <div>
             <input
@@ -50,6 +52,17 @@ const UserForm = ({ data, handleChange, handleSubmit, handleMultiChange }) => {
               value={data.profileImage}
             />
           </div>
+        </div> */}
+        <div>
+          <label>Upload Profile Image</label>
+          <ImageUpload
+            labelText="Upload your profile image"
+            onChange={handleChange}
+            required
+            name="profileImage"
+            handleChangeImage={handleChangeImage}
+            fieldName="profileImage"
+          />
         </div>
         <div>
           <label>Location</label>
