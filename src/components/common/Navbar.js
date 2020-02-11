@@ -45,7 +45,7 @@ class Navbar extends React.Component {
         <div className="flex">
           {/* <div> */}
           <div className="mr-6">
-            <Link className="text-blue-500 hover:text-blue-800" to="/">Home</Link>
+            <Link className="text-blue-500 hover:text-blue-800" to="/">Beehive 🐝</Link>
           </div>
           {/* <a className={`navbar-burger ${navbarOpen ? 'is-active' : ''}`} onClick={this.toggleNavbar}>
             <span></span>
@@ -65,13 +65,10 @@ class Navbar extends React.Component {
             {Auth.isAuthenticated() && <Link className="text-blue-500 hover:text-blue-800" to="/myportfolio">My Portfolio</Link>}
           </div>
           <div className="mr-6">
-            <Link className="text-blue-500 hover:text-blue-800" to="/discovery">Discover</Link>
-          </div>
-          <div className="mr-6">
             <Link className="text-blue-500 hover:text-blue-800" to="/search">Start Your Journey</Link>
           </div>
           <div className="mr-6">
-            <Link className="text-blue-500 hover:text-blue-800" to="/projects/new">New Project</Link>
+            {Auth.isAuthenticated() && <Link className="text-blue-500 hover:text-blue-800" to="/projects/new">New Project</Link>}
           </div>
           <div className="mr-6">
             {Auth.isAuthenticated() && <Link className="text-blue-500 hover:text-blue-800" onClick={this.handleLogout}>Logout {this.state.username}</Link>}
