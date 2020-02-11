@@ -47,12 +47,11 @@ class MyPortfolio extends React.Component {
         <h4>Skills</h4>
         <ul>{skills.map(skill => <li key={skill['skill']}>{skill['skill']}</li>)}</ul>
         <Link to={'/myportfolio/edit'}>Edit Portfolio</Link>
-        <h4>Owned Projects</h4>
-        {/* <ul>{createdProjects.map(project => <li key={project}>{project}</li>)}</ul> */}
+        {/* <h4>Owned Projects</h4>
         {createdProjects.map(project => (
           <ProjectCard key={project._id} {...project} />
-        ))}
-        <h4>Collaborated Projects</h4>
+        ))} */}
+        <h4>Projects</h4>
         {/* <ul>{collaboratedProjects.map(project => <li key={project}>{project}</li>)}</ul> */}
         {collaboratedProjects.map(project => (
           <ProjectCard key={project._id} {...project} />

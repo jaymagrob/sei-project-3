@@ -12,6 +12,11 @@ const ProjectCard = ({ name, images, _id, description, owner }) => (
             <img alt="star indicating project ownership" src="./../../assets/star.png" />
           </div> : ''
         }
+        {Auth.getPayload().sub === owner ? 
+          <div>
+            <img alt="star indicating project ownership" src="./../../assets/star.png" />
+          </div> : ''
+        }
         <div>
           <img src={images[0]} alt={name} />
         </div>
