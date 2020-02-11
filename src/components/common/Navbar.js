@@ -3,7 +3,7 @@ import { Link, withRouter } from 'react-router-dom'
 import Auth from '../../lib/auth'
 import axios from 'axios'
 class Navbar extends React.Component {
-  state = { navbarOpen: false, username: null }
+  state = { navbarOpen: false, name: null }
   toggleNavbar = () => {
     this.setState({ navbarOpen: !this.state.navbarOpen })
   }
@@ -17,7 +17,7 @@ class Navbar extends React.Component {
       const res = await axios.get('/api/myportfolio', {
         headers: { Authorization: `Bearer ${Auth.getToken()}` }
       })
-      this.setState({ username: res.data.username })
+      this.setState({ name: res.data.name })
     } catch (err) {
       console.log(err)
     }
@@ -31,7 +31,7 @@ class Navbar extends React.Component {
         const res = await axios.get('/api/myportfolio', {
           headers: { Authorization: `Bearer ${Auth.getToken()}` }
         })
-        this.setState({ username: res.data.username })
+        this.setState({ name: res.data.name })
       } catch (err) {
         console.log(err)
       }
@@ -71,7 +71,7 @@ class Navbar extends React.Component {
             {Auth.isAuthenticated() && <Link className="text-blue-500 hover:text-blue-800" to="/projects/new">New Project</Link>}
           </div>
           <div className="mr-6">
-            {Auth.isAuthenticated() && <Link className="text-blue-500 hover:text-blue-800" onClick={this.handleLogout}>Logout {this.state.username}</Link>}
+            {Auth.isAuthenticated() && <Link className="text-blue-500 hover:text-blue-800" onClick={this.handleLogout}>Logout {this.state.name}</Link>}
           </div>
           {/* </div>
           </div> */}

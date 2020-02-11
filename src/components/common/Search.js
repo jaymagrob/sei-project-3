@@ -4,8 +4,10 @@
 
 import React from 'react'
 import axios from 'axios'
-import SearchCardUser from './SearchCardUser'
-import SearchCardProject from './SearchCardProject'
+// import SearchCardUser from './SearchCardUser'
+// import SearchCardProject from './SearchCardProject'
+import UserCard from '../users/UserCard'
+import ProjectCard from '../projects/ProjectCard'
 import SearchFormType from './SearchFormType'
 import SearchFormProject from './SearchFormProject'
 import SearchFormUser from './SearchFormUser'
@@ -140,7 +142,8 @@ class Search extends React.Component {
             })                        
               .map((i,ind) => {
                 return (
-                  <SearchCardProject key={i + ind} {...i} />
+                  // <SearchCardProject key={i + ind} {...i} />
+                  <ProjectCard key={i + ind} {...i} />
                 )
               })}
 
@@ -167,7 +170,8 @@ class Search extends React.Component {
             })
               .map(i => {
                 return (                  
-                  <SearchCardUser key={i.username} {...i} />
+                  // <SearchCardUser key={i.username} {...i} />
+                  <UserCard key={i.username} {...i} />
                 )
               })}
 

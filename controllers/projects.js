@@ -89,13 +89,19 @@ function commentDelete(req, res) {
 function like(req, res) {
   Project
     .findById(req.params.id)
+    .populate('owner')
+    .populate('collaborators')
+    .populate('pendingCollaborators')
+    .populate('comments.user')
     .then(project => {
       if (!project) return res.status(404).json({ message: 'Not Found ' })
       const likeUsers = project.likes.map(like => like.user.toString())
       if (!likeUsers.includes(req.currentUser._id.toString())) {
         project.likes.push({ user: req.currentUser })
       } else {
-        const newLikes = project.likes.filter(like => like._user.toString() !== req.currentUser._id.toString())
+        console.log(project.likes, req.currentUser._id)
+        const newLikes = project.likes.filter(like => like.user.toString() !== req.currentUser._id.toString())
+        console.log(newLikes)
         project.likes = newLikes
       }
       // if (project.likes.some(like => like.user.equals(req.currentUser._id))) return project

@@ -75,9 +75,10 @@ class UserEdit extends React.Component {
   }
 
   handleChangeImage = ({ target: { name, value } }) => {
-    const newValue = value
-    const data = { ...this.state.data, [name]: newValue }
-    this.setState({ data })
+    console.log('JOHN!',this.state.data)
+    const newValue = { ...this.state.data[name].push(value) }
+    console.log('John2',newValue)
+    this.setState({ newValue })
   }
 
   render() {

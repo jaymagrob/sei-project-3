@@ -104,7 +104,17 @@ class ProjectShow extends React.Component {
     this.setState({ text: '' })
   }
   
-  
+  handleLike = async () => {
+    const projectId = this.props.match.params.id
+    try {
+      const res = await axios.get(`/api/projects/${projectId}/like`, {
+        headers: { Authorization: `Bearer ${Auth.getToken()}` }
+      })
+      this.setState({ project: res.data })
+    } catch (err) {
+      console.log(err)
+    }
+  }
 
   isOwner = () => Auth.getPayload().sub === this.state.project.owner._id
 
@@ -126,15 +136,14 @@ class ProjectShow extends React.Component {
           <h1>Project Name: {project.name}</h1>
           <p>Location: {project.location}</p>
           <p>{project.completed ? 'This project is completed' : `Recruitment Status: ${project.recruiting ? 'Recruiting' : 'Not currently recruiting'}`}</p>
-          <p>{project.recruiting ? project.lookingFor.length > 0 ? `Looking for: ${project.lookingFor.map(prof => prof)}` : 'Looking for: Nothing listed yet' : ''}</p>
+          <p>{project.recruiting ? project.lookingFor.length > 0 ? `Looking for: ${project.lookingFor.map(prof => ` ${prof}`)}` : 'Looking for: Nothing listed yet' : ''}</p>
           {/* <p>{project.recruiting ? `Looking for: ${project.lookingFor.map(prof => prof)}` : ''}</p>
           <p>{project.lookingFor.length > 0 ? `Looking for: ${project.lookingFor.map(prof => prof)}` : 'Nothing listed yet'}</p> */}
-          <h2>Skills Involved</h2>
+          <h2>Skills Involved:</h2>
           <p>{project.skillsInvolved.length < 1 ? 'No skills listed yet' :
             <ul>{project.skillsInvolved.map(skill => <li key={skill}>{skill}</li>)}</ul>
           }</p>
           
-          <p>Likes: {project.likes.length}</p>
         </div>
         <div>
           <img src={project.images[0]}/>
@@ -201,6 +210,7 @@ class ProjectShow extends React.Component {
           }
         </div>
         <p>Project Description: {project.description}</p>
+        <div onClick={this.handleLike}>Like : <span>{project.likes.length}</span></div>
         {project.images.length > 0 ? '' :
           <div>
             <h2>Gallery</h2>
