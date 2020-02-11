@@ -91,6 +91,7 @@ class ProjectShow extends React.Component {
     if (!project._id) return null
     console.log('Project =', project)
     console.log('Owner =', project.owner.username)
+    console.log('Collaborator =', project.collaborators[0].username)
 
     return (
       <section>
@@ -133,6 +134,7 @@ class ProjectShow extends React.Component {
                     width: '100%'
                   }}></Link>
                 </div>
+                <p>{collaborator._id === this.state.project.owner._id ? 'Owner' : ''}</p>
               </div>
             )
           })}
