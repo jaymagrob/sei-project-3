@@ -3,7 +3,7 @@ import Select from 'react-select'
 import { skills, professions, levels } from '../../../config/environment'
 import ImageUpload from '../common/ImageUpload'
 
-const UserForm = ({ data, handleChange, handleSubmit, handleMultiChange, handleChangeImage, handleChangeSkill }) => {
+const UserForm = ({ data, handleChange, handleSubmit, handleMultiChange, handleChangeImage, handleChangeSkill, handleChangeLevel }) => {
 
   const professionOptions =
     professions.map(item => {
@@ -41,18 +41,6 @@ const UserForm = ({ data, handleChange, handleSubmit, handleMultiChange, handleC
             />
           </div>
         </div>
-        {/* <div>
-          <label>Profile Image URL</label>
-          <div>
-            <input
-              className="input"
-              placeholder="Profile Image URL"
-              name="profileImage"
-              onChange={handleChange}
-              value={data.profileImage}
-            />
-          </div>
-        </div> */}
         <div>
           <label>Upload Profile Image</label>
           <ImageUpload
@@ -106,23 +94,25 @@ const UserForm = ({ data, handleChange, handleSubmit, handleMultiChange, handleC
           <div>
             <Select
               options={levelOptions}
-              isMulti
               name="level"
-              // value={levelOptions.filter(l => data.level.includes(l.value))}
-              onChange={handleMultiChange}
+              value={levelOptions.filter(l => data.level.includes(l.value))}
+              onChange={handleChangeLevel}
             />
           </div>
         </div>
         <div>
           <label>Skills</label>
           <div>
+            
+            { data.skills.length > 0 &&
             <Select
               options={skillsOptions}
               isMulti
               name="skills"
-              // value={skillsOptions.filter(skill => data.skills['skill'].includes(skill.value))}
+              value={skillsOptions.filter(skill => data.skills.map(a => a.skill).includes(skill.value))}
               onChange={handleChangeSkill}
             />
+            }
           </div>
         </div>
         <div>

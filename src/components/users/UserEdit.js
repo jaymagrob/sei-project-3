@@ -62,9 +62,16 @@ class UserEdit extends React.Component {
     this.setState({ data })
   }
 
+  handleChangeLevel = (selected) =>  {
+    const value = selected.value
+    const data = { ...this.state.data, level: value }
+    this.setState({ data })
+  }
+
   handleChangeSkill = (selected) => {
     const data = { ...this.state.data, skills: selected.map(sel => ({ skill: sel.value }) ) }
     this.setState({ data })
+    console.log(this.state.data.skills)
   }
 
   handleChangeImage = ({ target: { name, value } }) => {
@@ -84,6 +91,7 @@ class UserEdit extends React.Component {
         handleMultiChange={this.handleMultiChange}
         handleChangeImage={this.handleChangeImage}
         handleChangeSkill={this.handleChangeSkill}
+        handleChangeLevel={this.handleChangeLevel}
       />
     )
 
