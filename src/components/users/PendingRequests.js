@@ -47,7 +47,6 @@ class PendingRequests extends React.Component{
   }
 
   render() {
-    console.log(this.state)
     return (
       <section
         style={{ 
@@ -58,7 +57,7 @@ class PendingRequests extends React.Component{
           width: '200px',
           background: 'gray'
         }}>
-        {this.state.open &&
+        {this.state.open && this.state.user &&
           <div>
             {this.state.user.pendingProjects.map(project => {
               return (

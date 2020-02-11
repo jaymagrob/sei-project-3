@@ -1,8 +1,6 @@
 import React from 'react'
 import axios from 'axios'
-
 import Auth from '../../lib/auth'
-
 import ProjectForm from './ProjectForm'
 
 class ProjectEdit extends React.Component{

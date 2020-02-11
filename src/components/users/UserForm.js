@@ -27,7 +27,7 @@ const UserForm = ({ data, handleChange, handleSubmit, handleMultiChange, handleC
     })
   return (
     <div>
-      {console.log(data)}
+      {/* {console.log(data)} */}
       <form onSubmit={handleSubmit}>
         <div>
           <label>Name</label>

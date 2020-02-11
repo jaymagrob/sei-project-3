@@ -35,4 +35,18 @@ function myPortfolio(req, res) {
     .catch(err => res.json(err))
 }
 
-module.exports = { register, login, myPortfolio }
+// edit user profile
+function myPortfolioUpdate(req, res, next) {
+  User
+    .findById(req.currentUser._id)
+    .then(user => {
+      if (!user) throw new Error('ValidationError')
+      if (!user._id.equals(req.currentUser._id)) return res.status(401).json({ message: 'Unauthorised' })
+      Object.assign(user, req.body)
+      return user.save()
+    })
+    .then(user => res.status(202).json(user))
+    .catch(next)
+}
+
+module.exports = { register, login, myPortfolio, myPortfolioUpdate }

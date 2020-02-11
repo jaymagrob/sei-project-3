@@ -10,7 +10,7 @@ router.route('/projects')
 
 router.route('/projects/:id')
   .get(projects.show)
-  .put(secureRoute ,projects.update)
+  .put(secureRoute, projects.update)
   .delete(secureRoute, projects.destroy)
 
 router.route('/projects/:id/comments')
@@ -52,5 +52,10 @@ router.route('/login')
 
 router.route('/myportfolio')
   .get(secureRoute, auth.myPortfolio)
+
+router.route('/myportfolio/edit')
+  .get(secureRoute, auth.myPortfolio)
+  .put(secureRoute, auth.myPortfolioUpdate)
+  // .delete(secureRoute, users.destroy)
 
 module.exports = router
