@@ -1,7 +1,7 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
 import { BrowserRouter, Switch, Route } from 'react-router-dom'
-import './styles/main.scss'
+// import './styles/main.scss'
 import './styles/tailwind.css'
 
 import Home from './components/common/Home'
