@@ -2,13 +2,15 @@ import React from 'react'
 import axios from 'axios'
 import { Link } from 'react-router-dom'
 import Auth from '../../lib/auth'
+import ProjectComment from './ProjectComment'
 // import { borderRadius } from 'react-select/src/theme'
 
 class ProjectShow extends React.Component {
   state = {
     project: {},
     users: null,
-    searchedUsers: null
+    searchedUsers: null,
+    text: ''
     // userSearch: ''
   }
 
@@ -21,6 +23,11 @@ class ProjectShow extends React.Component {
       console.log(err)
     }
   }
+
+    // this is handling the change in the first checkbox form (looking for creatives/users)
+    handleChange = ({ target: { name, value } }) => {
+      this.setState({ [name]: value })
+    }
 
   userSearch = async () => {
     try {
@@ -83,6 +90,22 @@ class ProjectShow extends React.Component {
     this.setState({ users: null, searchedUsers: null })
   }
 
+  handleCommentRequest = async (e) => {
+    e.preventDefault()
+    const projectId = this.props.match.params.id
+    try {
+      const res = await axios.post(`/api/projects/${projectId}/comments`, { text: this.state.text }, {
+        headers: { Authorization: `Bearer ${Auth.getToken()}` }
+      })
+      this.setState({ project: res.data })
+    } catch (err) {
+      console.log(err)
+    }
+    this.setState({ text: '' })
+  }
+  
+  
+
   isOwner = () => Auth.getPayload().sub === this.state.project.owner._id
 
   render() {
@@ -91,6 +114,8 @@ class ProjectShow extends React.Component {
     if (!project._id) return null
     console.log('Project =', project)
     console.log('Owner =', project.owner.username)
+    console.log('Collaborator =', project.collaborators[0].username)
+    console.log(this.state)
 
     return (
       <section>
@@ -133,6 +158,7 @@ class ProjectShow extends React.Component {
                     width: '100%'
                   }}></Link>
                 </div>
+                <p>{collaborator._id === this.state.project.owner._id ? 'Owner' : ''}</p>
               </div>
             )
           })}
@@ -186,6 +212,13 @@ class ProjectShow extends React.Component {
         <Link to={`/projects/${this.props.match.params.id}/edit`}>Edit Project</Link>
         }
         
+        <ProjectComment
+          comments={this.state.project.comments}
+          text={this.state.text}
+          handleChange={this.handleChange}
+          handleCommentRequest={this.handleCommentRequest}
+        />
+
       </section>
     )
   }

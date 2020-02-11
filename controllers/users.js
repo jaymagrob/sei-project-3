@@ -55,7 +55,10 @@ function destroy(req, res) {
 function like(req, res) {
   User
     .findOne({ username: req.params.username })
+    .populate('createdProjects')
+    .populate('collaboratedProjects')
     .then(user => {
+      console.log(user)
       if (!user) return res.status(404).json({ message: 'Not Found ' })
       if (req.currentUser._id.toString() === user._id.toString()) return res.status(401).json({ message: 'Unauthorized' })
       const skill = user.skills.id(req.params.skill)
@@ -159,6 +162,7 @@ function acceptPendingProject(req, res) {
   User
     .findById(req.params.userId)
     .populate('pendingProjects.project')
+    .populate('pendingProjects.userId')
     .then(user => {
       if (!user) return res.status(404).json({ message: 'Not Found ' })
       const pendingProject = user.pendingProjects.find(pendingProject => pendingProject.project._id.toString() === req.params.projectId.toString())
@@ -169,9 +173,13 @@ function acceptPendingProject(req, res) {
       } else {
         return res.status(401).json({ message: 'Unauthorized' })
       }
+      
       if (pendingProject.owner === true && pendingProject.user === true) {
-        pendingProject.project.collaborators.push(user)
+        pendingProject.project.collaborators.push(pendingProject.userId)
         pendingProject.remove()
+        const ownerPendingProject = pendingProject.userId.pendingProjects.find(pendingProject => pendingProject.project._id.toString() === req.params.projectId.toString())
+        ownerPendingProject.remove()
+        pendingProject.userId.save()
         pendingProject.project.save()
         return user.save()
       }
