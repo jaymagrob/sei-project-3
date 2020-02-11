@@ -1,5 +1,6 @@
 import React from 'react'
 import axios from 'axios'
+import { Link } from 'react-router-dom'
 class Register extends React.Component {
   state = {
     data: { 
@@ -102,6 +103,9 @@ class Register extends React.Component {
               </div>
             </form>
           </div>
+        </div>
+        <div className="mr-6">
+          <p>Already a member? Login <Link className="text-blue-500 hover:text-blue-800" to="/login">here</Link></p>
         </div>
       </section>
     )

@@ -83,19 +83,36 @@ class ProjectShow extends React.Component {
     this.setState({ users: null, searchedUsers: null })
   }
 
+  isOwner = () => Auth.getPayload().sub === this.state.project.owner._id
+
   render() {
+    
     const { project } = this.state
     if (!project._id) return null
+    console.log('Project =', project)
+    console.log('Owner =', project.owner.username)
 
     return (
       <section>
         <div>
-          <h1>Name: {project.name}</h1>
+          {this.isOwner() &&
+          <img alt="star indicating project ownership" src="./../../assets/star.png" />
+          }
+          <h1>Project Name: {project.name}</h1>
+          <p>Location: {project.location}</p>
+          <p>{project.completed ? 'This project is completed' : `Recruitment Status: ${project.recruiting ? 'Recruiting' : 'Not currently recruiting'}`}</p>
+          <p>{project.recruiting ? project.lookingFor.length > 0 ? `Looking for: ${project.lookingFor.map(prof => prof)}` : 'Looking for: Nothing listed yet' : ''}</p>
+          {/* <p>{project.recruiting ? `Looking for: ${project.lookingFor.map(prof => prof)}` : ''}</p>
+          <p>{project.lookingFor.length > 0 ? `Looking for: ${project.lookingFor.map(prof => prof)}` : 'Nothing listed yet'}</p> */}
+          <h2>Skills Involved</h2>
+          <p>{project.skillsInvolved.length < 1 ? 'No skills listed yet' :
+            <ul>{project.skillsInvolved.map(skill => <li key={skill}>{skill}</li>)}</ul>
+          }</p>
+          
+          <p>Likes: {project.likes.length}</p>
         </div>
         <div>
-          <h2>Image: 
-            <img src={project.images} />
-          </h2>
+          <img src={project.images[0]}/>
         </div>
         <div>Collaborators</div>
         <div style={{ display: 'flex' }}>
@@ -157,7 +174,18 @@ class ProjectShow extends React.Component {
           })
           }
         </div>
-        {Auth.isAuthenticated() && <Link to={`/projects/${this.props.match.params.id}/edit`}>Edit</Link>}
+        <p>Project Description: {project.description}</p>
+        {project.images.length > 0 ? '' :
+          <div>
+            <h2>Gallery</h2>
+            {project.images.map((image, index) => index === 0 ? '' : <img key={image} src={image}/>)}
+          </div>}
+        
+
+        {this.isOwner() &&
+        <Link to={`/projects/${this.props.match.params.id}/edit`}>Edit Project</Link>
+        }
+        
       </section>
     )
   }
