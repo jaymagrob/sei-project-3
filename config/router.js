@@ -40,9 +40,9 @@ router.route('/users/:username/skills/:skill/like')
 router.route('/users/collaborate')
   .post(secureRoute, users.userPendingProject)
   
-router.route('/users/:username/collaborate/:projectId')
+router.route('/users/:userId/collaborate/:projectId')
   .delete(secureRoute, users.deletePendingProject)
-  .put(secureRoute, users.acceptPendingProject)
+  .get(secureRoute, users.acceptPendingProject)
 
 router.route('/register')
   .post(auth.register)

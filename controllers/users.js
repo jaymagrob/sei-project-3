@@ -1,4 +1,5 @@
 const User = require('../models/user')
+const Project = require('../models/project')
 
 // all users profiles
 function index(req, res) {
@@ -91,24 +92,24 @@ function newSkill(req, res) {
 
 function userPendingProject(req, res) {
   User
-    .findById(req.body.user)
+    .findById(req.body.userId)
     .then(user => {
       if (!user) return res.status(404).json({ message: 'Not Found ' })
-      if (req.currentUser._id.toString() !==  req.body.user.toString() && req.currentUser._id.toString() !== req.body.owner.toString()) {
+      if (req.currentUser._id.toString() !==  req.body.userId.toString() && req.currentUser._id.toString() !== req.body.ownerId.toString()) {
         return res.status(401).json({ message: 'Unauthorized' })
       }
-      User.findById(req.body.owner)
+      User.findById(req.body.ownerId)
         .then(owner => {
           const projects = user.pendingProjects.map(project => project.project)
           if (projects.includes(req.body.project.project)) return user.save()
-          if (req.body.user.toString() === req.currentUser._id.toString()) {
-            req.body.project.user = true
-            owner.pendingProjects.push(req.body.project)
-            user.pendingProjects.push(req.body.project)
-          } else if (req.body.owner.toString() === req.currentUser._id.toString()) {
-            req.body.project.owner = true
-            owner.pendingProjects.push(req.body.project)
-            user.pendingProjects.push(req.body.project)
+          if (req.body.userId.toString() === req.currentUser._id.toString()) {
+            req.body.user = true
+            owner.pendingProjects.push(req.body)
+            user.pendingProjects.push(req.body)
+          } else if (req.body.ownerId.toString() === req.currentUser._id.toString()) {
+            req.body.owner = true
+            owner.pendingProjects.push(req.body)
+            user.pendingProjects.push(req.body)
           }
           owner.save()
           return user.save()
@@ -131,11 +132,23 @@ function userPendingProject(req, res) {
 
 function deletePendingProject(req, res) {
   User
-    .findOne({ username: req.params.username })
+    .findById(req.params.userId)
     .then(user => {
       if (!user) return res.status(404).json({ message: 'Not Found ' })
-      const newPending = user.pendingProjects.filter(project => project.project.toString() !== req.params.projectId.toString())
-      user.pendingProjects = newPending
+      const userPending = user.pendingProjects.filter(project => project.project.toString() !== req.params.projectId.toString())
+      user.pendingProjects = userPending
+      Project.findById(req.params.projectId)
+        .then(project => {
+          User.findById(project.owner)
+            .then(owner => {
+              const ownerPending = owner.pendingProjects.filter(project => (
+                !(project.project.toString() === req.params.projectId.toString()) &&
+                project.userId.toString() === user._id.toString())
+              )
+              owner.pendingProjects = ownerPending
+              owner.save()
+            })
+        })
       return user.save()
     })
     .then(user => res.status(202).json(user))
@@ -144,14 +157,14 @@ function deletePendingProject(req, res) {
 
 function acceptPendingProject(req, res) {
   User
-    .findOne({ username: req.params.username })
+    .findById(req.params.userId)
     .populate('pendingProjects.project')
     .then(user => {
       if (!user) return res.status(404).json({ message: 'Not Found ' })
       const pendingProject = user.pendingProjects.find(pendingProject => pendingProject.project._id.toString() === req.params.projectId.toString())
-      if (user._id.toString() === req.currentUser._id.toString()) {
+      if (pendingProject.userId.toString() === req.currentUser._id.toString()) {
         pendingProject.user = true
-      } else if (req.currentUser._id.toString() === pendingProject.project.owner.toString()) {
+      } else if (req.currentUser._id.toString() === pendingProject.ownerId.toString()) {
         pendingProject.owner = true
       } else {
         return res.status(401).json({ message: 'Unauthorized' })

@@ -21,6 +21,7 @@ import MyPortfolio from './components/common/MyPortfolio'
 // import Auth from '../../lib/auth'
 import SecureRoute from './components/common/SecureRoute'
 import UnSecureRoute from './components/common/UnSecureRoute'
+import PendingRequests from './components/users/PendingRequests' 
 
 
 
@@ -46,6 +47,7 @@ const App = () => (
         <UnSecureRoute path="/login" component={Login} />
         <Route path="/*" component={NotFound} />
       </Switch>
+      <PendingRequests />
     </main>
   </BrowserRouter>
 )

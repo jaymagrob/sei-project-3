@@ -29,6 +29,8 @@ function myPortfolio(req, res) {
     .populate('createdProjects')
     .populate('collaboratedProjects')
     .populate('pendingProjects.project')
+    .populate('pendingProjects.ownerId')
+    .populate('pendingProjects.userId')
     .then(user => res.status(200).json(user))
     .catch(err => res.json(err))
 }
