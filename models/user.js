@@ -15,7 +15,9 @@ const skillSchema = new mongoose.Schema({
 const projectRequestSchema = new mongoose.Schema({
   project: { type: mongoose.Schema.ObjectId, ref: 'Project' },
   owner: { type: Boolean, required: true },
-  user: { type: Boolean, required: true }
+  user: { type: Boolean, required: true }, 
+  ownerId: { type: mongoose.Schema.ObjectId, ref: 'User' },
+  userId: { type: mongoose.Schema.ObjectId, ref: 'User' }
 })
 
 const userSchema = new mongoose.Schema({

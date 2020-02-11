@@ -1402,7 +1402,7 @@ mongoose.connect(dbURI, { useNewUrlParser: true, useUnifiedTopology: true }, (er
           recruiting: true
         },
         {
-          name: 'Zaam-Dox',
+          name: 'gdsrfesdbfhn',
           owner: createdUser[0],
           collaborators: createdUser[0],
           description: 'ullamcorper purus sit amet nulla quisque arcu libero rutrum ac lobortis vel dapibus',
@@ -1482,7 +1482,7 @@ mongoose.connect(dbURI, { useNewUrlParser: true, useUnifiedTopology: true }, (er
           recruiting: true
         },
         {
-          name: 'Hatity',
+          name: 'gadsfdfdfgftr',
           owner: createdUser[8],
           collaborators: createdUser[8],
           description: 'dui vel nisl duis ac nibh fusce lacus purus aliquet at feugiat non pretium quis lectus suspendisse potenti in eleifend',
