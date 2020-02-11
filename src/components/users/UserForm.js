@@ -3,7 +3,7 @@ import Select from 'react-select'
 import { skills, professions, levels } from '../../../config/environment'
 import ImageUpload from '../common/ImageUpload'
 
-const UserForm = ({ data, handleChange, handleSubmit, handleMultiChange, handleChangeImage }) => {
+const UserForm = ({ data, handleChange, handleSubmit, handleMultiChange, handleChangeImage, handleChangeSkill }) => {
 
   const professionOptions =
     professions.map(item => {
@@ -121,7 +121,7 @@ const UserForm = ({ data, handleChange, handleSubmit, handleMultiChange, handleC
               isMulti
               name="skills"
               // value={skillsOptions.filter(skill => data.skills['skill'].includes(skill.value))}
-              onChange={handleMultiChange}
+              onChange={handleChangeSkill}
             />
           </div>
         </div>

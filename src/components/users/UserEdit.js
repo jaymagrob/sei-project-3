@@ -12,7 +12,7 @@ class UserEdit extends React.Component {
       profileImage: '',
       professions: [],
       level: '',
-      skills: [{ skill: '' }]
+      skills: []
     },
     usernameMain: ''
   }
@@ -56,28 +56,14 @@ class UserEdit extends React.Component {
     }
   }
 
-  // skillsOptions =
-  // skills.map(item => {
-  //   return (
-  //     { value: item, label: item }
-  //   )
-  // })
-
   handleMultiChange = (selected, metaAction) => {
     const dropSelected = selected ? selected.map(item => item.value) : []
-    let skillSelected = [metaAction.option.value]
-    console.log(metaAction)
-    // if e.target.name === skills then map through the value of each skill and turn it into an object like skills in state above
-    if (metaAction.name === 'skills') {
-      skillSelected =
-        skillSelected.map(item => {
-          return (
-            { skill: item }
-          )
-        })
-    }
-    // need to get all the selected skills set to state (atm only the last one is) 
-    const data = { ...this.state.data, [metaAction.name]: dropSelected, ['skills']: skillSelected }
+    const data = { ...this.state.data, [metaAction.name]: dropSelected }
+    this.setState({ data })
+  }
+
+  handleChangeSkill = (selected) => {
+    const data = { ...this.state.data, skills: selected.map(sel => ({ skill: sel.value }) ) }
     this.setState({ data })
   }
 
@@ -86,7 +72,6 @@ class UserEdit extends React.Component {
     const data = { ...this.state.data, [name]: newValue }
     this.setState({ data })
   }
-
 
   render() {
 
@@ -97,6 +82,7 @@ class UserEdit extends React.Component {
         data={this.state.data}
         handleMultiChange={this.handleMultiChange}
         handleChangeImage={this.handleChangeImage}
+        handleChangeSkill={this.handleChangeSkill}
       />
     )
 
