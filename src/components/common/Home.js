@@ -23,10 +23,10 @@ class Home extends React.Component {
   render() {
     return (
       <>
-        <section>
+        <section className="section">
           <div>
-            <div>
-              <h1>
+            <div className="container">
+              <h1 className="text-is-centre">
                 Beehive
               </h1>
               <p>
