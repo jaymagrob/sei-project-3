@@ -2,7 +2,6 @@ import React from 'react'
 import { Link } from 'react-router-dom'
 import Auth from '../../lib/auth'
 
-
 const ProjectCard = ({ name, images, _id, description, owner }) => (
   <div className="column is-one-fifth-desktop is-one-third-tablet is-full-mobile" key={_id}>
     <Link to={`/projects/${_id}`}>

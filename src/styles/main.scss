@@ -55,6 +55,9 @@ $navbar-item-hover-background-color: $light-black;
 @import "../../node_modules/bulma/sass/layout/hero.sass";
 @import "../../node_modules/bulma/sass/layout/section.sass";
 
+// // Iimporting Carousel styleing
+// @import "react-alice-carousel/lib/scss/alice-carousel.scss";
+
 .main-hero-title {
   font-family: "Yeseva One", cursive;
   font-size: 90px;
@@ -98,8 +101,8 @@ $navbar-item-hover-background-color: $light-black;
 
 .user-img {
   object-fit: cover;
-  width:230px;
-  height:230px;
+  width:150px;
+  height:150px;
   border-radius: 50%;
 }
 
@@ -110,6 +113,16 @@ $navbar-item-hover-background-color: $light-black;
   border-radius: 50%;
 }
 
+.user_card_container {
+  text-align: center;
+  // transform: scale(0.7);
+}
+
+.user_card_text {
+  font-size: 20px;
+  margin-top: 5px;
+  font-weight: 400;
+  
 .project-img {
   object-fit: cover;
   width:200px;
