@@ -93,6 +93,10 @@ function commentDelete(req, res) {
 function commentEdit(req, res) {
   Project
     .findById(req.params.id)
+    .populate('owner')
+    .populate('collaborators')
+    .populate('pendingCollaborators')
+    .populate('comments.user')
     .then(project => {
       if (!project) return res.status(404).json({ message: 'Not Found' })
       const comment = project.comments.id(req.params.commentId)

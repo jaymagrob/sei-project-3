@@ -10,7 +10,9 @@ class ProjectShow extends React.Component {
     project: {},
     users: null,
     searchedUsers: null,
-    text: ''
+    text: '',
+    editingComment: '',
+    editedCommentText: ''
     // userSearch: ''
   }
 
@@ -116,9 +118,25 @@ class ProjectShow extends React.Component {
     }
   }
 
-  // handleEditComment = async () => {
-  //   console.log('edit comment')
-  // }
+  handleEditSelected = (commentId, commentText) => {
+    this.setState({ editingComment: commentId, editedCommentText: commentText })
+  }
+
+  handleEditComment = async (commentId) => {
+    const projectId = this.props.match.params.id
+    try {
+      const res = await axios.put(`/api/projects/${projectId}/comments/${commentId}`, { text: this.state.editedCommentText }, {
+        headers: { Authorization: `Bearer ${Auth.getToken()}` }
+      })
+      this.setState({ project: res.data, editingComment: '', editedCommentText: '' })
+    } catch (err) {
+      console.log(err)
+    }
+  }
+
+  resetEditComment = () => {
+    this.setState({ editedCommentText: '', editingComment: '' })
+  }
   
   handleDeleteComment = async (projectId, commentId) => {
     try {
@@ -237,9 +255,13 @@ class ProjectShow extends React.Component {
           text={this.state.text}
           handleChange={this.handleChange}
           handleCommentRequest={this.handleCommentRequest}
+          handleEditSelected={this.handleEditSelected}
           handleEditComment={this.handleEditComment}
           handleDeleteComment={this.handleDeleteComment}
           projectId={this.state.project._id}
+          editingComment={this.state.editingComment}
+          editedCommentText={this.state.editedCommentText}
+          resetEditComment={this.resetEditComment}
         /> 
       </section>
     )
