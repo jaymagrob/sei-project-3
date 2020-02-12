@@ -5,7 +5,7 @@ import Auth from '../../lib/auth'
 const ProjectComment = ({ comments, text, handleChange, handleCommentRequest, handleEditSelected, handleEditComment, handleDeleteComment, projectId, editingComment, editedCommentText, resetEditComment }) => {
 
   const isOwner = (commentOwnerId) => {
-    return Auth.getPayload().sub.toString() === commentOwnerId.toString()
+    return Auth.getPayload().sub === commentOwnerId
   }
 
 
