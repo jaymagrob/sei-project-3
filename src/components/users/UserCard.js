@@ -5,7 +5,7 @@ const UserCard = ({ name, profileImage, location, _id, username }) => (
     <Link to={`/users/${username}`}>
       <div>
         <figure>
-          <img src={profileImage} alt={name} />
+          <img className="user-img" src={profileImage} alt={name} />
         </figure>
       </div>
       <div>

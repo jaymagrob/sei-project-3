@@ -48,47 +48,56 @@ class UserShow extends React.Component {
     if (!user._id) return null
 
     return (
-      <section>
-        <div>
-          <h1>Name: {user.name}</h1>
-        </div>
-        <div>
-          <h1>Profile Image:
-            <img src={user.profileImage} />
-          </h1>
-          <p>Username: {user.username}</p>
-          <h3>Other Info</h3>
-          <h4>Location</h4>
-          <p>{user.location}</p>
-          <h4>Email</h4>
-          <p>{user.email}</p>
-          <h4>Bio</h4>
-          <p>{user.bio}</p>
-          {this.isOwner() && <Link to={'/myportfolio/edit'}>Edit Portfolio</Link>}
-          <h4>Professions</h4>
-          <ul>{user.professions.map(profession => <li key={profession}>{profession}</li>)}</ul>
-          <h4>Level</h4>
-          <p>{user.level}</p>
-          <h4>Skills</h4>
-          <ul>{user.skills.map(skill => (
-            <li 
-              name={skill._id}
-              onClick={this.handleLike} 
-              key={skill['skill']}
-              style={{ cursor: 'pointer' }}
-            >{skill['skill']}: {skill.likes.length}</li>
-          ))}</ul>
+      <>
+        <section className="section">
+          <div className="columns">
+            <div className="column is-one-third">
+              <img className="profile-img" src={user.profileImage} />
+              {this.isOwner() && <Link className="button" to={'/myportfolio/edit'}>Edit Portfolio</Link>}
+            </div>
+            <div className="column">
+              <div className="columns">
+                <div className="column">
+                  <h1>{user.name}</h1>
+                  <ul>{user.professions.map(profession => <li key={profession}>{profession}</li>)}</ul>
+                </div>
+                <div className="column">
+                  <p>{user.location}</p>
+                  <p>{user.level}</p>
+                </div>
+              </div>
+
+              <p>{user.bio}</p>
+
+              <section>
+                <h4>Skills</h4>
+                <ul>{user.skills.map(skill => (
+                  <li
+                    name={skill._id}
+                    onClick={this.handleLike}
+                    key={skill['skill']}
+                    style={{ cursor: 'pointer' }}
+                  >{skill['skill']}: {skill.likes.length}</li>
+                ))}</ul>
+              </section>
+            </div>
+          </div>
+        </section>
+
+        <section>
           {/* <h4>Owned Projects</h4>
           {user.createdProjects.map(project => (
             <ProjectCard key={project._id} {...project} />
           ))} */}
           <h4>Projects</h4>
           {/* <ul>{collaboratedProjects.map(project => <li key={project}>{project}</li>)}</ul> */}
-          {user.collaboratedProjects.map(project => (
-            <ProjectCard key={project._id} {...project} />
-          ))}
-        </div>
-      </section>
+          <section className="columns is-4">
+            {user.collaboratedProjects.map(project => (
+              <ProjectCard key={project._id} {...project} />
+            ))}
+          </section>
+        </section>
+      </>
     )
   }
 }

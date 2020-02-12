@@ -2,6 +2,7 @@ import React from 'react'
 import axios from 'axios'
 import UserCard from '../users/UserCard'
 import ProjectCard from '../projects/ProjectCard'
+import { Link } from 'react-router-dom'
 
 class Home extends React.Component {
   state = {
@@ -26,21 +27,25 @@ class Home extends React.Component {
         <section className="hero is-fullheight">
           <div className="hero-body">
             <div className="container has-text-centered">
-              <h1 className="title-hero">
+              <h1 className="main-hero-title">
                 beehive
               </h1>
               <h2 className="subtitle subtitle-hero">
                 for creative busy bees
               </h2>
-              <div>
-                <button className="button">register</button>
-                <button className="button">discover</button>
+              <div className="field buttons is-centered">
+                <p className="control">
+                  <Link className="button is-medium" to="/register">register</Link>
+                </p> 
+                <p className="control">
+                  <a href="#discover" className="button is-medium">discover</a>
+                </p>
               </div>
             </div>
           </div>
         </section>
         <section>
-          <h1>Discovery</h1>
+          <h1 id="discover">Discovery</h1>
           <div>
             <h2>Users</h2>
             <div>
