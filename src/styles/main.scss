@@ -26,6 +26,9 @@ $body-background-color: $beige-lighter;
 $control-border-width: 2px;
 $input-border-color: transparent;
 $input-shadow: none;
+$input-background-color: $grey-light;
+$input-color: $black;
+$input-radius: 10px;
 
 // Import only what you need from Bulma
 @import "../../node_modules/bulma/sass/utilities/_all.sass";
@@ -45,4 +48,17 @@ $input-shadow: none;
 
 .subtitle-hero {
   font-size: 30px;
+}
+
+.padding-v-10 {
+  padding: 10px 0;
+}
+
+.title {
+  font-family: "Yeseva One", cursive;
+  letter-spacing: 2px;
+}
+
+.title-underLine {
+  border-bottom: $grey-light 2px solid;
 }
