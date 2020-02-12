@@ -2,7 +2,7 @@ import React from 'react'
 import { Link } from 'react-router-dom'
 
 const ProjectMessage = ({ messages, text, handleChange, handleMessageRequest, toggleMessageBoard, showMessages }) => {
-  console.log(messages)
+  // console.log(messages)
   return (
     <>
       <div style={{

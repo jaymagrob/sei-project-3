@@ -116,7 +116,7 @@ class ProjectShow extends React.Component {
         headers: { Authorization: `Bearer ${Auth.getToken()}` }
       })
       this.setState({ project: res.data })
-      console.log('project', this.state.project)
+      // console.log('project', this.state.project)
     } catch (err) {
       console.log(err)
     }
@@ -137,7 +137,7 @@ class ProjectShow extends React.Component {
 
   toggleMessageBoard = async (e) => {
     this.setState({ showMessages: !this.state.showMessages })
-    console.log('show messages =', this.state.showMessages)
+    // console.log('show messages =', this.state.showMessages)
   }
   
   handleEditSelected = (commentId, commentText) => {
