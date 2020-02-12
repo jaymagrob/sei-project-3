@@ -91,10 +91,10 @@ function commentEdit(req, res) {
     .findById(req.params.id)
     .then(project => {
       if (!project) return res.status(404).json({ message: 'Not Found' })
-      let comment = project.comments.id(req.params.commentId)
+      const comment = project.comments.id(req.params.commentId)
       if (!comment.user.equals(req.currentUser._id)) return res.status(401).json({ message: 'Unauthorized' })
-      comment = req.body.text
-      return comment.save()
+      comment.text = req.body.text
+      return project.save()
     })
     .then(comment => res.status(200).json(comment))
     .catch(err => res.status(400).json(err))
