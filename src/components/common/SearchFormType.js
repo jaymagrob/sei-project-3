@@ -5,29 +5,31 @@ const SearchCardUser = ({ formData, handleChange }) => {
   return (
   
     <section>
-      <div>
-        <h1>Start your search</h1>
-      </div>
-
-      <div>
-        <h3>What are you searching for?</h3>
-        <h4>Projects</h4>
-        <input
-          name="searchingFor"
-          type="radio"
-          value="projects"
-          onChange={(e) => handleChange(e,'formData')}
-          checked={formData.searchingFor === 'projects'}
-        />
-        <h4>Creatives</h4>
-        <input
-          name="searchingFor"
-          type="radio"
-          value="users"
-          onChange={(e) => handleChange(e,'formData')}
-          checked={formData.searchingFor === 'users'}
-        />
-      </div>
+      <form>
+        <div className="title-underLine">
+          <div className="title is-4 padding-v-10">What are you searching for?</div>
+        </div>
+        <div className="control">
+          <label className="radio">
+            <input
+              name="searchingFor"
+              type="radio"
+              value="projects"
+              onChange={(e) => handleChange(e,'formData')}
+              checked={formData.searchingFor === 'projects'}
+            />Projects
+          </label>
+          <label className="radio">
+            <input 
+              name="searchingFor"
+              type="radio"
+              value="users"
+              onChange={(e) => handleChange(e,'formData')}
+              checked={formData.searchingFor === 'users'}
+            />Creatives
+          </label>
+        </div>        
+      </form>     
     </section>
   )
 }
