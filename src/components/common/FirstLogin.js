@@ -15,7 +15,8 @@ class FirstLogin extends React.Component{
       const res = await axios('/api/myportfolio', {
         headers: { Authorization: `Bearer ${Auth.getToken()}` }
       })
-      if (!res.data.firstLogin) this.props.history.push('/discovery')
+      console.log(res.data.firstLogin)
+      // if (!res.data.firstLogin) this.props.history.push('/discovery')
       this.setState({ name: res.data.name, username: res.data.username })
     } catch (err) {
       console.log(err)
@@ -25,12 +26,16 @@ class FirstLogin extends React.Component{
   render() {
     if (!this.state.name) return null
     return (
-      <section>
-        <h1>Welcome to the Hive {this.state.name}</h1>
-        <h2>Start Your Journey With:</h2>
-        <Link to={`/users/${this.state.username}`}>Build your Profile</Link>
-        <Link to="/search">Find New Projects and People</Link>
-        <Link to="/projects/new">Create a new Project</Link>
+      <section className="section">
+        <div className="container">
+          <div className="if-half">
+          <h1>Welcome to the Hive {this.state.name}</h1>
+          <h2>Start Your Journey With:</h2>
+          <Link to={`/users/${this.state.username}`}>Build your Profile</Link>
+          <Link to="/search">Find New Projects and People</Link>
+          <Link to="/projects/new">Create a new Project</Link>
+          </div>
+        </div>
       </section>
     )
   }
