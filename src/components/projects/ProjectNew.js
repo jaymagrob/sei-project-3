@@ -28,9 +28,7 @@ class ProjectNew extends React.Component{
   }
 
   handleChangeImage = ({ target: { name, value } }) => {
-    console.log('JOHN!',this.state.data)
     const newValue = { ...this.state.data[name].push(value) }
-    console.log('John2',newValue)
     this.setState({ newValue })
   }
 
