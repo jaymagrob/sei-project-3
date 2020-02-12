@@ -36,7 +36,7 @@ class FirstLogin extends React.Component{
                 <Link to="/search" className="button">Opertunities</Link>
               </div>
               <div className="column">
-                <Link to={`/users/${this.state.username}`} className="button">Profile</Link>
+                <Link to={`/users/${this.state.username}`} className="button">My Profile</Link>
               </div>
               <div className="column">
                 <Link to="/projects/new" className="button">New Project</Link>

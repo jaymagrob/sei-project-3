@@ -28,21 +28,26 @@ class Gallery extends React.Component{
     console.log(this.props.data)
     return (
       this.props.type === 'users' ?
+      <>
         <AliceCarousel 
+          className="carousel_class"
           mouseTrackingEnabled
           responsive={{ 0: { items: 1 }, 1024: { items: 5 } }}
           dotsDisabled
+          // buttonsDisabled
         >
+        
           {this.props.type === 'users' && this.props.data.map(user => {
             console.log(user)
             return <UserCard key={user._id} {...user} />
           })}
-
         </AliceCarousel> 
+        </>
         :
         <AliceCarousel 
+          className="carousel_class"
           mouseTrackingEnabled
-          responsive={{ 0: { items: 1 }, 1024: { items: 5 } }}
+          responsive={{ 0: { items: 1 }, 1024: { items: 3 } }}
           dotsDisabled
         >
           {this.props.type === 'projects' && this.props.data.map(project => (

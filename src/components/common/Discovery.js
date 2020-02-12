@@ -26,14 +26,16 @@ class Discovery extends React.Component {
     return (
       <section>
         <h1>Discovery</h1>
-        <div>
+        <div className="discovery_inner_container">
           <div>
             <h2>Users</h2>
-            <div>
-              <Gallery data={this.state.users} type={'users'}/>
-              {/* {this.state.users.map(user => (
+            <div className="gallery_outer_container">
+              <div className="gallery_container">
+                <Gallery data={this.state.users} type={'users'}/>
+                {/* {this.state.users.map(user => (
               <UserCard key={user._id} {...user} />
             ))} */}
+              </div>
             </div>
           </div>
           <div>
