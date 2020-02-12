@@ -28,6 +28,7 @@ function show(req, res) {
     .populate('collaborators')
     .populate('pendingCollaborators')
     .populate('comments.user')
+    .populate('messages.user')
     .then(project => {
       return res.status(202).json(project)
     })
@@ -86,6 +87,38 @@ function commentDelete(req, res) {
     .catch(err => res.json(err))
 }
 
+function messageCreate(req, res, next) { 
+  req.body.user = req.currentUser
+  Project
+    .findById(req.params.id)
+    .populate('owner')
+    .populate('collaborators')
+    .populate('pendingCollaborators')
+    .populate('comments.user')
+    .populate('messages.user')
+    .then(project => {
+      if (!project) return res.status(404).json({ message: 'Not Found' })
+      project.messages.push(req.body)
+      return project.save()
+    })
+    .then(project => res.status(201).json(project))
+    .catch(next)
+}
+
+function messageDelete(req, res) { 
+  Project
+    .findById(req.params.id)
+    .then(project => {
+      if (!project) return res.status(404).json({ message: 'Not Found' })
+      const message = project.messages.id(req.params.messageId)
+      if (!message.user.equals(req.currentUser._id)) return res.status(401).json({ message: 'Unauthorized' })
+      message.remove()
+      return project.save()
+    })
+    .then(project => res.status(204).json(project))
+    .catch(err => res.json(err))
+}
+
 function like(req, res) {
   Project
     .findById(req.params.id)
@@ -113,4 +146,4 @@ function like(req, res) {
 }
 
 
-module.exports = { index, create, show, update, destroy, commentCreate, commentDelete, like }
+module.exports = { index, create, show, update, destroy, commentCreate, commentDelete, messageCreate, messageDelete, like }

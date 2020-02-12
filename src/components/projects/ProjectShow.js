@@ -3,6 +3,7 @@ import axios from 'axios'
 import { Link } from 'react-router-dom'
 import Auth from '../../lib/auth'
 import ProjectComment from './ProjectComment'
+import ProjectMessage from './ProjectMessage'
 // import { borderRadius } from 'react-select/src/theme'
 
 class ProjectShow extends React.Component {
@@ -10,7 +11,8 @@ class ProjectShow extends React.Component {
     project: {},
     users: null,
     searchedUsers: null,
-    text: ''
+    text: '',
+    showMessages: false
     // userSearch: ''
   }
 
@@ -103,6 +105,21 @@ class ProjectShow extends React.Component {
     }
     this.setState({ text: '' })
   }
+
+  handleMessageRequest = async (e) => {
+    e.preventDefault()
+    const projectId = this.props.match.params.id
+    try {
+      const res = await axios.post(`/api/projects/${projectId}/messages`, { text: this.state.text }, {
+        headers: { Authorization: `Bearer ${Auth.getToken()}` }
+      })
+      this.setState({ project: res.data })
+      console.log('project', this.state.project)
+    } catch (err) {
+      console.log(err)
+    }
+    this.setState({ text: '' })
+  }
   
   handleLike = async () => {
     const projectId = this.props.match.params.id
@@ -114,6 +131,11 @@ class ProjectShow extends React.Component {
     } catch (err) {
       console.log(err)
     }
+  }
+
+  toggleMessageBoard = async (e) => {
+    this.setState({ showMessages: !this.state.showMessages })
+    console.log('show messages =', this.state.showMessages)
   }
 
   isOwner = () => Auth.getPayload().sub === this.state.project.owner._id
@@ -128,12 +150,16 @@ class ProjectShow extends React.Component {
     console.log(this.state)
 
     return (
-      <section>
+      <section style={{
+        position: this.state.showMessages ? 'fixed' : 'absolute',
+        overflow: this.state.showMessages ? 'hidden' : 'auto'
+      }}>
         <div>
           {this.isOwner() &&
           <img alt="star indicating project ownership" src="./../../assets/star.png" />
           }
           <h1>Project Name: {project.name}</h1>
+          <button onClick={this.toggleMessageBoard}>Enter Collaborator Message Board</button>
           <p>Location: {project.location}</p>
           <p>{project.completed ? 'This project is completed' : `Recruitment Status: ${project.recruiting ? 'Recruiting' : 'Not currently recruiting'}`}</p>
           <p>{project.recruiting ? project.lookingFor.length > 0 ? `Looking for: ${project.lookingFor.map(prof => ` ${prof}`)}` : 'Looking for: Nothing listed yet' : ''}</p>
@@ -227,6 +253,14 @@ class ProjectShow extends React.Component {
           text={this.state.text}
           handleChange={this.handleChange}
           handleCommentRequest={this.handleCommentRequest}
+        />
+        <ProjectMessage
+          messages={this.state.project.messages}
+          text={this.state.text}
+          handleChange={this.handleChange}
+          handleMessageRequest={this.handleMessageRequest}
+          toggleMessageBoard={this.toggleMessageBoard}
+          showMessages={this.state.showMessages}
         />
 
       </section>
