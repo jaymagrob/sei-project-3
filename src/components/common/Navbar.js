@@ -47,9 +47,9 @@ class Navbar extends React.Component {
     console.log(this.state.username)
     return (
       <nav>
-        <div>
+        <div className="navbar is-transparent">
           {/* <div> */}
-          <div>
+          <div className="navbar-brand">
             <Link to="/">Beehive 🐝</Link>
           </div>
           {/* <a className={`navbar-burger ${navbarOpen ? 'is-active' : ''}`} onClick={this.toggleNavbar}>
@@ -60,22 +60,22 @@ class Navbar extends React.Component {
           {/* </div> */}
           {/* <div className={`navbar-menu ${navbarOpen ? 'is-active' : ''}`}>
             <div> */}
-          <div >
+          <div className="navbar-item">
             {!Auth.isAuthenticated() && <Link to="/register">Register</Link>}
           </div>
-          <div >
+          <div className="navbar-item">
             {!Auth.isAuthenticated() && <Link to="/login">Login</Link>}
           </div>
-          <div>
+          <div className="navbar-item">
             {Auth.isAuthenticated() && <Link to={`/users/${this.state.username}`}>My Portfolio</Link>}
           </div>
-          <div>
+          <div className="navbar-item">
             <Link to="/search">Start Your Journey</Link>
           </div>
-          <div>
+          <div className="navbar-item">
             {Auth.isAuthenticated() && <Link to="/projects/new">New Project</Link>}
           </div>
-          <div>
+          <div className="navbar-item">
             {Auth.isAuthenticated() && <button onClick={this.handleLogout}>Logout {this.state.name}</button>}
           </div>
           {/* </div>
