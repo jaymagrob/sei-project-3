@@ -1,9 +1,6 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
 import { BrowserRouter, Switch, Route } from 'react-router-dom'
-import 'react-skeleton-css/styles/skeleton.2.0.4.css'
-// normalize is also available
-import 'react-skeleton-css/styles/normalize.3.0.2.css'
 
 import Home from './components/common/Home'
 import Navbar from './components/common/Navbar'

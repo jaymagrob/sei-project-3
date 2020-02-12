@@ -24,12 +24,12 @@ class Home extends React.Component {
     return (
       <>
         <section>
-          <div className="h-full">
+          <div>
             <div>
-              <h1 className="text-center main-title">
+              <h1>
                 Beehive
               </h1>
-              <p className="text-center main-subtitle tracking-wide">
+              <p>
                 For creative busy bees
               </p>
             </div>
