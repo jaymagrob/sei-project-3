@@ -26,7 +26,7 @@ class MyPortfolio extends React.Component {
       <section className="section">
         <h1>My Portfolio</h1>
         <h2>{name}</h2>
-        <img src={profileImage} />
+        <img className="profile-img" src={profileImage} />
         <h3>Account Info</h3>
         <p>Email: {email}</p>
         <p>Username: {username}</p>

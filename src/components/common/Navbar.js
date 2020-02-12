@@ -47,10 +47,12 @@ class Navbar extends React.Component {
     console.log(this.state.username)
     return (
       <nav>
-        <div className="navbar is-transparent">
+        {/* if on homepage we want to add className="is-fixed-top" to navbar*/}
+        <div className="navbar has-shadow">
           {/* <div> */}
-          <div className="navbar-brand">
-            <Link to="/">Beehive 🐝</Link>
+          
+          <div className="navbar-item navbar-item-font navbar-logo">
+            <Link to="/">beehive</Link>
           </div>
           {/* <a className={`navbar-burger ${navbarOpen ? 'is-active' : ''}`} onClick={this.toggleNavbar}>
             <span></span>
@@ -60,23 +62,23 @@ class Navbar extends React.Component {
           {/* </div> */}
           {/* <div className={`navbar-menu ${navbarOpen ? 'is-active' : ''}`}>
             <div> */}
-          <div className="navbar-item">
-            {Auth.isAuthenticated() && <Link to={`/users/${this.state.username}`}>My Portfolio</Link>}
+          <div className="navbar-item navbar-item-font">
+            {!Auth.isAuthenticated() && <Link to="/register">register</Link>}
           </div>
-          <div className="navbar-item">
-            <Link to="/search">Start Your Journey</Link>
+          <div className="navbar-item navbar-item-font">
+            {!Auth.isAuthenticated() && <Link to="/login">login</Link>}
           </div>
-          <div className="navbar-item">
-            {Auth.isAuthenticated() && <Link to="/projects/new">New Project</Link>}
+          <div className="navbar-item navbar-item-font">
+            {Auth.isAuthenticated() && <Link to="/projects/new">new project</Link>}
           </div>
-          <div className="navbar-item">
-            {!Auth.isAuthenticated() && <Link to="/register" className="button">Register</Link>}
+          <div className="navbar-item navbar-end navbar-item-font">
+            <Link to="/search">start your journey</Link>
           </div>
-          <div className="navbar-item">
-            {!Auth.isAuthenticated() && <Link to="/login" className="button">Login</Link>}
+          <div className="navbar-item navbar-item-font">
+            {Auth.isAuthenticated() && <Link to={`/users/${this.state.username}`}>my portfolio</Link>}
           </div>
-          <div className="navbar-item">
-            {Auth.isAuthenticated() && <button onClick={this.handleLogout} className="button">Logout {this.state.name}</button>}
+          <div className="navbar-item navbar-item-font">
+            {Auth.isAuthenticated() && <button className="button" onClick={this.handleLogout}>logout {this.state.name}</button>}
           </div>
           {/* </div>
           </div> */}
