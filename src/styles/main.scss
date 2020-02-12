@@ -40,6 +40,7 @@ $navbar-item-color: $black;
 $navbar-item-hover-color: $yellow;
 $navbar-item-hover-background-color: $light-black;
 
+
 // Import only what you need from Bulma
 @import "../../node_modules/bulma/sass/utilities/_all.sass";
 @import "../../node_modules/bulma/sass/base/_all.sass";
@@ -58,6 +59,11 @@ $navbar-item-hover-background-color: $light-black;
 
 .subtitle-hero {
   font-size: 30px;
+  letter-spacing: 1px;
+}
+
+.header-small {
+  font-size: 20px;
   letter-spacing: 1px;
 }
 
@@ -86,4 +92,46 @@ $navbar-item-hover-background-color: $light-black;
   width:250px;
   height:250px;
   border-radius: 50%;
+}
+
+.project-img {
+  object-fit: cover;
+  width:200px;
+  height:200px;
+}
+
+.bio-paragraph {
+  margin: 5px;
+  padding: 5px;
+}
+
+.margin-reset {
+  margin: 0px;
+  margin-bottom: 0px;
+}
+
+.test-border {
+  border: 2px solid red;
+}
+
+.test-border2 {
+  border: 2px solid blue;
+}
+
+.rounded-box {
+  background-color: $beige-light;
+  padding: 5px;
+  margin: 5px;
+  border-radius: 15px;
+}
+
+.rounded-border-box {
+  border: 1.5px solid $beige-light;
+  padding: 5px;
+  margin: 5px;
+  border-radius: 15px;
+}
+
+.project-card-bio {
+  font-size: 12px;
 }

@@ -48,38 +48,64 @@ class UserShow extends React.Component {
     if (!user._id) return null
 
     return (
-      <>
-        <section className="section">
-          <div className="columns">
+      <section className="is-fullheight-with-navbar test-border">
+        <section className="section test-border">
+          <div className="columns test-border">
+
             <div className="column is-one-third">
-              <img className="profile-img" src={user.profileImage} />
-              {this.isOwner() && <Link className="button" to={'/myportfolio/edit'}>Edit Portfolio</Link>}
+              <div className="container">
+                <div className="has-text-centered">
+                  <img className="profile-img" src={user.profileImage} />
+                </div>
+                <div className="has-text-centered">
+                  {this.isOwner() && <Link className="button" to={'/myportfolio/edit'}>Edit Portfolio</Link>}
+                </div>
+              </div>
             </div>
-            <div className="column">
-              <div className="columns">
-                <div className="column">
-                  <h1>{user.name}</h1>
+
+            <div className="column test-border">
+              <div className="columns test-border">
+                <div className="column test-border2 is-three-quarters">
+                  <div className="test-border subtitle-hero">
+                    <h1>{user.name}</h1>
+                  </div>
                   <ul>{user.professions.map(profession => <li key={profession}>{profession}</li>)}</ul>
                 </div>
                 <div className="column">
-                  <p>{user.location}</p>
-                  <p>{user.level}</p>
+                  <div className="rounded-box">
+                    <p className="has-text-centered">{user.location}</p>
+                  </div>
+                  <div className="rounded-box">
+                    <p className="has-text-centered">{user.level}</p>
+                  </div>
                 </div>
               </div>
 
-              <p>{user.bio}</p>
+              <div className="test-border">
+                <p className="bio-paragraph">{user.bio}</p>
+              </div>
 
-              <section>
-                <h4>Skills</h4>
-                <ul>{user.skills.map(skill => (
-                  <li
-                    name={skill._id}
-                    onClick={this.handleLike}
-                    key={skill['skill']}
-                    style={{ cursor: 'pointer' }}
-                  >{skill['skill']}: {skill.likes.length}</li>
-                ))}</ul>
-              </section>
+              <div className="container test-border2">
+
+                <div className="test-border header-small">
+                  <h4>skills</h4>
+                </div>
+
+                <div className="columns test-border margin-reset">
+
+                  <div>{user.skills.map(skill => (
+                    <div className="column test-border rounded-border-box"
+                      name={skill._id}
+                      onClick={this.handleLike}
+                      key={skill['skill']}
+                      style={{ cursor: 'pointer' }}
+                    >{skill['skill']}: {skill.likes.length}</div>
+                  ))}</div>
+
+                </div>
+
+              </div>
+
             </div>
           </div>
         </section>
@@ -89,15 +115,14 @@ class UserShow extends React.Component {
           {user.createdProjects.map(project => (
             <ProjectCard key={project._id} {...project} />
           ))} */}
-          <h4>Projects</h4>
           {/* <ul>{collaboratedProjects.map(project => <li key={project}>{project}</li>)}</ul> */}
-          <section className="columns is-4">
+          <div className="columns is-mobile is-multiline test-border">
             {user.collaboratedProjects.map(project => (
-              <ProjectCard key={project._id} {...project} />
+              <ProjectCard className="" key={project._id} {...project} />
             ))}
-          </section>
+          </div>
         </section>
-      </>
+      </section>
     )
   }
 }
