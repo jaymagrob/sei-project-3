@@ -26,12 +26,16 @@ class Home extends React.Component {
         <section className="hero is-fullheight">
           <div className="hero-body">
             <div className="container has-text-centered">
-              <h1 className="title title is-1">
-                Beehive
+              <h1 className="title-hero">
+                beehive
               </h1>
-              <h2 className="subtitle">
-                For creative busy bees
+              <h2 className="subtitle subtitle-hero">
+                for creative busy bees
               </h2>
+              <div>
+                <button className="button">register</button>
+                <button className="button">discover</button>
+              </div>
             </div>
           </div>
         </section>
