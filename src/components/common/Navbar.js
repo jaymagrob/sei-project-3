@@ -61,12 +61,6 @@ class Navbar extends React.Component {
           {/* <div className={`navbar-menu ${navbarOpen ? 'is-active' : ''}`}>
             <div> */}
           <div className="navbar-item">
-            {!Auth.isAuthenticated() && <Link to="/register">Register</Link>}
-          </div>
-          <div className="navbar-item">
-            {!Auth.isAuthenticated() && <Link to="/login">Login</Link>}
-          </div>
-          <div className="navbar-item">
             {Auth.isAuthenticated() && <Link to={`/users/${this.state.username}`}>My Portfolio</Link>}
           </div>
           <div className="navbar-item">
@@ -76,7 +70,13 @@ class Navbar extends React.Component {
             {Auth.isAuthenticated() && <Link to="/projects/new">New Project</Link>}
           </div>
           <div className="navbar-item">
-            {Auth.isAuthenticated() && <button onClick={this.handleLogout}>Logout {this.state.name}</button>}
+            {!Auth.isAuthenticated() && <Link to="/register" className="button">Register</Link>}
+          </div>
+          <div className="navbar-item">
+            {!Auth.isAuthenticated() && <Link to="/login" className="button">Login</Link>}
+          </div>
+          <div className="navbar-item">
+            {Auth.isAuthenticated() && <button onClick={this.handleLogout} className="button">Logout {this.state.name}</button>}
           </div>
           {/* </div>
           </div> */}
