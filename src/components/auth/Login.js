@@ -2,6 +2,7 @@ import React from 'react'
 import axios from 'axios'
 import Auth from '../../lib/auth'
 // import { notify } from 'react-notify-toast'
+
 class Login extends React.Component {
   state = {
     data: {
@@ -10,6 +11,7 @@ class Login extends React.Component {
     },
     error: ''
   }
+
   handleChange = ({ target: { name, value } }) => {
     const data = { ...this.state.data, [name]: value }
     this.setState({ data, error: '' })
@@ -20,9 +22,7 @@ class Login extends React.Component {
     try {
       const res = await axios.post('/api/login', this.state.data)
       console.log(res.data)
-      // console.log('data =', this.state.data)
       Auth.setToken(res.data.token), console.log('token =', res.data.token)
-      // notify.show(res.data.message, 'success', 3000), console.log('message =', res.data.message)
       console.log(res.data.firstLogin)
       if (res.data.firstLogin) {
         this.props.history.push('/getstarted')
@@ -33,6 +33,7 @@ class Login extends React.Component {
       this.setState({ error: 'Invalid Credentials' })
     }
   }
+  
   render() {
     return (
       <section>

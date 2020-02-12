@@ -86,6 +86,20 @@ function commentDelete(req, res) {
     .catch(err => res.json(err))
 }
 
+function commentEdit(req, res) {
+  Project
+    .findById(req.params.id)
+    .then(project => {
+      if (!project) return res.status(404).json({ message: 'Not Found' })
+      let comment = project.comments.id(req.params.commentId)
+      if (!comment.user.equals(req.currentUser._id)) return res.status(401).json({ message: 'Unauthorized' })
+      comment = req.body.text
+      return comment.save()
+    })
+    .then(comment => res.status(200).json(comment))
+    .catch(err => res.status(400).json(err))
+}
+
 function like(req, res) {
   Project
     .findById(req.params.id)
@@ -113,4 +127,4 @@ function like(req, res) {
 }
 
 
-module.exports = { index, create, show, update, destroy, commentCreate, commentDelete, like }
+module.exports = { index, create, show, update, destroy, commentCreate, commentDelete, commentEdit, like }
