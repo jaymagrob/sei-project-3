@@ -32,7 +32,6 @@ class Gallery extends React.Component{
           mouseTrackingEnabled
           responsive={{ 0: { items: 1 }, 1024: { items: 5 } }}
           dotsDisabled
-          autoHeight
         >
           {this.props.type === 'users' && this.props.data.map(user => {
             console.log(user)
@@ -44,6 +43,7 @@ class Gallery extends React.Component{
         <AliceCarousel 
           mouseTrackingEnabled
           responsive={{ 0: { items: 1 }, 1024: { items: 5 } }}
+          dotsDisabled
         >
           {this.props.type === 'projects' && this.props.data.map(project => (
             <ProjectCard key={project._id} {...project} />

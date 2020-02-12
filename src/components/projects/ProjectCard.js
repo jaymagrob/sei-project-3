@@ -3,7 +3,8 @@ import { Link } from 'react-router-dom'
 import Auth from '../../lib/auth'
 
 const ProjectCard = ({ name, images, _id, description, owner }) => (
-  <div className="column is-one-fifth-desktop is-one-third-tablet is-full-mobile" key={_id}>
+  // <div className="column is-one-fifth-desktop is-one-third-tablet is-full-mobile" key={_id}>
+  <div className="project_card_container" key={_id}>
     <Link to={`/projects/${_id}`}>
       <div className="card test-border2">
         {Auth.getPayload().sub === owner._id ? 
@@ -19,7 +20,7 @@ const ProjectCard = ({ name, images, _id, description, owner }) => (
         <div className="card-image">
           <img className="project-img image" src={images[0]} alt={name} />
         </div>
-        <div className="card-header">
+        <div className="">
           <h3>{name}</h3>
         </div>
         <div className="project-card-bio"> 

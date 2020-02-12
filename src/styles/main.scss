@@ -122,6 +122,15 @@ $navbar-item-hover-background-color: $light-black;
   font-size: 20px;
   margin-top: 5px;
   font-weight: 400;
+}
+
+.project_card_container {
+  text-align: center;
+  // display: flex;
+  // flex-direction: column;
+  // align-items: center;
+  width:200px;
+}
   
 .project-img {
   object-fit: cover;
@@ -132,6 +141,7 @@ $navbar-item-hover-background-color: $light-black;
 .bio-paragraph {
   margin: 5px;
   padding: 5px;
+  width: 200px;
 }
 
 .margin-reset {
@@ -144,7 +154,7 @@ $navbar-item-hover-background-color: $light-black;
 }
 
 .test-border2 {
-  border: 2px solid blue;
+  // border: 2px solid blue;
 }
 
 .rounded-box {
@@ -163,4 +173,5 @@ $navbar-item-hover-background-color: $light-black;
 
 .project-card-bio {
   font-size: 12px;
+  padding: 10px;
 }
