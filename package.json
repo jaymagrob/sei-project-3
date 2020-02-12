@@ -7,7 +7,10 @@
     "start:front": "webpack-dev-server --mode-development",
     "start:back": "nodemon",
     "test": "mocha test/**/*_spec.js --require test/helper --recursive --exit",
-    "seed": "node db/seeds.js"
+    "seed": "node db/seeds.js",    
+    "css-build": "node-sass --omit-source-map-url src/styles/main.scss src/styles/main.css",
+    "css-watch": "npm run css-build -- --watch",
+    "start": "npm run css-watch"
   },
   "dependencies": {
     "axios": "^0.19.2",

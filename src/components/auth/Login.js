@@ -65,9 +65,18 @@ class Login extends React.Component {
               </div>
               {this.state.error && <small>{this.state.error}</small>}
             </div>
-            <button className="button-primary" type="submit">Login</button>
+            <button className="is-primary" type="submit">Login</button>
           </form>
-        </div>        
+        </div>
+        <button className="button is-primary" type="submit">Login</button>
+        <button className="button is-link" type="submit">Login</button>
+        <button className="button is-info" type="submit">Login</button>
+        <button className="button is-success" type="submit">Login</button>        
+        <button className="button is-warning" type="submit">Login</button>
+        <button className="button is-danger" type="submit">Login</button>
+        <button className="button is-dark" type="submit">Login</button>
+        <button className="button is-text" type="submit">Login</button>
+
       </section>
     )
   }

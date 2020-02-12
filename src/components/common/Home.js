@@ -23,15 +23,15 @@ class Home extends React.Component {
   render() {
     return (
       <>
-        <section>
-          <div>
-            <div>
-              <h1>
+        <section className="hero is-fullheight">
+          <div className="hero-body">
+            <div className="container has-text-centered">
+              <h1 className="title title is-1">
                 Beehive
               </h1>
-              <p>
+              <h2 className="subtitle">
                 For creative busy bees
-              </p>
+              </h2>
             </div>
           </div>
         </section>
