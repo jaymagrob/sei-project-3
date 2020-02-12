@@ -36,39 +36,38 @@ class Login extends React.Component {
   
   render() {
     return (
-      <section>
-        <div>
-          <div>
-            <form onSubmit={this.handleSubmit}>
-              <h2>Login</h2>
+      <section className="container">
+        
+        <div className="row">
+          <form onSubmit={this.handleSubmit}>
+            <h2>Login</h2>
+            <div>
+              <label>Email</label>
               <div>
-                <label>Email</label>
-                <div>
-                  <input
-                    className={`input ${this.state.error ? 'display' : ''}`}
-                    name="email"
-                    placeholder="Email"
-                    onChange={this.handleChange}
-                  />
-                </div>
+                <input
+                  className={`input ${this.state.error ? 'display' : ''}`}
+                  name="email"
+                  placeholder="Email"
+                  onChange={this.handleChange}
+                />
               </div>
+            </div>
+            <div>
+              <label>Password</label>
               <div>
-                <label>Password</label>
-                <div>
-                  <input
-                    className={`input ${this.state.error ? 'display' : ''}`}
-                    type="password"
-                    name="password"
-                    placeholder="Password"
-                    onChange={this.handleChange}
-                  />
-                </div>
-                {this.state.error && <small>{this.state.error}</small>}
+                <input
+                  className={`input ${this.state.error ? 'display' : ''}`}
+                  type="password"
+                  name="password"
+                  placeholder="Password"
+                  onChange={this.handleChange}
+                />
               </div>
-              <button type="submit">Login</button>
-            </form>
-          </div>
-        </div>
+              {this.state.error && <small>{this.state.error}</small>}
+            </div>
+            <button className="button-primary" type="submit">Login</button>
+          </form>
+        </div>        
       </section>
     )
   }
