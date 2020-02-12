@@ -27,6 +27,9 @@ $body-background-color: $beige-lighter;
 $control-border-width: 2px;
 $input-border-color: transparent;
 $input-shadow: none;
+$input-background-color: $grey-light;
+$input-color: $black;
+$input-radius: 10px;
 
 // button variables
 $button-background-color: $yellow;
@@ -39,6 +42,7 @@ $navbar-height: 4rem;
 $navbar-item-color: $black;
 $navbar-item-hover-color: $yellow;
 $navbar-item-hover-background-color: $light-black;
+
 
 // Import only what you need from Bulma
 @import "../../node_modules/bulma/sass/utilities/_all.sass";
@@ -61,6 +65,24 @@ $navbar-item-hover-background-color: $light-black;
 
 .subtitle-hero {
   font-size: 30px;
+}
+
+.padding-v-10 {
+  padding: 10px 0;
+}
+
+.title {
+  font-family: "Yeseva One", cursive;
+  letter-spacing: 2px;
+}
+
+.title-underLine {
+  border-bottom: $grey-light 2px solid;
+  letter-spacing: 1px;
+}
+
+.header-small {
+  font-size: 20px;
   letter-spacing: 1px;
 }
 
@@ -100,4 +122,45 @@ $navbar-item-hover-background-color: $light-black;
   font-size: 20px;
   margin-top: 5px;
   font-weight: 400;
+  
+.project-img {
+  object-fit: cover;
+  width:200px;
+  height:200px;
+}
+
+.bio-paragraph {
+  margin: 5px;
+  padding: 5px;
+}
+
+.margin-reset {
+  margin: 0px;
+  margin-bottom: 0px;
+}
+
+.test-border {
+  border: 2px solid red;
+}
+
+.test-border2 {
+  border: 2px solid blue;
+}
+
+.rounded-box {
+  background-color: $beige-light;
+  padding: 5px;
+  margin: 5px;
+  border-radius: 15px;
+}
+
+.rounded-border-box {
+  border: 1.5px solid $beige-light;
+  padding: 5px;
+  margin: 5px;
+  border-radius: 15px;
+}
+
+.project-card-bio {
+  font-size: 12px;
 }

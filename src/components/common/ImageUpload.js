@@ -18,13 +18,15 @@ class ImageUpload extends React.Component {
 
   render() {
     return (
-      <>
-        <label>{this.props.labelText}</label>
-        <input
-          type="file"
-          onChange={this.handleUpload}
-        />
-      </>
+      <div className="field">
+        <label className="label">{this.props.labelText}</label>
+        <div className="control">
+          <input
+            type="file"
+            onChange={this.handleUpload}
+          />
+        </div>
+      </div>
     )
   }
 }
