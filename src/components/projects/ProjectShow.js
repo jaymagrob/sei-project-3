@@ -12,7 +12,9 @@ class ProjectShow extends React.Component {
     users: null,
     searchedUsers: null,
     text: '',
-    showMessages: false
+    showMessages: false,
+    editingComment: '',
+    editedCommentText: ''
     // userSearch: ''
   }
 
@@ -137,6 +139,37 @@ class ProjectShow extends React.Component {
     this.setState({ showMessages: !this.state.showMessages })
     console.log('show messages =', this.state.showMessages)
   }
+  
+  handleEditSelected = (commentId, commentText) => {
+    this.setState({ editingComment: commentId, editedCommentText: commentText })
+  }
+
+  handleEditComment = async (commentId) => {
+    const projectId = this.props.match.params.id
+    try {
+      const res = await axios.put(`/api/projects/${projectId}/comments/${commentId}`, { text: this.state.editedCommentText }, {
+        headers: { Authorization: `Bearer ${Auth.getToken()}` }
+      })
+      this.setState({ project: res.data, editingComment: '', editedCommentText: '' })
+    } catch (err) {
+      console.log(err)
+    }
+  }
+
+  resetEditComment = () => {
+    this.setState({ editedCommentText: '', editingComment: '' })
+  }
+  
+  handleDeleteComment = async (projectId, commentId) => {
+    try {
+      const res = await axios.delete(`/api/projects/${projectId}/comments/${commentId}`, {
+        headers: { Authorization: `Bearer ${Auth.getToken()}` }
+      })
+      this.setState({ project: res.data })
+    } catch (err) {
+      console.log(err)
+    }
+  }
 
   isOwner = () => Auth.getPayload().sub === this.state.project.owner._id
 
@@ -144,10 +177,6 @@ class ProjectShow extends React.Component {
     
     const { project } = this.state
     if (!project._id) return null
-    console.log('Project =', project)
-    console.log('Owner =', project.owner.username)
-    console.log('Collaborator =', project.collaborators[0].username)
-    console.log(this.state)
 
     return (
       <section style={{
@@ -247,12 +276,18 @@ class ProjectShow extends React.Component {
         {this.isOwner() &&
         <Link to={`/projects/${this.props.match.params.id}/edit`}>Edit Project</Link>
         }
-        
         <ProjectComment
           comments={this.state.project.comments}
           text={this.state.text}
           handleChange={this.handleChange}
           handleCommentRequest={this.handleCommentRequest}
+          handleEditSelected={this.handleEditSelected}
+          handleEditComment={this.handleEditComment}
+          handleDeleteComment={this.handleDeleteComment}
+          projectId={this.state.project._id}
+          editingComment={this.state.editingComment}
+          editedCommentText={this.state.editedCommentText}
+          resetEditComment={this.resetEditComment}
         />
         <ProjectMessage
           messages={this.state.project.messages}
@@ -262,7 +297,6 @@ class ProjectShow extends React.Component {
           toggleMessageBoard={this.toggleMessageBoard}
           showMessages={this.state.showMessages}
         />
-
       </section>
     )
   }

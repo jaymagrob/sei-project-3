@@ -47,10 +47,10 @@ class Navbar extends React.Component {
     console.log(this.state.username)
     return (
       <nav>
-        <div className="flex">
+        <div className="navbar is-transparent">
           {/* <div> */}
-          <div className="mr-6">
-            <Link className="text-blue-500 hover:text-blue-800" to="/">Beehive 🐝</Link>
+          <div className="navbar-brand">
+            <Link to="/">Beehive 🐝</Link>
           </div>
           {/* <a className={`navbar-burger ${navbarOpen ? 'is-active' : ''}`} onClick={this.toggleNavbar}>
             <span></span>
@@ -60,23 +60,23 @@ class Navbar extends React.Component {
           {/* </div> */}
           {/* <div className={`navbar-menu ${navbarOpen ? 'is-active' : ''}`}>
             <div> */}
-          <div className="mr-6">
-            {!Auth.isAuthenticated() && <Link className="text-blue-500 hover:text-blue-800" to="/register">Register</Link>}
+          <div className="navbar-item">
+            {Auth.isAuthenticated() && <Link to={`/users/${this.state.username}`}>My Portfolio</Link>}
           </div>
-          <div className="mr-6">
-            {!Auth.isAuthenticated() && <Link className="text-blue-500 hover:text-blue-800" to="/login">Login</Link>}
+          <div className="navbar-item">
+            <Link to="/search">Start Your Journey</Link>
           </div>
-          <div className="mr-6">
-            {Auth.isAuthenticated() && <Link className="text-blue-500 hover:text-blue-800" to={`/users/${this.state.username}`}>My Portfolio</Link>}
+          <div className="navbar-item">
+            {Auth.isAuthenticated() && <Link to="/projects/new">New Project</Link>}
           </div>
-          <div className="mr-6">
-            <Link className="text-blue-500 hover:text-blue-800" to="/search">Start Your Journey</Link>
+          <div className="navbar-item">
+            {!Auth.isAuthenticated() && <Link to="/register" className="button">Register</Link>}
           </div>
-          <div className="mr-6">
-            {Auth.isAuthenticated() && <Link className="text-blue-500 hover:text-blue-800" to="/projects/new">New Project</Link>}
+          <div className="navbar-item">
+            {!Auth.isAuthenticated() && <Link to="/login" className="button">Login</Link>}
           </div>
-          <div className="mr-6">
-            {Auth.isAuthenticated() && <button className="text-blue-500 hover:text-blue-800" onClick={this.handleLogout}>Logout {this.state.name}</button>}
+          <div className="navbar-item">
+            {Auth.isAuthenticated() && <button onClick={this.handleLogout} className="button">Logout {this.state.name}</button>}
           </div>
           {/* </div>
           </div> */}

@@ -3,6 +3,7 @@ const jwt = require('jsonwebtoken')
 const { secret } = require('../config/environment')
 
 function register(req, res) {
+  req.body.firstLogin = true
   User
     .create(req.body)
     .then(user => res.status(201).json({ message: `Thanks for registering ${user.name}` }))
@@ -17,7 +18,10 @@ function login(req, res) {
         return res.status(401).json({ message: 'Unauthorized' })
       }
       const token = jwt.sign({ sub: user._id }, secret, { expiresIn: '24h' })
-      res.status(202).json({ message: `Welcome back ${user.name}`, token })
+      const firstLogin = user.firstLogin
+      user.firstLogin = false
+      user.save()
+      res.status(202).json({ message: `Welcome back ${user.name}`, token, firstLogin })
     })
     .catch(() => res.status(401).json({ message: 'Unauthorized' }))
 }

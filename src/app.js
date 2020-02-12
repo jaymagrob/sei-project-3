@@ -1,8 +1,8 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
 import { BrowserRouter, Switch, Route } from 'react-router-dom'
-// import './styles/main.scss'
-import './styles/tailwind.css'
+import 'bulma'
+import './styles/main.scss'
 
 import Home from './components/common/Home'
 import Navbar from './components/common/Navbar'
@@ -22,6 +22,7 @@ import NotFound from './components/common/NotFound'
 import SecureRoute from './components/common/SecureRoute'
 import UnSecureRoute from './components/common/UnSecureRoute'
 import PendingRequests from './components/users/PendingRequests' 
+import FirstLogin from './components/common/FirstLogin'
 
 
 
@@ -44,6 +45,7 @@ const App = () => (
         {/* <Route path="/users/:username/messages" component={UserMessages} /> */}
         <UnSecureRoute path="/register" component={Register} />
         <UnSecureRoute path="/login" component={Login} />
+        <SecureRoute path="/getstarted" component={FirstLogin} />
         <Route path="/*" component={NotFound} />
       </Switch>
       <PendingRequests />

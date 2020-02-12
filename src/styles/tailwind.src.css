@@ -1,8 +1,0 @@
-@import "tailwindcss/base";
-@import "tailwindcss/components";
-@import "tailwindcss/utilities";
-@import url('https://fonts.googleapis.com/css?family=Yeseva+One&display=swap');
-
-body {
-  background-color: red;
-}
