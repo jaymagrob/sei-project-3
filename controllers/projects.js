@@ -75,6 +75,10 @@ function commentCreate(req, res, next) {
 function commentDelete(req, res) { 
   Project
     .findById(req.params.id)
+    .populate('owner')
+    .populate('collaborators')
+    .populate('pendingCollaborators')
+    .populate('comments.user')
     .then(project => {
       if (!project) return res.status(404).json({ message: 'Not Found' })
       const comment = project.comments.id(req.params.commentId)
@@ -82,7 +86,7 @@ function commentDelete(req, res) {
       comment.remove()
       return project.save()
     })
-    .then(project => res.status(204).json(project))
+    .then(project => res.status(200).json(project))
     .catch(err => res.json(err))
 }
 
@@ -113,9 +117,7 @@ function like(req, res) {
       if (!likeUsers.includes(req.currentUser._id.toString())) {
         project.likes.push({ user: req.currentUser })
       } else {
-        console.log(project.likes, req.currentUser._id)
         const newLikes = project.likes.filter(like => like.user.toString() !== req.currentUser._id.toString())
-        console.log(newLikes)
         project.likes = newLikes
       }
       // if (project.likes.some(like => like.user.equals(req.currentUser._id))) return project
