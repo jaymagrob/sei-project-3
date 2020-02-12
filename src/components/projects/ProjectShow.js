@@ -23,15 +23,16 @@ class ProjectShow extends React.Component {
     try {
       const res = await axios.get(`/api/projects/${projectId}`)
       this.setState({ project: res.data })
+      console.log('project =', this.state.project)
     } catch (err) {
       console.log(err)
     }
   }
 
-    // this is handling the change in the first checkbox form (looking for creatives/users)
-    handleChange = ({ target: { name, value } }) => {
-      this.setState({ [name]: value })
-    }
+  // this is handling the change in the first checkbox form (looking for creatives/users)
+  handleChange = ({ target: { name, value } }) => {
+    this.setState({ [name]: value })
+  }
 
   userSearch = async () => {
     try {
@@ -116,13 +117,12 @@ class ProjectShow extends React.Component {
         headers: { Authorization: `Bearer ${Auth.getToken()}` }
       })
       this.setState({ project: res.data })
-      // console.log('project', this.state.project)
     } catch (err) {
       console.log(err)
     }
     this.setState({ text: '' })
   }
-  
+
   handleLike = async () => {
     const projectId = this.props.match.params.id
     try {
@@ -139,7 +139,7 @@ class ProjectShow extends React.Component {
     this.setState({ showMessages: !this.state.showMessages })
     // console.log('show messages =', this.state.showMessages)
   }
-  
+
   handleEditSelected = (commentId, commentText) => {
     this.setState({ editingComment: commentId, editedCommentText: commentText })
   }
@@ -159,7 +159,7 @@ class ProjectShow extends React.Component {
   resetEditComment = () => {
     this.setState({ editedCommentText: '', editingComment: '' })
   }
-  
+
   handleDeleteComment = async (projectId, commentId) => {
     try {
       const res = await axios.delete(`/api/projects/${projectId}/comments/${commentId}`, {
@@ -173,11 +173,19 @@ class ProjectShow extends React.Component {
 
   isOwner = () => Auth.getPayload().sub === this.state.project.owner._id
 
+  isCollab = () => {
+    const arr = this.state.project.collaborators.map(collab => collab._id === Auth.getPayload().sub)
+    return arr.includes(true)
+  }
+
+  
+
   render() {
-    
+
     const { project } = this.state
     if (!project._id) return null
-
+    // console.log('collabs id =', this.state.project.collaborators.includes(Auth.getPayload().sub))
+    console.log('collabs included? =', this.state.project.collaborators.map(collab => collab._id === Auth.getPayload().sub))
     return (
       <section style={{
         position: this.state.showMessages ? 'fixed' : 'absolute',
@@ -185,10 +193,12 @@ class ProjectShow extends React.Component {
       }}>
         <div>
           {this.isOwner() &&
-          <img alt="star indicating project ownership" src="./../../assets/star.png" />
+            <img alt="star indicating project ownership" src="./../../assets/star.png" />
           }
           <h1>Project Name: {project.name}</h1>
-          <button onClick={this.toggleMessageBoard}>Enter Collaborator Message Board</button>
+          {this.isCollab() &&
+            <button onClick={this.toggleMessageBoard}>Enter Collaborator Message Board</button>
+          }
           <p>Location: {project.location}</p>
           <p>{project.completed ? 'This project is completed' : `Recruitment Status: ${project.recruiting ? 'Recruiting' : 'Not currently recruiting'}`}</p>
           <p>{project.recruiting ? project.lookingFor.length > 0 ? `Looking for: ${project.lookingFor.map(prof => ` ${prof}`)}` : 'Looking for: Nothing listed yet' : ''}</p>
@@ -198,10 +208,10 @@ class ProjectShow extends React.Component {
           <p>{project.skillsInvolved.length < 1 ? 'No skills listed yet' :
             <ul>{project.skillsInvolved.map(skill => <li key={skill}>{skill}</li>)}</ul>
           }</p>
-          
+
         </div>
         <div>
-          <img src={project.images[0]}/>
+          <img src={project.images[0]} />
         </div>
         <div>Collaborators</div>
         <div style={{ display: 'flex' }}>
@@ -215,19 +225,19 @@ class ProjectShow extends React.Component {
                   backgroundSize: 'cover',
                   backgroundPosition: 'center',
                   borderRadius: '50%',
-                  overflow: 'hidden'                  
+                  overflow: 'hidden'
                 }}><Link to={`/users/${collaborator.username}`} style={{
-                    display: 'block',
-                    height: '100%',
-                    width: '100%'
-                  }}></Link>
+                  display: 'block',
+                  height: '100%',
+                  width: '100%'
+                }}></Link>
                 </div>
                 <p>{collaborator._id === this.state.project.owner._id ? 'Owner' : ''}</p>
               </div>
             )
           })}
           {Auth.isAuthenticated() &&
-            <div 
+            <div
               onClick={this.handleAddCollaborator}
               style={{
                 background: 'url(https://i.ya-webdesign.com/images/a-plus-png-2.png)',
@@ -241,27 +251,27 @@ class ProjectShow extends React.Component {
               }}>
             </div>
           }
-          {this.state.users && 
-          <input 
-            placeholder="search"
-            // name="userSearch"
-            onChange={this.handleSearchChange}
-          />
+          {this.state.users &&
+            <input
+              placeholder="search"
+              // name="userSearch"
+              onChange={this.handleSearchChange}
+            />
           }
-          {this.state.searchedUsers && 
-          this.state.searchedUsers.map(user => {
-            return (
-              <div 
-                onClick={this.handleAddCollaboratorTwo}
-                key={user._id}
-                name={user._id}
-                style={{ cursor: 'pointer' }}
-              >
-                <div style={{ background: `url(${user.profileImage})`, pointerEvents: 'none' }}></div>
-                <h2 style={{ pointerEvents: 'none' }}>{user.name}</h2>
-              </div>
-            )
-          })
+          {this.state.searchedUsers &&
+            this.state.searchedUsers.map(user => {
+              return (
+                <div
+                  onClick={this.handleAddCollaboratorTwo}
+                  key={user._id}
+                  name={user._id}
+                  style={{ cursor: 'pointer' }}
+                >
+                  <div style={{ background: `url(${user.profileImage})`, pointerEvents: 'none' }}></div>
+                  <h2 style={{ pointerEvents: 'none' }}>{user.name}</h2>
+                </div>
+              )
+            })
           }
         </div>
         <p>Project Description: {project.description}</p>
@@ -269,12 +279,12 @@ class ProjectShow extends React.Component {
         {project.images.length > 0 ? '' :
           <div>
             <h2>Gallery</h2>
-            {project.images.map((image, index) => index === 0 ? '' : <img key={image} src={image}/>)}
+            {project.images.map((image, index) => index === 0 ? '' : <img key={image} src={image} />)}
           </div>}
-        
+
 
         {this.isOwner() &&
-        <Link to={`/projects/${this.props.match.params.id}/edit`}>Edit Project</Link>
+          <Link to={`/projects/${this.props.match.params.id}/edit`}>Edit Project</Link>
         }
         <ProjectComment
           comments={this.state.project.comments}

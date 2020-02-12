@@ -36,48 +36,49 @@ class Login extends React.Component {
   
   render() {
     return (
-      <section className="container">
-        
-        <div className="row">
-          <form onSubmit={this.handleSubmit}>
-            <h2>Login</h2>
-            <div>
-              <label>Email</label>
-              <div>
-                <input
-                  className={`input ${this.state.error ? 'display' : ''}`}
-                  name="email"
-                  placeholder="Email"
-                  onChange={this.handleChange}
-                />
+      <section className="is-fullheight-with-navbar hero">
+        <div className="hero-body columns is-fullwidth">
+          <div className="column is-quarter-desktop"></div>
+          <div className='column is-three-quarters-mobile is-half-tablet is-one-third-desktop box'>
+            <form onSubmit={this.handleSubmit}>
+              <div className="title-underLine">
+                <h2 className="title is-4 padding-v-10">login</h2>
+              </div>              
+              <div className="field">
+                <label className="label">email</label>
+                <div className="control">
+                  <input
+                    className={`input ${this.state.error ? 'display' : ''}`}
+                    name="email"
+                    placeholder="email"
+                    onChange={this.handleChange}
+                  />
+                </div>
               </div>
-            </div>
-            <div>
-              <label>Password</label>
-              <div>
-                <input
-                  className={`input ${this.state.error ? 'display' : ''}`}
-                  type="password"
-                  name="password"
-                  placeholder="Password"
-                  onChange={this.handleChange}
-                />
+              <div className="field">
+                <label className="label">password</label>
+                <div className="control">
+                  <input
+                    className={`input ${this.state.error ? 'display' : ''}`}
+                    type="password"
+                    name="password"
+                    placeholder="password"
+                    onChange={this.handleChange}
+                  />
+                </div>
+                {this.state.error && <small>{this.state.error}</small>}
               </div>
-              {this.state.error && <small>{this.state.error}</small>}
-            </div>
-            <button className="is-primary" type="submit">Login</button>
-          </form>
+              <div className="field">
+                <div className="control">
+                  <button className="button is-primary has-text-white is-fullwidth" type="submit">Login</button>            
+                </div>
+              </div>            
+            </form>
+          </div>
+          <div className="column is-quarter-desktop"></div>
         </div>
-        <button className="button is-primary" type="submit">Login</button>
-        <button className="button is-link" type="submit">Login</button>
-        <button className="button is-info" type="submit">Login</button>
-        <button className="button is-success" type="submit">Login</button>        
-        <button className="button is-warning" type="submit">Login</button>
-        <button className="button is-danger" type="submit">Login</button>
-        <button className="button is-dark" type="submit">Login</button>
-        <button className="button is-text" type="submit">Login</button>
-
       </section>
+        
     )
   }
 }

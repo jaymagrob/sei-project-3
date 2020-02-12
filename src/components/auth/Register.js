@@ -31,51 +31,58 @@ class Register extends React.Component {
   render() {
     console.log('errors=', this.state.errors)
     return (
-      <section>
-        <div>
-          <div>
+      <section className="is-fullheight-with-navbar hero">
+        <div className="hero-body columns is-fullwidth">
+          <div className="column is-quarter-desktop"></div>
+          <div className='column is-three-quarters-mobile is-half-tablet is-one-third-desktop box'>
             <form onSubmit={this.handleSubmit}>
-              <h2>Register</h2>
-              <div>
-                <label>Name</label>
-                <div>
-                  <input 
+              <div className="title-underLine">
+                <h2 className="title is-4 padding-v-10">Register</h2>
+              </div>
+
+              <div className="field">
+                <label className="label">name</label>
+                <div className="control">
+                  <input
                     className={`input ${this.state.errors.name ? 'display' : ''}`}
                     placeholder="Name"
                     name="name"
                     onChange={this.handleChange}
                   />
                 </div>
-                {this.state.errors.username && <small>{this.state.errors.username}</small>}
-              </div>
-              <div>
-                <label>Username</label>
-                <div>
-                  <input 
+                {this.state.errors.name && <p className="help is-danger">{this.state.errors.name}</p>}
+              </div>            
+      
+              <div className="field">
+                <label className="label">username</label>
+                <div className="control">
+                  <input
                     className={`input ${this.state.errors.username ? 'display' : ''}`}
                     placeholder="Username"
                     name="username"
                     onChange={this.handleChange}
                   />
                 </div>
-                {this.state.errors.username && <small>{this.state.errors.username}</small>}
-              </div>
-              <div>
-                <label>Email</label>
-                <div>
-                  <input 
+                {this.state.errors.username && <p className="help is-danger">{this.state.errors.username}</p>}
+              </div>   
+
+              <div className="field">
+                <label className="label">email</label>
+                <div className="control">
+                  <input
                     className={`input ${this.state.errors.email ? 'display' : ''}`}
                     placeholder="Email"
                     name="email"
                     onChange={this.handleChange}
                   />
                 </div>
-                {this.state.errors.email && <small>{this.state.errors.email}</small>}
-              </div>
-              <div>
-                <label>Password</label>
-                <div>
-                  <input 
+                {this.state.errors.email && <p className="help is-danger">{this.state.errors.email}</p>}
+              </div>   
+      
+              <div className="field">
+                <label className="label">password</label>
+                <div className="control">
+                  <input
                     className={`input ${this.state.errors.password ? 'display' : ''}`}
                     type="password"
                     placeholder="Password"
@@ -83,12 +90,13 @@ class Register extends React.Component {
                     onChange={this.handleChange}
                   />
                 </div>
-                {this.state.errors.password && <small>{this.state.errors.password}</small>}
-              </div>
-              <div>
-                <label>Password Confirmation</label>
-                <div>
-                  <input 
+                {this.state.errors.password && <p className="help is-danger">{this.state.errors.password}</p>}
+              </div>   
+
+              <div className="field">
+                <label className="label">password confirmation</label>
+                <div className="control">
+                  <input
                     className={`input ${this.state.errors.passwordConfirmation ? 'display' : ''}`}
                     type="password"
                     placeholder="Password Confirmation"
@@ -96,18 +104,32 @@ class Register extends React.Component {
                     onChange={this.handleChange}
                   />
                 </div>
-                {this.state.errors.passwordConfirmation && <small>{this.state.errors.passwordConfirmation}</small>}
-              </div>
-              <div>
-                <button type="submit">Register Me</button>
-              </div>
+                {this.state.errors.passwordConfirmation && <p className="help is-danger">{this.state.errors.passwordConfirmation}</p>}
+              </div>  
+
+              <div className="field">
+                <div className="control">
+                  <button className="button is-primary has-text-white is-fullwidth" type="submit">Register Me</button>            
+                </div>
+              </div> 
+              <div className="mr-6">
+                <p>Already a member? Login <Link className="link" to="/login">here</Link></p>
+              </div>            
             </form>
           </div>
-        </div>
-        <div className="mr-6">
-          <p>Already a member? Login <Link className="text-blue-500 hover:text-blue-800" to="/login">here</Link></p>
+          <div className="column is-quarter-desktop"></div>
         </div>
       </section>
+
+
+
+
+
+
+
+
+
+ 
     )
   }
 }
