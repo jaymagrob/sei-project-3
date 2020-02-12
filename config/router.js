@@ -21,6 +21,12 @@ router.route('/projects/:id/comments/:commentId')
   .delete(secureRoute, projects.commentDelete)
   .put(secureRoute, projects.commentEdit)
 
+router.route('/projects/:id/messages')
+  .post(secureRoute, projects.messageCreate)
+
+router.route('/projects/:id/messages/:messageId')
+  .delete(secureRoute, projects.messageDelete)
+
 router.route('/projects/:id/like')
   .get(secureRoute, projects.like)
 

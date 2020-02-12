@@ -23,6 +23,7 @@ import SecureRoute from './components/common/SecureRoute'
 import UnSecureRoute from './components/common/UnSecureRoute'
 import PendingRequests from './components/users/PendingRequests' 
 import FirstLogin from './components/common/FirstLogin'
+import Gallery from './components/common/Gallery'
 
 
 
@@ -46,6 +47,7 @@ const App = () => (
         <UnSecureRoute path="/register" component={Register} />
         <UnSecureRoute path="/login" component={Login} />
         <SecureRoute path="/getstarted" component={FirstLogin} />
+        <Route path="/gallery" component={Gallery} />
         <Route path="/*" component={NotFound} />
       </Switch>
       <PendingRequests />

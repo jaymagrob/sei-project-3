@@ -11,6 +11,14 @@ const commentSchema = new mongoose.Schema({
   timestamps: true
 })
 
+//! creating private collab messages schema
+const messageSchema = new mongoose.Schema({
+  text: { type: String, required: true, maxlength: 150 },
+  user: { type: mongoose.Schema.ObjectId, ref: 'User', required: true }
+}, {
+  timestamps: true
+})
+
 //! creating like schema
 const likeSchema = new mongoose.Schema({
   user: { type: mongoose.Schema.ObjectId, ref: 'User', required: true }
@@ -31,7 +39,8 @@ const projectSchema = new mongoose.Schema({
   skillsInvolved: [{ type: String, enum: skills }],
   lookingFor: [{ type: String, enum: professions }], 
   likes: [ likeSchema ],
-  comments: [ commentSchema ]
+  comments: [ commentSchema ],
+  messages: [ messageSchema ]
 }, {
   timestamps: true
 })
