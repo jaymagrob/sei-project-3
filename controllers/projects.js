@@ -64,6 +64,10 @@ function commentCreate(req, res, next) {
   req.body.user = req.currentUser
   Project
     .findById(req.params.id)
+    .populate('owner')
+    .populate('collaborators')
+    .populate('pendingCollaborators')
+    .populate('comments.user')
     .then(project => {
       if (!project) return res.status(404).json({ message: 'Not Found' })
       project.comments.push(req.body)

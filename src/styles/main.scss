@@ -11,6 +11,7 @@ $beige-light: #E2E2E0;
 $beige-lighter: #F7F7F4;
 $yellow: #F4BD30;
 $black: #3F3F3F;
+$light-black: rgb(136, 136, 136);
 
 // Update Bulma's global variables
 $family-sans-serif: "Karla", sans-serif;
@@ -30,6 +31,18 @@ $input-background-color: $grey-light;
 $input-color: $black;
 $input-radius: 10px;
 
+// button variables
+$button-background-color: $yellow;
+$button-color: $beige-lighter;
+$button-border-color: $yellow;
+
+//nav bar variables
+$navbar-background-color: $beige-lighter;
+$navbar-height: 4rem;
+$navbar-item-color: $black;
+$navbar-item-hover-color: $yellow;
+$navbar-item-hover-background-color: $light-black;
+
 // Import only what you need from Bulma
 @import "../../node_modules/bulma/sass/utilities/_all.sass";
 @import "../../node_modules/bulma/sass/base/_all.sass";
@@ -41,7 +54,7 @@ $input-radius: 10px;
 @import "../../node_modules/bulma/sass/layout/hero.sass";
 @import "../../node_modules/bulma/sass/layout/section.sass";
 
-.title-hero {
+.main-hero-title {
   font-family: "Yeseva One", cursive;
   font-size: 90px;
 }
@@ -61,4 +74,32 @@ $input-radius: 10px;
 
 .title-underLine {
   border-bottom: $grey-light 2px solid;
+  letter-spacing: 1px;
+}
+
+.navbar-item-font {
+  font-size: 20px;
+}
+
+.navbar-logo {
+  font-family: "Yeseva One", cursive;
+  font-size: 25px;
+}
+
+.has-shadow {
+  box-shadow: $link;
+}
+
+.user-img {
+  object-fit: cover;
+  width:230px;
+  height:230px;
+  border-radius: 50%;
+}
+
+.profile-img {
+  object-fit: cover;
+  width:250px;
+  height:250px;
+  border-radius: 50%;
 }
