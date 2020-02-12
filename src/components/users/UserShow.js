@@ -48,11 +48,11 @@ class UserShow extends React.Component {
     if (!user._id) return null
 
     return (
-      <section className="is-fullheight-with-navbar test-border">
-        <section className="section test-border">
-          <div className="columns test-border">
+      <section className="is-fullheight-with-navbar">
+        <section className="section">
+          <div className="columns">
 
-            <div className="column is-one-third">
+            <div className="column is-one-quarter">
               <div className="container">
                 <div className="has-text-centered">
                   <img className="profile-img" src={user.profileImage} />
@@ -63,10 +63,10 @@ class UserShow extends React.Component {
               </div>
             </div>
 
-            <div className="column test-border">
-              <div className="columns test-border">
-                <div className="column test-border2 is-three-quarters">
-                  <div className="test-border subtitle-hero">
+            <div className="column">
+              <div className="columns">
+                <div className="column is-three-quarters">
+                  <div className="subtitle-hero">
                     <h1>{user.name}</h1>
                   </div>
                   <ul>{user.professions.map(profession => <li key={profession}>{profession}</li>)}</ul>
@@ -81,31 +81,28 @@ class UserShow extends React.Component {
                 </div>
               </div>
 
-              <div className="test-border">
+              <hr className="seperater-line" />
+
+              <div className="">
                 <p className="bio-paragraph">{user.bio}</p>
               </div>
+              <hr className="seperater-line" />
+              <div className="container">
 
-              <div className="container test-border2">
-
-                <div className="test-border header-small">
+                {/* <div className="header-small">
                   <h4>skills</h4>
-                </div>
+                </div> */}
 
-                <div className="columns test-border margin-reset">
-
-                  <div>{user.skills.map(skill => (
-                    <div className="column test-border rounded-border-box"
-                      name={skill._id}
-                      onClick={this.handleLike}
-                      key={skill['skill']}
-                      style={{ cursor: 'pointer' }}
-                    >{skill['skill']}: {skill.likes.length}</div>
-                  ))}</div>
-
-                </div>
+                <div className="columns margin-reset is-multiline">{user.skills.map(skill => (
+                  <div className="column is-one-quarter rounded-border-box"
+                    name={skill._id}
+                    onClick={this.handleLike}
+                    key={skill['skill']}
+                    style={{ cursor: 'pointer' }}
+                  >{skill['skill']}: {skill.likes.length}</div>
+                ))}</div>
 
               </div>
-
             </div>
           </div>
         </section>
@@ -116,7 +113,7 @@ class UserShow extends React.Component {
             <ProjectCard key={project._id} {...project} />
           ))} */}
           {/* <ul>{collaboratedProjects.map(project => <li key={project}>{project}</li>)}</ul> */}
-          <div className="columns is-mobile is-multiline test-border">
+          <div className="columns is-mobile is-multiline">
             {user.collaboratedProjects.map(project => (
               <ProjectCard className="" key={project._id} {...project} />
             ))}
