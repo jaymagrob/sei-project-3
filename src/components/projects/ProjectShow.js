@@ -116,16 +116,27 @@ class ProjectShow extends React.Component {
     }
   }
 
+  // handleEditComment = async () => {
+  //   console.log('edit comment')
+  // }
+  
+  handleDeleteComment = async (projectId, commentId) => {
+    try {
+      const res = await axios.delete(`/api/projects/${projectId}/comments/${commentId}`, {
+        headers: { Authorization: `Bearer ${Auth.getToken()}` }
+      })
+      this.setState({ project: res.data })
+    } catch (err) {
+      console.log(err)
+    }
+  }
+
   isOwner = () => Auth.getPayload().sub === this.state.project.owner._id
 
   render() {
     
     const { project } = this.state
     if (!project._id) return null
-    console.log('Project =', project)
-    console.log('Owner =', project.owner.username)
-    console.log('Collaborator =', project.collaborators[0].username)
-    console.log(this.state)
 
     return (
       <section>
@@ -221,14 +232,15 @@ class ProjectShow extends React.Component {
         {this.isOwner() &&
         <Link to={`/projects/${this.props.match.params.id}/edit`}>Edit Project</Link>
         }
-        
         <ProjectComment
           comments={this.state.project.comments}
           text={this.state.text}
           handleChange={this.handleChange}
           handleCommentRequest={this.handleCommentRequest}
-        />
-
+          handleEditComment={this.handleEditComment}
+          handleDeleteComment={this.handleDeleteComment}
+          projectId={this.state.project._id}
+        /> 
       </section>
     )
   }
