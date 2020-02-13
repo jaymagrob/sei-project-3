@@ -75,7 +75,7 @@ class Navbar extends React.Component {
           </div>
           {Auth.isAuthenticated() && <PendingRequests /> }
           <div className="navbar-item navbar-item-font">
-            {Auth.isAuthenticated() && <button className="button" onClick={this.handleLogout}>logout</button>}
+            {Auth.isAuthenticated() && <button className="button" onClick={this.handleLogout}>logout {this.state.name}</button>}
           </div>
           <div className="navbar-item navbar-item-font">
             {!Auth.isAuthenticated() && <Link to="/register">register</Link>}

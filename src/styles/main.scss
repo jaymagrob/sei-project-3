@@ -12,6 +12,7 @@ $beige-lighter: #F7F7F4;
 $yellow: #F4BD30;
 $black: #3F3F3F;
 $light-black: rgb(136, 136, 136);
+$lighter-black: rgb(196, 196, 196);
 
 // Update Bulma's global variables
 $family-sans-serif: "Karla", sans-serif;
@@ -42,6 +43,7 @@ $navbar-height: 4rem;
 $navbar-item-color: $black;
 $navbar-item-hover-color: $yellow;
 $navbar-item-hover-background-color: $light-black;
+
 
 
 // Import only what you need from Bulma
@@ -354,6 +356,7 @@ p.alice-carousel__next-btn-item:hover, p.alice-carousel__prev-btn-item:hover {
 .custom_nav {
   position: fixed;
   width: 100%;
+  border-bottom: 1px solid $lighter-black;
 }
 
 .section_padding {
@@ -361,8 +364,6 @@ p.alice-carousel__next-btn-item:hover, p.alice-carousel__prev-btn-item:hover {
   box-sizing: border-box;
 }
 
-.discovery_title {
-}
 
 .request_outer_container {
   position: relative;
@@ -373,9 +374,8 @@ p.alice-carousel__next-btn-item:hover, p.alice-carousel__prev-btn-item:hover {
   top: 70px;
   width: 300px;
   right: 10px;
-  display: flex;
-  align-items: center;
   background: $beige-light;
+  border-radius: 5px;
 
 }
 
@@ -383,12 +383,34 @@ p.alice-carousel__next-btn-item:hover, p.alice-carousel__prev-btn-item:hover {
   display: flex;
   width: 100%;
   justify-content: space-between;
-  padding: 5px 10px
+  padding: 5px 10px;
+  border-bottom: 1px solid $beige-lighter;
+}
+
+.single_request:last-of-type {
+  border-bottom: 0px solid $black;
 }
 
 .single_request_button {
   display: flex;
   align-items: center;
+}
+
+.pending_header_container {
+  display: flex;
+  align-items: center;
+}
+
+.pending_project_preview {
+  // display: inline-block;
+  width: 40px;
+  // height: 30px;
+  background-size: cover;
+  background-position: center;
+}
+
+.single_request_button > button {
+  font-size: 13px;
 }
 
 

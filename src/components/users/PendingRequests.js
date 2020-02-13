@@ -53,6 +53,7 @@ class PendingRequests extends React.Component{
   }
 
   render() {
+    this.state.user && console.log(this.state.user.pendingProjects)
     return (
       <div className="request_outer_container navbar-item navbar-item-font">
         <div
@@ -73,6 +74,7 @@ class PendingRequests extends React.Component{
         Requests
           </button>
         </div>
+        {/* {console.log('THIS ONE', Auth.getPayload().sub)} */}
         {this.state.open && this.state.user &&
           <div
             className="request_list"
@@ -83,19 +85,28 @@ class PendingRequests extends React.Component{
                   key={project._id}
                   className="single_request"
                 >
-                  <h1 style={{ display: 'inline-block' }}>{project.project.name}</h1>
+                  <div className="pending_header_container">
+                    {/* <img className="pending_project_preview" src={project.o.images[0]} /> */}
+                    <h1 style={{ display: 'inline-block' }}>{project.project.name}</h1>
+                  </div>
                   <div 
                     style={{ float: 'right' }}
                     className="single_request_button"
                   >
+                    { (project.user === true) && (project.ownerId._id === Auth.getPayload().sub) ||
+                      (project.owner === true) && (project.userId._id === Auth.getPayload().sub) &&
+                      <button 
+                        className="requestAccept button is-sucess"
+                        name={project.project._id}
+                        onClick={this.acceptCollabRequest}
+                      >Accept</button>
+                    }
                     <button 
-                      name={project.project._id}
-                      onClick={this.acceptCollabRequest}
-                    >Accept</button>
-                    <button 
+                      className="requestDecline button is-danger"
                       name={project.project._id}
                       onClick={this.rejectCollabRequest}
                     >Reject</button>
+                  
                   </div>
                 </div>
               )
