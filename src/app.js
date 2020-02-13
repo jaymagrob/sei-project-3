@@ -24,6 +24,9 @@ import SecureRoute from './components/common/SecureRoute'
 import UnSecureRoute from './components/common/UnSecureRoute'
 import FirstLogin from './components/common/FirstLogin'
 import Gallery from './components/common/Gallery'
+import ChatBoxShow from './components/chatboxes/ChatBoxShow'
+
+
 class App extends React.Component{
   state = {
     open: false,
@@ -95,6 +98,7 @@ class App extends React.Component{
             <SecureRoute path="/projects/new" component={ProjectNew} />
             <Route path="/projects/:id" component={ProjectShow} getUser={this.getUser}/>
             {/* <SecureRoute path="/users/:username/edit" component={UserEdit} /> */}
+            <Route path="/users/:userid/chatboxes/:id" component={ChatBoxShow} />
             <Route path="/users/:username" component={UserShow} />
             {/* <Route path="/users/:username/messages" component={UserMessages} /> */}
             <UnSecureRoute path="/register" component={Register} />
