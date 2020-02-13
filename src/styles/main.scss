@@ -58,6 +58,10 @@ $navbar-item-hover-background-color: $light-black;
 // // Iimporting Carousel styleing
 // @import "react-alice-carousel/lib/scss/alice-carousel.scss";
 
+body {
+  letter-spacing: 0.5px;
+}
+
 .main-hero-title {
   font-family: "Yeseva One", cursive;
   font-size: 90px;
@@ -122,7 +126,8 @@ $navbar-item-hover-background-color: $light-black;
   font-size: 20px;
   margin-top: 5px;
   font-weight: 400;
-  
+}
+
 .project-img {
   object-fit: cover;
   width:200px;
@@ -132,6 +137,11 @@ $navbar-item-hover-background-color: $light-black;
 .bio-paragraph {
   margin: 5px;
   padding: 5px;
+}
+
+.user-profession {
+  font-size: 15px;
+  color: $black;
 }
 
 .margin-reset {
@@ -161,6 +171,13 @@ $navbar-item-hover-background-color: $light-black;
   border-radius: 15px;
 }
 
+.profession-grey-box {
+  background-color: $beige-light;
+  padding: 8px;
+  margin: 3px;
+  border-radius: 15px;
+}
+
 .project-card-bio {
   font-size: 12px;
 }
@@ -168,5 +185,26 @@ $navbar-item-hover-background-color: $light-black;
 .seperater-line { 
   height: 2px;
   background-color: $beige-light;
+  margin: 15px;
+}
+
+.skill-circle {
+  background-color: $yellow;
+  height: 25px;
+  width: 25px;
+  border-radius: 50%;
+  position:relative;
+  left:-30px;
+}
+
+.skills-header {
+  margin: 10px;
+}
+
+.add-margin {
   margin: 5px;
+}
+
+.profession-parent {
+  display: flex;
 }
