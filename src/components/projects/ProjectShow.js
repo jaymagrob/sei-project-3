@@ -189,197 +189,198 @@ class ProjectShow extends React.Component {
     if (!project._id) return null
     // console.log('collabs included? =', this.state.project.collaborators.map(collab => collab._id === Auth.getPayload().sub))
     return (
-      <section className="" style={{
+      <section style={{
         position: this.state.showMessages ? 'fixed' : 'absolute',
         overflow: this.state.showMessages ? 'hidden' : 'auto'
       }}>
 
-        <section className="section is-fullheight-with-navbar full-width">
+        <section className="is-fullheight-with-navbar section_padding full-width">
 
-          <div className="container has-text-centered">
+          <section className="section">
+            <div className="container has-text-centered">
 
-            {/* NAME */}
-            <div className="">
-              <h1 className="subtitle-hero">{project.name}</h1>
-            </div>
+              {/* NAME */}
+              <div className="">
+                <h1 className="subtitle-hero">{project.name}</h1>
+              </div>
 
-            {/* LIKES */}
-            <div className="">
-              <div onClick={this.handleLike}><span>{project.likes.length}</span> likes</div>
-            </div>
+              {/* LIKES */}
+              <div className="">
+                <div onClick={this.handleLike}><span>{project.likes.length}</span> likes</div>
+              </div>
 
-            {/* COLLABORATORS */}
-            <div className="column is-half is-offset-one-quarter">
-              <div className="add-margin">collaborators:</div>
-              <div className="collaborator-circles" style={{ display: 'flex' }}>
-                {project.collaborators.map(collaborator => {
-                  return (
-                    <div key={collaborator._id}>
-                      <div className="add-margin" style={{
-                        background: `url(${collaborator.profileImage})`,
+              {/* COLLABORATORS */}
+              <div className="column is-half is-offset-one-quarter">
+                <div className="add-margin">collaborators:</div>
+                <div className="collaborator-circles" style={{ display: 'flex' }}>
+                  {project.collaborators.map(collaborator => {
+                    return (
+                      <div key={collaborator._id}>
+                        <div className="add-margin" style={{
+                          background: `url(${collaborator.profileImage})`,
+                          height: '80px',
+                          width: '80px',
+                          backgroundSize: 'cover',
+                          backgroundPosition: 'center',
+                          borderRadius: '50%',
+                          overflow: 'hidden'
+                        }}>
+                          <Link to={`/users/${collaborator.username}`} style={{
+                            display: 'block',
+                            height: '100%',
+                            width: '100%'
+                          }}>
+
+                          </Link>
+                        </div>
+                        <p>{collaborator._id === this.state.project.owner._id ? 'owner' : ''}</p>
+                      </div>
+                    )
+                  })}
+
+                  {/* ADD COLLABORATOR */}
+                  {Auth.isAuthenticated() &&
+                    <div className="add-margin"
+                      onClick={this.handleAddCollaborator}
+                      style={{
+                        background: 'url(https://i.ya-webdesign.com/images/a-plus-png-2.png)',
                         height: '80px',
                         width: '80px',
                         backgroundSize: 'cover',
                         backgroundPosition: 'center',
                         borderRadius: '50%',
-                        overflow: 'hidden'
+                        border: '1px solid #E2E2E0',
+                        overflow: 'hidden',
+                        cursor: 'pointer'
                       }}>
-                        <Link to={`/users/${collaborator.username}`} style={{
-                          display: 'block',
-                          height: '100%',
-                          width: '100%'
-                        }}>
-
-                        </Link>
-                      </div>
-                      <p>{collaborator._id === this.state.project.owner._id ? 'owner' : ''}</p>
                     </div>
-                  )
-                })}
-
-                {/* ADD COLLABORATOR */}
-                {Auth.isAuthenticated() &&
-                  <div className="add-margin"
-                    onClick={this.handleAddCollaborator}
-                    style={{
-                      background: 'url(https://i.ya-webdesign.com/images/a-plus-png-2.png)',
-                      height: '80px',
-                      width: '80px',
-                      backgroundSize: 'cover',
-                      backgroundPosition: 'center',
-                      borderRadius: '50%',
-                      border: '1px solid #E2E2E0',
-                      overflow: 'hidden',
-                      cursor: 'pointer'
-                    }}>
-                  </div>
-                }
-                {/* COLLAB SEARCH */}
-                {this.state.users &&
-                  <input
-                    placeholder="search"
-                    // name="userSearch"
-                    onChange={this.handleSearchChange}
-                  />
-                }
-                {/* COLLAB SEARCH RESULTS */}
-                {this.state.searchedUsers &&
-                  this.state.searchedUsers.map(user => {
-                    return (
-                      <div
-                        onClick={this.handleAddCollaboratorTwo}
-                        key={user._id}
-                        name={user._id}
-                        style={{ cursor: 'pointer' }}
-                      >
-                        <div style={{ background: `url(${user.profileImage})`, pointerEvents: 'none' }}></div>
-                        <h2 style={{ pointerEvents: 'none' }}>{user.name}</h2>
-                      </div>
-                    )
-                  })
-                }
+                  }
+                  {/* COLLAB SEARCH */}
+                  {this.state.users &&
+                    <input
+                      placeholder="search"
+                      // name="userSearch"
+                      onChange={this.handleSearchChange}
+                    />
+                  }
+                  {/* COLLAB SEARCH RESULTS */}
+                  {this.state.searchedUsers &&
+                    this.state.searchedUsers.map(user => {
+                      return (
+                        <div
+                          onClick={this.handleAddCollaboratorTwo}
+                          key={user._id}
+                          name={user._id}
+                          style={{ cursor: 'pointer' }}
+                        >
+                          <div style={{ background: `url(${user.profileImage})`, pointerEvents: 'none' }}></div>
+                          <h2 style={{ pointerEvents: 'none' }}>{user.name}</h2>
+                        </div>
+                      )
+                    })
+                  }
+                </div>
               </div>
             </div>
-          </div>
 
-          {/* PROJECT DESCRIPTION */}
-          <p className="project-paragraph is-vertical-center">{project.description}</p>
-
-          <hr className="seperater-line" />
-
-          <section className="section padding-reset">
-            <div className="columns">
-
-              {/* LOCATION */}
-              <div className="column profession-grey-box is-vertical-center">
-                <p>location: {project.location}</p>
-              </div>
-
-              {/* SKILLS */}
-              <div className="column profession-grey-box is-vertical-center">
-                {/* <h2>skills: </h2> */}
-                <p>{project.skillsInvolved.length < 1 ? 'skills: no skills listed yet' :
-                  <ul>{project.skillsInvolved.map(skill => <li key={skill}>skills: {skill}</li>)}</ul>
-                }</p>
-              </div>
-
-              {/* PROJECT RECRUITING */}
-              <div className="column profession-grey-box is-vertical-center">
-                <p>{project.recruiting ? project.lookingFor.length > 0 ? `looking for: ${project.lookingFor.map(prof => ` ${prof}`)}` : 'looking for: nothing listed yet' : 'looking for: nothing listed yet'}</p>
-                {/* <p>{project.recruiting ? `Looking for: ${project.lookingFor.map(prof => prof)}` : ''}</p>
-          <p>{project.lookingFor.length > 0 ? `Looking for: ${project.lookingFor.map(prof => prof)}` : 'Nothing listed yet'}</p> */}
-              </div>
-
-              {/* PROJECT COMPLETED */}
-              <div className="column profession-grey-box is-vertical-center">
-                <p>{project.completed ? 'this project is completed' : `looking for creatives?: ${project.recruiting ? 'yes' : 'not currently looking'}`}</p>
-              </div>
-
-            </div>
-          </section>
-
-          {/* IMAGE */}
-          <figure className="columns padding-reset">
-            <img className="column is-three-fifths is-offset-one-fifth project-image-border" src={project.images[0]} />
-          </figure>
-
-          {/* EXTRA IMAGE GALLERY */}
-          {project.images.length > 0 ? '' :
-            <div className="section">
-              <h2>Gallery</h2>
-              <div className="columns">
-                {project.images.map((image, index) => index === 0 ? '' : <div className="column"><img key={image} src={image} /></div>)}
-              </div>
-            </div>
-          }
-
-          <div className="column is-half is-offset-one-quarter">
+            {/* PROJECT DESCRIPTION */}
+            <p className="project-paragraph is-vertical-center">{project.description}</p>
 
             {/* MESSAGES */}
-            <div className="edit-message-buttons" style={{ display: 'flex' }}>
+            {this.isCollab() &&
+              <div className="has-text-centered">
+                <button className="button is-small" onClick={this.toggleMessageBoard}>Message Project Owner</button>
+              </div>
+            }
 
-              {this.isCollab() &&
-                <button className="button add-margin" onClick={this.toggleMessageBoard}>Message Project Owner</button>
-              }
+            <hr className="seperater-line" />
+
+            <section className="section padding-reset">
+              <div className="columns">
+
+                {/* LOCATION */}
+                <div className="column profession-grey-box is-vertical-center">
+                  <p>location: {project.location}</p>
+                </div>
+
+                {/* SKILLS */}
+                <div className="column profession-grey-box is-vertical-center">
+                  {/* <h2>skills: </h2> */}
+                  <p>{project.skillsInvolved.length < 1 ? 'skills: no skills listed yet' :
+                    <ul>{project.skillsInvolved.map(skill => <li key={skill}>skills: {skill}</li>)}</ul>
+                  }</p>
+                </div>
+
+                {/* PROJECT RECRUITING */}
+                <div className="column profession-grey-box is-vertical-center">
+                  <p>{project.recruiting ? project.lookingFor.length > 0 ? `looking for: ${project.lookingFor.map(prof => ` ${prof}`)}` : 'looking for: nothing listed yet' : 'looking for: nothing listed yet'}</p>
+                  {/* <p>{project.recruiting ? `Looking for: ${project.lookingFor.map(prof => prof)}` : ''}</p>
+          <p>{project.lookingFor.length > 0 ? `Looking for: ${project.lookingFor.map(prof => prof)}` : 'Nothing listed yet'}</p> */}
+                </div>
+
+                {/* PROJECT COMPLETED */}
+                <div className="column profession-grey-box is-vertical-center">
+                  <p>{project.completed ? 'this project is completed' : `looking for creatives?: ${project.recruiting ? 'yes' : 'not currently looking'}`}</p>
+                </div>
+
+              </div>
+            </section>
+
+            {/* IMAGE */}
+            <figure className="columns padding-reset">
+              <img className="column is-three-fifths is-offset-one-fifth project-image-border" src={project.images[0]} />
+            </figure>
+
+            {/* EXTRA IMAGE GALLERY */}
+            {project.images.length > 0 ? '' :
+              <div className="section">
+                <h2>Gallery</h2>
+                <div className="columns">
+                  {project.images.map((image, index) => index === 0 ? '' : <div className="column"><img key={image} src={image} /></div>)}
+                </div>
+              </div>
+            }
+
+            <div className="column is-half is-offset-one-quarter has-text-centered">
               {/* EDIT BUTTON IF OWNER OF PROJECT */}
               {this.isOwner() &&
-                <Link className="button add-margin" to={`/projects/${this.props.match.params.id}/edit`}>Edit Project</Link>
+                <Link className="button add-margin is-small" to={`/projects/${this.props.match.params.id}/edit`}>Edit Project</Link>
               }
-
             </div>
-          </div>
 
-          {/* ADD PROJECT COMMENT */}
-          <ProjectComment
-            comments={this.state.project.comments}
-            text={this.state.text}
-            handleChange={this.handleChange}
-            handleCommentRequest={this.handleCommentRequest}
-            handleEditSelected={this.handleEditSelected}
-            handleEditComment={this.handleEditComment}
-            handleDeleteComment={this.handleDeleteComment}
-            projectId={this.state.project._id}
-            editingComment={this.state.editingComment}
-            editedCommentText={this.state.editedCommentText}
-            resetEditComment={this.resetEditComment}
-          />
-          {/* PROJECT COMMENT DISPLAY */}
-          <ProjectMessage
-            messages={this.state.project.messages}
-            text={this.state.text}
-            handleChange={this.handleChange}
-            handleMessageRequest={this.handleMessageRequest}
-            toggleMessageBoard={this.toggleMessageBoard}
-            showMessages={this.state.showMessages}
-          />
+            <hr className="seperater-line" />
 
-          {/* OWNER STAR */}
-          {this.isOwner() &&
-            <img alt="star indicating project ownership" src="./../../assets/star.png" />
-          }
+            {/* ADD PROJECT COMMENT */}
+            <ProjectComment
+              comments={this.state.project.comments}
+              text={this.state.text}
+              handleChange={this.handleChange}
+              handleCommentRequest={this.handleCommentRequest}
+              handleEditSelected={this.handleEditSelected}
+              handleEditComment={this.handleEditComment}
+              handleDeleteComment={this.handleDeleteComment}
+              projectId={this.state.project._id}
+              editingComment={this.state.editingComment}
+              editedCommentText={this.state.editedCommentText}
+              resetEditComment={this.resetEditComment}
+            />
+            {/* PROJECT COMMENT DISPLAY */}
+            <ProjectMessage
+              messages={this.state.project.messages}
+              text={this.state.text}
+              handleChange={this.handleChange}
+              handleMessageRequest={this.handleMessageRequest}
+              toggleMessageBoard={this.toggleMessageBoard}
+              showMessages={this.state.showMessages}
+            />
 
+            {/* OWNER STAR
+            {this.isOwner() &&
+              <img alt="star indicating project ownership" src="./../../assets/star.png" />
+            } */}
+
+          </section>
         </section>
-
       </section>
 
     )

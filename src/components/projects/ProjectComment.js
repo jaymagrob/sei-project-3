@@ -8,27 +8,29 @@ const ProjectComment = ({ comments, text, handleChange, handleCommentRequest, ha
     return Auth.getPayload().sub === commentOwnerId
   }
 
-
   return (
     <>
       {Auth.isAuthenticated() &&
-        <div className="section padding-reset">
-          <form
-            onSubmit={handleCommentRequest}
-          >
-            <label>add a comment</label>
-            <textarea
-              name='text'
-              value={text}
-              onChange={handleChange}
-            >
-            </textarea>
-            <button className="button is-small" type='submit'>Add Comment</button>
-          </form>
-        </div>
+        <form onSubmit={handleCommentRequest}>
+          <div className="columns">
+            <div className="column is-three-fifths">
+              <textarea
+                className="text-area-form"
+                name='text'
+                value={text}
+                onChange={handleChange}
+                placeholder='Share your thoughts on this project...'
+              >
+              </textarea>
+            </div>
+            <div className="column">
+              <button className="button is-small" type='submit'>Post a Comment</button>
+            </div>
+          </div>
+        </form>
       }
 
-      <hr className="comment-line" />
+      <br />
 
       {comments.map(comment => {
         return (
@@ -52,12 +54,8 @@ const ProjectComment = ({ comments, text, handleChange, handleCommentRequest, ha
                           <div className="column">
                             {isOwner(comment.user._id) &&
                               <div className="columns">
-                                <div className="column ">
-                                  <button className="button is-small" onClick={() => handleDeleteComment(projectId, comment._id)}>Delete</button>
-                                </div>
-                                <div className="column ">
-                                  <button className="button is-small" onClick={() => handleEditSelected(comment._id, comment.text)}>Edit</button>
-                                </div>
+                                <button className="button is-small add-margin" onClick={() => handleDeleteComment(projectId, comment._id)}>Delete</button>
+                                <button className="button is-small add-margin" onClick={() => handleEditSelected(comment._id, comment.text)}>Edit</button>
                               </div>
                             }
                           </div>
