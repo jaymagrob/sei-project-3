@@ -92,10 +92,10 @@ class PendingRequests extends React.Component{
                     style={{ float: 'right' }}
                     className="single_request_button"
                   >
-                    { (project.user === true) && (project.ownerId._id === Auth.getPayload().sub) ||
-                      (project.owner === true) && (project.userId._id === Auth.getPayload().sub) &&
+                    { (((project.user === true) && (project.ownerId._id === Auth.getPayload().sub)) ||
+                      ((project.owner === true) && (project.userId._id === Auth.getPayload().sub))) &&
                       <button 
-                        className="requestAccept button is-sucess"
+                        className="requestAccept button is-success"
                         name={project.project._id}
                         onClick={this.props.acceptCollabRequest}
                       >Accept</button>

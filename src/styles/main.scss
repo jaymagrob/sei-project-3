@@ -260,6 +260,7 @@ body {
 
 .discovery_container {
   height: 100vh;
+  overflow: hidden;
   display: flex;
   flex-direction: column;
   // justify-content: space-between;
@@ -411,6 +412,10 @@ p.alice-carousel__next-btn-item:hover, p.alice-carousel__prev-btn-item:hover {
 
 .single_request_button > button {
   font-size: 13px;
+}
+
+html {
+  scroll-behavior: smooth;
 }
 
 
