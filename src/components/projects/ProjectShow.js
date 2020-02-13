@@ -194,7 +194,7 @@ class ProjectShow extends React.Component {
         overflow: this.state.showMessages ? 'hidden' : 'auto'
       }}>
 
-        <section className="section is-fullheight-with-navbar full-width test-border">
+        <section className="section is-fullheight-with-navbar full-width">
 
           <div className="container has-text-centered">
 
@@ -283,7 +283,7 @@ class ProjectShow extends React.Component {
           </div>
 
           {/* PROJECT DESCRIPTION */}
-          <p className="project-paragraph has-text-centered">{project.description}</p>
+          <p className="project-paragraph is-vertical-center">{project.description}</p>
 
           <hr className="seperater-line" />
 
@@ -291,56 +291,63 @@ class ProjectShow extends React.Component {
             <div className="columns">
 
               {/* LOCATION */}
-              <div className="column rounded-border-box has-text-centered">
+              <div className="column profession-grey-box is-vertical-center">
                 <p>location: {project.location}</p>
               </div>
 
               {/* SKILLS */}
-              <div className="column rounded-border-box has-text-centered">
-                <h2>skills:</h2>
-                <p>{project.skillsInvolved.length < 1 ? 'no skills listed yet' :
-                  <ul>{project.skillsInvolved.map(skill => <li key={skill}>{skill}</li>)}</ul>
+              <div className="column profession-grey-box is-vertical-center">
+                {/* <h2>skills: </h2> */}
+                <p>{project.skillsInvolved.length < 1 ? 'skills: no skills listed yet' :
+                  <ul>{project.skillsInvolved.map(skill => <li key={skill}>skills: {skill}</li>)}</ul>
                 }</p>
               </div>
 
               {/* PROJECT RECRUITING */}
-              <div className="column rounded-border-box has-text-centered">
+              <div className="column profession-grey-box is-vertical-center">
                 <p>{project.recruiting ? project.lookingFor.length > 0 ? `looking for: ${project.lookingFor.map(prof => ` ${prof}`)}` : 'looking for: nothing listed yet' : 'looking for: nothing listed yet'}</p>
                 {/* <p>{project.recruiting ? `Looking for: ${project.lookingFor.map(prof => prof)}` : ''}</p>
           <p>{project.lookingFor.length > 0 ? `Looking for: ${project.lookingFor.map(prof => prof)}` : 'Nothing listed yet'}</p> */}
               </div>
 
               {/* PROJECT COMPLETED */}
-              <div className="column rounded-border-box has-text-centered">
+              <div className="column profession-grey-box is-vertical-center">
                 <p>{project.completed ? 'this project is completed' : `looking for creatives?: ${project.recruiting ? 'yes' : 'not currently looking'}`}</p>
-              </div>
-
-              {/* MESSAGES */}
-              <div className="column">
-                {this.isCollab() &&
-                  <button className="button" onClick={this.toggleMessageBoard}>Request to Collaborate!</button>
-                }
               </div>
 
             </div>
           </section>
 
           {/* IMAGE */}
-          <div className="">
-            <img src={project.images[0]} />
-          </div>
+          <figure className="columns padding-reset">
+            <img className="column is-three-fifths is-offset-one-fifth project-image-border" src={project.images[0]} />
+          </figure>
 
           {/* EXTRA IMAGE GALLERY */}
           {project.images.length > 0 ? '' :
-            <div>
+            <div className="section">
               <h2>Gallery</h2>
-              {project.images.map((image, index) => index === 0 ? '' : <img key={image} src={image} />)}
-            </div>}
-
-          {/* EDIT BUTTON IF OWNER OF PROJECT */}
-          {this.isOwner() &&
-            <Link className="button" to={`/projects/${this.props.match.params.id}/edit`}>Edit Project</Link>
+              <div className="columns">
+                {project.images.map((image, index) => index === 0 ? '' : <div className="column"><img key={image} src={image} /></div>)}
+              </div>
+            </div>
           }
+
+          <div className="column is-half is-offset-one-quarter">
+
+            {/* MESSAGES */}
+            <div className="edit-message-buttons" style={{ display: 'flex' }}>
+
+              {this.isCollab() &&
+                <button className="button add-margin" onClick={this.toggleMessageBoard}>Message Project Owner</button>
+              }
+              {/* EDIT BUTTON IF OWNER OF PROJECT */}
+              {this.isOwner() &&
+                <Link className="button add-margin" to={`/projects/${this.props.match.params.id}/edit`}>Edit Project</Link>
+              }
+
+            </div>
+          </div>
 
           {/* ADD PROJECT COMMENT */}
           <ProjectComment
