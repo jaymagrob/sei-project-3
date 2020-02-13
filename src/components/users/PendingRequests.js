@@ -54,22 +54,40 @@ class PendingRequests extends React.Component{
 
   render() {
     return (
-      <section
-        style={{ 
+      <div className="request_outer_container navbar-item navbar-item-font">
+        <div
+          className=""
+        >
+          <button
+            className="button"
+            onClick={this.handleOpen}
+          >
+            {/* style={{ 
           position: 'fixed',
           bottom: '20px',
           right: '75px',
           maxHeight: '100px',
           width: '200px',
           background: 'gray'
-        }}>
+        }}> */}
+        Requests
+          </button>
+        </div>
         {this.state.open && this.state.user &&
-          <div>
+          <div
+            className="request_list"
+          >
             {this.state.user.pendingProjects.map(project => {
               return (
-                <div key={project._id}>
+                <div 
+                  key={project._id}
+                  className="single_request"
+                >
                   <h1 style={{ display: 'inline-block' }}>{project.project.name}</h1>
-                  <div style={{ display: 'inline-block', float: 'right' }}>
+                  <div 
+                    style={{ float: 'right' }}
+                    className="single_request_button"
+                  >
                     <button 
                       name={project.project._id}
                       onClick={this.acceptCollabRequest}
@@ -84,13 +102,7 @@ class PendingRequests extends React.Component{
             })}
           </div>
         }
-        <div
-          onClick={this.handleOpen}
-        >
-          ---
-        </div>
-
-      </section>
+      </div>
     )
   }
 }
