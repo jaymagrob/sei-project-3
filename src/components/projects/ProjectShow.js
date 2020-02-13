@@ -65,6 +65,7 @@ class ProjectShow extends React.Component {
         const res = await axios.post('/api/users/collaborate', collabObject, {
           headers: { Authorization: `Bearer ${Auth.getToken()}` }
         })
+        // this.props.getUser()
         console.log(res)
       } catch (err) {
         console.log(err)
@@ -87,6 +88,7 @@ class ProjectShow extends React.Component {
         const res = await axios.post('/api/users/collaborate', collabObject, {
           headers: { Authorization: `Bearer ${Auth.getToken()}` }
         })
+        // this.props.getUser()
         console.log(res)
       } catch (err) {
         console.log(err)
@@ -138,6 +140,7 @@ class ProjectShow extends React.Component {
   toggleMessageBoard = async (e) => {
     this.setState({ showMessages: !this.state.showMessages })
     // console.log('show messages =', this.state.showMessages)
+    console.log(e.target.value)
   }
 
   handleEditSelected = (commentId, commentText) => {
@@ -178,136 +181,208 @@ class ProjectShow extends React.Component {
     return arr.includes(true)
   }
 
-  
+
 
   render() {
 
     const { project } = this.state
     if (!project._id) return null
-    // console.log('collabs id =', this.state.project.collaborators.includes(Auth.getPayload().sub))
-    console.log('collabs included? =', this.state.project.collaborators.map(collab => collab._id === Auth.getPayload().sub))
+    // console.log('collabs included? =', this.state.project.collaborators.map(collab => collab._id === Auth.getPayload().sub))
     return (
       <section style={{
         position: this.state.showMessages ? 'fixed' : 'absolute',
         overflow: this.state.showMessages ? 'hidden' : 'auto'
       }}>
-        <div>
-          {this.isOwner() &&
-            <img alt="star indicating project ownership" src="./../../assets/star.png" />
-          }
-          <h1>Project Name: {project.name}</h1>
-          {this.isCollab() &&
-            <button onClick={this.toggleMessageBoard}>Enter Collaborator Message Board</button>
-          }
-          <p>Location: {project.location}</p>
-          <p>{project.completed ? 'This project is completed' : `Recruitment Status: ${project.recruiting ? 'Recruiting' : 'Not currently recruiting'}`}</p>
-          <p>{project.recruiting ? project.lookingFor.length > 0 ? `Looking for: ${project.lookingFor.map(prof => ` ${prof}`)}` : 'Looking for: Nothing listed yet' : ''}</p>
-          {/* <p>{project.recruiting ? `Looking for: ${project.lookingFor.map(prof => prof)}` : ''}</p>
-          <p>{project.lookingFor.length > 0 ? `Looking for: ${project.lookingFor.map(prof => prof)}` : 'Nothing listed yet'}</p> */}
-          <h2>Skills Involved:</h2>
-          <p>{project.skillsInvolved.length < 1 ? 'No skills listed yet' :
-            <ul>{project.skillsInvolved.map(skill => <li key={skill}>{skill}</li>)}</ul>
-          }</p>
 
-        </div>
-        <div>
-          <img src={project.images[0]} />
-        </div>
-        <div>Collaborators</div>
-        <div style={{ display: 'flex' }}>
-          {project.collaborators.map(collaborator => {
-            return (
-              <div key={collaborator._id}>
-                <div style={{
-                  background: `url(${collaborator.profileImage})`,
-                  height: '80px',
-                  width: '80px',
-                  backgroundSize: 'cover',
-                  backgroundPosition: 'center',
-                  borderRadius: '50%',
-                  overflow: 'hidden'
-                }}><Link to={`/users/${collaborator.username}`} style={{
-                  display: 'block',
-                  height: '100%',
-                  width: '100%'
-                }}></Link>
-                </div>
-                <p>{collaborator._id === this.state.project.owner._id ? 'Owner' : ''}</p>
+        <section className="is-fullheight-with-navbar section_padding full-width">
+
+          <section className="section">
+            <div className="container has-text-centered">
+
+              {/* NAME */}
+              <div className="">
+                <h1 className="subtitle-hero">{project.name}</h1>
               </div>
-            )
-          })}
-          {Auth.isAuthenticated() &&
-            <div
-              onClick={this.handleAddCollaborator}
-              style={{
-                background: 'url(https://i.ya-webdesign.com/images/a-plus-png-2.png)',
-                height: '80px',
-                width: '80px',
-                backgroundSize: 'cover',
-                backgroundPosition: 'center',
-                borderRadius: '50%',
-                overflow: 'hidden',
-                cursor: 'pointer'
-              }}>
-            </div>
-          }
-          {this.state.users &&
-            <input
-              placeholder="search"
-              // name="userSearch"
-              onChange={this.handleSearchChange}
-            />
-          }
-          {this.state.searchedUsers &&
-            this.state.searchedUsers.map(user => {
-              return (
-                <div
-                  onClick={this.handleAddCollaboratorTwo}
-                  key={user._id}
-                  name={user._id}
-                  style={{ cursor: 'pointer' }}
-                >
-                  <div style={{ background: `url(${user.profileImage})`, pointerEvents: 'none' }}></div>
-                  <h2 style={{ pointerEvents: 'none' }}>{user.name}</h2>
+
+              {/* LIKES */}
+              <div className="">
+                <div onClick={this.handleLike}><span>{project.likes.length}</span> likes</div>
+              </div>
+
+              {/* COLLABORATORS */}
+              <div className="column is-half is-offset-one-quarter">
+                <div className="add-margin">collaborators:</div>
+                <div className="collaborator-circles" style={{ display: 'flex' }}>
+                  {project.collaborators.map(collaborator => {
+                    return (
+                      <div key={collaborator._id}>
+                        <div className="add-margin" style={{
+                          background: `url(${collaborator.profileImage})`,
+                          height: '80px',
+                          width: '80px',
+                          backgroundSize: 'cover',
+                          backgroundPosition: 'center',
+                          borderRadius: '50%',
+                          overflow: 'hidden'
+                        }}>
+                          <Link to={`/users/${collaborator.username}`} style={{
+                            display: 'block',
+                            height: '100%',
+                            width: '100%'
+                          }}>
+
+                          </Link>
+                        </div>
+                        <p>{collaborator._id === this.state.project.owner._id ? 'owner' : ''}</p>
+                      </div>
+                    )
+                  })}
+
+                  {/* ADD COLLABORATOR */}
+                  {Auth.isAuthenticated() &&
+                    <div className="add-margin"
+                      onClick={this.handleAddCollaborator}
+                      style={{
+                        background: 'url(https://i.ya-webdesign.com/images/a-plus-png-2.png)',
+                        height: '80px',
+                        width: '80px',
+                        backgroundSize: 'cover',
+                        backgroundPosition: 'center',
+                        borderRadius: '50%',
+                        border: '1px solid #E2E2E0',
+                        overflow: 'hidden',
+                        cursor: 'pointer'
+                      }}>
+                    </div>
+                  }
+                  {/* COLLAB SEARCH */}
+                  {this.state.users &&
+                    <input
+                      placeholder="search"
+                      // name="userSearch"
+                      onChange={this.handleSearchChange}
+                    />
+                  }
+                  {/* COLLAB SEARCH RESULTS */}
+                  {this.state.searchedUsers &&
+                    this.state.searchedUsers.map(user => {
+                      return (
+                        <div
+                          onClick={this.handleAddCollaboratorTwo}
+                          key={user._id}
+                          name={user._id}
+                          style={{ cursor: 'pointer' }}
+                        >
+                          <div style={{ background: `url(${user.profileImage})`, pointerEvents: 'none' }}></div>
+                          <h2 style={{ pointerEvents: 'none' }}>{user.name}</h2>
+                        </div>
+                      )
+                    })
+                  }
                 </div>
-              )
-            })
-          }
-        </div>
-        <p>Project Description: {project.description}</p>
-        <div onClick={this.handleLike}>Like : <span>{project.likes.length}</span></div>
-        {project.images.length > 0 ? '' :
-          <div>
-            <h2>Gallery</h2>
-            {project.images.map((image, index) => index === 0 ? '' : <img key={image} src={image} />)}
-          </div>}
+              </div>
+            </div>
 
+            {/* PROJECT DESCRIPTION */}
+            <p className="project-paragraph is-vertical-center">{project.description}</p>
 
-        {this.isOwner() &&
-          <Link to={`/projects/${this.props.match.params.id}/edit`}>Edit Project</Link>
-        }
-        <ProjectComment
-          comments={this.state.project.comments}
-          text={this.state.text}
-          handleChange={this.handleChange}
-          handleCommentRequest={this.handleCommentRequest}
-          handleEditSelected={this.handleEditSelected}
-          handleEditComment={this.handleEditComment}
-          handleDeleteComment={this.handleDeleteComment}
-          projectId={this.state.project._id}
-          editingComment={this.state.editingComment}
-          editedCommentText={this.state.editedCommentText}
-          resetEditComment={this.resetEditComment}
-        />
-        <ProjectMessage
-          messages={this.state.project.messages}
-          text={this.state.text}
-          handleChange={this.handleChange}
-          handleMessageRequest={this.handleMessageRequest}
-          toggleMessageBoard={this.toggleMessageBoard}
-          showMessages={this.state.showMessages}
-        />
+            {/* MESSAGES */}
+            {this.isCollab() &&
+              <div className="has-text-centered">
+                <button className="button is-small" onClick={this.toggleMessageBoard}>Message Project Owner</button>
+              </div>
+            }
+
+            <hr className="seperater-line" />
+
+            <section className="section padding-reset">
+              <div className="columns">
+
+                {/* LOCATION */}
+                <div className="column profession-grey-box is-vertical-center">
+                  <p>location: {project.location}</p>
+                </div>
+
+                {/* SKILLS */}
+                <div className="column profession-grey-box is-vertical-center">
+                  {/* <h2>skills: </h2> */}
+                  <p>{project.skillsInvolved.length < 1 ? 'skills: no skills listed yet' :
+                    <ul>{project.skillsInvolved.map(skill => <li key={skill}>skills: {skill}</li>)}</ul>
+                  }</p>
+                </div>
+
+                {/* PROJECT RECRUITING */}
+                <div className="column profession-grey-box is-vertical-center">
+                  <p>{project.recruiting ? project.lookingFor.length > 0 ? `looking for: ${project.lookingFor.map(prof => ` ${prof}`)}` : 'looking for: nothing listed yet' : 'looking for: nothing listed yet'}</p>
+                  {/* <p>{project.recruiting ? `Looking for: ${project.lookingFor.map(prof => prof)}` : ''}</p>
+          <p>{project.lookingFor.length > 0 ? `Looking for: ${project.lookingFor.map(prof => prof)}` : 'Nothing listed yet'}</p> */}
+                </div>
+
+                {/* PROJECT COMPLETED */}
+                <div className="column profession-grey-box is-vertical-center">
+                  <p>{project.completed ? 'this project is completed' : `looking for creatives?: ${project.recruiting ? 'yes' : 'not currently looking'}`}</p>
+                </div>
+
+              </div>
+            </section>
+
+            {/* IMAGE */}
+            <figure className="columns padding-reset">
+              <img className="column is-three-fifths is-offset-one-fifth project-image-border" src={project.images[0]} />
+            </figure>
+
+            {/* EXTRA IMAGE GALLERY */}
+            {project.images.length > 0 ? '' :
+              <div className="section">
+                <h2>Gallery</h2>
+                <div className="columns">
+                  {project.images.map((image, index) => index === 0 ? '' : <div className="column"><img key={image} src={image} /></div>)}
+                </div>
+              </div>
+            }
+
+            <div className="column is-half is-offset-one-quarter has-text-centered">
+              {/* EDIT BUTTON IF OWNER OF PROJECT */}
+              {this.isOwner() &&
+                <Link className="button add-margin is-small" to={`/projects/${this.props.match.params.id}/edit`}>Edit Project</Link>
+              }
+            </div>
+
+            <hr className="seperater-line" />
+
+            {/* ADD PROJECT COMMENT */}
+            <ProjectComment
+              comments={this.state.project.comments}
+              text={this.state.text}
+              handleChange={this.handleChange}
+              handleCommentRequest={this.handleCommentRequest}
+              handleEditSelected={this.handleEditSelected}
+              handleEditComment={this.handleEditComment}
+              handleDeleteComment={this.handleDeleteComment}
+              projectId={this.state.project._id}
+              editingComment={this.state.editingComment}
+              editedCommentText={this.state.editedCommentText}
+              resetEditComment={this.resetEditComment}
+            />
+            {/* PROJECT COMMENT DISPLAY */}
+            <ProjectMessage
+              messages={this.state.project.messages}
+              text={this.state.text}
+              handleChange={this.handleChange}
+              handleMessageRequest={this.handleMessageRequest}
+              toggleMessageBoard={this.toggleMessageBoard}
+              showMessages={this.state.showMessages}
+            />
+
+            {/* OWNER STAR
+            {this.isOwner() &&
+              <img alt="star indicating project ownership" src="./../../assets/star.png" />
+            } */}
+
+          </section>
+        </section>
       </section>
+
     )
   }
 }

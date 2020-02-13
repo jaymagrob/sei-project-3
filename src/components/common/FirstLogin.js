@@ -26,7 +26,7 @@ class FirstLogin extends React.Component{
   render() {
     if (!this.state.name) return null
     return (
-      <section className="hero is-fullheight-with-navbar">
+      <section className="hero is-fullheight-with-navbar section_padding">
         <div className="container hero-body columns has-text-centered">
           <div>
             <h1 className="title-hero is-size-1">Welcome to the hive {this.state.name}</h1>
@@ -36,7 +36,7 @@ class FirstLogin extends React.Component{
                 <Link to="/search" className="button">Opertunities</Link>
               </div>
               <div className="column">
-                <Link to={`/users/${this.state.username}`} className="button">Profile</Link>
+                <Link to={`/users/${this.state.username}`} className="button">My Profile</Link>
               </div>
               <div className="column">
                 <Link to="/projects/new" className="button">New Project</Link>

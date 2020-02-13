@@ -3,6 +3,7 @@ import axios from 'axios'
 import UserCard from '../users/UserCard'
 import ProjectCard from '../projects/ProjectCard'
 import { Link } from 'react-router-dom'
+import Discovery from './Discovery'
 
 class Home extends React.Component {
   state = {
@@ -23,7 +24,7 @@ class Home extends React.Component {
   }
   render() {
     return (
-      <>
+      <div className="home_custom">
         <section className="hero is-fullheight">
           <div className="hero-body">
             <div className="container has-text-centered">
@@ -44,7 +45,10 @@ class Home extends React.Component {
             </div>
           </div>
         </section>
-        <section>
+        <section id="discover" className="discover_counter_container">
+          <Discovery />
+        </section>
+        {/* <section>
           <h1 id="discover">Discovery</h1>
           <div>
             <h2>Users</h2>
@@ -62,8 +66,8 @@ class Home extends React.Component {
               ))}
             </div>
           </div>
-        </section>
-      </>
+        </section> */}
+      </div>
     )
   }
 }
