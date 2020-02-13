@@ -58,6 +58,10 @@ $navbar-item-hover-background-color: $light-black;
 // // Iimporting Carousel styleing
 // @import "react-alice-carousel/lib/scss/alice-carousel.scss";
 
+body {
+  letter-spacing: 0.5px;
+}
+
 .main-hero-title {
   font-family: "Yeseva One", cursive;
   font-size: 90px;
@@ -151,6 +155,11 @@ $navbar-item-hover-background-color: $light-black;
   width: 200px;
 }
 
+.user-profession {
+  font-size: 15px;
+  color: $black;
+}
+
 .margin-reset {
   margin: 0px;
   margin-bottom: 0px;
@@ -178,6 +187,13 @@ $navbar-item-hover-background-color: $light-black;
   border-radius: 15px;
 }
 
+.profession-grey-box {
+  background-color: $beige-light;
+  padding: 8px;
+  margin: 3px;
+  border-radius: 15px;
+}
+
 .project-card-bio {
   font-size: 12px;
   padding: 10px;
@@ -186,9 +202,29 @@ $navbar-item-hover-background-color: $light-black;
 .seperater-line { 
   height: 2px;
   background-color: $beige-light;
+  margin: 15px;
+}
+
+.skill-circle {
+  background-color: $yellow;
+  height: 25px;
+  width: 25px;
+  border-radius: 50%;
+  position:relative;
+  left:-30px;
+}
+
+.skills-header {
+  margin: 10px;
+}
+
+.add-margin {
   margin: 5px;
 }
 
+.profession-parent {
+  display: flex;
+}
 .project_card_img_text_container {
   display: flex;
   border-bottom: 1px solid $beige-light;
@@ -220,7 +256,51 @@ $navbar-item-hover-background-color: $light-black;
   font-size: 13px;
 }
 
+.discovery_container {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  // justify-content: space-between;
+}
+
+.discovery_inner_container {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+}
+
+.discovery_subtitle {
+  font-weight: 600;
+}
+
+.discovery_title {
+  padding-top: 20px;
+}
+
+.discovery_line_break {
+  height: 1px;
+  background: $beige-light;
+  flex: 1;
+  margin-bottom: 24px;
+  margin-left: 20px;
+}
+
+.discovery_title_container {
+  display: flex;
+  align-items: center;
+}
+
+.discovery_subtitle, .discovery_title {
+  margin-left: 60px;
+}
+
 // CAROUSEL
+
+div.alice-carousel {
+  margin: 0 0 -80px 0
+}
+
 
 div.alice-carousel__wrapper {
   overflow: visible;
@@ -269,15 +349,47 @@ p.alice-carousel__next-btn-item:hover, p.alice-carousel__prev-btn-item:hover {
   color: $beige-lighter;
 }
 
-.testJ {
-  border: red solid 2px;
-  overflow-y: auto;
-  overflow-x: hidden;
-  height: 100vh;
+// NAV Custom 
+
+.custom_nav {
+  position: fixed;
+  width: 100%;
 }
 
+.section_padding {
+  padding-top: 4rem;
+  box-sizing: border-box;
+}
 
+.discovery_title {
+}
 
+.request_outer_container {
+  position: relative;
+}
+
+.request_list {
+  position: absolute;
+  top: 70px;
+  width: 300px;
+  right: 10px;
+  display: flex;
+  align-items: center;
+  background: $beige-light;
+
+}
+
+.single_request {
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
+  padding: 5px 10px
+}
+
+.single_request_button {
+  display: flex;
+  align-items: center;
+}
 
 
 // .gallery_container::before {

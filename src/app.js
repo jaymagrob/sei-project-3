@@ -51,7 +51,7 @@ const App = () => (
         <Route path="/gallery" component={Gallery} />
         <Route path="/*" component={NotFound} />
       </Switch>
-      <PendingRequests />
+      {/* <PendingRequests /> */}
     </main>
   </BrowserRouter>
 )

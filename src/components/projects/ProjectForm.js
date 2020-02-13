@@ -23,8 +23,8 @@ const ProjectForm = ({ handleChange, handleSubmit, data, handleMultiChange, hand
 
 
   return (
-    <section className="is-fullheight-with-navbar hero">
-      <div className="border1 hero-body columns is-fullwidth">
+    <section className="is-fullheight-with-navbar hero section_padding">
+      <div className="hero-body columns is-fullwidth">
         <div className="column is-quarter-desktop"></div>
         <div className='column is-three-quarters-mobile is-half-tablet is-one-third-desktop box'>        
           <form onSubmit={handleSubmit}>

@@ -3,6 +3,8 @@ import { Link, withRouter } from 'react-router-dom'
 import Auth from '../../lib/auth'
 import axios from 'axios'
 
+import PendingRequests from '../users/PendingRequests'
+
 class Navbar extends React.Component {
   state = { navbarOpen: false, name: null, username: null }
   toggleNavbar = () => {
@@ -48,7 +50,7 @@ class Navbar extends React.Component {
     return (
       <nav>
         {/* if on homepage we want to add className="is-fixed-top" to navbar*/}
-        <div className="navbar has-shadow">
+        <div className="navbar has-shadow custom_nav">
           {/* <div> */}
           
           <div className="navbar-item navbar-item-font navbar-logo">
@@ -62,23 +64,24 @@ class Navbar extends React.Component {
           {/* </div> */}
           {/* <div className={`navbar-menu ${navbarOpen ? 'is-active' : ''}`}>
             <div> */}
-          <div className="navbar-item navbar-item-font">
-            {!Auth.isAuthenticated() && <Link to="/register">register</Link>}
-          </div>
-          <div className="navbar-item navbar-item-font">
-            {!Auth.isAuthenticated() && <Link to="/login">login</Link>}
-          </div>
-          <div className="navbar-item navbar-item-font">
+          <div className="navbar-item navbar-end navbar-item-font">
             {Auth.isAuthenticated() && <Link to="/projects/new">new project</Link>}
           </div>
-          <div className="navbar-item navbar-end navbar-item-font">
+          <div className="navbar-item navbar-item-font">
             <Link to="/search">start your journey</Link>
           </div>
           <div className="navbar-item navbar-item-font">
             {Auth.isAuthenticated() && <Link to={`/users/${this.state.username}`}>my portfolio</Link>}
           </div>
+          {Auth.isAuthenticated() && <PendingRequests /> }
           <div className="navbar-item navbar-item-font">
-            {Auth.isAuthenticated() && <button className="button" onClick={this.handleLogout}>logout {this.state.name}</button>}
+            {Auth.isAuthenticated() && <button className="button" onClick={this.handleLogout}>logout</button>}
+          </div>
+          <div className="navbar-item navbar-item-font">
+            {!Auth.isAuthenticated() && <Link to="/register">register</Link>}
+          </div>
+          <div className="navbar-item navbar-item-font">
+            {!Auth.isAuthenticated() && <Link to="/login">login</Link>}
           </div>
           {/* </div>
           </div> */}

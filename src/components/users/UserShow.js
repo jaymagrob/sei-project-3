@@ -57,7 +57,7 @@ class UserShow extends React.Component {
                 <div className="has-text-centered">
                   <img className="profile-img" src={user.profileImage} />
                 </div>
-                <div className="has-text-centered">
+                <div className="has-text-centered add-margin">
                   {this.isOwner() && <Link className="button" to={'/myportfolio/edit'}>Edit Portfolio</Link>}
                 </div>
               </div>
@@ -69,7 +69,7 @@ class UserShow extends React.Component {
                   <div className="subtitle-hero">
                     <h1>{user.name}</h1>
                   </div>
-                  <ul>{user.professions.map(profession => <li key={profession}>{profession}</li>)}</ul>
+                  <ul className="profession-parent">{user.professions.map(profession => <li className="user-profession profession-grey-box" key={profession}>{profession}</li>)}</ul>
                 </div>
                 <div className="column">
                   <div className="rounded-box">
@@ -81,7 +81,7 @@ class UserShow extends React.Component {
                 </div>
               </div>
 
-              <hr className="seperater-line" />
+              {/* <hr className="seperater-line" /> */}
 
               <div className="">
                 <p className="bio-paragraph">{user.bio}</p>
@@ -89,17 +89,22 @@ class UserShow extends React.Component {
               <hr className="seperater-line" />
               <div className="container">
 
-                {/* <div className="header-small">
-                  <h4>skills</h4>
-                </div> */}
+                <div className="skills-header">
+                  <h4 className="header-small">skills &amp; endorsements</h4>
+                </div>
 
                 <div className="columns margin-reset is-multiline">{user.skills.map(skill => (
+                  <>
                   <div className="column is-one-quarter rounded-border-box"
                     name={skill._id}
                     onClick={this.handleLike}
                     key={skill['skill']}
                     style={{ cursor: 'pointer' }}
-                  >{skill['skill']}: {skill.likes.length}</div>
+                  >{skill['skill']}:</div>
+                <div className="has-text-centered">
+                  <div className="skill-circle">{skill.likes.length}</div>
+                </div>
+                  </>
                 ))}</div>
 
               </div>
