@@ -35,7 +35,7 @@ const testUserData = [{
   likes: []
 }]
 
-describe('PUT /users/:username', () => {
+describe('POST /users/:username/newskill', () => {
   let token1, token2, user1
 
   beforeEach(done => {
@@ -54,8 +54,8 @@ describe('PUT /users/:username', () => {
   })
 
   it('should return a 401 response without a token', done => {
-    api.put(`/api/users/${user1.username}`)
-      .send({ bio: 'Changing the message' })
+    api.post(`/api/users/${user1.username}/newskill`)
+      .send({ skill: 'Quicktime' })
       .end((err, res) => {
         expect(res.status).to.eq(401)
         done()
@@ -63,9 +63,9 @@ describe('PUT /users/:username', () => {
   })
 
   it('should return a 202 response with a token', done => {
-    api.put(`/api/users/${user1.username}`)
+    api.post(`/api/users/${user1.username}/newskill`)
       .set('Authorization', `Bearer ${token1}`)
-      .send({ bio: 'Changing the message' })
+      .send({ skill: 'Quicktime' })
       .end((err, res) => {
         expect(res.status).to.eq(202)
         done()
@@ -73,9 +73,9 @@ describe('PUT /users/:username', () => {
   })
 
   it('should return an object', done => {
-    api.put(`/api/users/${user1.username}`)
+    api.post(`/api/users/${user1.username}/newskill`)
       .set('Authorization', `Bearer ${token1}`)
-      .send({ bio: 'Changing the message' })
+      .send({ skill: 'Quicktime' })
       .end((err, res) => {
         expect(res.body).to.be.an('object')
         done()
@@ -83,9 +83,9 @@ describe('PUT /users/:username', () => {
   })
 
   it('should return the correct fields', done => {
-    api.put(`/api/users/${user1.username}`)
+    api.post(`/api/users/${user1.username}/newskill`)
       .set('Authorization', `Bearer ${token1}`)
-      .send({ bio: 'Changing the message' })
+      .send({ skill: 'Quicktime' })
       .end((err, res) => {
         expect(res.body).to.contains.keys([
           '__v',
@@ -109,9 +109,9 @@ describe('PUT /users/:username', () => {
   })
 
   it('should return the correct data types', done => {
-    api.put(`/api/users/${user1.username}`)
+    api.post(`/api/users/${user1.username}/newskill`)
       .set('Authorization', `Bearer ${token1}`)
-      .send({ bio: 'Changing the message' })
+      .send({ skill: 'Quicktime' })
       .end((err, res) => {
         const user = res.body
         expect(user.professions).to.be.an('array')
@@ -135,9 +135,9 @@ describe('PUT /users/:username', () => {
   })
 
   it('should return a 401 response with a token for a user that did not create the resource', done => {
-    api.put(`/api/users/${user1.username}`)
+    api.post(`/api/users/${user1.username}/newskill`)
       .set('Authorization', `Bearer ${token2}`)
-      .send({ bio: 'This message has been changed' })
+      .send({ skill: 'This message has been changed' })
       .end((err, res) => {
         expect(res.status).to.eq(401)
         done()
