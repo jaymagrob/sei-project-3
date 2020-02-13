@@ -246,8 +246,13 @@ body {
   left:-30px;
 }
 
-.edit-message-buttons {
-  justify-content: center;
+textarea {
+  outline: none;
+  width: 100%;
+}
+
+.text-area-form {
+  padding: 10px;
 }
 
 .skills-header {
