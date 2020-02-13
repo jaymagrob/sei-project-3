@@ -61,22 +61,21 @@ describe('GET /users/:username', () => {
     api.get(`/api/users/${user.username}`)
       .end((err, res) => {
         expect(res.body).to.contains.keys([
+          'professions',
+          'projects',
+          'chatBoxes',
           '_id',
-          '__v',
-          'id',
           'username',
           'name',
           'email',
           'bio',
           'profileImage',
-          'collaboratedProjects',
-          'createdProjects',
           'location',
           'level',
-          'professions',
-          'skills',
-          'projects',
-          'pendingProjects'
+          'skills'          ,
+          'pendingProjects',
+          '__v',
+          'id'
         ])
         done()
       })
@@ -86,9 +85,10 @@ describe('GET /users/:username', () => {
     api.get(`/api/users/${user.username}`) 
       .end((err, res) => {
         const user = res.body
+        expect(user.professions).to.be.an('array')
+        expect(user.projects).to.be.an('array')
+        expect(user.chatBoxes).to.be.an('array')
         expect(user._id).to.be.a('string')
-        expect(user.__v).to.be.a('number')
-        expect(user.id).to.be.a('string')
         expect(user.username).to.be.a('string')
         expect(user.name).to.be.a('string')
         expect(user.email).to.be.a('string')
@@ -96,10 +96,10 @@ describe('GET /users/:username', () => {
         expect(user.profileImage).to.be.a('string')
         expect(user.location).to.be.a('string')
         expect(user.level).to.be.a('string')
-        expect(user.professions).to.be.an('array')
         expect(user.skills).to.be.an('array')
-        expect(user.projects).to.be.an('array')
-        expect(user.pendingProjects).to.be.an('array')      
+        expect(user.pendingProjects).to.be.an('array')
+        expect(user.__v).to.be.a('number')
+        expect(user.id).to.be.a('string')  
         done()
       })
   })

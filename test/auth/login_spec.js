@@ -1,34 +1,34 @@
 /* global api, describe, it, expect, beforeEach, afterEach */
 const User = require('../../models/user')
 
-const loginDataCorrect = { 
+const loginDataCorrect = {
   email: 'test@test.test',
   password: 'test'
 }
 
-const loginDataIncorrect = { 
+const loginDataIncorrect = {
   email: 'test@test.test',
   password: 'wrong'
 }
 
 describe('POST /login', () => {
 
-  beforeEach(done => { 
+  beforeEach(done => {
     User.create({
       username: 'test',
       name: 'test',
-      email: 'test@test.test', 
+      email: 'test@test.test',
       password: 'test',
       passwordConfirmation: 'test'
     })
       .then(() => done())
   })
 
-  afterEach(done => { 
+  afterEach(done => {
     User.deleteMany().then(() => done())
   })
 
-  it('should return a 401 unauthorised response for incorrect login details', done => { 
+  it('should return a 401 unauthorised response for incorrect login details', done => {
     api.post('/api/login')
       .send(loginDataIncorrect)
       .end((err, res) => {
@@ -37,7 +37,7 @@ describe('POST /login', () => {
       })
   })
 
-  it('should return a 202 accepted response for correct login details', done => { 
+  it('should return a 202 accepted response for correct login details', done => {
     api.post('/api/login')
       .send(loginDataCorrect)
       .end((err, res) => {
@@ -46,7 +46,7 @@ describe('POST /login', () => {
       })
   })
 
-  it('should return an object if request is correct', done => { 
+  it('should return an object if request is correct', done => {
     api.post('/api/login')
       .send(loginDataCorrect)
       .end((err, res) => {
@@ -55,7 +55,7 @@ describe('POST /login', () => {
       })
   })
 
-  it('should return an object with a message and token keys if request is correct', done => {
+  it('should return an object with a message and token keys if request is correct', done => { //testing the keys of that objects
     api.post('/api/login')
       .send(loginDataCorrect)
       .end((err, res) => {
@@ -67,7 +67,7 @@ describe('POST /login', () => {
       })
   })
 
-  it('should return the correct data types', done => { 
+  it('should return the correct data types', done => {
     api.post('/api/login')
       .send(loginDataCorrect)
       .end((err, res) => {
