@@ -632,6 +632,22 @@ html {
   background-color: $beige-light;
 }
 
+.collab_add_search {
+  border-radius: 10px;
+  padding: 40px 20px;
+  width: 40vw;
+  height:80vh;
+  overflow: scroll;
+  background: $beige-lighter;
+}
+
+.collab_search_result {
+  margin: 30px;
+  padding: 20px;
+  border-radius: 10px;
+  background: $lighter-black;
+}
+
 // .gallery_container::before {
 //   content: "";
 //   display: block;
