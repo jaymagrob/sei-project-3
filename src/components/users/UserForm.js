@@ -30,16 +30,16 @@ const UserForm = ({ data, handleChange, handleSubmit, handleMultiChange, handleC
     <section className="is-fullheight-with-navbar hero section_padding">
       <div className="hero-body columns is-fullwidth">
         <div className="column is-quarter-desktop"></div>
-        <div className='column is-three-quarters-mobile is-half-tablet is-one-third-desktop box'>
+        <div className='column is-three-quarters-mobile is-half-tablet is-two-fifths-desktop box'>
           {/* HOLD FOR FORM */}
 
           <form onSubmit={handleSubmit}>
-            <div className="title-underLine">
-              <h2 className="title is-4 padding-v-10">User</h2>
-            </div>
+            {/* <div className="title-underLine">
+              <h2 className="title is-4 padding-v-10">user</h2>
+            </div> */}
 
             <div className="field">
-              <label className="label">Name</label>
+              <label className="form-fields">name</label>
               <div className="control">
                 <input
                   className="input"
@@ -52,7 +52,7 @@ const UserForm = ({ data, handleChange, handleSubmit, handleMultiChange, handleC
             </div>
 
             <div className="field">
-              <div className="label">Upload Profile Image</div>
+              <div className="form-fields">upload profile image</div>
               <div className="control">  
                 <ImageUpload
                   labelText="Upload your profile image"
@@ -66,7 +66,7 @@ const UserForm = ({ data, handleChange, handleSubmit, handleMultiChange, handleC
             </div>
 
             <div className="field">
-              <label className="label">Location</label>
+              <label className="form-fields">location</label>
               <div className="control">
                 <input
                   className="input"
@@ -79,7 +79,7 @@ const UserForm = ({ data, handleChange, handleSubmit, handleMultiChange, handleC
             </div>
 
             <div className="field">
-              <label className="label">Bio</label>
+              <label className="form-fields">bio</label>
               <div className="control">
                 <textarea
                   className="textarea"
@@ -93,7 +93,7 @@ const UserForm = ({ data, handleChange, handleSubmit, handleMultiChange, handleC
             </div>
 
             <div className="field">
-              <div className="label">Profession/Industry</div>
+              <div className="form-fields">profession/industry</div>
               <div className="control">  
                 <Select
                   options={professionOptions}
@@ -107,7 +107,7 @@ const UserForm = ({ data, handleChange, handleSubmit, handleMultiChange, handleC
             </div>
 
             <div className="field">
-              <div className="label">Level</div>
+              <div className="form-fields">level</div>
               <div className="control">  
                 <Select
                   options={levelOptions}
@@ -120,7 +120,7 @@ const UserForm = ({ data, handleChange, handleSubmit, handleMultiChange, handleC
             </div>
 
             <div className="field">
-              <div className="label">Skills</div>
+              <div className="form-fields">skills</div>
               { data.skills.length > 0 &&
                   <div className="control">  
                     <Select

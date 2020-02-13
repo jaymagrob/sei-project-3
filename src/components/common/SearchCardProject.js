@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom'
 const SearchCardProject = ({ images, name, owner, description, skillsInvolved, _id }) => (
 
   <div>
-    <h3 >{name}a</h3>
+    <h3 >{name}</h3>
     <img src={images[0]} alt={`${name} cover image`} /> */
     <h4>{owner.name}</h4>
     <p>{description}</p>
