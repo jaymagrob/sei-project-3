@@ -63,18 +63,9 @@ class PendingRequests extends React.Component{
             // onClick={this.props.handleOpen, this.props.handleClick}
             onClick={this.props.handleOpen}
           >
-            {/* style={{ 
-          position: 'fixed',
-          bottom: '20px',
-          right: '75px',
-          maxHeight: '100px',
-          width: '200px',
-          background: 'gray'
-        }}> */}
         Requests
           </button>
         </div>
-        {/* {console.log('THIS ONE', Auth.getPayload().sub)} */}
         {this.props.open && this.props.user && !this.props.navbarOpen &&
           <div
             className="request_list"
