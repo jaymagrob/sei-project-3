@@ -220,7 +220,48 @@ $navbar-item-hover-background-color: $light-black;
   font-size: 13px;
 }
 
+.discovery_container {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  // justify-content: space-between;
+}
+
+.discovery_inner_container {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+}
+
+.discovery_subtitle {
+  font-weight: 600;
+}
+
+.discovery_title {
+  padding-top: 20px;
+}
+
+.discovery_line_break {
+  height: 1px;
+  background: $beige-light;
+  flex: 1;
+  margin-bottom: 24px;
+  margin-left: 20px;
+}
+
+.discovery_title_container {
+  display: flex;
+  align-items: center;
+}
+
+.discovery_subtitle, .discovery_title {
+  margin-left: 60px;
+}
+
 // CAROUSEL
+
+
 
 div.alice-carousel__wrapper {
   overflow: visible;
