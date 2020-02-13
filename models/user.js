@@ -31,6 +31,7 @@ const userSchema = new mongoose.Schema({
   level: { type: String, enum: level },
   professions: [{ type: String, enum: professions }],
   projects: [{ type: mongoose.Schema.ObjectId, ref: 'Project' }],
+  chatBoxes: [{ type: mongoose.Schema.ObjectId, ref: 'ChatBox' }],
   pendingProjects: [projectRequestSchema],
   firstLogin: { type: Boolean },
   skills: [skillSchema]
@@ -46,6 +47,12 @@ userSchema.virtual('collaboratedProjects', {
   ref: 'Project',
   localField: '_id',
   foreignField: 'collaborators'
+})
+
+userSchema.virtual('chats', {
+  ref: 'ChatBox',
+  localField: '_id',
+  foreignField: 'members'
 })
 
 // userSchema.virtual('likedProjects', {

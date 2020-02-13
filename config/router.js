@@ -2,6 +2,7 @@ const router = require('express').Router()
 const projects = require('../controllers/projects')
 const auth = require('../controllers/auth')
 const users = require('../controllers/users')
+const chatBoxes = require('../controllers/chatBoxes')
 const secureRoute = require('../lib/secureRoute')
 
 router.route('/projects')
@@ -64,5 +65,18 @@ router.route('/myportfolio/edit')
   .get(secureRoute, auth.myPortfolio)
   .put(secureRoute, auth.myPortfolioUpdate)
   // .delete(secureRoute, users.destroy)
+
+router.route('/users/:userId/chatboxes')
+  // .get(chatBoxes.index)
+  .post(secureRoute, chatBoxes.create)
+
+router.route('/users/:userId/chatboxes/:id')
+  .get(secureRoute, chatBoxes.show)
+
+router.route('/users/:userId/chatboxes/:id/messages')
+  .post(secureRoute, chatBoxes.messageCreate)
+
+router.route('/users/:userId/chatboxes/:id/messages/:messageId')
+  .delete(secureRoute, chatBoxes.messageDelete)
 
 module.exports = router

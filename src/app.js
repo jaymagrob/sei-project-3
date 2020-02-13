@@ -26,6 +26,7 @@ import FirstLogin from './components/common/FirstLogin'
 import Gallery from './components/common/Gallery'
 
 import Notifications, { notify } from 'react-notify-toast'
+import ChatBoxShow from './components/chatboxes/ChatBoxShow'
 
 
 class App extends React.Component{
@@ -106,6 +107,7 @@ class App extends React.Component{
             {/* <Route path="/projects/:id" component={ProjectShow} getUser={this.getUser}/> */}
             <Route path="/projects/:id" render={(props) => <ProjectShow {...props} getUser={this.getUser}/>}/>
             {/* <SecureRoute path="/users/:username/edit" component={UserEdit} /> */}
+            <Route path="/users/:userid/chatboxes/:id" component={ChatBoxShow} />
             <Route path="/users/:username" component={UserShow} />
             {/* <Route path="/users/:username/messages" component={UserMessages} /> */}
             <UnSecureRoute path="/register" component={Register} />

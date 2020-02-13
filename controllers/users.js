@@ -14,6 +14,7 @@ function index(req, res) {
 function show(req, res, next) {
   User
     .findOne({ username: req.params.username })
+    .populate('chats')
     .populate('createdProjects')
     .populate('collaboratedProjects')
     .populate('pendingProjects.project')
