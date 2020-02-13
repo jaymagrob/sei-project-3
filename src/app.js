@@ -4,9 +4,7 @@ import { BrowserRouter, Switch, Route } from 'react-router-dom'
 import 'bulma'
 import './styles/main.scss'
 import axios from 'axios'
-
 import Auth from './lib/auth'
-
 import Home from './components/common/Home'
 import Navbar from './components/common/Navbar'
 import Discovery from './components/common/Discovery'
@@ -26,16 +24,11 @@ import SecureRoute from './components/common/SecureRoute'
 import UnSecureRoute from './components/common/UnSecureRoute'
 import FirstLogin from './components/common/FirstLogin'
 import Gallery from './components/common/Gallery'
-
-
-
 class App extends React.Component{
-  
   state = {
     open: false,
     user: null
   }
-
   getUser = async () => {
     if (Auth.isAuthenticated()) {
       try {
@@ -48,22 +41,17 @@ class App extends React.Component{
       }
     }
   }
-
   // componentDidUpdate() {
   //   if (Auth.isAuthenticated()) {
   //     this.getUser()
   //   }
   // }
-
   handleOpen = () => {
     this.setState({ open: !this.state.open })
   }
-
-
   async componentDidMount() {
     this.getUser()
   }
-
   acceptCollabRequest = async (e) => {
     try {
       await axios.get(`/api/users/${this.state.user._id}/collaborate/${e.target.name}`, {
@@ -74,7 +62,6 @@ class App extends React.Component{
       console.log(err)
     }
   }
-
   rejectCollabRequest = async (e) => {
     try {
       await axios.delete(`/api/users/${this.state.user._id}/collaborate/${e.target.name}`, {
@@ -85,7 +72,6 @@ class App extends React.Component{
       console.log(err)
     }
   }
-
   render() {
     return (
       <BrowserRouter>
@@ -123,7 +109,6 @@ class App extends React.Component{
     )
   }
 }
-
 ReactDOM.render(
   <App />,
   document.getElementById('root')

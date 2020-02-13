@@ -90,6 +90,8 @@ body {
 .header-small {
   font-size: 20px;
   letter-spacing: 1px;
+  // margin: 5px;
+  // padding: 5px;
 }
 
 .navbar-item-font {
@@ -154,7 +156,10 @@ body {
 .bio-paragraph {
   margin: 5px;
   padding: 5px;
-  width: 200px;
+}
+
+.project-paragraph {
+  margin: 15px 60px;
 }
 
 .user-profession {
@@ -167,12 +172,16 @@ body {
   margin-bottom: 0px;
 }
 
+.padding-reset {
+  padding: 20px;
+}
+
 .test-border {
   border: 2px solid red;
 }
 
 .test-border2 {
-  // border: 2px solid blue;
+  border: 2px solid blue;
 }
 
 .rounded-box {
@@ -296,6 +305,14 @@ body {
 
 .discovery_subtitle, .discovery_title {
   margin-left: 60px;
+}
+
+.collaborator-circles {
+  justify-content: space-around;
+}
+
+.full-width {
+  width: 100vw;
 }
 
 // CAROUSEL
