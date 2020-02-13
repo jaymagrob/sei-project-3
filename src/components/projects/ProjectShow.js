@@ -306,7 +306,7 @@ class ProjectShow extends React.Component {
             {/* MESSAGES */}
             {this.isCollab() &&
               <div className="has-text-centered">
-                <button className="button is-small" onClick={this.toggleMessageBoard}>Message Project Owner</button>
+                <button className="button is-small" onClick={this.toggleMessageBoard}>Collaborator Message Board</button>
               </div>
             }
 

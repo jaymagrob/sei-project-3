@@ -26,17 +26,18 @@ const ProjectForm = ({ handleChange, handleSubmit, data, handleMultiChange, hand
     <section className="is-fullheight-with-navbar hero section_padding">
       <div className="hero-body columns is-fullwidth">
         <div className="column is-quarter-desktop"></div>
-        <div className='column is-three-quarters-mobile is-half-tablet is-one-third-desktop box'>        
+        <div className='column is-three-quarters-mobile is-half-tablet is-two-fifths-desktop box'>
           <form onSubmit={handleSubmit}>
+
             <div className="title-underLine">
-              <h2 className="title is-4 padding-v-10">Project</h2>
-            </div> 
+              <h2 className="subtitle-hero is-4 padding-v-10">project</h2>
+            </div>
 
             <div className="field">
-              <label className="label">Name</label>
+              <label className="form-fields">name</label>
               <div className="control">
-                <input      
-                  className="input"            
+                <input
+                  className="input"
                   onChange={handleChange}
                   required
                   name="name"
@@ -44,65 +45,66 @@ const ProjectForm = ({ handleChange, handleSubmit, data, handleMultiChange, hand
                   value={data.name}
                 />
               </div>
+            </div>
 
-              <div className="field">
-                <label className="label">Upload Project Image</label>
-                <div className="control">
-                  <ImageUpload
-                    labelText="Upload an image to show off your project!"
-                    onChange={handleChange}
-                    required
-                    name="images"
-                    handleChangeImage={handleChangeImage}
-                    fieldName="images"
-                  />
-                </div>
+            <div className="field">
+              <label className="form-fields">upload project image</label>
+              <div className="control">
+                <ImageUpload
+                  labelText="Upload an image to show off your project!"
+                  onChange={handleChange}
+                  required
+                  name="images"
+                  handleChangeImage={handleChangeImage}
+                  fieldName="images"
+                />
               </div>
+            </div>
 
+            <div className="field">
+              <label className="form-fields">description</label>
+              <div className="control">
+                <input
+                  className="input"
+                  onChange={handleChange}
+                  required
+                  name="description"
+                  value={data.description}
+                />
+              </div>
+            </div>
+
+            <div className="field">
+              <label className="form-fields">location</label>
+              <div className="control">
+                <input
+                  className="input"
+                  onChange={handleChange}
+                  name="location"
+                  value={data.location}
+                />
+              </div>
+            </div>
+
+            <div className="field">
+              <label className="form-fields">completed?</label>
+              <div className="control">
+                <input
+                  className="input"
+                  type="checkbox"
+                  onChange={handleChange}
+                  name="completed"
+                  checked={data.completed}
+                />
+              </div>
+            </div>
+
+            {!data.completed &&
               <div className="field">
-                <label className="label">Description</label>
+                <label className="form-fields">looking for help?</label>
                 <div className="control">
                   <input
-                    className="input"   
-                    onChange={handleChange}
-                    required
-                    name="description"
-                    value={data.description}
-                  />
-                </div>
-              </div>
-
-              <div className="field">
-                <label className="label">Location</label>
-                <div className="control">
-                  <input
-                    className="input"   
-                    onChange={handleChange}
-                    name="location"
-                    value={data.location}
-                  />
-                </div>
-              </div>
-
-              <div className="field">
-                <label className="label">Completed?</label>
-                <div className="control">
-                  <input
-                    className="input"   
-                    type="checkbox"
-                    onChange={handleChange}
-                    name="completed"
-                    checked={data.completed}
-                  />
-                </div>
-              </div>
-
-              {!data.completed &&
-              <div className="field">
-                <label className="label">Looking for help?</label>
-                <div className="control">
-                  <input
-                    className="input"   
+                    className="input"
                     type="checkbox"
                     onChange={handleChange}
                     name="recruiting"
@@ -111,44 +113,43 @@ const ProjectForm = ({ handleChange, handleSubmit, data, handleMultiChange, hand
                 </div>
               </div>}
 
-              {data.recruiting && !data.completed &&
-                <div className="field">
-                  <div className="label">Looking for...</div>
-                  <div className="control">  
-                    <Select
-                      options={professionOptions}
-                      isMulti
-                      name="lookingFor"
-                      styles={colorStyles}  
-                      value={professionOptions.filter(skill => data.lookingFor.includes(skill.value))}
-                      onChange={handleMultiChange}
-                    />
-                  </div>
-                </div>}
-
+            {data.recruiting && !data.completed &&
               <div className="field">
-                <div className="label">Skills</div>
-                <div className="control">  
+                <label className="form-fields">looking for...</label>
+                <div className="control">
                   <Select
-                    options={skillsOptions}
+                    options={professionOptions}
                     isMulti
-                    name="skillsInvolved"
-                    value={skillsOptions.filter(skill => data.skillsInvolved.includes(skill.value))}
+                    name="lookingFor"
+                    styles={colorStyles}
+                    value={professionOptions.filter(skill => data.lookingFor.includes(skill.value))}
                     onChange={handleMultiChange}
-                    styles={colorStyles} 
                   />
                 </div>
-              </div>
+              </div>}
 
-              <div className="field">
-                <div className="control">
-                  <button className="button is-primary has-text-white is-fullwidth" type="submit">Save Project</button>            
-                </div>
-              </div>              
+            <div className="field">
+              <label className="form-fields">skills</label>
+              <div className="control">
+                <Select
+                  options={skillsOptions}
+                  isMulti
+                  name="skillsInvolved"
+                  value={skillsOptions.filter(skill => data.skillsInvolved.includes(skill.value))}
+                  onChange={handleMultiChange}
+                  styles={colorStyles}
+                />
+              </div>
+            </div>
+
+            <div className="field">
+              <div className="control">
+                <button className="button is-primary has-text-white is-fullwidth" type="submit">Save Project</button>
+              </div>
             </div>
           </form>
         </div>
-        <div className="column is-quarter-desktop"></div>        
+        <div className="column is-quarter-desktop"></div>
       </div>
     </section>
 

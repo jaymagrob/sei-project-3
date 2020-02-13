@@ -37,11 +37,11 @@ class Register extends React.Component {
           <div className='column is-three-quarters-mobile is-half-tablet is-one-third-desktop box'>
             <form onSubmit={this.handleSubmit}>
               <div className="title-underLine">
-                <h2 className="title is-4 padding-v-10">Register</h2>
+                <h2 className="subtitle-hero is-4 padding-v-10">Register</h2>
               </div>
 
               <div className="field">
-                <label className="label">name</label>
+                <label className="form-fields">name</label>
                 <div className="control">
                   <input
                     className={`input ${this.state.errors.name ? 'display' : ''}`}
@@ -54,7 +54,7 @@ class Register extends React.Component {
               </div>            
       
               <div className="field">
-                <label className="label">username</label>
+                <label className="form-fields">username</label>
                 <div className="control">
                   <input
                     className={`input ${this.state.errors.username ? 'display' : ''}`}
@@ -67,7 +67,7 @@ class Register extends React.Component {
               </div>   
 
               <div className="field">
-                <label className="label">email</label>
+                <label className="form-fields">email</label>
                 <div className="control">
                   <input
                     className={`input ${this.state.errors.email ? 'display' : ''}`}
@@ -80,7 +80,7 @@ class Register extends React.Component {
               </div>   
       
               <div className="field">
-                <label className="label">password</label>
+                <label className="form-fields">password</label>
                 <div className="control">
                   <input
                     className={`input ${this.state.errors.password ? 'display' : ''}`}
@@ -94,7 +94,7 @@ class Register extends React.Component {
               </div>   
 
               <div className="field">
-                <label className="label">password confirmation</label>
+                <label className="form-fields">password confirmation</label>
                 <div className="control">
                   <input
                     className={`input ${this.state.errors.passwordConfirmation ? 'display' : ''}`}
