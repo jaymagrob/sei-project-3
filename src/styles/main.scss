@@ -156,6 +156,10 @@ body {
   padding: 5px;
 }
 
+.project-paragraph {
+  margin: 15px 60px;
+}
+
 .user-profession {
   font-size: 15px;
   color: $black;
@@ -294,6 +298,10 @@ body {
 
 .discovery_subtitle, .discovery_title {
   margin-left: 60px;
+}
+
+.collaborator-circles {
+  justify-content: space-around;
 }
 
 // CAROUSEL
