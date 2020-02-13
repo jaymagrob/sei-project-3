@@ -172,12 +172,16 @@ body {
   margin-bottom: 0px;
 }
 
+.padding-reset {
+  padding: 20px;
+}
+
 .test-border {
   border: 2px solid red;
 }
 
 .test-border2 {
-  // border: 2px solid blue;
+  border: 2px solid blue;
 }
 
 .rounded-box {
@@ -304,6 +308,10 @@ body {
 
 .collaborator-circles {
   justify-content: space-around;
+}
+
+.full-width {
+  width: 100vw;
 }
 
 // CAROUSEL

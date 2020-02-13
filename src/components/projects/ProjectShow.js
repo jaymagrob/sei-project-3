@@ -65,6 +65,7 @@ class ProjectShow extends React.Component {
         const res = await axios.post('/api/users/collaborate', collabObject, {
           headers: { Authorization: `Bearer ${Auth.getToken()}` }
         })
+        this.props.getUser()
         console.log(res)
       } catch (err) {
         console.log(err)
@@ -87,6 +88,7 @@ class ProjectShow extends React.Component {
         const res = await axios.post('/api/users/collaborate', collabObject, {
           headers: { Authorization: `Bearer ${Auth.getToken()}` }
         })
+        this.props.getUser()
         console.log(res)
       } catch (err) {
         console.log(err)
@@ -192,7 +194,7 @@ class ProjectShow extends React.Component {
         overflow: this.state.showMessages ? 'hidden' : 'auto'
       }}>
 
-        <section className="section is-fullheight-with-navbar test-border">
+        <section className="section is-fullheight-with-navbar full-width test-border">
 
           <div className="container has-text-centered">
 
@@ -285,42 +287,48 @@ class ProjectShow extends React.Component {
 
           <hr className="seperater-line" />
 
-          <section className="section">
+          <section className="section padding-reset">
             <div className="columns">
 
-              {/* IMAGE */}
-              <div className="column">
-                <img src={project.images[0]} />
+              {/* LOCATION */}
+              <div className="column rounded-border-box has-text-centered">
+                <p>location: {project.location}</p>
               </div>
 
-              <div className="column">
-                {/* LOCATION */}
-                <p>location: {project.location}</p>
-
-                {/* SKILLS */}
+              {/* SKILLS */}
+              <div className="column rounded-border-box has-text-centered">
                 <h2>skills:</h2>
                 <p>{project.skillsInvolved.length < 1 ? 'no skills listed yet' :
                   <ul>{project.skillsInvolved.map(skill => <li key={skill}>{skill}</li>)}</ul>
                 }</p>
+              </div>
 
-                {/* PROJECT RECRUITING */}
-                <p>{project.recruiting ? project.lookingFor.length > 0 ? `looking for: ${project.lookingFor.map(prof => ` ${prof}`)}` : 'looking for: nothing listed yet' : ''}</p>
+              {/* PROJECT RECRUITING */}
+              <div className="column rounded-border-box has-text-centered">
+                <p>{project.recruiting ? project.lookingFor.length > 0 ? `looking for: ${project.lookingFor.map(prof => ` ${prof}`)}` : 'looking for: nothing listed yet' : 'looking for: nothing listed yet'}</p>
                 {/* <p>{project.recruiting ? `Looking for: ${project.lookingFor.map(prof => prof)}` : ''}</p>
           <p>{project.lookingFor.length > 0 ? `Looking for: ${project.lookingFor.map(prof => prof)}` : 'Nothing listed yet'}</p> */}
-
               </div>
+
+              {/* PROJECT COMPLETED */}
+              <div className="column rounded-border-box has-text-centered">
+                <p>{project.completed ? 'this project is completed' : `looking for creatives?: ${project.recruiting ? 'yes' : 'not currently looking'}`}</p>
+              </div>
+
+              {/* MESSAGES */}
+              <div className="column">
+                {this.isCollab() &&
+                  <button className="button" onClick={this.toggleMessageBoard}>Request to Collaborate!</button>
+                }
+              </div>
+
             </div>
           </section>
 
-
-          {/* MESSAGES */}
-          {this.isCollab() &&
-            <button className="button" onClick={this.toggleMessageBoard}>Request to Collaborate!</button>
-          }
-
-          {/* PROJECT COMPLETED */}
-          <p>{project.completed ? 'this project is completed' : `looking for creatives?: ${project.recruiting ? 'yes' : 'not currently looking'}`}</p>
-
+          {/* IMAGE */}
+          <div className="">
+            <img src={project.images[0]} />
+          </div>
 
           {/* EXTRA IMAGE GALLERY */}
           {project.images.length > 0 ? '' :
