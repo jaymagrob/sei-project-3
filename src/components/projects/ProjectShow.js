@@ -65,7 +65,8 @@ class ProjectShow extends React.Component {
         const res = await axios.post('/api/users/collaborate', collabObject, {
           headers: { Authorization: `Bearer ${Auth.getToken()}` }
         })
-        // this.props.getUser()
+        console.log(this.props.getUser)
+        this.props.getUser()
         console.log(res)
       } catch (err) {
         console.log(err)
@@ -88,7 +89,7 @@ class ProjectShow extends React.Component {
         const res = await axios.post('/api/users/collaborate', collabObject, {
           headers: { Authorization: `Bearer ${Auth.getToken()}` }
         })
-        // this.props.getUser()
+        this.props.getUser()
         console.log(res)
       } catch (err) {
         console.log(err)
@@ -240,19 +241,9 @@ class ProjectShow extends React.Component {
 
                   {/* ADD COLLABORATOR */}
                   {Auth.isAuthenticated() &&
-                    <div className="add-margin"
+                    <div className="add-margin add-collab-button"
                       onClick={this.handleAddCollaborator}
-                      style={{
-                        background: 'url(https://i.ya-webdesign.com/images/a-plus-png-2.png)',
-                        height: '80px',
-                        width: '80px',
-                        backgroundSize: 'cover',
-                        backgroundPosition: 'center',
-                        borderRadius: '50%',
-                        border: '1px solid #E2E2E0',
-                        overflow: 'hidden',
-                        cursor: 'pointer'
-                      }}>
+                    >
                     </div>
                   }
                   {/* COLLAB SEARCH */}

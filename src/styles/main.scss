@@ -613,6 +613,25 @@ html {
   background-color: $light-black;
 }
 
+// PROJECT SHOW PAGE
+
+.add-collab-button {
+  background-image: url(https://i.ya-webdesign.com/images/a-plus-png-2.png);
+  height: 80px;
+  width: 80px;
+  background-size: cover;
+  background-position: center;
+  border-radius: 50%;
+  border: 1px solid #E2E2E0;
+  overflow: hidden;
+  cursor: pointer;
+  transition: 0.1s all linear;
+}
+
+.add-collab-button:hover {
+  background-color: $beige-light;
+}
+
 // .gallery_container::before {
 //   content: "";
 //   display: block;

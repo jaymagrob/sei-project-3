@@ -29,6 +29,7 @@ class App extends React.Component{
     open: false,
     user: null
   }
+
   getUser = async () => {
     if (Auth.isAuthenticated()) {
       try {
@@ -93,7 +94,8 @@ class App extends React.Component{
             {/* <SecureRoute path="/myportfolio" component={MyPortfolio} /> */}
             <SecureRoute path="/projects/:id/edit" component={ProjectEdit} />
             <SecureRoute path="/projects/new" component={ProjectNew} />
-            <Route path="/projects/:id" component={ProjectShow} getUser={this.getUser}/>
+            {/* <Route path="/projects/:id" component={ProjectShow} getUser={this.getUser}/> */}
+            <Route path="/projects/:id" render={(props) => <ProjectShow {...props} getUser={this.getUser}/>}/>
             {/* <SecureRoute path="/users/:username/edit" component={UserEdit} /> */}
             <Route path="/users/:username" component={UserShow} />
             {/* <Route path="/users/:username/messages" component={UserMessages} /> */}
