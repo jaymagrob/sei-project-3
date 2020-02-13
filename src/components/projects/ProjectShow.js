@@ -6,6 +6,9 @@ import ProjectComment from './ProjectComment'
 import ProjectMessage from './ProjectMessage'
 // import { borderRadius } from 'react-select/src/theme'
 
+import { notify } from 'react-notify-toast'
+
+
 class ProjectShow extends React.Component {
   state = {
     project: {},
@@ -65,8 +68,9 @@ class ProjectShow extends React.Component {
         const res = await axios.post('/api/users/collaborate', collabObject, {
           headers: { Authorization: `Bearer ${Auth.getToken()}` }
         })
-        // this.props.getUser()
-        console.log(res)
+        const myColor = { background: '#C4C4C4', text: '#3F3F3F' }
+        notify.show('Request sent!', 'custom' , 1000, myColor)
+        this.props.getUser()
       } catch (err) {
         console.log(err)
       }
@@ -88,8 +92,9 @@ class ProjectShow extends React.Component {
         const res = await axios.post('/api/users/collaborate', collabObject, {
           headers: { Authorization: `Bearer ${Auth.getToken()}` }
         })
-        // this.props.getUser()
-        console.log(res)
+        const myColor = { background: '#C4C4C4', text: '#3F3F3F' }
+        notify.show('Request sent!', 'custom' , 1000, myColor)
+        this.props.getUser()
       } catch (err) {
         console.log(err)
       }
@@ -159,6 +164,10 @@ class ProjectShow extends React.Component {
     }
   }
 
+  resetSearch = () => {
+    this.setState({ users: null })
+  }
+
   resetEditComment = () => {
     this.setState({ editedCommentText: '', editingComment: '' })
   }
@@ -187,6 +196,7 @@ class ProjectShow extends React.Component {
 
     const { project } = this.state
     if (!project._id) return null
+    console.log(project)
     // console.log('collabs included? =', this.state.project.collaborators.map(collab => collab._id === Auth.getPayload().sub))
     return (
       <section style={{
@@ -240,37 +250,38 @@ class ProjectShow extends React.Component {
 
                   {/* ADD COLLABORATOR */}
                   {Auth.isAuthenticated() &&
-                    <div className="add-margin"
+                  (!project.collaborators.map(collab => collab._id).includes(Auth.getPayload().sub) ||
+                  project.owner._id === Auth.getPayload().sub) &&
+                  (!project.pendingCollaborators.map(collab => collab._id).includes(Auth.getPayload().sub) ||
+                  project.owner._id === Auth.getPayload().sub) &&
+                    <div className="add-margin add-collab-button"
                       onClick={this.handleAddCollaborator}
-                      style={{
-                        background: 'url(https://i.ya-webdesign.com/images/a-plus-png-2.png)',
-                        height: '80px',
-                        width: '80px',
-                        backgroundSize: 'cover',
-                        backgroundPosition: 'center',
-                        borderRadius: '50%',
-                        border: '1px solid #E2E2E0',
-                        overflow: 'hidden',
-                        cursor: 'pointer'
-                      }}>
+                    >
                     </div>
                   }
-                  {/* COLLAB SEARCH */}
-                  {this.state.users &&
-                    <input
-                      placeholder="search"
-                      // name="userSearch"
-                      onChange={this.handleSearchChange}
-                    />
-                  }
-                  {/* COLLAB SEARCH RESULTS */}
-                  {this.state.searchedUsers &&
+                  <div 
+                    className={`modal ${this.state.users && 'is-active'} is-clipped`}
+                  >
+                    <div onClick={this.resetSearch} className="modal-background"></div>
+                    <div className="modal-content">
+                      {/* COLLAB SEARCH */}
+                      <div className="collab_add_search">
+                        <h2 className="subtitle">Search</h2>
+                        <input
+                          placeholder="search"
+                          className="input"
+                          // name="userSearch"
+                          onChange={this.handleSearchChange}
+                        />
+                        {/* COLLAB SEARCH RESULTS */}
+                        {this.state.searchedUsers &&
                     this.state.searchedUsers.map(user => {
                       return (
                         <div
                           onClick={this.handleAddCollaboratorTwo}
                           key={user._id}
                           name={user._id}
+                          className="collab_search_result"
                           style={{ cursor: 'pointer' }}
                         >
                           <div style={{ background: `url(${user.profileImage})`, pointerEvents: 'none' }}></div>
@@ -278,7 +289,13 @@ class ProjectShow extends React.Component {
                         </div>
                       )
                     })
-                  }
+                        }
+                      </div>
+                    </div>
+                    <button 
+                      onClick={this.resetSearch}
+                      className="modal-close is-large" aria-label="close"></button>
+                  </div>
                 </div>
               </div>
             </div>

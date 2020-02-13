@@ -23,7 +23,12 @@ describe('GET /api/projects', () => {
             location: 'Glasgow',
             images: ['http://via.placeholder.com/360x360','http://via.placeholder.com/360x360'],
             completed: true,
-            recuiting: false            
+            recruiting: false,                                        
+            skillsInvolved: [],
+            lookingFor: [], 
+            likes: [],
+            comments: [],
+            messages: []
           },
           {
             name: 'Project 2',
@@ -33,7 +38,12 @@ describe('GET /api/projects', () => {
             location: 'Glasgow',
             images: ['http://via.placeholder.com/360x360','http://via.placeholder.com/360x360'],
             completed: true,
-            recuiting: false            
+            recruiting: false,  
+            skillsInvolved: [],
+            lookingFor: [], 
+            likes: [],
+            comments: [],
+            messages: []
           }
         ])
       })
@@ -80,12 +90,13 @@ describe('GET /api/projects', () => {
             'description',
             'location',
             'images',
+            'completed',
+            'recruiting',
             'skillsInvolved',
             'lookingFor',
             'likes',
             'comments',
-            'completed',
-            'recuiting'
+            'messages'
           ])
         })
         done()
@@ -107,7 +118,7 @@ describe('GET /api/projects', () => {
           expect(project.likes).to.be.an('array')
           expect(project.comments).to.be.an('array')
           expect(project.completed).to.be.a('boolean')
-          expect(project.recuiting).to.be.a('boolean')
+          expect(project.recruiting).to.be.a('boolean')
         })
         done()
       })
