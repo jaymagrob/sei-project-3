@@ -65,7 +65,7 @@ class ProjectShow extends React.Component {
         const res = await axios.post('/api/users/collaborate', collabObject, {
           headers: { Authorization: `Bearer ${Auth.getToken()}` }
         })
-        this.props.getUser()
+        // this.props.getUser()
         console.log(res)
       } catch (err) {
         console.log(err)
@@ -88,7 +88,7 @@ class ProjectShow extends React.Component {
         const res = await axios.post('/api/users/collaborate', collabObject, {
           headers: { Authorization: `Bearer ${Auth.getToken()}` }
         })
-        this.props.getUser()
+        // this.props.getUser()
         console.log(res)
       } catch (err) {
         console.log(err)

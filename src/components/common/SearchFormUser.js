@@ -13,7 +13,7 @@ const SearchCardUser = ({ userForm, handleChange, handleMultiChange, professionO
       </div>
 
       <div className="field">
-        <div className="label">Creative Name</div>
+        <div className="label">Name</div>
         <div className="control">        
           <input
             className="input"
@@ -25,7 +25,7 @@ const SearchCardUser = ({ userForm, handleChange, handleMultiChange, professionO
       </div>   
 
       <div className="field">
-        <div className="label">Creative Username</div>
+        <div className="label">Username</div>
         <div className="control">        
           <input
             className="input"
@@ -63,7 +63,8 @@ const SearchCardUser = ({ userForm, handleChange, handleMultiChange, professionO
       <div className="field">
         <div className="label">Profession/Industry</div>
         <div className="control">        
-          <Select                  
+          <Select                
+            menuPlacement="top"  
             options={professionOptions}
             isMulti
             onChange={(e) => handleMultiChange(e,'userForm','professions')}
@@ -75,7 +76,8 @@ const SearchCardUser = ({ userForm, handleChange, handleMultiChange, professionO
       <div className="field">
         <div className="label">Skills Needed</div>
         <div className="control">        
-          <Select                  
+          <Select 
+            menuPlacement="top"
             options={skillsOptions}
             isMulti
             onChange={(e) => handleMultiChange(e,'userForm','skills')}
