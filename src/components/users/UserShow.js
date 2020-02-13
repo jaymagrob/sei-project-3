@@ -2,7 +2,8 @@ import React from 'react'
 import axios from 'axios'
 import { Link } from 'react-router-dom'
 import Auth from '../../lib/auth'
-import ProjectCard from '../projects/ProjectCard'
+// import ProjectCard from '../projects/ProjectCard'
+import Gallery from '../common/Gallery'
 
 class UserShow extends React.Component {
   state = {
@@ -83,7 +84,7 @@ class UserShow extends React.Component {
 
               {/* <hr className="seperater-line" /> */}
 
-              <div className="">
+              <div>
                 <p className="bio-paragraph">{user.bio}</p>
               </div>
               <hr className="seperater-line" />
@@ -95,12 +96,12 @@ class UserShow extends React.Component {
 
                 <div className="columns margin-reset is-multiline">{user.skills.map(skill => (
                   <>
-                  <div className="column is-one-quarter rounded-border-box"
+                  <div className="column is-one-fifth rounded-border-box"
                     name={skill._id}
                     onClick={this.handleLike}
                     key={skill['skill']}
                     style={{ cursor: 'pointer' }}
-                  >{skill['skill']}:</div>
+                  >{skill['skill']}</div>
                 <div className="has-text-centered">
                   <div className="skill-circle">{skill.likes.length}</div>
                 </div>
@@ -118,11 +119,14 @@ class UserShow extends React.Component {
             <ProjectCard key={project._id} {...project} />
           ))} */}
           {/* <ul>{collaboratedProjects.map(project => <li key={project}>{project}</li>)}</ul> */}
-          <div className="columns is-mobile is-multiline">
+          {/* <div className="columns is-mobile is-multiline">
             {user.collaboratedProjects.map(project => (
               <ProjectCard className="" key={project._id} {...project} />
             ))}
-          </div>
+          </div> */}
+
+          <Gallery data={user.collaboratedProjects} type={'projects'}/>
+
         </section>
       </section>
     )

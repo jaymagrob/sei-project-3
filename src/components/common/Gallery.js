@@ -25,7 +25,6 @@ class Gallery extends React.Component{
   }
 
   render() {
-    console.log(this.props.data)
     return (
       this.props.type === 'users' ?
       <>
@@ -38,7 +37,6 @@ class Gallery extends React.Component{
         >
         
           {this.props.type === 'users' && this.props.data.map(user => {
-            console.log(user)
             return <UserCard key={user._id} {...user} />
           })}
         </AliceCarousel> 

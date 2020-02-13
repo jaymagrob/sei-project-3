@@ -6,51 +6,51 @@ import Auth from '../../lib/auth'
 class PendingRequests extends React.Component{
 
   state = {
-    open: false,
-    user: null
+    open: false
+    // user: null
   }
 
-  getUser = async () => {
-    try {
-      const res = await axios.get('/api/myportfolio', {
-        headers: { Authorization: `Bearer ${Auth.getToken()}` }
-      })
-      this.setState({ user: res.data })
-    } catch (err) {
-      console.log(err)
-    }
-  }
+  // getUser = async () => {
+  //   try {
+  //     const res = await axios.get('/api/myportfolio', {
+  //       headers: { Authorization: `Bearer ${Auth.getToken()}` }
+  //     })
+  //     this.setState({ user: res.data })
+  //   } catch (err) {
+  //     console.log(err)
+  //   }
+  // }
 
   async componentDidMount() {
-    this.getUser()
+    this.props.getUser()
   }
 
-  handleOpen = () => {
-    this.setState({ open: !this.state.open })
-  }
+  // handleOpen = () => {
+  //   this.setState({ open: !this.state.open })
+  // }
 
-  acceptCollabRequest = async (e) => {
-    try {
-      await axios.get(`/api/users/${this.state.user._id}/collaborate/${e.target.name}`, {
-        headers: { Authorization: `Bearer ${Auth.getToken()}` }
-      })
-      this.getUser()
-    } catch (err) {
-      console.log(err)
-    }
-  }
+  // acceptCollabRequest = async (e) => {
+  //   try {
+  //     await axios.get(`/api/users/${this.state.user._id}/collaborate/${e.target.name}`, {
+  //       headers: { Authorization: `Bearer ${Auth.getToken()}` }
+  //     })
+  //     this.getUser()
+  //   } catch (err) {
+  //     console.log(err)
+  //   }
+  // }
 
-  rejectCollabRequest = async (e) => {
-    console.log(this.state.user._id, e.target.name)
-    try {
-      await axios.delete(`/api/users/${this.state.user._id}/collaborate/${e.target.name}`, {
-        headers: { Authorization: `Bearer ${Auth.getToken()}` }
-      })
-      this.getUser()
-    } catch (err) {
-      console.log(err)
-    }
-  }
+  // rejectCollabRequest = async (e) => {
+  //   console.log(this.state.user._id, e.target.name)
+  //   try {
+  //     await axios.delete(`/api/users/${this.state.user._id}/collaborate/${e.target.name}`, {
+  //       headers: { Authorization: `Bearer ${Auth.getToken()}` }
+  //     })
+  //     this.getUser()
+  //   } catch (err) {
+  //     console.log(err)
+  //   }
+  // }
 
   render() {
     return (
@@ -60,7 +60,7 @@ class PendingRequests extends React.Component{
         >
           <button
             className="button"
-            onClick={this.handleOpen}
+            onClick={this.props.handleOpen}
           >
             {/* style={{ 
           position: 'fixed',
@@ -73,29 +73,39 @@ class PendingRequests extends React.Component{
         Requests
           </button>
         </div>
-        {this.state.open && this.state.user &&
+        {/* {console.log('THIS ONE', Auth.getPayload().sub)} */}
+        {this.props.open && this.props.user && !this.props.navbarOpen &&
           <div
             className="request_list"
           >
-            {this.state.user.pendingProjects.map(project => {
+            {this.props.user.pendingProjects.map(project => {
               return (
                 <div 
                   key={project._id}
                   className="single_request"
                 >
-                  <h1 style={{ display: 'inline-block' }}>{project.project.name}</h1>
+                  <div className="pending_header_container">
+                    {/* <img className="pending_project_preview" src={project.o.images[0]} /> */}
+                    <h1 style={{ display: 'inline-block' }}>{project.project.name}</h1>
+                  </div>
                   <div 
                     style={{ float: 'right' }}
                     className="single_request_button"
                   >
+                    { (((project.user === true) && (project.ownerId._id === Auth.getPayload().sub)) ||
+                      ((project.owner === true) && (project.userId._id === Auth.getPayload().sub))) &&
+                      <button 
+                        className="requestAccept button is-success"
+                        name={project.project._id}
+                        onClick={this.props.acceptCollabRequest}
+                      >Accept</button>
+                    }
                     <button 
+                      className="requestDecline button is-danger"
                       name={project.project._id}
-                      onClick={this.acceptCollabRequest}
-                    >Accept</button>
-                    <button 
-                      name={project.project._id}
-                      onClick={this.rejectCollabRequest}
+                      onClick={this.props.rejectCollabRequest}
                     >Reject</button>
+                  
                   </div>
                 </div>
               )
