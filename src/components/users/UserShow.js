@@ -91,7 +91,9 @@ class UserShow extends React.Component {
               <div className="container">
 
                 <div className="skills-header">
-                  <h4 className="header-small">skills &amp; endorsements</h4>
+                  <h4 className="header-small">skills 
+                    {!this.isOwner() && <span className="endorse-small"> (click to endorse)</span>}
+                  </h4>
                 </div>
 
                 <div className="columns margin-reset is-multiline">{user.skills.map(skill => (

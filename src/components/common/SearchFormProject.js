@@ -9,7 +9,7 @@ const SearchCardUser = ({ projectForm, handleChange, handleMultiChange, professi
   
     <section>          
       <div className="field">
-        <div className="label">Profession/Industry</div>
+        <div className="label">industry</div>
         <div className="control">        
           <Select
             options={professionOptions}
@@ -21,7 +21,7 @@ const SearchCardUser = ({ projectForm, handleChange, handleMultiChange, professi
       </div>
       
       <div className="field">
-        <div className="label">Skills Involved</div>
+        <div className="label">skills involved</div>
         <div className="control">        
           <Select
             options={skillsOptions}
@@ -33,7 +33,7 @@ const SearchCardUser = ({ projectForm, handleChange, handleMultiChange, professi
       </div>
 
       <div className="field">
-        <div className="label">Location</div>
+        <div className="label">location</div>
         <div className="control">        
           <input
             className="input"
@@ -45,7 +45,7 @@ const SearchCardUser = ({ projectForm, handleChange, handleMultiChange, professi
       </div>
 
       <div className="field">
-        <div className="label">Recruiting?</div>
+        <div className="label">recruiting?</div>
         <div className="control">        
           <input
             name="recruiting"
@@ -57,7 +57,7 @@ const SearchCardUser = ({ projectForm, handleChange, handleMultiChange, professi
       </div>
 
       <div className="field">
-        <div className="label">Project Name</div>
+        <div className="label">project name</div>
         <div className="control">        
           <input
             className="input"

@@ -8,10 +8,12 @@ const SearchCardUser = ({ formData, handleChange }) => {
         {/* <div className="title-underLine">
           <div className="title is-4 padding-v-10">What are you searching for?</div>
         </div> */}
+        <h1 className="has-text-centered">looking for...</h1>
+        <br />
         <div className="radio_container">
           <div className="search_radios">
             <label className="custom_radio">
-          Projects
+          projects
             </label>
             <input
               className="custom_radio_button"
@@ -24,7 +26,7 @@ const SearchCardUser = ({ formData, handleChange }) => {
           </div>
           <div className="search_radios">
             <label className="custom_radio">
-          Creatives
+          creatives
             </label>
             <input 
               className="custom_radio_button"

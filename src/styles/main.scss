@@ -164,11 +164,24 @@ body {
   padding: 5px;
 }
 
+.endorse-small {
+  font-size: 12px;
+}
+
+.rounded-border-box:hover {
+  background-color: $beige-light;
+}
+
 .project-paragraph {
   margin: 15px 60px;
 }
 
 .user-profession {
+  font-size: 15px;
+  color: $black;
+}
+
+.form-fields {
   font-size: 15px;
   color: $black;
 }
@@ -515,7 +528,7 @@ html {
 
 .search_container_element {
   flex: 2;
-  background: $lighter-black;
+  background: $beige-light;
 }
 
 .search_aside_container {
@@ -577,8 +590,8 @@ html {
 }
 
 .search_placeholder_text {
-  font-size: 60px;
-  font-weight: 600;
+  font-size: 40px;
+  // font-weight: 600;
 }
 
 .custom_radio_button {
