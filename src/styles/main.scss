@@ -391,6 +391,19 @@ p.alice-carousel__next-btn-item:hover, p.alice-carousel__prev-btn-item:hover {
   align-items: center;
 }
 
+.column_search {
+  height: 100%;
+  overflow-y: scroll;
+  overflow-x: hidden;
+}
+
+.border {
+  height: 100vh;
+}
+
+.padding {
+  padding: 20px 10px;
+}
 
 // .gallery_container::before {
 //   content: "";

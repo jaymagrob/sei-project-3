@@ -1,7 +1,6 @@
 import React from 'react'
 
 const SearchCardUser = ({ formData, handleChange }) => {
-  console.log(formData)
   return (
   
     <section>

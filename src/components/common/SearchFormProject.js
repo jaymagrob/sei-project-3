@@ -7,11 +7,7 @@ const SearchCardUser = ({ projectForm, handleChange, handleMultiChange, professi
 
   return (
   
-    <section>
-      <div className="title-underLine">
-        <h2 className="subtitle is-4">Project Search</h2>
-      </div>              
-
+    <section>          
       <div className="field">
         <div className="label">Profession/Industry</div>
         <div className="control">        
