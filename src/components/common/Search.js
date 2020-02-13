@@ -88,73 +88,73 @@ class Search extends React.Component {
   render() {
     const { formData, projectForm, userForm } = this.state
     return (
-  
       <>
-        {/* this section is for the search form */}
-        {/* this section (formData in state) will show first to check if you're looking for projects or creatives */}
-          <SearchFormType
-            formData = { formData }
-            handleChange={this.handleChange}            
-          />
+        <section className="border1 is-fullheight-with-navbar">
+          <div className="hero-body columns is-fullwidth">
+            <div className='column testJ is-three-quarters-mobile is-half-tablet is-one-third-desktop box'>
+              {/* this section is for the search form */}
+              {/* this section (formData in state) will show first to check if you're looking for projects or creatives */}
+              <SearchFormType
+                formData = { formData }
+                handleChange={this.handleChange}            
+              />
 
-        {/* this section (projectForm in state) will appear only if you select that you're looking for projects */}
+              {/* this section (projectForm in state) will appear only if you select that you're looking for projects */}
         
-        {this.state.formData.searchingFor === 'projects' && 
-          <SearchFormProject
-            handleChange={this.handleChange}
-            handleMultiChange={this.handleMultiChange}
-            projectForm = { projectForm }
-            professionOptions = {this.professionOptions}
-            skillsOptions = { this.skillsOptions}
-          />
-        }
+              {this.state.formData.searchingFor === 'projects' && 
+                <SearchFormProject
+                  handleChange={this.handleChange}
+                  handleMultiChange={this.handleMultiChange}
+                  projectForm = { projectForm }
+                  professionOptions = {this.professionOptions}
+                  skillsOptions = { this.skillsOptions}
+                />
+              }
 
-        {/* this section (userForm in state) will appear only if you select that you're looking for creatives */}
+              {/* this section (userForm in state) will appear only if you select that you're looking for creatives */}
         
-        {this.state.formData.searchingFor === 'users' && 
-          <SearchFormUser
-            handleChange={this.handleChange}
-            handleMultiChange={this.handleMultiChange}
-            userForm = { userForm }
-            professionOptions = {this.professionOptions}
-            skillsOptions = { this.skillsOptions}
-            levelOptions= { this.levelOptions}
-          />
-        }
+              {this.state.formData.searchingFor === 'users' && 
+              <SearchFormUser
+                handleChange={this.handleChange}
+                handleMultiChange={this.handleMultiChange}
+                userForm = { userForm }
+                professionOptions = {this.professionOptions}
+                skillsOptions = { this.skillsOptions}
+                levelOptions= { this.levelOptions}
+              />
+              }
+            </div>
 
-        {/* this section is for the results */}
-        <section>
-          <h1>SEARCH RESULTS</h1>
-          
-          {/* This is the project card. It only shows if project is selected or nothing is selected*/}
-          { (!this.state.formData.searchingFor || this.state.formData.searchingFor === 'projects') &&
-          <div>           
-            <>
-            <h2>Projects</h2>
-            {this.state.projects.filter(i => {
-              return (
-                new RegExp(this.state.projectForm.name,'i').test(i.name) &&
-                new RegExp(this.state.projectForm.location,'i').test(i.location) &&
-                (!this.state.projectForm.recruiting || (this.state.projectForm.recruiting === true && i.recruiting === true)) &&
-                (!this.state.projectForm.lookingFor[0] || this.state.projectForm.lookingFor.some(item => i.lookingFor.indexOf(item) >= 0)) &&
-                (!this.state.projectForm.skillsInvolved[0] || this.state.projectForm.skillsInvolved.some(item => i.skillsInvolved.indexOf(item) >= 0))
-              )
-            })                        
-              .map((i,ind) => {
-                return (
-                  // <SearchCardProject key={i + ind} {...i} />
-                  <ProjectCard key={i + ind} {...i} />
-                )
-              })}
+            {/* This is the project card. It only shows if project is selected or nothing is selected*/}
+            { (!this.state.formData.searchingFor || this.state.formData.searchingFor === 'projects') &&
+              <div className='column testJ box'>
+                <div>           
+                <>
+                <h2>Projects</h2>
+                {this.state.projects.filter(i => {
+                  return (
+                    new RegExp(this.state.projectForm.name,'i').test(i.name) &&
+                    new RegExp(this.state.projectForm.location,'i').test(i.location) &&
+                    (!this.state.projectForm.recruiting || (this.state.projectForm.recruiting === true && i.recruiting === true)) &&
+                    (!this.state.projectForm.lookingFor[0] || this.state.projectForm.lookingFor.some(item => i.lookingFor.indexOf(item) >= 0)) &&
+                    (!this.state.projectForm.skillsInvolved[0] || this.state.projectForm.skillsInvolved.some(item => i.skillsInvolved.indexOf(item) >= 0))
+                  )
+                })                        
+                  .map((i,ind) => {
+                    return (
+                    // <SearchCardProject key={i + ind} {...i} />
+                      <ProjectCard key={i + ind} {...i} />
+                    )
+                  })}
+                </>
+                </div>
+              </div>
+            }
 
-            </>
-          </div>
-          }
-
-
-          {/* This is the user card. It only shows if user is selected or nothing is selected*/}
-          { (!this.state.formData.searchingFor || this.state.formData.searchingFor === 'users') &&
-          <div>           
+            {/* This is the user card. It only shows if user is selected or nothing is selected*/}
+            { (!this.state.formData.searchingFor || this.state.formData.searchingFor === 'users') &&
+            <div className='column testJ box'>
+              <div>           
             <>
             <h2>Users</h2>
             {this.state.users.filter(i => {
@@ -176,10 +176,26 @@ class Search extends React.Component {
               })}
 
             </>
+              </div>
+            </div>
+            }
+              
+          
+          
+          
+          
+          
+          
+          
+            {/* This is the end of the hero */}
           </div>
-          }
         </section>
       </>
+       
+
+
+
+
     )
   }
 
