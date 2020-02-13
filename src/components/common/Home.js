@@ -45,7 +45,7 @@ class Home extends React.Component {
             </div>
           </div>
         </section>
-        <section id="discover">
+        <section id="discover" className="discover_counter_container">
           <Discovery />
         </section>
         {/* <section>

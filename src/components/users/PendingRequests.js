@@ -60,7 +60,8 @@ class PendingRequests extends React.Component{
         >
           <button
             className="button"
-            onClick={this.props.handleOpen, this.props.handleClick}
+            // onClick={this.props.handleOpen, this.props.handleClick}
+            onClick={this.props.handleOpen}
           >
             {/* style={{ 
           position: 'fixed',
@@ -79,6 +80,7 @@ class PendingRequests extends React.Component{
             className="request_list"
           >
             {this.props.user.pendingProjects.map(project => {
+              
               return (
                 <div 
                   key={project._id}

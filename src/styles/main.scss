@@ -300,6 +300,10 @@ body {
   // justify-content: space-between;
 }
 
+section.discover_counter_container {
+  margin: -80px 0 0 0;
+}
+
 .discovery_inner_container {
   flex: 1;
   display: flex;
@@ -584,6 +588,7 @@ html {
   border-radius: 50px;
   cursor: pointer;     
   margin-right: 7px;
+  outline: none;
 }
 
 // .custom_radio_button::before {

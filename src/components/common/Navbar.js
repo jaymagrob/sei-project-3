@@ -15,6 +15,7 @@ class Navbar extends React.Component {
   handleClick = () => {
     this.setState({ navbarOpen: false })
   }
+  
   handleLogout = () => {
     Auth.logout()
     this.props.history.push('/')
