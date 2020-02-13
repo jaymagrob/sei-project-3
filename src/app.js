@@ -25,6 +25,7 @@ import UnSecureRoute from './components/common/UnSecureRoute'
 import FirstLogin from './components/common/FirstLogin'
 import Gallery from './components/common/Gallery'
 import ChatBoxShow from './components/chatboxes/ChatBoxShow'
+import ChatBoxIndex from './components/chatboxes/ChatBoxIndex'
 
 
 class App extends React.Component{
@@ -99,6 +100,7 @@ class App extends React.Component{
             <Route path="/projects/:id" component={ProjectShow} getUser={this.getUser}/>
             {/* <SecureRoute path="/users/:username/edit" component={UserEdit} /> */}
             <Route path="/users/:userid/chatboxes/:id" component={ChatBoxShow} />
+            <SecureRoute path="/email" component={ChatBoxIndex} />
             <Route path="/users/:username" component={UserShow} />
             {/* <Route path="/users/:username/messages" component={UserMessages} /> */}
             <UnSecureRoute path="/register" component={Register} />
