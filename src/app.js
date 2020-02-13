@@ -30,6 +30,7 @@ import Gallery from './components/common/Gallery'
 const App = () => (
 
   <BrowserRouter>
+  {/* <main style={{ height: '100vh', overflow: 'hidden' }}> */}
     <main>
       <Navbar />
       <Switch>
