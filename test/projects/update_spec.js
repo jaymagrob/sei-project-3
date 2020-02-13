@@ -38,8 +38,9 @@ describe('PUT /projects/:id', () => {
       })
       .then(createdProject => {
         project = createdProject 
-        done()
+        console.log(project)
       })
+    done()
   })
 
   afterEach(done => { 
