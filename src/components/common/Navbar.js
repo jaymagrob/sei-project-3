@@ -56,7 +56,7 @@ class Navbar extends React.Component {
     return (
       <nav>
         {/* if on homepage we want to add className="is-fixed-top" to navbar*/}
-        <div className="navbar has-shadow custom_nav">
+        <div className="navbar custom_nav">
           {/* <div> */}
           
           <div className="navbar-item navbar-item-font navbar-logo">
