@@ -98,8 +98,8 @@ describe('GET /api/users', () => {
   it('should return an array of objects', done => {
     api.get('/api/users')
       .end((err, res) => {
-        res.body.forEach(project => {
-          expect(project).to.be.an('object')
+        res.body.forEach(user => {
+          expect(user).to.be.an('object')
         })
         done()
       })
@@ -107,11 +107,12 @@ describe('GET /api/users', () => {
   it('should return an array of objects with the correct fields', done => {
     api.get('/api/users')
       .end((err, res) => {
-        res.body.forEach(project => {
-          expect(project).to.contains.keys([
+        res.body.forEach(user => {
+          expect(user).to.contains.keys([
+            'professions',
+            'projects',
+            'chatBoxes',
             '_id',
-            '__v',
-            'id',
             'username',
             'name',
             'email',
@@ -119,11 +120,10 @@ describe('GET /api/users', () => {
             'profileImage',
             'location',
             'level',
-            'professions',
-            'skills',
-            'projects',
+            'skills'          ,
             'pendingProjects',
-            'likes'
+            '__v',
+            'id'
           ])
         })
         done()
@@ -132,28 +132,29 @@ describe('GET /api/users', () => {
   it('should return an array of objects with the correct fields and types of values', done => {
     api.get('/api/users')
       .end((err, res) => {
-        console.log(res.body)
-        res.body.forEach(project => {
-          expect(project._id).to.be.a('string')
-          expect(project.__v).to.be.a('number')
-          expect(project.id).to.be.a('string')
-          expect(project.username).to.be.a('string')
-          expect(project.name).to.be.a('string')
-          expect(project.email).to.be.a('string')
-          expect(project.bio).to.be.a('string')
-          expect(project.profileImage).to.be.a('string')
-          expect(project.location).to.be.a('string')
-          expect(project.level).to.be.a('string')
-          expect(project.professions).to.be.an('array')
-          expect(project.skills).to.be.an('array')
-          expect(project.projects).to.be.an('array')
-          expect(project.pendingProjects).to.be.an('array')
-          expect(project.likes).to.be.an('array')
+        res.body.forEach(user => {
+          expect(user.professions).to.be.an('array')
+          expect(user.projects).to.be.an('array')
+          expect(user.chatBoxes).to.be.an('array')
+          expect(user._id).to.be.a('string')
+          expect(user.username).to.be.a('string')
+          expect(user.name).to.be.a('string')
+          expect(user.email).to.be.a('string')
+          expect(user.bio).to.be.a('string')
+          expect(user.profileImage).to.be.a('string')
+          expect(user.location).to.be.a('string')
+          expect(user.level).to.be.a('string')
+          expect(user.skills).to.be.an('array')
+          expect(user.pendingProjects).to.be.an('array')
+          expect(user.__v).to.be.a('number')
+          expect(user.id).to.be.a('string')
         })
         done()
       })
   })
 })
+
+
 
 
 

@@ -41,6 +41,7 @@ describe('PUT /users/:username', () => {
   beforeEach(done => {
     User.create(testUserData)
       .then(users => {
+        console.log(users)
         token1 = jwt.sign({ sub: users[0]._id }, secret, { expiresIn: '6h' }) 
         token2 = jwt.sign({ sub: users[1]._id }, secret, { expiresIn: '6h' }) 
         user1 = users[0]
