@@ -2,6 +2,7 @@ import React from 'react'
 import Select from 'react-select'
 import { skills, professions, levels } from '../../../config/environment'
 import ImageUpload from '../common/ImageUpload'
+import colorStyles from '../../lib/colourStyles'
 
 const UserForm = ({ data, handleChange, handleSubmit, handleMultiChange, handleChangeImage, handleChangeSkill, handleChangeLevel }) => {
 
@@ -26,100 +27,129 @@ const UserForm = ({ data, handleChange, handleSubmit, handleMultiChange, handleC
       )
     })
   return (
-    <div>
-      {/* {console.log(data)} */}
-      <form onSubmit={handleSubmit}>
-        <div>
-          <label>Name</label>
-          <div>
-            <input
-              className="input"
-              placeholder="Name"
-              name="name"
-              onChange={handleChange}
-              value={data.name}
-            />
-          </div>
+    <section className="is-fullheight-with-navbar hero section_padding">
+      <div className="hero-body columns is-fullwidth">
+        <div className="column is-quarter-desktop"></div>
+        <div className='column is-three-quarters-mobile is-half-tablet is-one-third-desktop box'>
+          {/* HOLD FOR FORM */}
+
+          <form onSubmit={handleSubmit}>
+            <div className="title-underLine">
+              <h2 className="title is-4 padding-v-10">User</h2>
+            </div>
+
+            <div className="field">
+              <label className="label">Name</label>
+              <div className="control">
+                <input
+                  className="input"
+                  placeholder="Name"
+                  name="name"
+                  onChange={handleChange}
+                  value={data.name}
+                />
+              </div>
+            </div>
+
+            <div className="field">
+              <div className="label">Upload Profile Image</div>
+              <div className="control">  
+                <ImageUpload
+                  labelText="Upload your profile image"
+                  onChange={handleChange}
+                  required
+                  name="profileImage"
+                  handleChangeImage={handleChangeImage}
+                  fieldName="profileImage"
+                />
+              </div>
+            </div>
+
+            <div className="field">
+              <label className="label">Location</label>
+              <div className="control">
+                <input
+                  className="input"
+                  placeholder="Location"
+                  name="location"
+                  onChange={handleChange}
+                  value={data.location}
+                />
+              </div>
+            </div>
+
+            <div className="field">
+              <label className="label">Bio</label>
+              <div className="control">
+                <textarea
+                  className="textarea"
+                  placeholder="Bio"
+                  name="bio"
+                  maxLength="150"
+                  onChange={handleChange}
+                  value={data.bio}
+                ></textarea>
+              </div>
+            </div>
+
+            <div className="field">
+              <div className="label">Profession/Industry</div>
+              <div className="control">  
+                <Select
+                  options={professionOptions}
+                  isMulti
+                  name="professions"
+                  value={professionOptions.filter(profession => data.professions.includes(profession.value))}
+                  onChange={handleMultiChange}
+                  styles={colorStyles} 
+                />
+              </div>
+            </div>
+
+            <div className="field">
+              <div className="label">Level</div>
+              <div className="control">  
+                <Select
+                  options={levelOptions}
+                  name="level"
+                  value={levelOptions.filter(l => data.level.includes(l.value))}
+                  onChange={handleChangeLevel}
+                  styles={colorStyles} 
+                />
+              </div>
+            </div>
+
+            <div className="field">
+              <div className="label">Skills</div>
+              { data.skills.length > 0 &&
+                  <div className="control">  
+                    <Select
+                      options={skillsOptions}
+                      isMulti
+                      name="skills"
+                      value={skillsOptions.filter(skill => data.skills.map(a => a.skill).includes(skill.value))}
+                      onChange={handleChangeSkill}
+                      styles={colorStyles} 
+                    />
+                  </div> }
+            </div>
+
+            <div className="field">
+              <div className="control">
+                <button className="button is-primary has-text-white is-fullwidth" type="submit">Submit</button>            
+              </div>
+            </div>   
+
+
+
+
+          
+          </form>
         </div>
-        <div>
-          <label>Upload Profile Image</label>
-          <ImageUpload
-            labelText="Upload your profile image"
-            onChange={handleChange}
-            required
-            name="profileImage"
-            handleChangeImage={handleChangeImage}
-            fieldName="profileImage"
-          />
-        </div>
-        <div>
-          <label>Location</label>
-          <div>
-            <input
-              className="input"
-              placeholder="Location"
-              name="location"
-              onChange={handleChange}
-              value={data.location}
-            />
-          </div>
-        </div>
-        <div></div>
-        <div>
-          <label>Bio</label>
-          <div>
-            <input
-              className="input"
-              placeholder="Bio"
-              name="bio"
-              onChange={handleChange}
-              value={data.bio}
-            />
-          </div>
-        </div>
-        <div>
-          <label>Profession/Industry</label>
-          <div>
-            <Select
-              options={professionOptions}
-              isMulti
-              name="professions"
-              value={professionOptions.filter(profession => data.professions.includes(profession.value))}
-              onChange={handleMultiChange}
-            />
-          </div>
-        </div>
-        <div>
-          <label>Level</label>
-          <div>
-            <Select
-              options={levelOptions}
-              name="level"
-              value={levelOptions.filter(l => data.level.includes(l.value))}
-              onChange={handleChangeLevel}
-            />
-          </div>
-        </div>
-        <div>
-          <label>Skills</label>
-          <div>
-            
-            { data.skills.length > 0 &&
-            <Select
-              options={skillsOptions}
-              isMulti
-              name="skills"
-              value={skillsOptions.filter(skill => data.skills.map(a => a.skill).includes(skill.value))}
-              onChange={handleChangeSkill}
-            />
-            }
-          </div>
-        </div>
-        <div>
-          <button type="submit">Submit</button>
-        </div>
-      </form>
-    </div>
+        <div className="column is-quarter-desktop"></div>   
+      </div>
+    </section>      
+
   )
 }
 export default UserForm

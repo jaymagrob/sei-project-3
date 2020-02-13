@@ -49,7 +49,7 @@ class UserShow extends React.Component {
     if (!user._id) return null
 
     return (
-      <section className="is-fullheight-with-navbar">
+      <section className="is-fullheight-with-navbar section_padding">
         <section className="section">
           <div className="columns">
 
