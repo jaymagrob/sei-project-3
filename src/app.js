@@ -24,6 +24,7 @@ import UnSecureRoute from './components/common/UnSecureRoute'
 import PendingRequests from './components/users/PendingRequests' 
 import FirstLogin from './components/common/FirstLogin'
 import Gallery from './components/common/Gallery'
+import ChatBoxShow from './components/chatboxes/ChatBoxShow'
 
 
 
@@ -42,6 +43,7 @@ const App = () => (
         <SecureRoute path="/projects/new" component={ProjectNew} />
         <Route path="/projects/:id" component={ProjectShow} />
         {/* <SecureRoute path="/users/:username/edit" component={UserEdit} /> */}
+        <Route path="/users/:userid/chatboxes/:id" component={ChatBoxShow} />
         <Route path="/users/:username" component={UserShow} />
         {/* <Route path="/users/:username/messages" component={UserMessages} /> */}
         <UnSecureRoute path="/register" component={Register} />

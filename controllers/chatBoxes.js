@@ -9,13 +9,14 @@ function index(req, res) {
 }
 
 function create(req, res) {
-  req.body.user = req.currentUser
   req.body.owner = req.currentUser
-  req.body.collaborators = [req.body.owner]
+  // req.body.owner = [req.currentUser, req.params.userId]
+  req.body.members = [req.currentUser, req.params.userId]
   ChatBox
     .create(req.body)
+    // .populate('members')
     .then(createdChatBox => {
-      console.log(createdChatBox)
+      console.log(req.body)
       return res.status(202).json(createdChatBox)
     })
     .catch(err => res.status(400).json(err))
@@ -37,7 +38,7 @@ function messageCreate(req, res, next) {
   req.body.user = req.currentUser
   ChatBox
     .findById(req.params.id)
-    .populate('member')
+    .populate('members')
     .populate('messages.user')
     .then(chatBox => {
       if (!chatBox) return res.status(404).json({ message: 'Not Found' })

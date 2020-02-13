@@ -6,7 +6,8 @@ import ProjectCard from '../projects/ProjectCard'
 
 class UserShow extends React.Component {
   state = {
-    user: {}
+    user: {},
+    you: []
   }
 
   getUser = async () => {
@@ -14,6 +15,20 @@ class UserShow extends React.Component {
     try {
       const res = await axios.get(`/api/users/${currentUsername}`)
       this.setState({ user: res.data })
+      console.log('them=', this.state.user)
+    } catch (err) {
+      console.log(err)
+    }
+  }
+
+  getSelf = async () => {
+    try {
+      const res = await axios.get('/api/myportfolio', {
+        headers: { Authorization: `Bearer ${Auth.getToken()}` }
+      })
+      this.setState({ you: res.data })
+      console.log('you=', this.state.you)
+
     } catch (err) {
       console.log(err)
     }
@@ -21,6 +36,7 @@ class UserShow extends React.Component {
 
   async componentDidMount() {
     this.getUser()
+    this.getSelf()
   }
 
   async componentDidUpdate() {
@@ -43,6 +59,30 @@ class UserShow extends React.Component {
     }
   }
 
+  handleMessage = async (e) => {
+    const theirId = this.state.user._id
+    const yourId = this.state.you._id
+    const yourChats = this.state.you.chats
+    const arr2 = yourChats.filter(chat => chat.members.includes(theirId))
+
+    if (arr2[0]) {
+      this.props.history.push(`/users/${arr2[0].owner}/chatboxes/${arr2[0]._id}`)
+    } else {
+      try {
+        console.log('trying to creat a chat')
+        const res = await axios.post(`/api/users/${theirId}/chatboxes`, { }, {
+          headers: { Authorization: `Bearer ${Auth.getToken()}` }
+        })
+        this.props.history.push(`/users/${yourId}/chatboxes/${res.data._id}`)
+      } catch (err) {
+        console.log(err)
+      }
+    }
+  }
+
+
+
+
   render() {
     const { user } = this.state
     if (!user._id) return null
@@ -59,6 +99,7 @@ class UserShow extends React.Component {
                 </div>
                 <div className="has-text-centered">
                   {this.isOwner() && <Link className="button" to={'/myportfolio/edit'}>Edit Portfolio</Link>}
+                  {!this.isOwner() && <button onClick={this.handleMessage}>Message {user.name}</button>}
                 </div>
               </div>
             </div>

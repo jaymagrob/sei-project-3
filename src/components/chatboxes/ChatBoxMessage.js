@@ -1,7 +1,7 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
 
-const ChatBoxMessage = ({ messages, text, handleChange, handleMessageRequest, toggleMessageBoard, showMessages }) => {
+const ChatBoxMessage = ({ messages, text, handleChange, handleMessageRequest, toggleMessageBoard, showMessages, members }) => {
   // console.log(messages)
   return (
     <>
@@ -12,8 +12,8 @@ const ChatBoxMessage = ({ messages, text, handleChange, handleMessageRequest, to
         left: '0',
         right: '0',
         overflow: 'hidden',
-        backgroundColor: 'rgba(0, 0, 0, 0.3)',
-        display: showMessages ? 'block' : 'none'
+        backgroundColor: 'rgba(0, 0, 0, 0.3)'
+        // display: showMessages ? 'block' : 'none'
       }}
       className="messageBoard"
       >
@@ -35,8 +35,8 @@ const ChatBoxMessage = ({ messages, text, handleChange, handleMessageRequest, to
           // overflow: 'hidden'                  
         }}
         >
-          <h1>Collaborator Message Board</h1>
-          <button onClick={toggleMessageBoard}>Close Message Board</button>
+          <h1>Chat between {members[0].name} and {members[1] ? members[1] : 'her/himself'}</h1>
+          {/* <button onClick={toggleMessageBoard}>Close Message Board</button> */}
           {messages.map(message => {
             return (
               <div key={message._id}>
@@ -61,7 +61,7 @@ const ChatBoxMessage = ({ messages, text, handleChange, handleMessageRequest, to
               <button type='submit'>Submit</button>
             </form>
           </div>
-          <button onClick={toggleMessageBoard}>Close Message Board</button>
+          {/* <button onClick={toggleMessageBoard}>Close Message Board</button> */}
         </div>
       </div>
 

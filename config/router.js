@@ -66,17 +66,17 @@ router.route('/myportfolio/edit')
   .put(secureRoute, auth.myPortfolioUpdate)
   // .delete(secureRoute, users.destroy)
 
-router.route('/chatboxes')
-  .get(chatBoxes.index)
+router.route('/users/:userId/chatboxes')
+  // .get(chatBoxes.index)
   .post(secureRoute, chatBoxes.create)
 
-router.route('/chatboxes/:id')
-  .get(chatBoxes.show)
+router.route('/users/:userId/chatboxes/:id')
+  .get(secureRoute, chatBoxes.show)
 
-router.route('/chatboxes/:id/messages')
+router.route('/users/:userId/chatboxes/:id/messages')
   .post(secureRoute, chatBoxes.messageCreate)
 
-router.route('/chatboxes/:id/messages/:messageId')
+router.route('/users/:userId/chatboxes/:id/messages/:messageId')
   .delete(secureRoute, chatBoxes.messageDelete)
 
 module.exports = router
