@@ -60,7 +60,7 @@ class PendingRequests extends React.Component{
         >
           <button
             className="button"
-            onClick={this.props.handleOpen}
+            onClick={this.props.handleOpen, this.props.handleClick}
           >
             {/* style={{ 
           position: 'fixed',
