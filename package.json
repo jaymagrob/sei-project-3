@@ -6,7 +6,7 @@
   "scripts": {
     "start:front": "webpack-dev-server --mode-development",
     "start:back": "nodemon",
-    "test": "mocha test/users/update_spec.js --require test/helper --recursive --exit",
+    "test": "mocha test/projects/**_spec.js --require test/helper --recursive --exit",
     "seed": "node db/seeds.js",
     "css-build": "node-sass --omit-source-map-url src/styles/main.scss src/styles/main.css",
     "css-watch": "npm run css-build -- --watch",
