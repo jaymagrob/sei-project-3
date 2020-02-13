@@ -24,7 +24,7 @@ class Discovery extends React.Component {
   }
   render() {
     return (
-      <section className="discovery_container">
+      <section className="discovery_container section_padding">
         <h1 className="title discovery_title">Discovery</h1>
         <div className="discovery_inner_container">
           <div>
