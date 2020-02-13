@@ -11,6 +11,10 @@ class Navbar extends React.Component {
   toggleNavbar = () => {
     this.setState({ navbarOpen: !this.state.navbarOpen })
   }
+
+  handleClick = () => {
+    this.setState({ navbarOpen: false })
+  }
   handleLogout = () => {
     Auth.logout()
     this.props.history.push('/')
@@ -51,55 +55,53 @@ class Navbar extends React.Component {
   }
 
   render() {
-    // const { navbarOpen } = this.state
-    // console.log(this.state.username)
+    const { navbarOpen } = this.state
+
     return (
-      <nav>
-        {/* if on homepage we want to add className="is-fixed-top" to navbar*/}
-        <div className="navbar custom_nav">
-          {/* <div> */}
-          
-          <div className="navbar-item navbar-item-font navbar-logo">
-            <Link to="/">beehive</Link>
+      <nav className="navbar custom_nav">
+        <div className="container">
+          <div className="navbar-brand navbar-item-font navbar-logo">
+            <Link className="navbar-brand navbar-item" onClick={this.handleClick} to="/">beehive</Link>          
+            <a className={`navbar-burger ${navbarOpen ? 'is-active' : ''}`} onClick={this.toggleNavbar}>
+              <span aria-hidden="true"></span>
+              <span aria-hidden="true"></span>
+              <span aria-hidden="true"></span>
+            </a>
           </div>
-          {/* <a className={`navbar-burger ${navbarOpen ? 'is-active' : ''}`} onClick={this.toggleNavbar}>
-            <span></span>
-            <span></span>
-            <span></span>
-          </a> */}
-          {/* </div> */}
-          {/* <div className={`navbar-menu ${navbarOpen ? 'is-active' : ''}`}>
-            <div> */}
-          <div className="navbar-item navbar-end navbar-item-font">
-            {Auth.isAuthenticated() && <Link to="/projects/new">new project</Link>}
-          </div>
-          <div className="navbar-item navbar-item-font">
-            <Link to="/search">start your journey</Link>
-          </div>
-          <div className="navbar-item navbar-item-font">
-            {Auth.isAuthenticated() && <Link to={`/users/${this.state.username}`}>my portfolio</Link>}
-          </div>
-          {Auth.isAuthenticated() && 
+
+
+          <div className={`navbar-menu ${navbarOpen ? 'is-active' : ''}`}>
+            <div className="navbar-item navbar-end navbar-item-font">
+              {Auth.isAuthenticated() && <Link onClick={this.handleClick} to="/projects/new">new project</Link>}
+            </div>
+            <div className="navbar-item navbar-item-font">
+              <Link onClick={this.handleClick} to="/search">start your journey</Link>
+            </div>
+            <div className="navbar-item navbar-item-font">
+              {Auth.isAuthenticated() && <Link onClick={this.handleClick} to={`/users/${this.state.username}`}>my portfolio</Link>}
+            </div>
+            {Auth.isAuthenticated() && 
           <PendingRequests 
             open={this.props.open} 
             user={this.props.user}
+            handleClick={this.handleClick} 
             acceptCollabRequest={this.props.acceptCollabRequest}
             rejectCollabRequest={this.props.rejectCollabRequest}
             getUser={this.props.getUser}
             handleOpen={this.props.handleOpen}
           /> }
-          <div className="navbar-item navbar-item-font">
-            {Auth.isAuthenticated() && <button className="button" onClick={this.handleLogout}>logout {this.state.name}</button>}
+            <div className="navbar-item navbar-item-font">
+              {Auth.isAuthenticated() && <button className="button" onClick={this.handleLogout}>logout {this.state.name}</button>}
+            </div>
+            <div className="navbar-item navbar-item-font">
+              {!Auth.isAuthenticated() && <Link onClick={this.handleClick} to="/register">register</Link>}
+            </div>
+            <div className="navbar-item navbar-item-font">
+              {!Auth.isAuthenticated() && <Link onClick={this.handleClick} to="/login">login</Link>}
+            </div>
+          
           </div>
-          <div className="navbar-item navbar-item-font">
-            {!Auth.isAuthenticated() && <Link to="/register">register</Link>}
-          </div>
-          <div className="navbar-item navbar-item-font">
-            {!Auth.isAuthenticated() && <Link to="/login">login</Link>}
-          </div>
-          {/* </div>
-          </div> */}
-        </div>
+        </div>        
       </nav>
     )
   }

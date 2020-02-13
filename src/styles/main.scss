@@ -153,6 +153,12 @@ body {
   padding: 10px;
 }
 
+// .project-image-border {
+//   border: 5px solid $yellow;
+//   padding: 0px;
+//   border-radius: 25px;
+// }
+
 .bio-paragraph {
   margin: 5px;
   padding: 5px;
@@ -174,6 +180,10 @@ body {
 
 .padding-reset {
   padding: 20px;
+}
+
+.remove-padding {
+  padding: 0px;
 }
 
 .test-border {
@@ -216,6 +226,17 @@ body {
   margin: 15px;
 }
 
+.comment-line {
+  height: 2px;
+  background-color: $beige-light;
+  margin: 0px;
+  padding: 0px;
+}
+
+.comment-info-text {
+  font-size: 15px;
+}
+
 .skill-circle {
   background-color: $yellow;
   height: 25px;
@@ -223,6 +244,10 @@ body {
   border-radius: 50%;
   position:relative;
   left:-30px;
+}
+
+.edit-message-buttons {
+  justify-content: center;
 }
 
 .skills-header {
@@ -308,11 +333,29 @@ body {
 }
 
 .collaborator-circles {
-  justify-content: space-around;
+  justify-content: center;
+}
+
+.comment-image {
+  object-fit: cover;
+  width:80px;
+  height:80px;
+  border-radius: 50%;
 }
 
 .full-width {
   width: 100vw;
+}
+
+.is-vertical-center {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.is-vertical {
+  display: flex;
+  align-items: center;
 }
 
 // CAROUSEL
