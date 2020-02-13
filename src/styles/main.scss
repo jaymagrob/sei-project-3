@@ -375,7 +375,6 @@ p.alice-carousel__next-btn-item:hover, p.alice-carousel__prev-btn-item:hover {
   position: fixed;
   width: 100%;
   border-bottom: 1px solid $lighter-black;
-  overflow: hidden;
 }
 
 .section_padding {
@@ -391,6 +390,7 @@ p.alice-carousel__next-btn-item:hover, p.alice-carousel__prev-btn-item:hover {
 .request_list {
   position: absolute;
   top: 70px;
+  z-index: 999;
   width: 300px;
   right: 10px;
   background: $beige-light;
