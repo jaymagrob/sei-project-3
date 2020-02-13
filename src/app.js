@@ -24,11 +24,17 @@ import SecureRoute from './components/common/SecureRoute'
 import UnSecureRoute from './components/common/UnSecureRoute'
 import FirstLogin from './components/common/FirstLogin'
 import Gallery from './components/common/Gallery'
+
+import Notifications, { notify } from 'react-notify-toast'
+import ChatBoxShow from './components/chatboxes/ChatBoxShow'
+
+
 class App extends React.Component{
   state = {
     open: false,
     user: null
   }
+
   getUser = async () => {
     if (Auth.isAuthenticated()) {
       try {
@@ -57,6 +63,8 @@ class App extends React.Component{
       await axios.get(`/api/users/${this.state.user._id}/collaborate/${e.target.name}`, {
         headers: { Authorization: `Bearer ${Auth.getToken()}` }
       })
+      const myColor = { background: '#C4C4C4', text: '#3F3F3F' }
+      notify.show('Request Accepted!', 'custom' , 1000, myColor)
       this.getUser()
     } catch (err) {
       console.log(err)
@@ -67,6 +75,8 @@ class App extends React.Component{
       await axios.delete(`/api/users/${this.state.user._id}/collaborate/${e.target.name}`, {
         headers: { Authorization: `Bearer ${Auth.getToken()}` }
       })
+      const myColor = { background: '#C4C4C4', text: '#3F3F3F' }
+      notify.show('Request Rejected!', 'custom' , 1000, myColor)
       this.getUser()
     } catch (err) {
       console.log(err)
@@ -77,6 +87,7 @@ class App extends React.Component{
       <BrowserRouter>
         {/* <main style={{ height: '100vh', overflow: 'hidden' }}> */}
         <main>
+          <Notifications />
           <Navbar 
             open={this.state.open} 
             user={this.state.user} 
@@ -93,8 +104,10 @@ class App extends React.Component{
             {/* <SecureRoute path="/myportfolio" component={MyPortfolio} /> */}
             <SecureRoute path="/projects/:id/edit" component={ProjectEdit} />
             <SecureRoute path="/projects/new" component={ProjectNew} />
-            <Route path="/projects/:id" component={ProjectShow} getUser={this.getUser}/>
+            {/* <Route path="/projects/:id" component={ProjectShow} getUser={this.getUser}/> */}
+            <Route path="/projects/:id" render={(props) => <ProjectShow {...props} getUser={this.getUser}/>}/>
             {/* <SecureRoute path="/users/:username/edit" component={UserEdit} /> */}
+            <Route path="/users/:userid/chatboxes/:id" component={ChatBoxShow} />
             <Route path="/users/:username" component={UserShow} />
             {/* <Route path="/users/:username/messages" component={UserMessages} /> */}
             <UnSecureRoute path="/register" component={Register} />

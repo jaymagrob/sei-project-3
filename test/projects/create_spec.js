@@ -5,8 +5,7 @@ const jwt = require('jsonwebtoken')
 const { secret } = require('../../config/environment') 
 
 const testProject = {
-  name: 'Project 1',
-  collaborators: [],
+  name: 'Project 1' ,
   description: 'This is a description of project 1',
   location: 'Glasgow',
   images: ['http://via.placeholder.com/360x360','http://via.placeholder.com/360x360'],
@@ -17,12 +16,10 @@ const testProject = {
 const testProjectMissingData = {
   name: 'Project 1',
   collaborators: [],
-  description: 'This is a description of project 1',
   location: 'Glasgow',
   images: ['http://via.placeholder.com/360x360','http://via.placeholder.com/360x360']
   
 }
-
 
 const testUserData = {
   username: 'test',
@@ -60,6 +57,7 @@ describe('POST /api/projects', () => {
   })
 
   it('should return a 422 response with wrong data', done => {
+    console.log(token)
     api.post('/api/projects')
       .set('Authorization', `Bearer ${token}`) 
       .send(testProjectMissingData)
