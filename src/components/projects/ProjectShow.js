@@ -116,6 +116,8 @@ class ProjectShow extends React.Component {
     this.setState({ text: '' })
   }
 
+  //! This function is activated when a user submits a message to the project message board
+
   handleMessageRequest = async (e) => {
     e.preventDefault()
     const projectId = this.props.match.params.id
@@ -141,6 +143,8 @@ class ProjectShow extends React.Component {
       console.log(err)
     }
   }
+
+  //! this function toggles the message board on and off
 
   toggleMessageBoard = async (e) => {
     this.setState({ showMessages: !this.state.showMessages })
@@ -182,6 +186,8 @@ class ProjectShow extends React.Component {
       console.log(err)
     }
   }
+
+  //! these functions determine whether a user is an or owner or collaborator on the project and can be used to show/hide certain features
 
   isOwner = () => Auth.getPayload().sub === this.state.project.owner._id
 

@@ -1,5 +1,6 @@
 import React from 'react'
-// import { Link } from 'react-router-dom'
+
+// ! This controls the format of individual messages on the project message board
 
 const ProjectMessage = ({ messages, text, handleChange, handleMessageRequest, toggleMessageBoard, showMessages }) => {
   // console.log(messages)
@@ -29,20 +30,9 @@ const ProjectMessage = ({ messages, text, handleChange, handleMessageRequest, to
           margin: '0',
           top: '10%',
           left: '10%',
-          overflow: 'auto'
-          // display: 'none'
-          // zIndex: '1'
-          // borderRadius: '95%',
-          // overflow: 'hidden'                  
+          overflow: 'auto'                 
         }}
         >
-
-          {/* <div key={message._id}>
-                <h2>Name: {message.user.name}</h2>
-                <h2>Added: {Date(message.createdAt).slice(0, 15)}</h2>
-                <img className="comment-image" src={message.user.profileImage} />
-                <p>{message.text}</p>
-              </div>  */}
 
           <div className="has-text-right">
             <button className="button is-small" onClick={toggleMessageBoard}>Close Message Board</button>
