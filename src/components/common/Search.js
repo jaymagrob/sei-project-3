@@ -122,7 +122,7 @@ class Search extends React.Component {
             <div className="search_container_element search_results_container">
               {!this.state.formData.searchingFor ? 
                 <div className="search_placeholder">
-                  <h1 className="search_placeholder_text">start your search</h1>
+                  <h1 className="search_placeholder_text">← start your search</h1>
                 </div> 
                 :
             <>

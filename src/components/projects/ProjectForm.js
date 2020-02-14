@@ -87,10 +87,10 @@ const ProjectForm = ({ handleChange, handleSubmit, data, handleMultiChange, hand
             </div>
 
             <div className="field">
-              <label className="form-fields">completed?</label>
+              <label className="checkbox form-fields">completed?</label>
               <div className="control">
                 <input
-                  className="input"
+                  // className="input"
                   type="checkbox"
                   onChange={handleChange}
                   name="completed"
@@ -101,10 +101,10 @@ const ProjectForm = ({ handleChange, handleSubmit, data, handleMultiChange, hand
 
             {!data.completed &&
               <div className="field">
-                <label className="form-fields">looking for help?</label>
+                <label className="checkbox form-fields">looking for help?</label>
                 <div className="control">
                   <input
-                    className="input"
+                    // className="input"
                     type="checkbox"
                     onChange={handleChange}
                     name="recruiting"

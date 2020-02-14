@@ -92,7 +92,7 @@ class Navbar extends React.Component {
             handleOpen={this.props.handleOpen}
           /> }
             <div className="navbar-item navbar-item-font">
-              {Auth.isAuthenticated() && <button className="button" onClick={this.handleLogout}>logout {this.state.name}</button>}
+              {Auth.isAuthenticated() && <button className="button" onClick={this.handleLogout}>Logout {this.state.name}</button>}
             </div>
             <div className="navbar-item navbar-item-font">
               {!Auth.isAuthenticated() && <Link onClick={this.handleClick} to="/register">register</Link>}
