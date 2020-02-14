@@ -13,6 +13,8 @@ const ProjectComment = ({ comments, text, handleChange, handleCommentRequest, ha
       {Auth.isAuthenticated() &&
         <form onSubmit={handleCommentRequest}>
           <div className="columns">
+            <div className="column">
+            </div>
             <div className="column is-three-fifths">
               <textarea
                 className="text-area-form"
@@ -39,6 +41,8 @@ const ProjectComment = ({ comments, text, handleChange, handleCommentRequest, ha
 
               <>
                 <div className="columns">
+                  <div className="column">
+                  </div>
                   <div className="column is-three-quarters">
                     <div className="columns">
                       <div className="column is-2 has-text-centered is-vertical-center remove-padding">
@@ -62,6 +66,8 @@ const ProjectComment = ({ comments, text, handleChange, handleCommentRequest, ha
                         </div>
                       </div>
                     </div>
+                  </div>
+                  <div className="column">
                   </div>
                 </div>
               </>

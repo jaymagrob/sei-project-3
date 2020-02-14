@@ -1,5 +1,5 @@
 import React from 'react'
-import { Link } from 'react-router-dom'
+// import { Link } from 'react-router-dom'
 
 const ProjectMessage = ({ messages, text, handleChange, handleMessageRequest, toggleMessageBoard, showMessages }) => {
   // console.log(messages)
@@ -19,7 +19,7 @@ const ProjectMessage = ({ messages, text, handleChange, handleMessageRequest, to
       >
 
         <div style={{
-          backgroundColor: '#E2E2E0',
+          backgroundColor: '#F7F7F4',
           height: '80%',
           width: '80%',
           backgroundSize: 'cover',
@@ -44,52 +44,61 @@ const ProjectMessage = ({ messages, text, handleChange, handleMessageRequest, to
                 <p>{message.text}</p>
               </div>  */}
 
-          <h1>Collaborator Message Board</h1>
-          <button className="button is-small" onClick={toggleMessageBoard}>Close Message Board</button>
-          {messages.map(message => {
-            return (
-              <div key={message._id}>
-                <div className="columns">
-                  <div className="column is-three-quarters">
-                    <div className="columns">
-                      <div className="column is-2 has-text-centered is-vertical-center remove-padding">
-                        <img className="comment-image" src={message.user.profileImage} />
-                      </div>
-                      <div className="column">
-                        <div className="columns">
-                          <h2 className="column is-3 comment-info-text">{message.user.name}</h2>
-                          <h2 className="column comment-info-text">{Date(message.createdAt).slice(0, 15)}</h2>
-                        </div>
-                        <div className="columns">
-                          <p className="column profession-grey-box padding-reset is-two-thirds">{message.text}</p>
-                          <div className="column">
+          <div className="has-text-right">
+            <button className="button is-small" onClick={toggleMessageBoard}>Close Message Board</button>
+          </div>
 
+          <div className="has-text-centered">
+            <h1 className="subtitle-hero">collaborator message board</h1>
+          </div>
+          <section className="section">
+            <br />
+
+            {messages.map(message => {
+              return (
+                <div key={message._id}>
+                  <div className="columns">
+                    <div className="column is-three-quarters">
+                      <div className="columns">
+                        <div className="column is-2 has-text-centered is-vertical-center remove-padding">
+                          <img className="comment-image" src={message.user.profileImage} />
+                        </div>
+                        <div className="column">
+                          <div className="columns">
+                            <h2 className="column is-3 comment-info-text">{message.user.name}</h2>
+                            <h2 className="column comment-info-text">{Date(message.createdAt).slice(0, 15)}</h2>
+                          </div>
+
+                          <div className="columns">
+                            <p className="column yellow-rounded-box padding-reset is-two-thirds">{message.text}</p>
+
+
+                          </div>
+                          <div className="column">
                           </div>
                         </div>
                       </div>
                     </div>
                   </div>
                 </div>
-              </div>
-            )
-          })}
-          <div>
-            <form
-              onSubmit={handleMessageRequest}
-            >
-              {/* <label>Add a message</label> */}
-              <textarea
-                name='text'
-                value={text}
-                onChange={handleChange}
+              )
+            })}
+            <section className="section padding-reset margin-reset">
+              <form
+                onSubmit={handleMessageRequest}
               >
-              </textarea>
-              <button className="button" type='submit'>Submit</button>
-            </form>
-          </div>
-          {/* <button className="button is-small" onClick={toggleMessageBoard}>Close Message Board</button> */}
+                <textarea
+                  className="collab-message-board-text"
+                  name='text'
+                  value={text}
+                  onChange={handleChange}
+                >
+                </textarea>
+                <button className="button" type='submit'>Submit</button>
+              </form>
+            </section>
 
-
+          </section>
         </div>
       </div>
     </>

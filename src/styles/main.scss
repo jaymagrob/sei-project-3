@@ -216,7 +216,26 @@ body {
   border-radius: 15px;
 }
 
+.yellow-rounded-box {
+  background-color: $yellow;
+  padding: 5px;
+  margin: 5px;
+  border-radius: 15px;
+}
+
 .rounded-border-box {
+  border: 1.5px solid $beige-light;
+  padding: 5px;
+  margin: 5px;
+  border-radius: 15px;
+}
+
+.project-skills {
+  display: flex;
+  justify-content: center;
+}
+
+.rounded-border-box-skills {
   border: 1.5px solid $beige-light;
   padding: 5px;
   margin: 5px;
@@ -268,10 +287,16 @@ textarea {
 
 .text-area-form {
   padding: 10px;
+  font-size: 15px;
 }
 
 .skills-header {
   margin: 10px;
+}
+
+.collab-message-board-text {
+  height: 60px;
+  font-size: 15px;
 }
 
 .add-margin {
@@ -300,7 +325,11 @@ textarea {
   text-align: justify;
   display: flex;
   flex-direction: column;
-  justify-content: space-evenly;
+  justify-content: flex-start;
+}
+
+.project_card_text p {
+  overflow: hidden;
 }
 
 .project_card_skills {
@@ -337,6 +366,7 @@ section.discover_counter_container {
 
 .discovery_title {
   padding-top: 20px;
+  padding-bottom: 10px;
 }
 
 .discovery_line_break {

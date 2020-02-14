@@ -69,7 +69,7 @@ class ProjectShow extends React.Component {
           headers: { Authorization: `Bearer ${Auth.getToken()}` }
         })
         const myColor = { background: '#C4C4C4', text: '#3F3F3F' }
-        notify.show('Request sent!', 'custom' , 1000, myColor)
+        notify.show('Request sent!', 'custom', 1000, myColor)
         this.props.getUser()
       } catch (err) {
         console.log(err)
@@ -93,7 +93,7 @@ class ProjectShow extends React.Component {
           headers: { Authorization: `Bearer ${Auth.getToken()}` }
         })
         const myColor = { background: '#C4C4C4', text: '#3F3F3F' }
-        notify.show('Request sent!', 'custom' , 1000, myColor)
+        notify.show('Request sent!', 'custom', 1000, myColor)
         this.props.getUser()
       } catch (err) {
         console.log(err)
@@ -193,8 +193,8 @@ class ProjectShow extends React.Component {
 
 
   render() {
-
     const { project } = this.state
+    console.log(project.images)
     if (!project._id) return null
     console.log(project)
     // console.log('collabs included? =', this.state.project.collaborators.map(collab => collab._id === Auth.getPayload().sub))
@@ -250,16 +250,16 @@ class ProjectShow extends React.Component {
 
                   {/* ADD COLLABORATOR */}
                   {Auth.isAuthenticated() &&
-                  (!project.collaborators.map(collab => collab._id).includes(Auth.getPayload().sub) ||
-                  project.owner._id === Auth.getPayload().sub) &&
-                  (!project.pendingCollaborators.map(collab => collab._id).includes(Auth.getPayload().sub) ||
-                  project.owner._id === Auth.getPayload().sub) &&
+                    (!project.collaborators.map(collab => collab._id).includes(Auth.getPayload().sub) ||
+                      project.owner._id === Auth.getPayload().sub) &&
+                    (!project.pendingCollaborators.map(collab => collab._id).includes(Auth.getPayload().sub) ||
+                      project.owner._id === Auth.getPayload().sub) &&
                     <div className="add-margin add-collab-button"
                       onClick={this.handleAddCollaborator}
                     >
                     </div>
                   }
-                  <div 
+                  <div
                     className={`modal ${this.state.users && 'is-active'} is-clipped`}
                   >
                     <div onClick={this.resetSearch} className="modal-background"></div>
@@ -275,24 +275,24 @@ class ProjectShow extends React.Component {
                         />
                         {/* COLLAB SEARCH RESULTS */}
                         {this.state.searchedUsers &&
-                    this.state.searchedUsers.map(user => {
-                      return (
-                        <div
-                          onClick={this.handleAddCollaboratorTwo}
-                          key={user._id}
-                          name={user._id}
-                          className="collab_search_result"
-                          style={{ cursor: 'pointer' }}
-                        >
-                          <div style={{ background: `url(${user.profileImage})`, pointerEvents: 'none' }}></div>
-                          <h2 style={{ pointerEvents: 'none' }}>{user.name}</h2>
-                        </div>
-                      )
-                    })
+                          this.state.searchedUsers.map(user => {
+                            return (
+                              <div
+                                onClick={this.handleAddCollaboratorTwo}
+                                key={user._id}
+                                name={user._id}
+                                className="collab_search_result"
+                                style={{ cursor: 'pointer' }}
+                              >
+                                <div style={{ background: `url(${user.profileImage})`, pointerEvents: 'none' }}></div>
+                                <h2 style={{ pointerEvents: 'none' }}>{user.name}</h2>
+                              </div>
+                            )
+                          })
                         }
                       </div>
                     </div>
-                    <button 
+                    <button
                       onClick={this.resetSearch}
                       className="modal-close is-large" aria-label="close"></button>
                   </div>
@@ -310,23 +310,40 @@ class ProjectShow extends React.Component {
               </div>
             }
 
+
             <hr className="seperater-line" />
+
+            {/* SKILLS */}
+            <div>{project.skillsInvolved.length < 1 ? 'skills: no skills listed yet' :
+              <div className="columns is-multiline">
+                <div className="column">
+                </div>
+
+                <div className="column is-1">skills: </div>
+                {project.skillsInvolved.map(skill => (
+                  <div className="column is-one-fifth rounded-border-box-skills"
+                    key={skill}>{skill}</div>
+                ))}
+
+                <div className="column">
+                </div>
+              </div>
+            }</div>
 
             <section className="section padding-reset">
               <div className="columns">
 
                 {/* LOCATION */}
                 <div className="column profession-grey-box is-vertical-center">
-                  <p>location: {project.location}</p>
+                  <p>location: <strong>{project.location}</strong></p>
                 </div>
 
                 {/* SKILLS */}
-                <div className="column profession-grey-box is-vertical-center">
-                  {/* <h2>skills: </h2> */}
-                  <p>{project.skillsInvolved.length < 1 ? 'skills: no skills listed yet' :
-                    <ul>{project.skillsInvolved.map(skill => <li key={skill}>skills: {skill}</li>)}</ul>
-                  }</p>
-                </div>
+                {/* <div className="column profession-grey-box is-vertical-center">
+                  <div>{project.skillsInvolved.length < 1 ? 'skills: no skills listed yet' :
+                    <div>skills: {project.skillsInvolved.map(skill => <h5 key={skill}>{skill}</h5>)}</div>
+                  }</div>
+                </div> */}
 
                 {/* PROJECT RECRUITING */}
                 <div className="column profession-grey-box is-vertical-center">
@@ -351,9 +368,12 @@ class ProjectShow extends React.Component {
             {/* EXTRA IMAGE GALLERY */}
             {project.images.length > 0 ? '' :
               <div className="section">
-                <h2>Gallery</h2>
                 <div className="columns">
-                  {project.images.map((image, index) => index === 0 ? '' : <div className="column"><img key={image} src={image} /></div>)}
+                  {project.images.map((image, index) => index === 0 ? '' :
+                    <div className="column test-border">
+                      <img className="test-border" key={image} src={image} />
+                    </div>
+                  )}
                 </div>
               </div>
             }

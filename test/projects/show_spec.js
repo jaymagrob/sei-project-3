@@ -4,13 +4,13 @@ const User = require('../../models/user')
 
 describe('GET /project/:id', () => {
 
-  let project
+  let project// we will stored a reference to our created animal here, we will use this project as the one we are tring to request, we store it so we can get its id to use in the requests
 
   beforeEach(done => {
     User.create({
-      username: 'test1',
-      name: 'test1',
-      email: 'test1@email',
+      username: 'test12',
+      name: 'test12',
+      email: 'test12@email',
       password: 'pass',
       passwordConfirmation: 'pass'
     })
@@ -22,12 +22,12 @@ describe('GET /project/:id', () => {
           location: 'Glasgow',
           images: ['http://via.placeholder.com/360x360','http://via.placeholder.com/360x360'],
           completed: true,
-          recuiting: false,
+          recruiting: false,
           owner: user 
         })
       })
       .then(createdProject => {
-        project = createdProject 
+        project = createdProject // <==== here is where we set that let abocve as the created project, we can then access its id in the tests below
         done()
       })
   })
@@ -38,7 +38,7 @@ describe('GET /project/:id', () => {
       .then(() => done())
   })
 
-  it('should return a 404 not found for an invalid project id', done => {
+  it('should return a 404 not found for an invalid projects id', done => {
     api.get('/api/projects/1234')
       .end((err, res) => {
         expect(res.status).to.eq(404)
@@ -47,7 +47,7 @@ describe('GET /project/:id', () => {
   })
 
   it('should return a 200 response', done => {
-    api.get(`/api/projects/${project._id}`) 
+    api.get(`/api/projects/${project._id}`) // <=== and using that project we have created and stored in the requests
       .end((err, res) => {
         expect(res.status).to.eq(200)
         done()
@@ -55,7 +55,7 @@ describe('GET /project/:id', () => {
   })
 
   it('should return an object', done => {
-    api.get(`/api/projects/${project._id}`) 
+    api.get(`/api/projects/${project._id}`) // <=== and using that project we have created and stored in the requests
       .end((err, res) => {
         expect(res.body).to.be.an('object')
         done()
@@ -73,12 +73,13 @@ describe('GET /project/:id', () => {
           'description',
           'location',
           'images',
+          'completed',
+          'recruiting',
           'skillsInvolved',
           'lookingFor',
           'likes',
           'comments',
-          'completed',
-          'recuiting'
+          'messages'
         ])
         done()
       })
@@ -100,7 +101,7 @@ describe('GET /project/:id', () => {
         expect(project.likes).to.be.an('array')
         expect(project.comments).to.be.an('array')
         expect(project.completed).to.be.a('boolean')
-        expect(project.recuiting).to.be.a('boolean')
+        expect(project.recruiting).to.be.a('boolean')
         done()
       })
   })
