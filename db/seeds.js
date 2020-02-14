@@ -9,49 +9,49 @@ mongoose.connect(dbURI, { useNewUrlParser: true, useUnifiedTopology: true }, (er
     .then(() => {
       return User.create([
         {
-          username: 'john',
+          username: 'John',
           name: 'john',
           email: 'john@john.com',
           password: 'pass',
           passwordConfirmation: 'pass',
           bio: 'This is a bio for john and this is a test. More information to come',
-          profileImage: 'https://www.bing.com/th/id/OIP.HA00HD-iIOMBoxTaqQFmvgHaJQ?w=172&h=215&c=7&o=5&dpr=2&pid=1.7',
+          profileImage: 'https://d3fc22kf489ohb.cloudfront.net/assets/426e9538a23b570b87f8570788f91e1844658718/static/media/sell-your-stuff.4dfcab0e.jpg',
           location: 'Glasgow',
           level: 'Junior',
           skills: { skill: 'JavaScript' }
         },
         {
-          username: 'abi',
+          username: 'Abigail',
           name: 'abi',
           email: 'abi@abi.com',
           password: 'pass',
           passwordConfirmation: 'pass',
           bio: 'This is a bio for abi and this is a test. More information to come',
-          profileImage: 'https://www.bing.com/th/id/OIP.csLo2yRYoz8I2r_Gc5tFUwHaE7?w=172&h=114&c=7&o=5&dpr=2&pid=1.7',
+          profileImage: 'https://pbs.twimg.com/profile_images/1209226898003378187/6NstjMiG_400x400.jpg',
           location: 'London',
           level: 'Mid-level',
           skills: { skill: 'JavaScript' }
         },
         {
-          username: 'jos',
+          username: 'Jos',
           name: 'jos',
           email: 'jos@jos.com',
           password: 'pass',
           passwordConfirmation: 'pass',
           bio: 'This is a bio for jos and this is a test. More information to come',
-          profileImage: 'https://www.bing.com/th/id/OIP.A_A5vg2qlUiEumoJVPGiJgHaKl?w=172&h=245&c=7&o=5&dpr=2&pid=1.7',
+          profileImage: 'https://i.pinimg.com/474x/b4/fc/cc/b4fccc8af248028ac48839626c0a7120--american-man-american-actors.jpg',
           location: 'Kent',
           level: 'Junior',
           skills: { skill: 'JavaScript' }
         },
         {
-          username: 'nic',
+          username: 'Nic',
           name: 'nic',
           email: 'nic@nic.com',
           password: 'pass',
           passwordConfirmation: 'pass',
           bio: 'This is a bio for nic and this is a test. More information to come',
-          profileImage: 'https://www.bing.com/th/id/OIP.nDh5AIOvMD5Vu0orNXafQgHaJQ?w=172&h=215&c=7&o=5&dpr=2&pid=1.7',
+          profileImage: 'https://everpress.com/blog/wp-content/uploads/2019/08/everpress_5050_justice4Grenfell_T-shirt_fundraiser_0055_Brightness_Contrast-47.jpg',
           location: 'Northern Ireland',
           level: 'Senior',
           skills: { skill: 'JavaScript' }
@@ -63,7 +63,7 @@ mongoose.connect(dbURI, { useNewUrlParser: true, useUnifiedTopology: true }, (er
           password: 'XMoadxaIybFk',
           passwordConfirmation: 'XMoadxaIybFk',
           bio: 'vitae mattis nibh ligula nec sem duis aliquam convallis nunc proin at turpis a pede posuere nonummy integer non velit',
-          profileImage: 'https://www.bing.com/th/id/OIP.75r5i3QhbR0_ZLiLy9XhpQHaLG?w=172&h=258&c=7&o=5&dpr=2&pid=1.7',
+          profileImage: 'https://everpress.com/blog/wp-content/uploads/2019/08/5050-3.jpg',
           location: 'Bābolsar',
           level: 'Senior',
           skills: { skill: 'JavaScript' }
@@ -75,7 +75,7 @@ mongoose.connect(dbURI, { useNewUrlParser: true, useUnifiedTopology: true }, (er
           password: 'b9MIZT7fbkhe',
           passwordConfirmation: 'b9MIZT7fbkhe',
           bio: 'at nunc commodo placerat praesent blandit nam nulla integer pede justo lacinia eget tincidunt eget tempus vel pede',
-          profileImage: 'https://www.bing.com/th/id/OIP.r7lgB9cS7yuIh3LBvJbrRwAAAA?w=172&h=215&c=7&o=5&dpr=2&pid=1.7',
+          profileImage: 'https://thevinylfactory.com/wp-content/uploads/2019/08/erpress.jpg',
           location: 'Langpas',
           level: 'Mid-level',
           skills: { skill: 'Quicktime' }
@@ -87,7 +87,7 @@ mongoose.connect(dbURI, { useNewUrlParser: true, useUnifiedTopology: true }, (er
           password: 'y270uJ4',
           passwordConfirmation: 'y270uJ4',
           bio: 'tincidunt lacus at velit vivamus vel nulla eget eros elementum',
-          profileImage: 'https://www.bing.com/th/id/OIP.TqxtEh3huJNACHyCOVJ6HgHaE8?w=172&h=115&c=7&o=5&dpr=2&pid=1.7',
+          profileImage: 'https://2.bp.blogspot.com/-DjRSRf0Ty0I/VuHi5b1ZLDI/AAAAAAAAB_M/yzBQkj1fnqwD14Dc-mlP5sfNG0cmQLRuQ/s1600/SAM_2471-2.jpg',
           location: 'Wenheng',
           level: 'Senior',
           skills: { skill: 'Quick Thinking' }
@@ -99,7 +99,7 @@ mongoose.connect(dbURI, { useNewUrlParser: true, useUnifiedTopology: true }, (er
           password: 'CBXz9Zaxkj',
           passwordConfirmation: 'CBXz9Zaxkj',
           bio: 'semper sapien a libero nam dui proin leo odio porttitor id consequat in consequat ut nulla sed accumsan felis',
-          profileImage: 'https://www.bing.com/th/id/OIP.x-Ct4sgHnRM9QMTSX5PT4wHaFd?w=172&h=126&c=7&o=5&dpr=2&pid=1.7',
+          profileImage: 'https://f3e6t7k9.stackpathcdn.com/wp-content/uploads/2019/09/everpress-loti.jpg',
           location: 'Jaro',
           level: 'Junior',
           skills: { skill: 'Magazine Design' }
@@ -111,7 +111,7 @@ mongoose.connect(dbURI, { useNewUrlParser: true, useUnifiedTopology: true }, (er
           password: 'qPQwDAvn',
           passwordConfirmation: 'qPQwDAvn',
           bio: 'felis ut at dolor quis odio consequat varius integer ac',
-          profileImage: 'https://www.bing.com/th/id/OIP.TZz4Zt_-il0hAIYnRubadAHaJl?w=172&h=223&c=7&o=5&dpr=2&pid=1.7',
+          profileImage: 'https://mir-s3-cdn-cf.behance.net/project_modules/max_1200/34e0d970919421.5bc62ce3f2068.jpg',
           location: 'Pontian',
           level: 'Junior',
           skills: { skill: 'JavaScript' }
@@ -123,7 +123,7 @@ mongoose.connect(dbURI, { useNewUrlParser: true, useUnifiedTopology: true }, (er
           password: 'DZdmp1',
           passwordConfirmation: 'DZdmp1',
           bio: 'porttitor lacus at turpis donec posuere metus vitae ipsum aliquam non mauris morbi non lectus aliquam sit amet diam',
-          profileImage: 'https://www.bing.com/th/id/OIP.dSISzFZEfdlksVl9esP0wwHaLH?w=172&h=258&c=7&o=5&dpr=2&pid=1.7',
+          profileImage: 'https://pbs.twimg.com/media/EQlQbXGWoAA32vC.jpg',
           location: 'Danghara',
           level: 'Mid-level',
           skills: { skill: 'Illustration' }
@@ -135,7 +135,7 @@ mongoose.connect(dbURI, { useNewUrlParser: true, useUnifiedTopology: true }, (er
           password: '4sPBT7PrWF',
           passwordConfirmation: '4sPBT7PrWF',
           bio: 'luctus rutrum nulla tellus in sagittis dui vel nisl duis',
-          profileImage: 'https://www.bing.com/th/id/OIP.yh10DzVETiV0fxQEwaurvgHaLG?w=172&h=258&c=7&o=5&dpr=2&pid=1.7',
+          profileImage: 'https://everpress.com/blog/wp-content/uploads/2018/11/FEATURED-IMAGE.jpg',
           location: 'Dazhongzhuang',
           level: 'Mid-level',
           skills: { skill: 'Quicktime' }
@@ -147,7 +147,7 @@ mongoose.connect(dbURI, { useNewUrlParser: true, useUnifiedTopology: true }, (er
           password: '13vVL5',
           passwordConfirmation: '13vVL5',
           bio: 'sapien placerat ante nulla justo aliquam quis turpis eget elit sodales scelerisque mauris sit',
-          profileImage: 'https://www.bing.com/th/id/OIP.LVy9tEPS1LrAS842vKBaxAHaKX?w=172&h=240&c=7&o=5&dpr=2&pid=1.7',
+          profileImage: 'https://everpress.com/blog/wp-content/uploads/2019/07/chris_black_vintage_t-shirt_collection.jpg',
           location: 'Panoongan',
           level: 'Mid-level',
           skills: { skill: 'Quick Thinking' }
@@ -159,7 +159,7 @@ mongoose.connect(dbURI, { useNewUrlParser: true, useUnifiedTopology: true }, (er
           password: 'aQsF66MOdgX',
           passwordConfirmation: 'aQsF66MOdgX',
           bio: 'odio condimentum id luctus nec molestie sed justo pellentesque viverra',
-          profileImage: 'https://www.bing.com/th/id/OIP.KwkxBFibizM2h19Wh9rwPAHaLH?w=172&h=258&c=7&o=5&dpr=2&pid=1.7',
+          profileImage: 'https://www.thedropdate.com/wp-content/uploads/2018/05/EVERPRESS-50-50-7.jpg',
           location: 'Piła',
           level: 'Mid-level',
           skills: { skill: 'Magazine Design' }
@@ -171,7 +171,7 @@ mongoose.connect(dbURI, { useNewUrlParser: true, useUnifiedTopology: true }, (er
           password: 'dHjQR9',
           passwordConfirmation: 'dHjQR9',
           bio: 'nulla suscipit ligula in lacus curabitur at ipsum ac tellus semper interdum mauris',
-          profileImage: 'https://www.bing.com/th/id/OIP.RYWL2TU0bBAmmXmcoBXxegAAAA?w=172&h=172&c=7&o=5&dpr=2&pid=1.7',
+          profileImage: 'https://imgix.bustle.com/uploads/image/2018/6/1/81adf88d-4e04-4248-9e0c-3ba5f4bda470-grenfell-tower-everpress.jpg',
           location: 'Chicago',
           level: 'Junior',
           skills: { skill: 'Quick Thinking' }
@@ -183,7 +183,7 @@ mongoose.connect(dbURI, { useNewUrlParser: true, useUnifiedTopology: true }, (er
           password: 'w5EbSrdL',
           passwordConfirmation: 'w5EbSrdL',
           bio: 'sem fusce consequat nulla nisl nunc nisl duis bibendum felis sed interdum venenatis turpis',
-          profileImage: 'https://www.bing.com/th/id/OIP.NQWh4oLBx9XzbEL0Zav4TAAAAA?w=155&h=233&c=7&o=5&dpr=2&pid=1.7',
+          profileImage: 'https://everpress.com/blog/wp-content/uploads/2019/04/everpress_planning_your_year.jpg',
           location: 'Placencia',
           level: 'Mid-level',
           skills: { skill: 'Magazine Design' }
@@ -195,7 +195,7 @@ mongoose.connect(dbURI, { useNewUrlParser: true, useUnifiedTopology: true }, (er
           password: 'SmBrE0F',
           passwordConfirmation: 'SmBrE0F',
           bio: 'sapien quis libero nullam sit amet turpis elementum ligula vehicula consequat morbi',
-          profileImage: 'https://www.bing.com/th/id/OIP.K35sXB7jsTpwstjT3nxakwHaJQ?w=172&h=215&c=7&o=5&dpr=2&pid=1.7',
+          profileImage: 'https://everpress.com/blog/wp-content/uploads/2019/04/JOY.jpg',
           location: 'Paris 02',
           level: 'Mid-level',
           skills: { skill: 'Quicktime' }
@@ -207,7 +207,7 @@ mongoose.connect(dbURI, { useNewUrlParser: true, useUnifiedTopology: true }, (er
           password: 'JmY1TOCIT',
           passwordConfirmation: 'JmY1TOCIT',
           bio: 'aenean lectus pellentesque eget nunc donec quis orci eget orci vehicula condimentum curabitur in',
-          profileImage: 'https://www.bing.com/th/id/OIP.atck4k2Y_QmPMQQqHebJCQHaLH?w=172&h=258&c=7&o=5&dpr=2&pid=1.7',
+          profileImage: 'https://everpress.com/blog/wp-content/uploads/2019/11/david_vujanic_everpress_t-shirts_merch_have_a_nice.jpg',
           location: 'Cavaillon',
           level: 'Mid-level',
           skills: { skill: 'Magazine Design' }
@@ -219,7 +219,7 @@ mongoose.connect(dbURI, { useNewUrlParser: true, useUnifiedTopology: true }, (er
           password: 'wwwy8kBGF',
           passwordConfirmation: 'wwwy8kBGF',
           bio: 'erat curabitur gravida nisi at nibh in hac habitasse platea dictumst aliquam augue',
-          profileImage: 'https://www.bing.com/th/id/OIP.TEOu6cZdVwDHqBz9kQwdOAHaKX?w=172&h=240&c=7&o=5&dpr=2&pid=1.7',
+          profileImage: 'https://fadmagazine.com/wp-content/uploads/rsz_bfa_29581_3946345-1024x819.jpg',
           location: 'Dallas',
           level: 'Senior',
           skills: { skill: 'JavaScript' }
@@ -231,7 +231,7 @@ mongoose.connect(dbURI, { useNewUrlParser: true, useUnifiedTopology: true }, (er
           password: '0rxz0m',
           passwordConfirmation: '0rxz0m',
           bio: 'platea dictumst maecenas ut massa quis augue luctus tincidunt nulla mollis molestie lorem quisque ut erat',
-          profileImage: 'https://www.bing.com/th/id/OIP.fgvzrUZ-WATiHZ7bnbIUWQAAAA?w=172&h=263&c=7&o=5&dpr=2&pid=1.7',
+          profileImage: 'https://everpress.com/blog/wp-content/uploads/2019/06/KM-LM.jpg',
           location: 'Saint-Brieuc',
           level: 'Senior',
           skills: { skill: 'Magazine Design' }
@@ -243,7 +243,7 @@ mongoose.connect(dbURI, { useNewUrlParser: true, useUnifiedTopology: true }, (er
           password: 'RkBKnMHJ',
           passwordConfirmation: 'RkBKnMHJ',
           bio: 'ligula in lacus curabitur at ipsum ac tellus semper interdum mauris ullamcorper purus sit amet nulla quisque arcu libero rutrum',
-          profileImage: 'https://www.bing.com/th/id/OIP.9EdgmYHKhc5IsygHmRi0sQHaLH?w=172&h=258&c=7&o=5&dpr=2&pid=1.7',
+          profileImage: 'https://everpress.com/blog/wp-content/uploads/2018/06/20180522_Amnesty5050_JoyMiessi-791x1024.jpg',
           location: 'Alcanena',
           level: 'Junior',
           skills: { skill: 'Illustration' }
@@ -255,7 +255,7 @@ mongoose.connect(dbURI, { useNewUrlParser: true, useUnifiedTopology: true }, (er
           password: 'WF4tdtd',
           passwordConfirmation: 'WF4tdtd',
           bio: 'praesent id massa id nisl venenatis lacinia aenean sit amet',
-          profileImage: 'https://www.bing.com/th/id/OIP.yXPU_cR5YS-u4ouOxxrZCgHaJQ?w=172&h=215&c=7&o=5&dpr=2&pid=1.7',
+          profileImage: 'https://everpress.com/blog/wp-content/uploads/2019/03/everpress_pre-order_t-shirt_campaign.jpg',
           location: 'Suzhou',
           level: 'Junior',
           skills: { skill: 'Quick Thinking' }
@@ -267,7 +267,7 @@ mongoose.connect(dbURI, { useNewUrlParser: true, useUnifiedTopology: true }, (er
           password: 'kAZBOX',
           passwordConfirmation: 'kAZBOX',
           bio: 'eget orci vehicula condimentum curabitur in libero ut massa volutpat convallis morbi odio odio',
-          profileImage: 'https://www.bing.com/th/id/OIP.W51fYU1l3ahnY7kx2iF1xQHaE8?w=172&h=115&c=7&o=5&dpr=2&pid=1.7',
+          profileImage: 'https://everpress.com/blog/wp-content/uploads/2019/02/t-shirt-photography.jpg',
           location: 'Jejkowice',
           level: 'Mid-level',
           skills: { skill: 'Quicktime' }
@@ -279,7 +279,7 @@ mongoose.connect(dbURI, { useNewUrlParser: true, useUnifiedTopology: true }, (er
           password: 'BCzSCm7',
           passwordConfirmation: 'BCzSCm7',
           bio: 'nam ultrices libero non mattis pulvinar nulla pede ullamcorper augue a suscipit nulla elit ac nulla sed vel',
-          profileImage: 'https://www.bing.com/th/id/OIP.i-xL2rJHZ9hzq_awXvTwQwHaE8?w=172&h=115&c=7&o=5&dpr=2&pid=1.7',
+          profileImage: 'https://everpress.com/blog/wp-content/uploads/2019/06/KM-LM-5.jpg',
           location: 'Mayapusi',
           level: 'Junior',
           skills: { skill: 'Quicktime' }
@@ -291,7 +291,7 @@ mongoose.connect(dbURI, { useNewUrlParser: true, useUnifiedTopology: true }, (er
           password: 'j6SS1fxmWfIX',
           passwordConfirmation: 'j6SS1fxmWfIX',
           bio: 'imperdiet sapien urna pretium nisl ut volutpat sapien arcu sed',
-          profileImage: 'https://www.bing.com/th/id/OIP.8H4chNaZnkRjTZFcy8kW_QHaJ4?w=172&h=229&c=7&o=5&dpr=2&pid=1.7',
+          profileImage: 'https://everpress.com/blog/wp-content/uploads/2017/12/lydia-yang-get-to-know-everpress.jpg',
           location: 'Ibirataia',
           level: 'Senior',
           skills: { skill: 'JavaScript' }
@@ -303,7 +303,7 @@ mongoose.connect(dbURI, { useNewUrlParser: true, useUnifiedTopology: true }, (er
           password: 'jFnQky7ue',
           passwordConfirmation: 'jFnQky7ue',
           bio: 'ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae donec pharetra magna vestibulum aliquet',
-          profileImage: 'https://www.bing.com/th/id/OIP.9zRFXjKr7QnPTmF0rs2yDAHaKk?w=172&h=245&c=7&o=5&dpr=2&pid=1.7',
+          profileImage: 'https://everpress.com/blog/wp-content/uploads/2019/03/DSC_6185.jpg',
           location: 'Lýkeio',
           level: 'Junior',
           skills: { skill: 'Quick Thinking' }
@@ -315,7 +315,7 @@ mongoose.connect(dbURI, { useNewUrlParser: true, useUnifiedTopology: true }, (er
           password: 'q8qI2fGfnO',
           passwordConfirmation: 'q8qI2fGfnO',
           bio: 'sem sed sagittis nam congue risus semper porta volutpat quam pede lobortis',
-          profileImage: 'https://www.bing.com/th/id/OIP.6noPc4zbZi3eXqZfXhsmKwHaJQ?w=172&h=215&c=7&o=5&dpr=2&pid=1.7',
+          profileImage: 'https://everpress.com/blog/wp-content/uploads/2018/01/charlotte-mei-everpress.jpg',
           location: 'Bungoma',
           level: 'Mid-level',
           skills: { skill: 'Magazine Design' }
@@ -327,7 +327,7 @@ mongoose.connect(dbURI, { useNewUrlParser: true, useUnifiedTopology: true }, (er
           password: 'J1dSdEgetN',
           passwordConfirmation: 'J1dSdEgetN',
           bio: 'et ultrices posuere cubilia curae nulla dapibus dolor vel est donec odio justo sollicitudin ut suscipit a feugiat et',
-          profileImage: 'https://www.bing.com/th/id/OIP.4o3tZFwTm7nvkGXYR6UiKQHaE7?w=172&h=114&c=7&o=5&dpr=2&pid=1.7',
+          profileImage: 'https://dcxvepib5r3t6.cloudfront.net/attachments/file_s3s/56ce/cb09/1403/4436/482e/8541/original/qv0vx1hygc1mmi4pb39s.jpg?1460673520',
           location: 'Ladoeiro',
           level: 'Junior',
           skills: { skill: 'Quick Thinking' }
@@ -339,7 +339,7 @@ mongoose.connect(dbURI, { useNewUrlParser: true, useUnifiedTopology: true }, (er
           password: 'Z4MSD0g',
           passwordConfirmation: 'Z4MSD0g',
           bio: 'congue etiam justo etiam pretium iaculis justo in hac habitasse platea dictumst etiam faucibus',
-          profileImage: 'https://www.bing.com/th/id/OIP.uf8qpjDQVfjlyJ9S3a98CgHaJQ?w=172&h=215&c=7&o=5&dpr=2&pid=1.7',
+          profileImage: 'https://blog.etsy.com/en/files/2013/01/charlotte-mei-etsy-1.jpg',
           location: 'Onueke',
           level: 'Junior',
           skills: { skill: 'Illustration' }
@@ -351,7 +351,7 @@ mongoose.connect(dbURI, { useNewUrlParser: true, useUnifiedTopology: true }, (er
           password: 'MXs0oq',
           passwordConfirmation: 'MXs0oq',
           bio: 'risus semper porta volutpat quam pede lobortis ligula sit amet eleifend pede libero quis orci nullam',
-          profileImage: 'https://www.bing.com/th/id/OIP.Y4SRSHfJmxJ7ZMKEH57FWAHaJQ?w=172&h=215&c=7&o=5&dpr=2&pid=1.7',
+          profileImage: 'https://i.pinimg.com/originals/82/8b/93/828b931c6a9059ea06fdcfb8f9c36303.png',
           location: 'Gaozhai',
           level: 'Senior',
           skills: { skill: 'JavaScript' }
@@ -363,7 +363,7 @@ mongoose.connect(dbURI, { useNewUrlParser: true, useUnifiedTopology: true }, (er
           password: 'GOiBmbrztAK',
           passwordConfirmation: 'GOiBmbrztAK',
           bio: 'fusce congue diam id ornare imperdiet sapien urna pretium nisl ut volutpat',
-          profileImage: 'https://www.bing.com/th/id/OIP.Zuv3l-YZcsFnMSq3r-9YNAHaLH?w=172&h=258&c=7&o=5&dpr=2&pid=1.7',
+          profileImage: 'https://data.whicdn.com/images/331376221/original.jpg',
           location: 'Stavanger',
           level: 'Mid-level',
           skills: { skill: 'Quick Thinking' }
@@ -375,7 +375,7 @@ mongoose.connect(dbURI, { useNewUrlParser: true, useUnifiedTopology: true }, (er
           password: 'tLF9olij6Lb',
           passwordConfirmation: 'tLF9olij6Lb',
           bio: 'pharetra magna ac consequat metus sapien ut nunc vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia',
-          profileImage: 'https://www.bing.com/th/id/OIP.3RVjRVy5BeqaavKboJ2XrAHaE7?w=172&h=114&c=7&o=5&dpr=2&pid=1.7',
+          profileImage: 'https://i.pinimg.com/originals/67/e9/c3/67e9c30aafd02518c472ed907fb04afb.jpg',
           location: 'Broby',
           level: 'Mid-level',
           skills: { skill: 'Illustration' }
@@ -387,7 +387,7 @@ mongoose.connect(dbURI, { useNewUrlParser: true, useUnifiedTopology: true }, (er
           password: 'xmRCxTUm',
           passwordConfirmation: 'xmRCxTUm',
           bio: 'elit proin risus praesent lectus vestibulum quam sapien varius ut blandit non interdum in ante vestibulum ante ipsum primis in',
-          profileImage: 'https://www.bing.com/th/id/OIP.6o1p-KYC0ghds1ZPwuGqXgHaLH?w=172&h=258&c=7&o=5&dpr=2&pid=1.7',
+          profileImage: 'https://i.pinimg.com/originals/53/52/b2/5352b28cbeee079560e5773fb9514946.png',
           location: 'Orong',
           level: 'Junior',
           skills: { skill: 'Quick Thinking' }
@@ -399,7 +399,7 @@ mongoose.connect(dbURI, { useNewUrlParser: true, useUnifiedTopology: true }, (er
           password: 'Sae6dbBLhVs',
           passwordConfirmation: 'Sae6dbBLhVs',
           bio: 'in blandit ultrices enim lorem ipsum dolor sit amet consectetuer adipiscing elit',
-          profileImage: 'https://www.bing.com/th/id/OIP.RUMGZ7Y3VAnkkbTXts6tvQHaJQ?w=172&h=215&c=7&o=5&dpr=2&pid=1.7',
+          profileImage: 'https://i.pinimg.com/originals/e5/39/f1/e539f1a9d0bef86fa42f348446353486.jpg',
           location: 'Jeberos',
           level: 'Junior',
           skills: { skill: 'Quality Control' }
@@ -411,7 +411,7 @@ mongoose.connect(dbURI, { useNewUrlParser: true, useUnifiedTopology: true }, (er
           password: 'atlPnN',
           passwordConfirmation: 'atlPnN',
           bio: 'pretium iaculis diam erat fermentum justo nec condimentum neque sapien placerat ante nulla justo aliquam quis turpis eget elit sodales',
-          profileImage: 'https://www.bing.com/th/id/OIP.nwb8BhpdR25duItttn--nwHaFe?w=172&h=127&c=7&o=5&dpr=2&pid=1.7',
+          profileImage: 'https://i.pinimg.com/474x/b4/fc/cc/b4fccc8af248028ac48839626c0a7120--american-man-american-actors.jpg',
           location: 'Uścimów Stary',
           level: 'Junior',
           skills: { skill: 'Quicktime' }
@@ -435,7 +435,7 @@ mongoose.connect(dbURI, { useNewUrlParser: true, useUnifiedTopology: true }, (er
           password: 'r6O4zEkI0',
           passwordConfirmation: 'r6O4zEkI0',
           bio: 'interdum venenatis turpis enim blandit mi in porttitor pede justo eu massa donec dapibus',
-          profileImage: 'https://www.bing.com/th/id/OIP.X3c1m0aru3lQxq3Ss5OChgHaJQ?w=172&h=215&c=7&o=5&dpr=2&pid=1.7',
+          profileImage: 'https://d3fc22kf489ohb.cloudfront.net/assets/426e9538a23b570b87f8570788f91e1844658718/static/media/get-paid.c6ae90b5.jpg',
           location: 'Zhengguo',
           level: 'Mid-level',
           skills: { skill: 'Magazine Design' }

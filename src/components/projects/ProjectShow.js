@@ -335,7 +335,7 @@ class ProjectShow extends React.Component {
 
                 {/* LOCATION */}
                 <div className="column profession-grey-box is-vertical-center">
-                  <p>location: <strong>{project.location}</strong></p>
+                  <p>location: {project.location}</p>
                 </div>
 
                 {/* SKILLS */}
