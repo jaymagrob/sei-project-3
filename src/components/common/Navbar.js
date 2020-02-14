@@ -34,7 +34,6 @@ class Navbar extends React.Component {
     }
   }
 
-
   async componentDidUpdate(prevProps) {
     if (this.props.location.pathname !== prevProps.location.pathname) {
       this.props.getUser()
@@ -77,9 +76,11 @@ class Navbar extends React.Component {
           <div className="navbar-item navbar-item-font">
             <Link onClick={this.handleClick} to="/search">start your journey</Link>
           </div>
+          {Auth.isAuthenticated() &&
           <div className="navbar-item navbar-item-font">
-            {Auth.isAuthenticated() && <Link onClick={this.handleClick} to={`/users/${this.state.username}`}>my portfolio</Link>}
+            <Link onClick={this.handleClick} to={`/users/${this.state.username}`}>my portfolio</Link>
           </div>
+          }
           {Auth.isAuthenticated() && 
           <PendingRequests 
             open={this.props.open} 
@@ -90,19 +91,26 @@ class Navbar extends React.Component {
             getUser={this.props.getUser}
             handleOpen={this.props.handleOpen}
           /> }
+          {Auth.isAuthenticated() &&
           <div className="navbar-item navbar-item-font">
-            {Auth.isAuthenticated() && <Link className="button" to="/mail">Mail</Link>}
+            <Link className="button" to="/mail">Mail</Link>
           </div>
+          }
+          {Auth.isAuthenticated() && 
           <div className="navbar-item navbar-item-font">
-            {Auth.isAuthenticated() && <button className="button" onClick={this.handleLogout}>logout {this.state.name}</button>}
+            <button className="button" onClick={this.handleLogout}>logout {this.state.name}</button>
           </div>
+          }
+          {!Auth.isAuthenticated() &&
           <div className="navbar-item navbar-item-font">
-            {!Auth.isAuthenticated() && <Link onClick={this.handleClick} to="/register">register</Link>}
+            <Link onClick={this.handleClick} to="/register">register</Link>
           </div>
+          }
+          {!Auth.isAuthenticated() && 
           <div className="navbar-item navbar-item-font">
-            {!Auth.isAuthenticated() && <Link onClick={this.handleClick} to="/login">login</Link>}
+            <Link onClick={this.handleClick} to="/login">login</Link>
           </div>
-          
+          }
         </div>
       </nav>
     )
