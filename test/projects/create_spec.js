@@ -10,7 +10,7 @@ const testProject = {
   location: 'Glasgow',
   images: ['http://via.placeholder.com/360x360','http://via.placeholder.com/360x360'],
   completed: true,
-  recuiting: false            
+  recruiting: false            
 }
 
 const testProjectMissingData = {
@@ -47,7 +47,7 @@ describe('POST /api/projects', () => {
       .then(() => done())
   })
 
-  it('should return a 401 response without a token', done => {
+  it('should return a 401 response without a token', done => { //! DONE
     api.post('/api/projects')
       .send(testProject)
       .end((err, res) => {
@@ -67,7 +67,7 @@ describe('POST /api/projects', () => {
       })
   })
 
-  it('should return a 201 response with a token', done => {
+  it('should return a 201 response with a token', done => { // ! DONE
     api.post('/api/projects')
       .set('Authorization', `Bearer ${token}`) 
       .send(testProject)
@@ -77,7 +77,7 @@ describe('POST /api/projects', () => {
       })
   })
 
-  it('should return a 201 response with a token', done => {
+  it('should return a 201 response with a token', done => { //! DONE
     api.post('/api/projects')
       .set('Authorization', `Bearer ${token}`) 
       .send(testProject)
@@ -87,7 +87,7 @@ describe('POST /api/projects', () => {
       })
   })
 
-  it('should return an object', done => {
+  it('should return an object', done => { //! DONE
     api.post('/api/projects')
       .set('Authorization', `Bearer ${token}`)
       .send(testProject)
@@ -115,13 +115,13 @@ describe('POST /api/projects', () => {
           'likes',
           'comments',
           'completed',
-          'recuiting'
+          'recruiting'
         ])
         done()
       })
   })
 
-  it('should return the correct data types', done => {
+  it('should return the correct data types', done => {  // ! DONE
     api.post('/api/projects')
       .set('Authorization', `Bearer ${token}`)
       .send(testProject)
@@ -139,7 +139,7 @@ describe('POST /api/projects', () => {
         expect(project.likes).to.be.an('array')
         expect(project.comments).to.be.an('array')
         expect(project.completed).to.be.a('boolean')
-        expect(project.recuiting).to.be.a('boolean')
+        expect(project.recruiting).to.be.a('boolean')
         done()
       })
   })

@@ -66,6 +66,15 @@ class PendingRequests extends React.Component{
         Requests
           </button>
         </div>
+        {this.props.open && this.props.user && !this.props.navbarOpen && this.props.user.pendingProjects.length === 0 && 
+        <div className="request_list">
+          <div className="single_request">
+            <div className="pending_header_container">
+              <h1 style={{ display: 'block' }}>No Pending Projects</h1>
+            </div>
+          </div>
+        </div>
+        }
         {this.props.open && this.props.user && !this.props.navbarOpen &&
           <div
             className="request_list"

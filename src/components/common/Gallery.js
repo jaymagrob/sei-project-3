@@ -49,7 +49,9 @@ class Gallery extends React.Component{
           dotsDisabled
         >
           {this.props.type === 'projects' && this.props.data.map(project => (
-            <ProjectCard key={project._id} {...project} />
+            <div key={project._id} className="project_card_outer_container_test">
+              <ProjectCard key={project._id} {...project} />
+            </div>
           ))}
         </AliceCarousel> 
     )

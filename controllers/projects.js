@@ -15,8 +15,7 @@ function create(req, res) {
   Project
     .create(req.body)
     .then(createdProject => {
-      console.log(createdProject)
-      return res.status(202).json(createdProject)
+      return res.status(201).json(createdProject)
     })
     .catch(err => res.status(400).json(err))
 }
