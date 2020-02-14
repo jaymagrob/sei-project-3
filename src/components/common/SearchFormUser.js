@@ -8,12 +8,12 @@ const SearchCardUser = ({ userForm, handleChange, handleMultiChange, professionO
   return (
   
     <section>
-      <div className="title-underLine">
-        <h2 className="subtitle is-4">User Search</h2>
-      </div>
+      {/* <div className="title-underLine"> */}
+      {/* <h2 className="subtitle is-4">user search</h2> */}
+      {/* </div> */}
 
       <div className="field">
-        <div className="label">Name</div>
+        <div className="label">name</div>
         <div className="control">        
           <input
             className="input"
@@ -25,7 +25,7 @@ const SearchCardUser = ({ userForm, handleChange, handleMultiChange, professionO
       </div>   
 
       <div className="field">
-        <div className="label">Username</div>
+        <div className="label">username</div>
         <div className="control">        
           <input
             className="input"
@@ -37,7 +37,7 @@ const SearchCardUser = ({ userForm, handleChange, handleMultiChange, professionO
       </div>    
 
       <div className="field">
-        <div className="label">Location</div>
+        <div className="label">location</div>
         <div className="control">        
           <input
             className="input"
@@ -49,7 +49,7 @@ const SearchCardUser = ({ userForm, handleChange, handleMultiChange, professionO
       </div>   
 
       <div className="field">
-        <div className="label">Levels</div>
+        <div className="label">level</div>
         <div className="control">        
           <Select                  
             options={levelOptions}
@@ -61,7 +61,7 @@ const SearchCardUser = ({ userForm, handleChange, handleMultiChange, professionO
       </div>
 
       <div className="field">
-        <div className="label">Profession/Industry</div>
+        <div className="label">profession</div>
         <div className="control">        
           <Select                
             menuPlacement="top"  
@@ -74,7 +74,7 @@ const SearchCardUser = ({ userForm, handleChange, handleMultiChange, professionO
       </div>
 
       <div className="field">
-        <div className="label">Skills Needed</div>
+        <div className="label">skills needed</div>
         <div className="control">        
           <Select 
             menuPlacement="top"
