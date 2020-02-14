@@ -37,8 +37,8 @@ class ChatBoxIndex extends React.Component {
     // if (chats.length) return null
     return (
       <section className="is-fullheight-with-navbar section_padding">
-        <h1>Your Messages</h1>
-        <div>
+        <h1 className="subtitle-hero">Your Messages</h1>
+        <div className="gridIt">
           {chats.length > 0 ? chats.map(chat => (
             <ChatBoxCard key={chat._id} {...chat} />
           )) : 'You have no messages'}

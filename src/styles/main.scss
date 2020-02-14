@@ -723,3 +723,25 @@ html {
 //   z-index: 1;
 //   pointer-events: none;
 // }
+
+.messages {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 180px;
+  margin: 7px;
+}
+
+.centerIt {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+
+.gridIt {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+}
