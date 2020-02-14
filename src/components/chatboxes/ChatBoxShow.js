@@ -70,27 +70,51 @@ class ChatBoxShow extends React.Component {
         <h1>Chat between {chatBox.members[0].name} and {chatBox.members[1].name ? chatBox.members[1].name : 'her/himself'}</h1>
         {chatBox.messages.map(message => {
           return (
-            <div key={message._id}>
-              <h2>Name: {message.user.name}</h2>
-              <h2>Added: {Date(message.createdAt).slice(0, 15)}</h2>
-              <img src={message.user.profileImage} />
-              <p>{message.text}</p>
-            </div>
+            <article key={message._id} className="media">
+              <figure className="media-left">
+                <p className="image is-64x64">
+                  <img className="image is-64x64 is-rounded" src={message.user.profileImage}/>
+                </p>
+              </figure>
+              <div className="media-content">
+                <div className="content">
+                  <p>
+                    <strong>{message.user.name}</strong> <small>{Date(message.createdAt).slice(0, 15)}</small>
+                    <br/>
+                    {message.text}
+                  </p>
+                </div>
+              </div>              
+            </article>
           )
         })}
         <div>
-          <form
-            onSubmit={this.handleMessageRequest}
-          >
-            <textarea
-              name='text'
-              value={this.state.text}
-              onChange={this.handleChange}
-            >
-            </textarea>
-            <button type='submit'>Submit</button>
-          </form>
+
+          <div className="media-content">
+            <form onSubmit={this.handleMessageRequest}>
+              <div className="field">
+                <p className="control">
+                  <textarea 
+                    className="textarea"
+                    name='text'
+                    value={this.state.text}
+                    placeholder="Add new comment"
+                    rows="2"
+                    onChange={this.handleChange}>                    
+                  </textarea>
+                </p>
+              </div>
+              <div className="field">
+                <p className="control">
+                  <button type='submit'className="button">Post comment</button>
+                </p>
+              </div>
+            </form>
+          </div>
         </div>
+
+
+
         {/* <ChatBoxMessage
           messages={this.state.chatBox.messages}
           text={this.state.text}
