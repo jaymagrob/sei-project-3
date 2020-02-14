@@ -100,7 +100,7 @@ class UserShow extends React.Component {
                 </div>
                 <div className="has-text-centered add-margin">
                   {this.isOwner() && <Link className="button" to={'/myportfolio/edit'}>Edit Portfolio</Link>}
-                  {!this.isOwner() && <button onClick={this.handleMessage}>Message {user.name}</button>}
+                  {!this.isOwner() && <button className="button" onClick={this.handleMessage}>Message {user.name}</button>}
                 </div>
               </div>
             </div>
