@@ -6,12 +6,8 @@ const ChatBoxCard = ({ _id, owner, updatedAt, messages }) => (
   <div key={_id}>
     {messages.length > 0 ? <Link to={`users/${owner}/chatboxes/${_id}`}>
       <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/98/Human-emblem-mail-yellow-128.png/120px-Human-emblem-mail-yellow-128.png" alt="message" />
-      <p>{Date(updatedAt).slice(4, 10)}</p>
+      <p>{messages[messages.length - 1].createdAt.slice(8, 10)}/{messages[messages.length - 1].createdAt.slice(5, 7)}/{messages[messages.length - 1].createdAt.slice(2, 4)} {messages[messages.length - 1].createdAt.slice(11, 19)}</p>
     </Link> : '' }
-    {/* <Link to={`users/${owner}/chatboxes/${_id}`}>
-      <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/98/Human-emblem-mail-yellow-128.png/120px-Human-emblem-mail-yellow-128.png" alt="message" />
-      <p>{Date(updatedAt).slice(4, 10)}</p>
-    </Link> */}
   </div>
 )
 
