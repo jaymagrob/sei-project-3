@@ -100,17 +100,17 @@ class PendingRequests extends React.Component {
                       className="requestAccept button is-success"
                       name={project.project._id}
                       onClick={this.props.acceptCollabRequest}
-                      
-                      // { if (((project.user === true) && (project.ownerId._id === Auth.getPayload().sub)) ||
-                      //   ((project.owner === true) && (project.userId._id === Auth.getPayload().sub))) && disabled }
-
                     >Accept</button>
                     }
-                    {/* <button
-                      className="requestAccept button is-disabled"
-                      name={project.project._id}
-                      onClick={this.props.acceptCollabRequest}
-                    >Accept</button> */}
+                    {!(((project.user === true) && (project.ownerId._id === Auth.getPayload().sub)) ||
+                      ((project.owner === true) && (project.userId._id === Auth.getPayload().sub))) &&
+                      <button
+                        className="requestAccept button is-success"
+                        name={project.project._id}
+                        onClick={this.props.acceptCollabRequest}
+                        disabled
+                      >Accept</button>
+                    }
                     <button
                       className="requestDecline button is-danger"
                       name={project.project._id}

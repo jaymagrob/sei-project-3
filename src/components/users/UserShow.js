@@ -100,7 +100,7 @@ class UserShow extends React.Component {
                 </div>
                 <div className="has-text-centered add-margin">
                   {this.isOwner() && <Link className="button" to={'/myportfolio/edit'}>Edit Portfolio</Link>}
-                  {!this.isOwner() && <button onClick={this.handleMessage}>Message {user.name}</button>}
+                  {!this.isOwner() && <button className="button" onClick={this.handleMessage}>Message {user.name}</button>}
                 </div>
               </div>
             </div>
@@ -167,9 +167,9 @@ class UserShow extends React.Component {
               <ProjectCard className="" key={project._id} {...project} />
             ))}
           </div> */}
-
+          { user.collaboratedProjects.length !== 0 &&
           <Gallery data={user.collaboratedProjects} type={'projects'}/>
-
+          }
         </section>
       </section>
     )
