@@ -699,6 +699,15 @@ html {
 
 .like_container {
   padding: 5px 10px;
+  background: $lighter-black;
+  display: inline-block;
+  border-radius: 5px;
+  transition: all 0.05s linear;
+  cursor: pointer;
+}
+
+.like_container:hover {
+  background: $light-black;
 }
 
 // .gallery_container::before {

@@ -222,7 +222,11 @@ class ProjectShow extends React.Component {
 
               {/* LIKES */}
               <div>
-                <div className="like_container" onClick={this.handleLike}><span>{project.likes.length}</span> likes</div>
+                <div>
+                  <div className="like_container" onClick={this.handleLike}>
+                    <span>{project.likes.length}</span> likes
+                  </div>
+                </div>
               </div>
 
               {/* COLLABORATORS */}
