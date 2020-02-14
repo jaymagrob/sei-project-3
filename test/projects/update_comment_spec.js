@@ -4,6 +4,10 @@ const User = require('../../models/user')
 const jwt = require('jsonwebtoken')
 const { secret } = require('../../config/environment')
 
+const commentCorrect = {
+  text: 'This is text data'
+}
+
 const testUserData = [{ 
   username: 'test1',
   name: 'test1',
@@ -59,7 +63,8 @@ describe('DELETE /projects/:id/comments/:commentId', () => {
   })
 
   it('should return a 401 response without a token', done => {
-    api.delete(`/api/projects/${project._id}/comments/${comment0._id}`)
+    api.put(`/api/projects/${project._id}/comments/${comment0._id}`)
+      .send(commentCorrect)  
       .end((err, res) => {
         expect(res.status).to.eq(401)
         done()
@@ -67,8 +72,9 @@ describe('DELETE /projects/:id/comments/:commentId', () => {
   })
 
   it('should return a 401 response with a wrong token', done => {
-    api.delete(`/api/projects/${project._id}/comments/${comment0._id}`)
+    api.put(`/api/projects/${project._id}/comments/${comment0._id}`)
       .set('Authorization', `Bearer ${tokenUser1}`)
+      .send(commentCorrect)
       .end((err, res) => {
         expect(res.status).to.eq(401)
         done()
@@ -76,20 +82,22 @@ describe('DELETE /projects/:id/comments/:commentId', () => {
   })
 
   it('should return a 401 response, project owner can\'t delete other comments', done => {
-    api.delete(`/api/projects/${project._id}/comments/${comment1._id}`)
+    api.put(`/api/projects/${project._id}/comments/${comment1._id}`)
       .set('Authorization', `Bearer ${tokenUser0}`)
+      .send(commentCorrect)
       .end((err, res) => {
         expect(res.status).to.eq(401)
         done()
       })
   })
 
-  it('should return a 204 response with a token', done => {
+  it('should return a 202 response with a token', done => {
     console.log(comment0._id)
-    api.delete(`/api/projects/${project._id}/comments/${comment0._id}`)
+    api.put(`/api/projects/${project._id}/comments/${comment0._id}`)
       .set('Authorization', `Bearer ${tokenUser0}`)
+      .send(commentCorrect)
       .end((err, res) => {
-        expect(res.status).to.eq(204)
+        expect(res.status).to.eq(202)
         done()
       })
   })
