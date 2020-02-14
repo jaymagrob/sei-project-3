@@ -29,19 +29,23 @@ class FirstLogin extends React.Component{
       <section className="hero is-fullheight-with-navbar section_padding">
         <div className="container hero-body columns has-text-centered">
           <div>
-            <h1 className="title-hero is-size-1">Welcome to the hive {this.state.name}</h1>
-            <h2 className="subtitle">Start Your Journey With:</h2>
-            <div className="columns is-7">
-              <div className="column">
-                <Link to="/search" className="button">Opertunities</Link>
+            <section className="section padding-reset">
+              <h1 className="title-hero is-size-1">welcome to the hive {this.state.name}</h1>
+            </section>
+            <h2 className="subtitle">start your journey with:</h2>
+            
+            <div className="buttons is-centered">
+              <div className="control">
+                <Link to="/search" className="button">Opportunities</Link>
               </div>
-              <div className="column">
+              <div className="control">
                 <Link to={`/users/${this.state.username}`} className="button">My Profile</Link>
               </div>
-              <div className="column">
+              <div className="control">
                 <Link to="/projects/new" className="button">New Project</Link>
               </div>
             </div>
+            
           </div>
         </div>
       </section>

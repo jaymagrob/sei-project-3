@@ -25,11 +25,11 @@ class Discovery extends React.Component {
   render() {
     return (
       <section className="discovery_container section_padding">
-        <h1 className="title discovery_title" style={{ marginBottom: '0rem'  }}>Discover</h1>
+        <h1 className="title discovery_title" style={{ marginBottom: '0rem'  }}>discover</h1>
         <div className="discovery_inner_container">
           <div>
             <div className="discovery_title_container">
-              <h2 className="subtitle discovery_subtitle">People</h2>
+              <h2 className="subtitle discovery_subtitle">people</h2>
               <div className="discovery_line_break"></div>
             </div>
             <div className="gallery_outer_container">
@@ -43,7 +43,7 @@ class Discovery extends React.Component {
           </div>
           <div>
             <div className="discovery_title_container">
-              <h2 className="subtitle discovery_subtitle">Projects</h2>
+              <h2 className="subtitle discovery_subtitle">projects</h2>
               <div className="discovery_line_break"></div>
             </div>
             <div>

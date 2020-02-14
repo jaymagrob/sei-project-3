@@ -37,7 +37,7 @@ class Register extends React.Component {
           <div className='column is-three-quarters-mobile is-half-tablet is-one-third-desktop box'>
             <form onSubmit={this.handleSubmit}>
               <div className="title-underLine">
-                <h2 className="subtitle-hero is-4 padding-v-10">Register</h2>
+                <h2 className="subtitle-hero is-4 padding-v-10">register</h2>
               </div>
 
               <div className="field">
