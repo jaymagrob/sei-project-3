@@ -23,8 +23,8 @@ class Register extends React.Component {
     e.preventDefault()
     const userData = { ...this.state.data, 
       profileImage: 'https://discountdoorhardware.ca/wp-content/uploads/2018/06/profile-placeholder-3.jpg',
-      bio: 'Edit your Bio',
-      location: 'Edit'
+      bio: 'Click edit portfolio to get started editing your profile!',
+      location: 'Mars'
       // skills: [{}],
       // professions: ''
     }
