@@ -5,7 +5,6 @@ import ImageUpload from '../common/ImageUpload'
 import colorStyles from '../../lib/colourStyles'
 
 const UserForm = ({ data, handleChange, handleSubmit, handleMultiChange, handleChangeImage, handleChangeSkill, handleChangeLevel }) => {
-
   const professionOptions =
     professions.map(item => {
       return (
@@ -112,7 +111,7 @@ const UserForm = ({ data, handleChange, handleSubmit, handleMultiChange, handleC
                 <Select
                   options={levelOptions}
                   name="level"
-                  value={levelOptions.filter(l => data.level.includes(l.value))}
+                  value={levelOptions.filter(l => l.value === data.level)}
                   onChange={handleChangeLevel}
                   styles={colorStyles} 
                 />
@@ -121,17 +120,18 @@ const UserForm = ({ data, handleChange, handleSubmit, handleMultiChange, handleC
 
             <div className="field">
               <div className="form-fields">skills</div>
-              { data.skills.length > 0 &&
-                  <div className="control">  
-                    <Select
-                      options={skillsOptions}
-                      isMulti
-                      name="skills"
-                      value={skillsOptions.filter(skill => data.skills.map(a => a.skill).includes(skill.value))}
-                      onChange={handleChangeSkill}
-                      styles={colorStyles} 
-                    />
-                  </div> }
+              {/* { data.skills.length > 0 && */}
+              <div className="control">  
+                <Select
+                  options={skillsOptions}
+                  isMulti
+                  name="skills"
+                  value={skillsOptions.filter(skill =>  data.skills.map(a => a.skill).includes(skill.value))}
+                  onChange={handleChangeSkill}
+                  styles={colorStyles} 
+                />
+              </div> 
+              {/* } */}
             </div>
 
             <div className="field">
@@ -140,10 +140,6 @@ const UserForm = ({ data, handleChange, handleSubmit, handleMultiChange, handleC
               </div>
             </div>   
 
-
-
-
-          
           </form>
         </div>
         <div className="column is-quarter-desktop"></div>   
