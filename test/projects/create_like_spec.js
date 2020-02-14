@@ -18,12 +18,10 @@ const testUserData = [{
   passwordConfirmation: 'pass'
 }]
 
-describe('DELETE /projects/:id/comments/:commentId', () => {
+describe('GET /projects/:id/like', () => {
   let tokenUser0 = null  
   let tokenUser1 = null
   let project = null
-  let comment0 = null
-  let comment1 = null
 
   beforeEach(done => {
     User.create(testUserData)
@@ -39,15 +37,12 @@ describe('DELETE /projects/:id/comments/:commentId', () => {
           completed: true,
           recruiting: false,
           owner: users[0],
-          comments: [
-            { user: users[0]._id, text: 'This is text from user 1' },
-            { user: users[1]._id, text: 'This is text from user 2' }]
+          comments: [],
+          likes: []          
         })
       })
       .then(createdproject => {
         project = createdproject 
-        comment0 = project.comments[0]
-        comment1 = project.comments[1]
         done()
       })
   })
@@ -59,37 +54,27 @@ describe('DELETE /projects/:id/comments/:commentId', () => {
   })
 
   it('should return a 401 response without a token', done => {
-    api.delete(`/api/projects/${project._id}/comments/${comment0._id}`)
+    api.get(`/api/projects/${project._id}/like`)
       .end((err, res) => {
         expect(res.status).to.eq(401)
         done()
       })
   })
 
-  it('should return a 401 response with a wrong token', done => {
-    api.delete(`/api/projects/${project._id}/comments/${comment0._id}`)
+  it('should return a 202 response with a token', done => {
+    api.get(`/api/projects/${project._id}/like`)
       .set('Authorization', `Bearer ${tokenUser1}`)
       .end((err, res) => {
-        expect(res.status).to.eq(401)
+        expect(res.status).to.eq(202)
         done()
       })
   })
 
-  it('should return a 401 response, project owner can\'t delete other comments', done => {
-    api.delete(`/api/projects/${project._id}/comments/${comment1._id}`)
+  it('should return a 202, project owner can like project', done => {
+    api.get(`/api/projects/${project._id}/like`)
       .set('Authorization', `Bearer ${tokenUser0}`)
       .end((err, res) => {
-        expect(res.status).to.eq(401)
-        done()
-      })
-  })
-
-  it('should return a 204 response with a token', done => {
-    console.log(comment0._id)
-    api.delete(`/api/projects/${project._id}/comments/${comment0._id}`)
-      .set('Authorization', `Bearer ${tokenUser0}`)
-      .end((err, res) => {
-        expect(res.status).to.eq(204)
+        expect(res.status).to.eq(202)
         done()
       })
   })

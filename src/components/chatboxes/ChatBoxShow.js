@@ -66,7 +66,7 @@ class ChatBoxShow extends React.Component {
     const { chatBox } = this.state
     if (!chatBox._id) return null
     return (
-      <section>
+      <section className="section_padding">
         <h1>Chat between {chatBox.members[0].name} and {chatBox.members[1].name ? chatBox.members[1].name : 'her/himself'}</h1>
         {chatBox.messages.map(message => {
           return (

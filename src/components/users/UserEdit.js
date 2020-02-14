@@ -49,7 +49,6 @@ class UserEdit extends React.Component {
         // const res = await axios.put('/api/myportfolio', { ...this.state.data }, {
         headers: { Authorization: `Bearer ${Auth.getToken()}` }
       })
-      console.log(res.data)
       this.props.history.push(`/users/${this.state.usernameMain}`)
     } catch (err) {
       console.log(err)
@@ -71,7 +70,6 @@ class UserEdit extends React.Component {
   handleChangeSkill = (selected) => {
     const data = { ...this.state.data, skills: selected.map(sel => ({ skill: sel.value }) ) }
     this.setState({ data })
-    console.log(this.state.data.skills)
   }
 
   handleChangeImage = ({ target: { name, value } }) => {

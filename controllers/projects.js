@@ -8,7 +8,7 @@ function index(req, res) {
     .catch(err => res.status(400).json(err))
 }
 
-function create(req, res) {
+function create(req, res, next) {
   req.body.user = req.currentUser
   req.body.owner = req.currentUser
   req.body.collaborators = [req.body.owner]
@@ -17,7 +17,7 @@ function create(req, res) {
     .then(createdProject => {
       return res.status(201).json(createdProject)
     })
-    .catch(err => res.status(400).json(err))
+    .catch(next)
 }
 
 function show(req, res) {
@@ -29,9 +29,10 @@ function show(req, res) {
     .populate('comments.user')
     .populate('messages.user')
     .then(project => {
-      return res.status(202).json(project)
+      if (!project) return res.status(404).json({ message: 'Not Found' })
+      return res.status(200).json(project)
     })
-    .catch(err => res.status(400).json(err))
+    .catch(err => res.status(404).json(err))
 }
 
 function update(req, res, next) {
@@ -90,7 +91,7 @@ function commentDelete(req, res) {
       comment.remove()
       return project.save()
     })
-    .then(project => res.status(200).json(project))
+    .then(project => res.status(204).json(project))
     .catch(err => res.json(err))
 }
 
@@ -141,7 +142,7 @@ function commentEdit(req, res) {
       comment.text = req.body.text
       return project.save()
     })
-    .then(comment => res.status(200).json(comment))
+    .then(comment => res.status(202).json(comment))
     .catch(err => res.status(400).json(err))
 }
 

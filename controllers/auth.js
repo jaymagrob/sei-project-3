@@ -31,6 +31,8 @@ function myPortfolio(req, res, next) {
   User
     .findById(req.currentUser._id)
     .populate('chats')
+    .populate('chats.members')
+    .populate('chats.members.user')
     .populate('createdProjects')
     .populate('collaboratedProjects')
     .populate('pendingProjects.project')

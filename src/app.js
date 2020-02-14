@@ -27,6 +27,7 @@ import Gallery from './components/common/Gallery'
 
 import Notifications, { notify } from 'react-notify-toast'
 import ChatBoxShow from './components/chatboxes/ChatBoxShow'
+import ChatBoxIndex from './components/chatboxes/ChatBoxIndex'
 
 
 class App extends React.Component{
@@ -108,6 +109,7 @@ class App extends React.Component{
             <Route path="/projects/:id" render={(props) => <ProjectShow {...props} getUser={this.getUser}/>}/>
             {/* <SecureRoute path="/users/:username/edit" component={UserEdit} /> */}
             <Route path="/users/:userid/chatboxes/:id" component={ChatBoxShow} />
+            <SecureRoute path="/mail" component={ChatBoxIndex} />
             <Route path="/users/:username" component={UserShow} />
             {/* <Route path="/users/:username/messages" component={UserMessages} /> */}
             <UnSecureRoute path="/register" component={Register} />

@@ -21,8 +21,15 @@ class Register extends React.Component {
   }
   handleSubmit = async e => {
     e.preventDefault()
+    const userData = { ...this.state.data, 
+      profileImage: 'https://discountdoorhardware.ca/wp-content/uploads/2018/06/profile-placeholder-3.jpg',
+      bio: 'Edit your Bio',
+      location: 'Edit'
+      // skills: [{}],
+      // professions: ''
+    }
     try {
-      await axios.post('/api/register', this.state.data)
+      await axios.post('/api/register', userData)
       this.props.history.push('/login')
     } catch (err) {
       this.setState({ errors: err.response.data.errors })
