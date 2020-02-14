@@ -139,11 +139,13 @@ body {
 
 .project_card_container {
   text-align: center;
+  margin: 0 auto;
   // display: flex;
   // flex-direction: column;
   // align-items: center;
   width: 400px;
   height: 263px;
+  transform: scale(0.9);
 }
   
 .project-img {
@@ -164,11 +166,24 @@ body {
   padding: 5px;
 }
 
+.endorse-small {
+  font-size: 12px;
+}
+
+.rounded-border-box:hover {
+  background-color: $beige-light;
+}
+
 .project-paragraph {
   margin: 15px 60px;
 }
 
 .user-profession {
+  font-size: 15px;
+  color: $black;
+}
+
+.form-fields {
   font-size: 15px;
   color: $black;
 }
@@ -369,6 +384,10 @@ section.discover_counter_container {
 
 // CAROUSEL
 
+.project_card_outer_container_test {
+  width: 100%;
+}
+
 div.alice-carousel {
   margin: 0 0 -80px 0
 }
@@ -515,7 +534,7 @@ html {
 
 .search_container_element {
   flex: 2;
-  background: $lighter-black;
+  background: $beige-light;
 }
 
 .search_aside_container {
@@ -577,8 +596,8 @@ html {
 }
 
 .search_placeholder_text {
-  font-size: 60px;
-  font-weight: 600;
+  font-size: 40px;
+  // font-weight: 600;
 }
 
 .custom_radio_button {

@@ -17,8 +17,9 @@ const ProjectMessage = ({ messages, text, handleChange, handleMessageRequest, to
       }}
       className="messageBoard"
       >
+
         <div style={{
-          backgroundColor: 'yellow',
+          backgroundColor: '#E2E2E0',
           height: '80%',
           width: '80%',
           backgroundSize: 'cover',
@@ -35,15 +36,40 @@ const ProjectMessage = ({ messages, text, handleChange, handleMessageRequest, to
           // overflow: 'hidden'                  
         }}
         >
+
+          {/* <div key={message._id}>
+                <h2>Name: {message.user.name}</h2>
+                <h2>Added: {Date(message.createdAt).slice(0, 15)}</h2>
+                <img className="comment-image" src={message.user.profileImage} />
+                <p>{message.text}</p>
+              </div>  */}
+
           <h1>Collaborator Message Board</h1>
-          <button onClick={toggleMessageBoard}>Close Message Board</button>
+          <button className="button is-small" onClick={toggleMessageBoard}>Close Message Board</button>
           {messages.map(message => {
             return (
               <div key={message._id}>
-                <h2>Name: {message.user.name}</h2>
-                <h2>Added: {Date(message.createdAt).slice(0, 15)}</h2>
-                <img src={message.user.profileImage} />
-                <p>{message.text}</p>
+                <div className="columns">
+                  <div className="column is-three-quarters">
+                    <div className="columns">
+                      <div className="column is-2 has-text-centered is-vertical-center remove-padding">
+                        <img className="comment-image" src={message.user.profileImage} />
+                      </div>
+                      <div className="column">
+                        <div className="columns">
+                          <h2 className="column is-3 comment-info-text">{message.user.name}</h2>
+                          <h2 className="column comment-info-text">{Date(message.createdAt).slice(0, 15)}</h2>
+                        </div>
+                        <div className="columns">
+                          <p className="column profession-grey-box padding-reset is-two-thirds">{message.text}</p>
+                          <div className="column">
+
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
               </div>
             )
           })}
@@ -58,14 +84,14 @@ const ProjectMessage = ({ messages, text, handleChange, handleMessageRequest, to
                 onChange={handleChange}
               >
               </textarea>
-              <button type='submit'>Submit</button>
+              <button className="button" type='submit'>Submit</button>
             </form>
           </div>
-          <button onClick={toggleMessageBoard}>Close Message Board</button>
+          {/* <button className="button is-small" onClick={toggleMessageBoard}>Close Message Board</button> */}
+
+
         </div>
       </div>
-
-
     </>
   )
 }

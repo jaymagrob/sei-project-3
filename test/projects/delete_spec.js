@@ -35,7 +35,7 @@ describe('DELETE /projects/:id', () => {
           location: 'Glasgow',
           images: ['http://via.placeholder.com/360x360','http://via.placeholder.com/360x360'],
           completed: true,
-          recuiting: false,
+          recruiting: false,
           owner: users[0] 
         })
       })
@@ -45,13 +45,13 @@ describe('DELETE /projects/:id', () => {
       })
   })
 
-  afterEach(done => { 
+  afterEach(done => {
     User.deleteMany()
       .then(() => Project.deleteMany())
       .then(() => done())
   })
 
-  it('should return a 401 response without a token', done => {
+  it('should return a 401 response without a token', done => { 
     api.delete(`/api/projects/${project._id}`)
       .end((err, res) => {
         expect(res.status).to.eq(401)
@@ -59,7 +59,7 @@ describe('DELETE /projects/:id', () => {
       })
   })
 
-  it('should return a 204 response with a token', done => {
+  it('should return a 204 response with a token', done => { //! DONE
     api.delete(`/api/projects/${project._id}`)
       .set('Authorization', `Bearer ${token}`)
       .end((err, res) => {
@@ -68,7 +68,7 @@ describe('DELETE /projects/:id', () => {
       })
   })
 
-  it('should return no data', done => {
+  it('should return no data', done => { //! DONE
     api.delete(`/api/projects/${project._id}`)
       .set('Authorization', `Bearer ${token}`)
       .end((err, res) => {
@@ -77,7 +77,7 @@ describe('DELETE /projects/:id', () => {
       })
   })
 
-  it('should return a 401 response with a token for a user that did not create the resource', done => {
+  it('should return a 401 response with a token for a user that did not create the resource', done => { //! DONE
     api.delete(`/api/projects/${project._id}`)
       .set('Authorization', `Bearer ${incorrectToken}`)
       .end((err, res) => {

@@ -29,7 +29,7 @@ function update(req, res, next) {
   User
     .findById(req.currentUser._id)
     .then(user => {
-      if (!user)  throw new Error('ValidationError')
+      if (!user)  throw new Error('ValidationError')  
       if (!user._id.equals(req.currentUser._id)) return res.status(401).json({ message: 'Unauthorised' })
       Object.assign(user, req.body)
       return user.save()

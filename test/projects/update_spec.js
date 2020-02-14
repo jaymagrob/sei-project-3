@@ -32,13 +32,13 @@ describe('PUT /projects/:id', () => {
           location: 'Glasgow',
           images: ['http://via.placeholder.com/360x360','http://via.placeholder.com/360x360'],
           completed: true,
-          recuiting: false,
+          recruiting: false,
           owner: users[0] 
         })
       })
       .then(createdProject => {
         project = createdProject 
-        console.log(project)
+        // console.log(project)
       })
     done()
   })
@@ -53,6 +53,7 @@ describe('PUT /projects/:id', () => {
     api.put(`/api/projects/${project._id}`)
       .send({ name: 'Test' })
       .end((err, res) => {
+        console.log(res)
         expect(res.status).to.eq(401)
         done()
       })
@@ -68,7 +69,7 @@ describe('PUT /projects/:id', () => {
       })
   })
 
-  it('should return an object', done => {
+  it('should return an object', done => { //! DONE
     api.put(`/api/projects/${project._id}`)
       .set('Authorization', `Bearer ${token}`)
       .send({ name: 'Project 2' })
@@ -96,7 +97,7 @@ describe('PUT /projects/:id', () => {
           'likes',
           'comments',
           'completed',
-          'recuiting'
+          'recruiting'
         ])
         done()
       })
@@ -108,6 +109,7 @@ describe('PUT /projects/:id', () => {
       .send({ name: 'Test' })
       .end((err, res) => {
         const project = res.body
+        console.log(project)
         expect(project._id).to.be.a('string')
         expect(project.name).to.be.a('string')
         expect(project.owner).to.be.an('object')
@@ -120,12 +122,12 @@ describe('PUT /projects/:id', () => {
         expect(project.likes).to.be.an('array')
         expect(project.comments).to.be.an('array')
         expect(project.completed).to.be.a('boolean')
-        expect(project.recuiting).to.be.a('boolean')
+        expect(project.recruiting).to.be.a('boolean')
         done()
       })
   })
 
-  it('should return a 401 response with a token for a user that did not create the resource', done => {
+  it('should return a 401 response with a token for a user that did not create the resource', done => {  // ! DONE
     api.put(`/api/projects/${project._id}`)
       .set('Authorization', `Bearer ${incorrectToken}`)
       .send({ name: 'Test' })

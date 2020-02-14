@@ -122,7 +122,7 @@ class Search extends React.Component {
             <div className="search_container_element search_results_container">
               {!this.state.formData.searchingFor ? 
                 <div className="search_placeholder">
-                  <h1 className="search_placeholder_text">Start Your Search!</h1>
+                  <h1 className="search_placeholder_text">← start your search</h1>
                 </div> 
                 :
             <>
@@ -149,14 +149,14 @@ class Search extends React.Component {
               </div>
               <div className="user_results_container">
                 {this.state.formData.searchingFor === 'users' && this.state.users.filter(i => {
-                  const skillArray = i.skills.map(item => item.skill)
+                  const skillArray = i.skills.map(item => item.skill)                
                   return (                
                     new RegExp(this.state.userForm.name,'i').test(i.name) &&
-                new RegExp(this.state.userForm.location,'i').test(i.location) &&
-                new RegExp(this.state.userForm.username,'i').test(i.username) &&
-                (!this.state.userForm.level[0] || this.state.userForm.level.some(item => i.level.indexOf(item) >= 0)) &&
-                (!this.state.userForm.professions[0] || this.state.userForm.professions.some(item => i.professions.indexOf(item) >= 0)) &&
-                (!this.state.userForm.skills[0] || this.state.userForm.skills.some(item => skillArray.indexOf(item) >= 0))
+                    new RegExp(this.state.userForm.location,'i').test(i.location) &&
+                    new RegExp(this.state.userForm.username,'i').test(i.username) &&
+                    (!this.state.userForm.level[0] || this.state.userForm.level.some(item => i.level.indexOf(item) >= 0)) &&
+                    (!this.state.userForm.professions[0] || this.state.userForm.professions.some(item => i.professions.indexOf(item) >= 0)) &&
+                    (!this.state.userForm.skills[0] || this.state.userForm.skills.some(item => skillArray.indexOf(item) >= 0))
                   )
                 })
                   .map(i => {
