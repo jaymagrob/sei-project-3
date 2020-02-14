@@ -1,6 +1,6 @@
 import React from 'react'
 import axios from 'axios'
-import { Link } from 'react-router-dom'
+// import { Link } from 'react-router-dom'
 import Auth from '../../lib/auth'
 import ChatBoxCard from '../chatboxes/ChatBoxCard'
 
@@ -59,14 +59,15 @@ class ChatBoxIndex extends React.Component {
     const { you } = this.state
     if (!you._id) return null
     console.log('you =', you)
-
+    console.log('chats =', you.chats[0]._id)
+    const { chats } = this.state.you
     return (
       <section className="is-fullheight-with-navbar section_padding">
         <h1>Your Messages</h1>
 
-        {/* {you.chats.map(chat => (
+        {chats.map(chat => (
           <ChatBoxCard key={chat._id} {...chat} />
-        ))} */}
+        ))}
         
 
 
