@@ -167,9 +167,9 @@ class UserShow extends React.Component {
               <ProjectCard className="" key={project._id} {...project} />
             ))}
           </div> */}
-
+          { user.collaboratedProjects.length !== 0 &&
           <Gallery data={user.collaboratedProjects} type={'projects'}/>
-
+          }
         </section>
       </section>
     )
