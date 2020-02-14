@@ -300,7 +300,11 @@ textarea {
   text-align: justify;
   display: flex;
   flex-direction: column;
-  justify-content: space-evenly;
+  justify-content: flex-start;
+}
+
+.project_card_text p {
+  overflow: hidden;
 }
 
 .project_card_skills {
