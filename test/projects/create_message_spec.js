@@ -61,7 +61,7 @@ describe('POST /projects/:id/comments', () => {
   })
 
   it('should return a 401 response without a token', done => {
-    api.post(`/api/projects/${project._id}/comments`)
+    api.post(`/api/projects/${project._id}/messages`)
       .send(commentCorrect)
       .end((err, res) => {
         expect(res.status).to.eq(401)
@@ -70,7 +70,7 @@ describe('POST /projects/:id/comments', () => {
   })
 
   it('should return a 422 response, no body sent', done => {
-    api.post(`/api/projects/${project._id}/comments`)
+    api.post(`/api/projects/${project._id}/messages`)
       .set('Authorization', `Bearer ${token}`)      
       .end((err, res) => {
         expect(res.status).to.eq(422)
@@ -79,7 +79,7 @@ describe('POST /projects/:id/comments', () => {
   })
 
   it('should return a 422 response, text too long', done => {
-    api.post(`/api/projects/${project._id}/comments`)
+    api.post(`/api/projects/${project._id}/messages`)
       .set('Authorization', `Bearer ${token}`)
       .send(commentTooLong)
       .end((err, res) => {
@@ -89,7 +89,7 @@ describe('POST /projects/:id/comments', () => {
   })
 
   it('should return a 422 response, text too long (white space)', done => {
-    api.post(`/api/projects/${project._id}/comments`)
+    api.post(`/api/projects/${project._id}/messages`)
       .set('Authorization', `Bearer ${token}`)
       .send(commentTooLongWhiteSpace)
       .end((err, res) => {
@@ -99,7 +99,7 @@ describe('POST /projects/:id/comments', () => {
   })
 
   it('should return a 422 response with blank data', done => {
-    api.post(`/api/projects/${project._id}/comments`)
+    api.post(`/api/projects/${project._id}/messages`)
       .set('Authorization', `Bearer ${token}`)
       .send(commentBlank)
       .end((err, res) => {
@@ -110,7 +110,7 @@ describe('POST /projects/:id/comments', () => {
 
 
   it('should return a 201 response with a token', done => {
-    api.post(`/api/projects/${project._id}/comments`)
+    api.post(`/api/projects/${project._id}/messages`)
       .set('Authorization', `Bearer ${token}`)
       .send(commentCorrect)
       .end((err, res) => {
@@ -120,7 +120,7 @@ describe('POST /projects/:id/comments', () => {
   })
 
   it('should return an object', done => {
-    api.post(`/api/projects/${project._id}/comments`)
+    api.post(`/api/projects/${project._id}/messages`)
       .set('Authorization', `Bearer ${token}`)
       .send(commentCorrect)
       .end((err, res) => {
