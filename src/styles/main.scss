@@ -10,6 +10,7 @@
 $beige-light: #E2E2E0;
 $beige-lighter: #F7F7F4;
 $yellow: #F4BD30;
+$yellow-lighter: rgb(255, 197, 50);
 $black: #3F3F3F;
 $light-black: rgb(136, 136, 136);
 $lighter-black: rgb(196, 196, 196);
@@ -699,15 +700,16 @@ html {
 
 .like_container {
   padding: 5px 10px;
-  background: $lighter-black;
+  background: $yellow;
   display: inline-block;
   border-radius: 5px;
   transition: all 0.05s linear;
   cursor: pointer;
+  margin-top: 5px;
 }
 
 .like_container:hover {
-  background: $light-black;
+  background: $yellow-lighter;
 }
 
 // .gallery_container::before {
