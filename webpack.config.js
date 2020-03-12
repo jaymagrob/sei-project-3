@@ -49,6 +49,8 @@ module.exports = {
     }),
     new CopyWebpackPlugin([
       { from: './src/assets', to: 'assets' }
-    ])
+    ]),
+    new webpack.EnvironmentPlugin(['SECRET']),
+    new webpack.EnvironmentPlugin(['CLOUDINARY_USER_KEY'])
   ]
 }
