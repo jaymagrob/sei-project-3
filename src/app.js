@@ -29,7 +29,6 @@ import Notifications, { notify } from 'react-notify-toast'
 import ChatBoxShow from './components/chatboxes/ChatBoxShow'
 import ChatBoxIndex from './components/chatboxes/ChatBoxIndex'
 
-
 class App extends React.Component{
   state = {
     open: false,
@@ -84,7 +83,7 @@ class App extends React.Component{
     }
   }
   render() {
-    return (
+    return (    
       <BrowserRouter>
         {/* <main style={{ height: '100vh', overflow: 'hidden' }}> */}
         <main>

@@ -35,6 +35,7 @@ class Login extends React.Component {
   }
   
   render() {
+    
     return (
       <section className="is-fullheight-with-navbar hero section_padding">
         <div className="hero-body columns is-fullwidth">

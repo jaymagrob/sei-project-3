@@ -1,7 +1,7 @@
 ![Larger GA Logo](https://ga-dash.s3.amazonaws.com/production/assets/logo-9f88ae6c9c3871690e33280fcf557f33.png)
 
-# Software Engineneering Immersive: Project 3 (Group Project)
-This is a group project I built in collaboration with three other classsmates during the General Assembly Software Engineering Immersive course (Week 9).
+# Software Engineering Immersive: Project 3 (Group Project)
+This is a group project I built in collaboration with three other classmates during the General Assembly Software Engineering Immersive course (Week 9).
 
 ## Team Mates:
 - [Abigail Foreman](https://github.com/abigailforeman1)
@@ -29,10 +29,11 @@ A professional networking website for creative professional either looking for w
    * Manual: Insomnia
    * Automated: Mocha & Chai
 5. GitHub
+6. Cloudinary
 
 ## Deployment
 
-This web app is deployed on Heroku and it can be found here: <!--HOLD FOR URL ONCE UPLOADED-->
+This web app is deployed on Heroku and it can be found here: https://beehive-creative-tool.herokuapp.com/
 
 ## Getting Started
 
@@ -50,7 +51,7 @@ $ yarn start
 
 ## Login & Register
 
-The landing of the website gives the user three options. They can register, login or start there journey (search to see other users and projects). If the user registers, they will then be sent to the login page. If the user is login in for the first time they will be shown a different message with more infomration and options to improve their experience of Beehive.
+The landing of the website gives the user three options. They can register, login or start there journey (search to see other users and projects). If the user registers, they will then be sent to the login page. If the user is login in for the first time they will be shown a different message with more information and options to improve their experience of Beehive.
 
 <img src="src/assets/beehive_ss_login.png" width=700>
 <img src="src/assets/beehive_ss_register.png" width=700>
@@ -58,26 +59,37 @@ The landing of the website gives the user three options. They can register, logi
 #
 ## Discover
 
-After login in the user is shown the discover page. This is a page that currates current projects and users that the user might want to check out.
+After login in the user is shown the discover page. This is a page that curates current projects and users that the user might want to check out.
 
 <img src="src/assets/beehive_ss_discover.png" width=700>
 
 #
 ## Upload Projects
 
-The user can upload projects. Projects are either show pages for something the user has already created or a request to find collabotars to join a project. The user can upload images to their project which is connect to [Cloudinary](https://cloudinary.com/)
+The user can upload projects. Projects are either show pages for something the user has already created or a request to find collaborators to join a project. The user can upload images to their project which is connect to [Cloudinary](https://cloudinary.com/)
 
 <img src="src/assets/beehive_ss_upload-project.png" width=700>
 
 #
 ## Projects
 
-Once in a project, the user can click to plus button to either request to be a collabator. If you are the owner of the project to use this to add other collaboraters. A user is not added to the project until the request has been accepted. 
+Once in a project, the user can click the plus button to either request to be a collaborator or if you are the owner of the project, use this to add other collaborators. A user is not added to the project until the request has been accepted. 
 
 <img src="src/assets/beehive_ss_project.png" width=700>
 
 #
+## Chat
 
+A user is able to chat to any other user on the platform. They do this by going to the user's profile and clicking on the chat button. The other user will be sent a request to chat that they will see when they log in.
+
+<img src="src/assets/beehive_ss_chat.png" width=700>
+
+#
+## Request
+
+When a user wants to join a project or a project owner wants a user they can send a request. The user will get a request the next time they login and can choose whether to accept or reject that request.
+
+<img src="src/assets/beehive_ss_request.png" width=700>
 
 # My contributions 
 
@@ -87,19 +99,31 @@ I was charged with organising tasks and prevent duplication of work. We did this
 
 <img src="src/assets/beehive_ss_trello.png" >
 
-## My favourite code snippets I wrote: 
+## Testing
 
--- BACKEND -- 
+I wrote all the tests for the backend database. I had confidence with Mocha & Chai and wanted to improve my practical knowledge as testing is an important aspect of a junior's role. The tests uncovered issues that were resolved such as:
 
-
-
--- TESTING --
-
-I wrote all tests for the backend database. I had confident with Mocha & Chai and wanted to improve my practical knowledge as testing is an important aspect of a junior's role. The tests uncovered issues that were resoloved such as:
 * Error handling was sending back console logs, not messages.
 * Errors were sending back 200 responses
 * 400 errors were being used for everything rather than specific status.
 * Users could edit other user's comments.
+
+The most time-consuming part of this was creating the data to generate the tests. For comments, first users needed to be generated. Then projects that were assigned a user. Then comments that are assigned to both a user and a project.
+
+## Seeds
+
+The seeds file was created by me and contain 44 projects and 104 users. We wanted to create a large number of users and projects to be able to show how to website would look in the real world. The data was generated using [Mockaroo](https://mockaroo.com/). To generate the project and user images, we searched for photos on Bing that had a licence we could use. The source of the images were scrapes using JavaScript in the dev console.
+```javascript
+  copy([].slice.call(document.querySelectorAll(".img_cont img")).map(i => i.src))
+```
+
+This code for written by me to get all images on the page, turn that list from a NodeList to an array and then map the array so it only brings back the source.
+
+## Backend Error Validation
+
+
+
+## My favourite code snippets I wrote: 
 
 --- FRONTEND ---
 

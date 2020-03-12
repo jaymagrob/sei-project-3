@@ -30,3 +30,4 @@ const chatBoxSchema = new mongoose.Schema({
 chatBoxSchema.plugin(require('mongoose-unique-validator'))
 
 module.exports = mongoose.model('ChatBox', chatBoxSchema)
+
