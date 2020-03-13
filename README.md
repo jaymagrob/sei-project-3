@@ -119,9 +119,9 @@ The seeds file was created by me and contain 44 projects and 104 users. We wante
 
 This code for written by me to get all images on the page, turn that list from a NodeList to an array and then map the array so it only brings back the source.
 
-## Backend Error Validation
+## Frontend
 
-
+The first part of the frontend I worked on with the navbar using Bulma to quickly create a responsive design. After that, I created all forms on-site where the user would have to input data. Login and register were the first two components. The register component was split into two parts so we could reuse the component when editing the page. After this was the project from needing an image upload component, form, and react select which could handle both one selection and multiple selections depending on the input type. All these components were reused when editing a project. The part which toke the largest part of my time was the search component were searching for a user or project. This is discussed in my favourite code snippet.
 
 ## My favourite code snippets I wrote: 
 
@@ -134,8 +134,6 @@ I'm most proud of building the search capabilities of the site. A user was able 
 * Search User Form - form on the search component that appears when search form has user-selected and filters user cards
 * Search Project Cards - maps available projects based on the filters.
 * Search User Cards - maps available users based on the filters.
-
-
 
 I built the filter feature which allows the user to filter through the site's projects and users at the same time:
 
