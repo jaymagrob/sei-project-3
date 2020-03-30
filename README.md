@@ -12,7 +12,7 @@ This is a group project I built in collaboration with three other classmates dur
 
 # Beehive
 
-A professional networking website for creative professional either looking for work or for companies looking for creatives.
+A professional networking website for creative professional either looking for work or companies looking for creatives.
 
 ## Built With
 
@@ -44,7 +44,7 @@ Use the clone button to download the source code. In the terminal enter the foll
 $ yarn
 <!-- Run the app in your localhost: -->
 $ yarn start
-<!-- Check the console for any issues and if there are check the package.json for any dependancies missing  -->
+<!-- Check the console for any issues and if there are check the package.json for any dependencies missing  -->
 ```
 
 # User Experience
@@ -80,7 +80,7 @@ Once in a project, the user can click the plus button to either request to be a 
 #
 ## Chat
 
-A user is able to chat to any other user on the platform. They do this by going to the user's profile and clicking on the chat button. The other user will be sent a request to chat that they will see when they log in.
+A user can chat with any other user on the platform. They do this by going to the user's profile and clicking on the chat button. The other user will be sent a request to chat that they will see when they log in.
 
 <img src="src/assets/beehive_ss_chat.png" width=700>
 
@@ -95,7 +95,7 @@ When a user wants to join a project or a project owner wants a user they can sen
 
 ## Project Management
 
-I was charged with organising tasks and prevent duplication of work. We did this using Trello, a morning stand up and an evening debrief. I set up the Trello board to have: Tasks Today, Tasks in Progress, Tasks in Testing, Tasks Completed, Tasks Roadblocked, & Tasks Iced boxed. Every morning I held a stand up to asign tasks and then a debrief at the end of the day to plan tasks for the next days Trello board. The icebox was use when a task was nice feature but due to time constrints was not an urgent feature.
+I was charged with organising tasks and prevent duplication of work. We did this using Trello, a morning stand up and an evening debrief. I set up the Trello board to have: Tasks Today, Tasks in Progress, Tasks in Testing, Tasks Completed, Tasks Roadblocked, & Tasks Iced boxed. Every morning I held a stand up to assign tasks and then a debrief at the end of the day to plan tasks for the next days Trello board. The icebox was used when a task was a nice feature but due to time constraints was not an urgent feature.
 
 <img src="src/assets/beehive_ss_trello.png" >
 
@@ -112,7 +112,7 @@ The most time-consuming part of this was creating the data to generate the tests
 
 ## Seeds
 
-The seeds file was created by me and contain 44 projects and 104 users. We wanted to create a large number of users and projects to be able to show how to website would look in the real world. The data was generated using [Mockaroo](https://mockaroo.com/). To generate the project and user images, we searched for photos on Bing that had a licence we could use. The source of the images were scrapes using JavaScript in the dev console.
+The seeds file was created by me and contain 44 projects and 104 users. We wanted to create a large number of users and projects to be able to show how to website would look in the real world. The data was generated using [Mockaroo](https://mockaroo.com/). To generate the project and user images, we searched for photos on Bing that had a licence we could use. The source of the images was scraped using JavaScript in the dev console.
 ```javascript
   copy([].slice.call(document.querySelectorAll(".img_cont img")).map(i => i.src))
 ```
@@ -173,9 +173,23 @@ I built the filter feature which allows the user to filter through the site's pr
                   })}
 ```
 
+## Reflection
 
-## Challenges & future improvements
+### Wins
 
-Managing expectations and features in the project were the largest challenge. There were many features people were wanting to create to make the project bigger but at the detriment to the robustness of the product. We changed the CSS framework we were using and underestimated how long styling would take. Luckily we have managed scope creep and iceboxed a lot of features so finished the project with a buffer for issues.
+* Created a full-stack MERN app in one week.
+* Robust back-end testing meant issues were picked up and fixed quickly.
+* The front end looks like a professional website thanks to Bulma and clear design plan.
+* Advanced back-end with 10 models is tested and working.
+* Nice to haves added such as likes and comments.
 
-Future improvements would be to install WebSocket when chatting instead of relying on a RESTful API that needs to be re-pulled to show new messages.
+### Challenges
+
+* Managing expectations and features in the project was the largest challenge. There were many features people were wanting to create to make the project bigger but at the detriment to the robustness of the product.
+* We changed the CSS framework we were using and underestimated how long styling would take. Luckily we have managed scope creep and iceboxed a lot of features so finished the project with a buffer for issues.
+* There is an issue with the search function where the mapping brokes. We found it hard to isolate the cause of this issue.
+* We focused on the getting the desktop version site working and in hindsight, should have done mobile-first design.
+
+### Future Improvements
+
+* Future improvements would be to install WebSocket when chatting instead of relying on a RESTful API that needs to be re-pulled to show new messages.
